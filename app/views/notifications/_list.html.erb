@@ -1,0 +1,5 @@
+<ul class="basic-list"  data-next-page-url="<%= notifications_next_page_url notifications %>">
+  <% for notification in notifications %>
+    <%= render_notification notification %>
+  <% end %>
+</ul>

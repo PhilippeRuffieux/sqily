@@ -1,0 +1,17 @@
+js:
+  skill: js
+  user: alexis
+  title: "js"
+  description: "some description for JS"
+
+js2:
+  skill: js
+  user: alexis
+  title: "js2"
+  description: "some description for JS 2"
+
+html:
+  skill: html
+  user: alexis
+  title: "html"
+  description: "some description for HTML"

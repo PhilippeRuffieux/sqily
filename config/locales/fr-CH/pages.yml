@@ -1,0 +1,6 @@
+fr-CH:
+  admin:
+    pages:
+      index:
+        title: Pages Sqily
+        delete_confirmation: "Êtes vous sûr de supprimer la page?"

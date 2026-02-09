@@ -1,0 +1,23 @@
+<li class="post">
+  <span class="avatar icon">
+    <%= octicon "mention" %>
+  </span>
+  <div class="message">
+    <div class="title">
+      <span class="title">
+        <%= link_to_user notification.message.from_user, notification.message.from_user.name %>&nbsp;vous a mentionné
+        <span class="ago">
+          <%= l notification.created_at, format: :short %>
+        </span>
+      </span>
+      <span class="icon">
+        <a href="<%= message_permalink notification.message %>"><%= octicon "link" %></a>
+      </span>
+    </div>
+    <div class="message__text">
+      <div class="box">
+        <%= format_message_text notification.message %>
+      </div>
+    </div>
+  </div>
+</li>

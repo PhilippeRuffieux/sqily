@@ -1,0 +1,55 @@
+.modal-overlay { display: none; }
+
+.modal {
+  padding: 24px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
+  overflow: visible;
+  background-color: #fff;
+  animation: modal 0.6s;
+}
+
+@keyframes modal {
+  from { opacity: 0.2; }
+  to { opacity: 1; }
+}
+
+.modal .nbsp { margin-left: 6px; }
+
+.modal h3 { margin: 0 0 24px !important; }
+
+.modal input[type="submit"] { margin-top: 24px; }
+
+.modal .card ul.list {
+  max-height: 380px;
+  overflow: auto;
+}
+
+@media (min-width: 1000px) {
+  .modal-overlay {
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.6);
+    animation: modal 0.6s;
+  }
+
+  .modal {
+    position: fixed;
+    top: 48px;
+    max-height: calc(100% - 48px);
+    left: 20%;
+    bottom: auto;
+    right: 20%;
+    z-index: 10000;
+    background-color: #fff;
+  }
+}

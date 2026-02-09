@@ -1,0 +1,84 @@
+ <% if current_user %>
+  <header>
+    <div class="container">
+      <ul class="community basic-list">
+        <% if current_community %>
+          <li>
+            <a href="<%= skills_path current_community %>" class="name">
+              <span class="icon icon--home">
+                  <%= octicon 'home' %>
+              </span>
+              <span><%= current_community.name %></span>
+            </a>
+            <% if !current_user.communities.empty? %>
+              <a href="#" class="icon communityswitch" data-module="Sqily.CommunitySwitch">
+                <%= octicon "chevron-down" %>
+              </a>
+            <% end %>
+          </li>
+        <% end %>
+
+        <% for community in current_user.communities.order(:name) %>
+          <% if community != current_community %>
+            <li>
+              <a href="<%= skills_path community %>" class="name">
+                <span class="icon icon--home">
+                  <%= octicon 'home' %>
+                </span>
+                <span><%= community.name %></span>
+              </a>
+            </li>
+          <% end %>
+        <% end %>
+      </ul>
+
+      <nav class="current-user">
+        <ul>
+          <li>
+            <%= link_to_user current_user do %>
+              <%= user_avatar(current_user) %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to evaluation_exams_path(current_community), class: "icon", title: Evaluation.model_name.human(count: 2) do %>
+              <%= octicon 'file-badge' %>
+              <% if (ongoing_exams = Evaluation::Exam.in_community(current_community).of_user(current_user).ongoing.waiting_for_reply_from(current_user).count) > 0 %>
+                <span class="notification__count"><%= ongoing_exams %></span>
+              <% end %>
+            <% end %>
+          </li>
+          <!--<li>
+            <a href="<%#= votes_path(user_id: current_user.id) %>" class="icon icon--favorites" title="Messages favoris">
+              <%#= octicon 'heart' %>
+            </a>
+          </li>-->
+          <li>
+            <a href="<%= discussions_path(current_community) %>" class="icon icon--discussions" title="Discussions privées">
+              <% if (message_count = unread_messages_count(current_user)) > 0 %>
+                <span class="notification__count"><%= message_count %></span>
+              <% end %>
+              <%= octicon 'comment-discussion' %>
+            </a>
+          </li>
+          <li>
+            <a href="<%= notifications_path(current_community) %>" class="icon icon--notifications" data-module="Sqily.State"  data-url="<%= community_state_path(permalink: current_community) %>" title="Notifications">
+              <% if (unread_notification_count = current_membership.notifications.unread.count) > 0 %>
+                <span id="unread-notification-count" class="notification__count"><%= unread_notification_count %></span>
+              <% else %>
+                <span id="unread-notification-count" class="notification__count" style="display: none;">0</span>
+              <% end %>
+              <%= octicon 'bell' %>
+            </a>
+          </li>
+          <li>
+            <%= button_to session_path, class: 'icon icon--delete', method: "delete", title: "Déconnexion" do %>
+              <svg viewBox="0 0 24 24">
+                <path d="M16.56,5.44L15.11,6.89C16.84,7.94 18,9.83 18,12A6,6 0 0,1 12,18A6,6 0 0,1 6,12C6,9.83 7.16,7.94 8.88,6.88L7.44,5.44C5.36,6.88 4,9.28 4,12A8,8 0 0,0 12,20A8,8 0 0,0 20,12C20,9.28 18.64,6.88 16.56,5.44M13,3H11V13H13" />
+              </svg>
+            <% end %>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+<% end %>

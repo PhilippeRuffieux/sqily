@@ -1,0 +1,77 @@
+<% if !skill.published_at && skill.children.none? %>
+  <p class="permanent flash notice"><%= t ".flash" %></p>
+<% end %>
+<header>
+  <div class="title">
+    <h2>
+      <span class="icon icon--star icon--star--<%= user_skill_state(skill, current_user) %>">
+        <%= octicon 'star-fill' %>
+      </span>
+      <span>
+        <% if skill.parent %>
+          <span class="skill__group">
+            <%= link_to skill.parent.name, (skill_path current_community, skill.parent) %>
+          </span>
+        <% end %>
+        <%= skill.name %>
+      </span>
+    </h2>
+    <a href="<%= users_sidebar_path(current_community, skill_id: skill) %>" class="icon sidebar-toggle" data-event="click->loadSideBar">
+      <%= octicon "people" %>
+    </a>
+  </div>
+
+  <nav class="header__nav">
+    <ul class="tabs">
+      <% if skill.children.any? %>
+        <li class="<%= 'is-active' if current_page?(description_skill_path(current_community, skill)) %>">  
+          <%= link_to (description_skill_path current_community, skill) do %>
+            <%= octicon "info" %>
+            <span><%= t("activerecord.attributes.skill.description") %></span>
+          <% end %>
+        </li>
+
+      <% end %>
+      <li class="<%= 'is-active' if (request.path == (skill_path current_community, skill)) %>">  
+        <%= link_to (skill_path current_community, skill) do %>
+          <%= octicon "info" %>
+          <% if skill.children.none? %>
+            <span><%= Skill.model_name.human %></span>
+          <% else %>
+            <%= skill.children.size %>
+            <span><%= Skill.model_name.human(count: skill.children.size) %></span>
+          <% end %>
+        <% end %>
+      </li>
+
+      <% if @subscription && skill.children.none? %>
+        <li class="<%= 'is-active' if (request.path == (messages_skill_path current_community, skill)) %>" >
+          <%= link_to (messages_skill_path current_community, skill) do %>
+            <%= octicon "comment" %>
+            <span><%= Message.model_name.human(count: 2) %></span>
+            <% if (unread_message_count = @subscription.unread_messages.count) > 0 %>
+              <span class="notification__count"><%= unread_message_count %></span>
+            <% end %>
+          <% end %>
+        </li>
+      <% end %>
+
+      <% if skill.children.any? %>
+        <li class="<%= 'is-active' if current_page?(progression_skill_path(current_community, skill)) %>">
+          <%= link_to progression_skill_path(current_community, skill) do %>
+            <%= octicon "graph" %>
+            <span><%= t "lib.progression" %></span>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+
+    <ul class="tabs is-right">
+      <li>
+        <a href="<%= search_form_messages_path(current_community) %>" class="icon" data-event="click->loadSideBar">
+          <%= octicon "search" %>
+        </a>
+      </li>
+    </ul>
+  </nav> 
+</header>

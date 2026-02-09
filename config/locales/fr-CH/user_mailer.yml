@@ -1,0 +1,46 @@
+fr-CH:
+  user_mailer:
+    daily_summary:
+      daily_summary_title: Résumé quotidien
+      reply: Répondre
+      new_conversations:
+        one: Un nouveau message
+        other: "%{count} nouveaux messages"
+      new_pinned_messages:
+        one: Un nouveau message important
+        other: "%{count} nouveaux messages importants"
+      new_event_messages:
+        one: Un nouvel événement
+        other: "%{count} nouveaux événements"
+      new_reminder_messages: Rappel
+      mentionned_messages: "Vous avez été mentionné %{count} fois"
+      new_poll_messages:
+        one: Un nouveau sondage
+        other: "%{count} nouveaux sondages"
+      pending_homeworks:
+        one: Un défi en attente
+        other: "%{count} défis en attente"
+    weekly_summary:
+      new_conversations:
+        one: Un nouveau message
+        other: "%{count} nouveaux messages"
+      new_skills:
+        one: Une nouvelle compétence
+        other: "%{count} nouvelles compétences"
+      new_memberships:
+        one: Un nouveau membre. Souhaitez-lui la bienvenue.
+        other: "%{count} nouveaux membres. Souhaitez-leur la bienvenue."
+      new_messages:
+        one: un nouveau message
+        other: "%{count} nouveaux messages"
+      new_experts:
+        one: un nouvel expert
+        other: "%{count} nouveaux experts"
+      new_evaluations:
+        one: un nouveau défi
+        other: "%{count} nouveaux défis"
+      pending_homeworks:
+        one: Un défi en attente
+        other: "%{count} défis en attente"
+    new_badge:
+      title: Vous avez obtenu un nouveau badge

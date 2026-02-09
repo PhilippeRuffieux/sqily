@@ -1,0 +1,236 @@
+.messages--index .message__content { overflow: hidden; }
+
+.messages--index .message__text {
+  display: flex;
+  align-items: baseline;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.messages--index .message__text .ago { white-space: nowrap; }
+
+.messages--index .message__text__excerpt {
+  position: relative;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+li.post { display: flex; }
+
+.message {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  display: block;
+}
+
+.message a,
+.message a:visited {
+  text-decoration: underline;
+}
+
+.message a.btn { text-decoration: none; }
+
+.message a.external-link::after {
+  content: '';
+  display: inline-block;
+  position: relative;
+  top: 4px;
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+  background: transparent url(<%= asset_path 'icons/arrow-top-right.svg' %>) no-repeat center top;
+}
+
+.message div.title {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex: 1;
+  min-height: 24px;
+  overflow: hidden;
+}
+
+.message div.title a,
+.message div.title a:visited {
+  text-decoration: none;
+  height: 24px;
+}
+
+.message .title .title { flex: 1; }
+
+.message .title form { 
+  display: flex;
+  align-items: center;
+  height: 24px;
+}
+
+.messages li input[type='submit'].delete {
+  height: 24px;
+  line-height: 24px;
+  padding: 0 12px;
+  font-size: 0.694rem;
+  margin-left: 6px;
+}
+
+.messages li .title form.icon { display: none; }
+
+.messages li:hover form.icon { display: inline-block; }
+
+.messages li :not(.title > .button_to, .box > .button_to) > button, 
+.messages li .vote button {
+  background: transparent;
+  color: #6d7173;
+  fill: #6d7173;
+  border: 0;
+  border-radius: 12px;
+  height: 24px;
+  padding: 0;
+  outline: 0;
+  box-shadow: none;
+  border-style: none;
+  font-size: 1rem;
+}
+
+.message .title .icon { margin-left: 6px; }
+
+.message .title .icon--delete {
+  background: transparent;
+  fill: #6d7173;
+}
+
+.message .title .icon--delete:hover { background: #f43e22; }
+
+.message .title .icon--delete svg { fill: inherit; }
+
+.message .title .icon--delete:hover svg { fill: #fff; }
+
+.messages li .unread button,
+.messages li .vote.count-0 button { display: none; }
+
+.messages li .unread.active button,
+.messages li:hover .unread button,
+.messages li .vote.active button,
+.messages li:hover .vote button {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.message .title .vote.active {
+  background: rgba(17, 22, 26, 0.05);
+  border-radius: 12px;
+}
+
+.messages li .vote.active button svg { fill: #f43e22; }
+
+.messages li .vote .count {
+  font-size: 0.694rem;
+  padding-right: 6px;
+}
+
+.messages li form.icon input[type='submit'],
+.messages li button.icon {
+  width: 24px;
+  height: 24px;
+  margin: 0;
+  padding: 0;
+  background: transparent;
+  display: none;
+}
+
+.messages li .button_row button.icon { display: block; }
+
+.messages li:hover form.icon input[type='submit'],
+.messages li:hover button.icon {
+  display: inline-block;
+}
+
+.messages li form.icon.icon-cancel { color: #6d7173; }
+
+.messages li form.icon.icon-cancel:hover { color: #f43e22; }
+
+.messages li.deleted span.title:after {
+  content: 'message supprimé';
+  color: #f43e22;
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 1px;
+  font-size: 0.579rem;
+  margin-left: 6px;
+}
+
+.message .title .icon--create {
+  fill: #6d7173;
+  display: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.messages li:hover .icon--create { display: inline; }
+
+.message .file { padding: 6px; }
+
+.message .icon-turned_in {
+  color: #f43e22;
+  font-size: 16px;
+}
+
+.message .title .pin.active svg { fill: #f43e22; }
+
+.message p a {
+  color: #1b2226;
+  text-decoration: underline;
+}
+
+.message .actions {
+  display: flex;
+  margin-top: 14px;
+  min-width: 100%;
+}
+
+.message .actions input[type='submit'] {
+  border-radius: 12px;
+  font-size: 0.694rem;
+  letter-spacing: 2px;
+  height: 24px;
+  line-height: 24px;
+  padding: 0 12px;
+}
+
+.message .actions input[type='submit'].validate {
+  background: #f4ae22;
+  font-weight: 700;
+}
+
+.message iframe {
+  display: block;
+  margin: 12px 0;
+  max-width: 100%;
+}
+
+.message-text-editing {
+  border: 1px solid rgba(17, 22, 26, 0.1);
+  padding: 12px;
+  margin: 0 4px;
+}
+
+.messages span.btn {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.694rem;
+  margin: 12px 12px 12px 0;
+}
+
+.messages span.btn.cancel { background: #f43e22; }
+
+.message__text--badge img {
+  float: left;
+  margin-right: 6px;
+}
+
+.message__text--badge h3 { font-size: 1rem; }

@@ -1,0 +1,142 @@
+<%= render "/communities/header" %>
+<div class="post-date"><hr></div>
+<div data-ariato="Sqily.User.Statistics" class="stats__content">
+  <nav class="submenu">
+    <ul class="tabs">
+      <li>
+        <%= render "teams/dropdown", teams: current_community.teams %>
+        <input class="search" type="text" placeholder="filtrer les membres">
+      </li>
+    </ul>
+    <ul class="tabs is-right">
+      <li>
+        <%= link_to statistics_path(format: :csv), class: 'btn btn btn--admin' do %>
+          <%= octicon "desktop-download" %><span><%= t("lib.export_to_csv") %></span>
+        <% end %>
+      </li>
+    </ul>
+  </nav>
+  <div class="post-date"><hr><span class="date" id="top-date"></span></div>
+
+  <div class="stats__table">
+    <table>
+      <thead>
+      <tr>
+        <% current_order_param = OrderParam::Parser.new.unsafe_parse(params[:order]) %>
+        <% ordered_attribute(current_order_param, :name) do |order, is_currently_sorted| %>
+          <th class="align-right <%= order_style(order, is_currently_sorted) %>">
+            <%= ordered_statistics_path(User.human_attribute_name("name"), order) %>
+          </th>
+        <% end %>
+        <th></th>
+        <% ordered_attribute(current_order_param, :last_page_viewed_at) do |order, is_currently_sorted| %>
+          <th class="align-right <%= order_style(order, is_currently_sorted) %>">
+            <%= ordered_statistics_path(t(".last_activity"), order) %>
+          </th>
+        <% end %>
+        <% ordered_attribute(current_order_param, :page_views) do |order, is_currently_sorted| %>
+          <th class="align-right <%= order_style(order, is_currently_sorted) %>">
+            <%= ordered_statistics_path(PageView.model_name.human(count: 2), order) %>
+          </th>
+        <% end %>
+        <% ordered_attribute(current_order_param, :messages) do |order, is_currently_sorted| %>
+          <th class="align-right <%= order_style(order, is_currently_sorted) %>">
+            <%= ordered_statistics_path(Message.model_name.human(count: 2), order) %>
+          </th>
+        <% end %>
+        <% ordered_attribute(current_order_param, :pinned_messages) do |order, is_currently_sorted| %>
+          <th class="align-right <%= order_style(order, is_currently_sorted) %>">
+            <%= ordered_statistics_path(t(".important_messages"), order) %>
+          </th>
+        <% end %>
+        <% ordered_attribute(current_order_param, :event_participations) do |order, is_currently_sorted| %>
+          <th class="align-right <%= order_style(order, is_currently_sorted) %>">
+            <%= ordered_statistics_path(t(".participating_events"), order) %>
+          </th>
+        <% end %>
+        <% ordered_attribute(current_order_param, :received_votes) do |order, is_currently_sorted| %>
+          <th class="align-right <%= order_style(order, is_currently_sorted) %>">
+            <%= ordered_statistics_path(t(".votes_received"), order) %>
+          </th>
+        <% end %>
+        <% ordered_attribute(current_order_param, :uploads) do |order, is_currently_sorted| %>
+          <th class="align-right <%= order_style(order, is_currently_sorted) %>">
+            <%= ordered_statistics_path(Message::Upload.model_name.human(count: 2), order) %>
+          </th>
+        <% end %>
+        <% ordered_attribute(current_order_param, :useful_uploads) do |order, is_currently_sorted| %>
+          <th class="align-right <%= order_style(order, is_currently_sorted) %>">
+            <%= ordered_statistics_path(t(".useful_files"), order) %>
+          </th>
+        <% end %>
+        <% ordered_attribute(current_order_param, :created_skills) do |order, is_currently_sorted| %>
+          <th class="align-right <%= order_style(order, is_currently_sorted) %>">
+            <%= ordered_statistics_path(t(".created_skills"), order) %>
+          </th>
+        <% end %>
+        <% ordered_attribute(current_order_param, :completed_skills) do |order, is_currently_sorted| %>
+          <th class="align-right <%= order_style(order, is_currently_sorted) %>">
+            <%= ordered_statistics_path(t(".completed_skills"), order) %>
+          </th>
+        <% end %>
+        <% ordered_attribute(current_order_param, :evaluations) do |order, is_currently_sorted| %>
+          <th class="align-right <%= order_style(order, is_currently_sorted) %>">
+            <%= ordered_statistics_path(Evaluation.model_name.human(count: 2), order) %>
+          </th>
+        <% end %>
+        <% ordered_attribute(current_order_param, :evaluation_feedbacks) do |order, is_currently_sorted| %>
+          <th class="align-right <%= order_style(order, is_currently_sorted) %>">
+            <%= ordered_statistics_path(t(".evaluation_feedbacks"), order) %>
+          </th>
+        <% end %>
+        <% ordered_attribute(current_order_param, :expert_validations) do |order, is_currently_sorted| %>
+          <th class="align-right <%= order_style(order, is_currently_sorted) %>">
+            <%= ordered_statistics_path(t(".validated_experts"), order) %>
+          </th>
+        <% end %>
+        <% ordered_attribute(current_order_param, :published_workspaces) do |order, is_currently_sorted| %>
+          <th class="align-right <%= order_style(order, is_currently_sorted) %>">
+            <%= ordered_statistics_path(t(".published_workspaces"), order) %>
+          </th>
+        <% end %>
+        <% ordered_attribute(current_order_param, :workspace_feedbacks) do |order, is_currently_sorted| %>
+          <th class="align-right <%= order_style(order, is_currently_sorted) %>">
+            <%= ordered_statistics_path(t(".workspace_feebacks"), order) %>
+          </th>
+        <% end %>
+      </tr>
+      </thead>
+      <tbody class="list">
+      <% @users.each do |user| %>
+        <tr>
+          <td class="name">
+            <%= link_to_user user do %>
+              <%= user_avatar user %><%= user.name %>
+            <% end %>
+          </td>
+          <td><a href="mailto:<%= user.email %>"><%= octicon "mail" %></a></td>
+          <% last_page_viewed_at = user.statistics.last_page_viewed_at(current_community) %>
+          <td class="align-right" title="<%= l(last_page_viewed_at) if last_page_viewed_at %>"><%= last_page_viewed_at ? l(last_page_viewed_at.to_date, format: :short).gsub(" ", "&nbsp;").html_safe : "-" %></td>
+          <td class="align-right" title="<%= [user.name, PageView.model_name.human(count: 2)].join(" / ") %>"><%= user.statistics.total_of_page_views(current_community) %></td>
+          <td class="align-right" title="<%= [user.name, Message.model_name.human(count: 2)].join(" / ") %>"><%= user.statistics.total_of_messages(current_community) %></td>
+          <td class="align-right" title="<%= [user.name, t(".important_messages")].join(" / ") %>"><%= user.statistics.total_of_pinned_messages(current_community) %></td>
+          <td class="align-right" title="<%= [user.name, t(".participating_events")].join(" / ") %>"><%= user.statistics.total_of_event_participations(current_community) %></td>
+          <td class="align-right" title="<%= [user.name, t(".votes_received")].join(" / ") %>"><%= user.statistics.total_of_received_votes(current_community) %></td>
+          <%# TODO: Mentions %>
+          <td class="align-right" title="<%= [user.name, Message::Upload.model_name.human(count: 2)].join(" / ") %>"><%= user.statistics.total_of_uploads(current_community) %></td>
+          <td class="align-right" title="<%= [user.name, t(".useful_files")].join(" / ") %>"><%= user.statistics.total_of_useful_uploads(current_community) %></td>
+          <td class="align-right" title="<%= [user.name, t(".created_skills")].join(" / ") %>"><%= user.statistics.total_of_created_skills(current_community) %></td>
+          <td class="align-right" title="<%= [user.name, t(".completed_skills")].join(" / ") %>"><%= user.statistics.total_of_completed_skills(current_community) %></td>
+          <td class="align-right" title="<%= [user.name, Evaluation.model_name.human(count: 2)].join(" / ") %>"><%= user.statistics.total_of_evaluations(current_community) %></td>
+          <td class="align-right" title="<%= [user.name, t(".evaluation_feedbacks")].join(" / ") %>"><%= user.statistics.total_of_evaluation_feedbacks(current_community) %></td>
+          <td class="align-right" title="<%= [user.name, t(".validated_experts")].join(" / ") %>"><%= user.statistics.total_of_expert_validations(current_community) %></td>
+          <td class="align-right" title="<%= [user.name, t(".published_workspaces")].join(" / ") %>"><%= user.statistics.total_of_published_workspaces(current_community) %></td>
+          <td class="align-right" title="<%= [user.name, t(".published_workspaces")].join(" / ") %>"><%= user.statistics.total_of_workspace_feedbacks(current_community) %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<%= paginate @users %>

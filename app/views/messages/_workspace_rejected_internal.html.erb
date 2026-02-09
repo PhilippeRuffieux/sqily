@@ -1,0 +1,14 @@
+<li id="message-<%= message.id %>" data-date="<%= I18n.l(message.created_at.to_date, format: '%A, %d %b %Y') %>" class="post">
+  <span class="avatar icon icon--danger">
+    <%= octicon "x" %>
+  </span>
+  <div class="message">
+    <div class="title">
+      <span class="title">
+        <%= t(".message", user: link_to_user(message.from_user)).html_safe %>
+        <span class="ago"><%= link_to_message message %></span>
+      </span>
+      <%= render "/messages/unread_button", message: message %>
+    </div>
+  </div>
+</li>

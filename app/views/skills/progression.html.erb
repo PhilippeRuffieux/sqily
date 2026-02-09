@@ -1,0 +1,6 @@
+<%= render "header", skill: @skill %>
+<div class="post-date"><hr></div>
+<div data-ariato="Sqily.User.Statistics" class="stats__content">
+  <%= render "progression_table", skills: @skills, users: @users %>
+</div>
+<%= paginate @users %>

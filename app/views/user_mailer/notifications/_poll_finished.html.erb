@@ -1,0 +1,10 @@
+<% if message = Message.find_by_poll_id(notification.poll_id) %>
+  <p>
+    <small><%= l notification.created_at, format: :short %></small><br>
+    Ce sondage est terminé.&nbsp;
+    <a href="<%= message_permalink message %>">Voir</a><br>
+    <span class="message__text">
+      <%= notification.poll.title %>
+    </span>
+  </p>
+<% end %>

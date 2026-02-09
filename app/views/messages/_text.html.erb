@@ -1,0 +1,50 @@
+<li id="message-<%= message.id %>" data-date="<%= I18n.l(message.created_at.to_date, format: '%A, %d %b %Y') %>" class="post <%= 'pinned' if message.pinned_at %> <%= 'deleted' if message.deleted_at %>" >
+  <%= link_to_user message.from_user do %>
+    <span class="avatar user<%= @skill ? user_skill_state = user_skill_state(@skill, message.from_user) : "" %>">
+      <% if @skill %>
+        <span class="icon badge icon--star--<%= user_skill_state %>">
+          <%= octicon 'star-fill' %>
+        </span>
+      <% end %>
+      <%= user_avatar(message.from_user) %>
+    </span>
+  <% end %>
+  <div class="message">
+    <div class="title">
+      <span class="title">
+        <%= link_to_user message.from_user do %>
+          <span class="user<%= @skill ? user_skill_state = user_skill_state(@skill, message.from_user) : "" %>">
+            <%= message.from_user.name %>
+          </span>
+        <% end %>
+        <span class="ago">
+          <%= link_to_message message %>
+          <% if message.edited_at %>(édité)<% end %>
+        </span>
+      </span>
+
+      <%= render "/messages/pin_button", message: message %>
+      <%= render "/messages/unread_button", message: message %>
+      <% if can_edit_message?(message) %>
+        <span class="icon icon--create"
+          data-module="Sqily.EditMessage"
+          data-edit-message="<%= message.id %>"
+          data-message-id="<%= message.id %>"
+          data-message-text="<%= message.text %>">
+          <%= octicon "pencil" %>
+        </span>
+      <% end %>
+      <% if can_delete_message?(message) %>
+        <%= form_tag message_path(current_community, message), method: "delete", "data-confirmation" => t(".delete_message_confirmation") do %>
+          <button type="submit" title="<%= t('.delete_message_tooltip') %>"  class="icon icon--delete">
+            <%= octicon "trash" %>
+          </button>
+        <% end %>
+      <% end %>
+      <%= render "/messages/vote_button", message: message %>
+    </div>
+
+    <%= render "/messages/attachment", message: message %>
+    <div id="message-text-<%= message.id %>" class="message__text"><%= format_message_text(message) %></div>
+  </div>
+</li>

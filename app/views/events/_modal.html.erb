@@ -1,0 +1,7 @@
+<div id="event-modal" class="modal" style="display:none;">
+  <span data-close-modal="#event-modal" class="icon icon--close pull-right">
+    <%= octicon "x" %>
+  </span>
+  <h3><%= t "events.new.title" %></h3>
+  <%= render "/events/form", event: event %>
+</div>

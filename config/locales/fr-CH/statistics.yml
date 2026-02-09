@@ -1,0 +1,14 @@
+fr-CH:
+  statistics:
+    index:
+      completed_skills: Expertises
+      created_skills: Compétences créées
+      evaluation_feedbacks: Retours sur défis
+      last_activity: Dernière activité
+      important_messages: Messages importants
+      participating_events: Événements participés
+      published_workspaces: Articles publiés
+      useful_files: Fichiers utiles
+      validated_experts: Experts validés
+      votes_received: Favoris reçus
+      workspace_feebacks: Retours sur articles

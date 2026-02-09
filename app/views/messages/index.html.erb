@@ -1,0 +1,7 @@
+<%= render "header" %>
+
+<section class="messages" id="messages" data-auto-scroll-to-bottom data-module="Sqily.Message.Puller" data-auto-pull-url="<%= messages_auto_pull_url @messages %>">
+  <%= render "list" %>
+</section>
+
+<%= render "form", message: Message.new(to_user: @user) %>

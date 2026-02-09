@@ -1,0 +1,327 @@
+body.tree { background: #fff; }
+
+body.tree div.container { position: relative; }
+
+body.tree > header { 
+  display: block;
+  height: auto;
+  background: #1c8cca;
+  text-align: center;
+  padding: 24px;
+  color: #f9fbfc;
+}
+
+body.tree > header .logo { 
+  height: 32px;
+  display: block;
+  margin: 0 auto 24px;
+  fill: #f9fbfc;
+}
+
+body.tree > header h2 a:any-link {
+  color: #f9fbfc;
+  font-weight: 700;
+}
+
+body.tree > header .icon--home svg { fill: #f9fbfc; }
+
+section.tree  {
+  overflow: auto;
+  position: relative;
+  color:#a2a5a6;
+  padding-bottom: 72px;
+ }
+
+.tree header h2 .icon--home { box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.1); }
+
+.tree.btn {
+  padding:0;
+  height: 24px;
+  width: 24px;
+  display: inline-block;
+  text-decoration: none;
+  margin:0 0 0 12px;
+  text-align: center;
+  border:0;
+  border-radius: 12px;
+  letter-spacing: 0;
+  line-height: 24px;
+  fill: #fff;
+  vertical-align: middle;
+}
+
+.tree.btn svg { margin:0 0 0 0; display: inline-block; vertical-align: middle; }
+
+.tree h2 {
+  margin:0;
+  border-radius: 3px;
+  display: inline-block;
+  padding:  12px;
+  border: 1px solid rgba(255,255,255,.1);
+}
+
+.tree .content { color: #a2a5a6; }
+
+.tree h2 { border: 1px solid rgba(255,255,255,.1); }
+
+.tree h2 a {
+  font-size: 1.2rem;
+  color:#a2a5a6;
+  line-height: 24px;
+  display: inline-block;
+  text-decoration: none;
+ }
+
+.public .tree__header a.btn {
+  font-size: 1rem;
+  text-transform: none;
+  letter-spacing: 0;
+  line-height: 24px;
+  margin: 0;
+  border-radius: 12px;
+}
+
+body.tree .main {
+  width: 100%;
+  transform: translateX(0%);
+}
+
+section.tree { 
+  width: 100%; 
+  transform: none; 
+  left:0; 
+  height: auto;
+  min-height: calc(100% - 120px);
+}
+
+.submenu + .post-date + section.tree { min-height: calc(100% - 160px); }
+
+section.tree header { 
+  height: auto;
+  margin-bottom:24px;
+  text-align: center;
+  padding: 0 48px;
+}
+
+.tree__header .subtitle { margin-top: 12px; }
+
+.tree header h3.user { 
+  line-height: 36px;
+  margin: 12px 0 0;
+  color: rgba(255,255,255,.8);
+}
+
+.tree header h3.user img.avatar { 
+  margin: 0;
+  position: relative;
+  vertical-align: middle;
+}
+
+section.tree .logo { 
+  display: block;
+  margin: 48px auto 24px;
+  fill:#a2a5a6;
+  height: 24px;
+}
+
+section.tree a { color: #a2a5a6; }
+
+.tree .help {
+  display: block;
+  background: rgba(17, 22, 26, 1);
+  line-height: 24px;
+  padding:0 48px;
+  margin:0 -48px;
+}
+
+.tree .help .icon { font-size: 12px; }
+
+.tree .icon--home {
+  display: inline-block;
+  margin-right: 6px;
+}
+
+.tree .icon--home svg { fill: #a2a5a6; }
+
+.tree .svg-container { 
+  overflow: auto; 
+  padding: 16px 4px;
+  min-height: calc(100% - 72px);
+}
+
+.tree g > rect {
+  stroke-width: 2;
+  stroke: #262e33;
+}
+
+.tree g.start > rect,
+.tree g.start:hover > rect {
+  fill: rgba(28, 140, 202, .7);
+}
+
+.tree g.finish > rect,
+.tree g.finish:hover > rect {
+  fill: rgba(244, 174, 34, .8);
+}
+
+.tree g.lock > rect {
+  stroke-width: 4px;
+  stroke: #f43e22;
+}
+
+.tree .node a, .tree .node a:visited {
+  text-decoration: none;
+  font-size: 1rem;
+  color: #131426;
+  width: 188px;
+  max-width: 188px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+ }
+
+.tree .node a:hover { color:#000; }
+
+.tree .svg-container.public .node a:any-link { color:#000; }
+
+.tree .node small { 
+  display: block;
+  color: #a2a5a6;
+}
+
+@supports (-webkit-line-clamp: 1) {
+  .tree .node a:after { display : none !important; }
+}
+
+.tree .node.start a:hover,
+.tree .node.finish a:hover { color:#000; }
+
+.tree .node.lock a { color:#131426;  }
+
+.tree .node rect {
+  fill: rgba(17, 22, 26, .05);
+  stroke-width: 0;
+}
+
+.tree .node:hover rect { fill: rgba(17, 22, 26, .1); }
+
+.tree .node.skill-0-percent-of-experts rect { fill: url(#experts-0-percent); fill-opacity: .7; }
+.tree .node.skill-10-percent-of-experts rect { fill: url(#experts-10-percent); fill-opacity: .7; }
+.tree .node.skill-20-percent-of-experts rect { fill: url(#experts-20-percent); fill-opacity: .7; }
+.tree .node.skill-30-percent-of-experts rect { fill: url(#experts-30-percent); fill-opacity: .7; }
+.tree .node.skill-40-percent-of-experts rect { fill: url(#experts-40-percent); fill-opacity: .7; }
+.tree .node.skill-50-percent-of-experts rect { fill: url(#experts-50-percent); fill-opacity: .7; }
+.tree .node.skill-60-percent-of-experts rect { fill: url(#experts-60-percent); fill-opacity: .7; }
+.tree .node.skill-70-percent-of-experts rect { fill: url(#experts-70-percent); fill-opacity: .7; }
+.tree .node.skill-80-percent-of-experts rect { fill: url(#experts-80-percent); fill-opacity: .7; }
+.tree .node.skill-90-percent-of-experts rect { fill: url(#experts-90-percent); fill-opacity: .7; }
+.tree .node.skill-100-percent-of-experts rect { fill: url(#experts-100-percent); fill-opacity: .7; }
+
+.tree .edgePath path {
+  stroke: rgba(17, 22, 26, .1);
+  stroke-width: 1.5;
+  fill: none;
+  stroke-dasharray: 0;
+  stroke-linecap: butt;
+}
+
+.tree .edgePath.lock path {
+  stroke: #f43e22;
+  stroke-dasharray: 8;
+  stroke-dashoffset: 8;
+  stroke-width: 1.5;
+}
+
+.tree .edgePath.halflock path {
+  stroke-dasharray: 0;
+  stroke-width: 1.5;
+  stroke: #6d7173;
+}
+
+.tree .edgePath.completed path,
+.tree .edgePath.completed.lock path,
+.tree .edgePath.completed.halflock path {
+  stroke: #f4ae22;
+  stroke-dasharray: 0;
+  stroke-dashoffset: 0;
+}
+
+.tree .edgePath marker path, .tree .edgePath.halflock marker path {
+  stroke-width: 0px;
+  fill: #b6bcbf;
+}
+
+.tree .edgePath.lock marker path { fill: #f43e22; }
+
+.tree .edgePath.completed marker path,
+.tree .edgePath.completed.lock marker path,
+.tree .edgePath.completed.halflock marker path {
+  fill: #f4ae22;
+}
+
+body.tree .sidebar {
+  width: 100%;
+  background: #fff;
+}
+
+body.tree .members li a.btn {
+  padding:0;
+  height: 24px;
+  width: 24px;
+  line-height: 24px;
+  text-align: center;
+}
+
+body.tree .members li a.btn svg {
+  width: 16px;
+  height: 16px;
+  margin-top: 4px;
+  fill: #fff;
+  stroke: none;
+}
+
+.tree .node img.avatar {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  margin: 0 0 0 4px;
+ }
+
+.skill__name {
+  height: auto;
+  max-height: 72px;
+  white-space: normal;
+  word-wrap: break-word;
+  margin-right: auto;
+  display: inline-block;
+  display: -webkit-box;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+}
+
+.group-skill__count {
+  font-size: 0.833rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 1px 1px 0px rgba(17, 22, 26, .1) inset;
+  color: rgba(17, 22, 26, .8);
+  padding: 0 4px;
+  border-radius: 4px;
+  margin-left: 4px;
+  white-space: nowrap;
+}
+
+.group-skill__count svg {
+  fill: rgba(17, 22, 26, .7);
+  width: 10px;
+  height: 10px;
+}
+
+@media (min-width: 1000px) {
+  .tree .svg-container { padding: 16px; }
+
+  body.tree .content { width: 100%; }
+}

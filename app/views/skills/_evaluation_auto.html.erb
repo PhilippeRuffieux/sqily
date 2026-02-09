@@ -1,0 +1,6 @@
+<% if @subscription.completed_at? %>
+  <strong><%= t ".status_expert" %></strong>
+<% else %>
+  <strong><%= t ".auto_evaluation" %></strong>
+  <%= button_to t(".validate_button"), complete_subscription_path(@subscription, permalink: current_community), class: 'btn btn--admin btn--small' %>
+<% end %>

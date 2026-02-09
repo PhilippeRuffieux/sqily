@@ -1,0 +1,23 @@
+<%= form_for event, url: event.persisted? ? event_path(current_community, event) : events_path(current_community), builder: InlineErrorFormBuilder do |form| %>
+  <%= form.hidden_field :skill_id %>
+
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+
+  <%= form.label :description %>
+  <%= form.text_area :description %>
+
+  <%= form.label :scheduled_at %>
+  <%= form.text_field :scheduled_at, "data-module" => "TimePicker", "data-time-picker" => '{"minDate": "today"}' %>
+
+  <%= form.label :registration_finished_at %>
+  <%= form.text_field :registration_finished_at, "data-module" => "TimePicker", "data-time-picker" => '{"minDate": "today"}' %>
+
+  <%= form.label :max_participations %>
+  <%= form.number_field :max_participations, min: 1 %>
+
+  <%= form.label :file %>
+  <%= form.file_field :file %>
+
+  <%= form.submit t("lib.save") %>
+<% end %>

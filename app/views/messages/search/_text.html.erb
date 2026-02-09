@@ -1,0 +1,24 @@
+<li id="" data-date="" class="post" >
+  <%= link_to_user message.from_user do %>
+    <%= user_avatar(message.from_user) %>
+  <% end %>
+  <div class="message">
+    <div class="title">
+      <span class="title">
+        <%= link_to_user message.from_user, message.from_user.name %>
+      </span>
+    </div>
+    <div class="search-result__text" id=""><%= message.text %></div>
+    <span class="ago">
+      <a href="<%= message_permalink(message) %>">
+        <span class="icon">
+          <%= octicon "history" %>
+        </span>
+        <%= l message.created_at, format: :short %>
+        <% if message.to_skill %>
+          <span class="skill"><%= message.to_skill.name %></span>
+        <% end %>
+      </a>
+    </span>
+  </div>
+</li>

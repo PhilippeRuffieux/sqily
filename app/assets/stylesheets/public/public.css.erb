@@ -1,0 +1,413 @@
+body.public {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  height: auto;
+  background: #1b2226;
+  background: #f9fbfc;
+  position: relative;
+}
+
+.public a { text-decoration: underline; }
+
+.public a.btn {
+  text-decoration: none;
+  color: #fff;
+}
+
+.public svg.logo {
+  fill: #f9fbfc;
+  height: 32px;
+  margin: 96px auto 48px;
+  display: block;
+}
+
+.public p.alert {
+  background: #fff;
+  padding: 14px;
+}
+
+.public .home {
+  width: 100%;
+  position: relative;
+  line-height: 32px;
+  font-size: 18px;
+}
+
+body.public > header {
+  width: 100%;
+  height: auto;
+  padding: 32px 0 0;
+  background: #f9fbfc url(<%= asset_path 'sky.svg' %>) no-repeat bottom center;
+  background-size: cover;
+  color: #f9fbfc;
+  min-height: 408px;
+  margin-bottom: -192px;
+  text-align: center;
+}
+
+body.public > header.home { margin-bottom: 0; }
+
+body.public > header .btn.login {
+  position: absolute;
+  line-height: 48px;
+  right: 24px;
+  top: 24px;
+  padding: 0 32px 0 16px;
+  color: inherit;
+  font-weight: 700;
+  box-shadow: 0 0 0 1px rgba(244, 249, 252, 0.2) inset;
+  background: transparent;
+}
+
+body.public > header .btn.login:hover {
+  background: transparent;
+  box-shadow: 0 0 0 1px rgba(244, 249, 252, 0.3) inset;
+}
+
+body.public > header .hep {
+  display: inline-block;
+  position: absolute;
+  left: 24px;
+  top: 36px;
+  line-height: 32px;
+}
+
+body.public > header .hep svg {
+  height: 24px;
+  fill: #f9fbfc;
+}
+
+.public .screenshot {
+  width: 100%;
+  max-width: 1120px;
+  margin: -24px auto -48px;
+  overflow: visible;
+  padding: 0;
+  position: relative;
+}
+
+.public .screenshot img {
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  top: 0;
+}
+
+body.public h2 {
+  text-align: center;
+  max-width: 42ch;
+  font-weight: 400;
+  padding: 0 32px 48px;
+  margin: 0 auto;
+  font-size: 1.44rem;
+  line-height: 32px;
+  background: transparent;
+  color: inherit;
+}
+
+body.public h2.community { padding: 12px 32px; }
+
+.public .features h2 { color: #6d7173; }
+
+.public .features h2 strong { color: #1b2226; }
+
+.public .feature h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 12px 0 12px -40px;
+  line-height: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.public .feature h3 .icon {
+  fill: #1c8cca;
+  margin-right: 16px;
+  position: relative;
+  width: 24px;
+  height: 24px;
+  text-align: center;
+}
+
+.public .feature h3 .icon svg {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+.public .feature p {
+  color: #6d7173;
+  text-align: left;
+}
+
+.public h2 a { color: inherit; }
+
+.public .schools {
+  background: #f9fbfc;
+  padding: 96px 0;
+  text-align: center;
+}
+
+.public .schools .container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
+}
+
+.public .schools .school {
+  min-width: 128px;
+  padding: 32px;
+  flex: 1;
+  text-align: center;
+}
+
+.public .schools .school img {
+  width: 100%;
+  max-height: 64px;
+  max-width: 96px;
+  margin: auto;
+  filter: saturate(1);
+}
+
+.public .intro {
+  text-align: center;
+  padding: 64px 32px;
+  min-width: 300px;
+  flex: 1;
+}
+
+.public h2 {
+  font-size: 1.728rem;
+  font-weight: 300;
+  text-align: center;
+  margin: 0 24px 48px;
+}
+
+.public .contact {
+  margin: 0;
+  width: 100%;
+  padding: 228px 32px;
+  text-align: center;
+  min-width: 300px;
+  flex: 1;
+  background: #1b2226;
+  color: #f9fbfc;
+}
+
+.public .contact h3 {
+  font-size: 1.44rem;
+  margin-bottom: 0;
+  font-weight: 400;
+  color: #f9fbfc;
+}
+
+.public a.btn {
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 0 auto;
+  font-weight: 700;
+}
+
+.public a.btn .icon { fill: #f9fbfc; }
+
+.public .btn.secondary {
+  letter-spacing: 3px;
+  line-height: 64px;
+  margin: 0 auto 96px;
+  padding: 0 32px;
+  font-weight: 700;
+  font-size: 0.833rem;
+}
+
+.public .btn.tertiary {
+  letter-spacing: 3px;
+  line-height: 64px;
+  margin: 0 auto 96px;
+  padding: 0 32px;
+  font-weight: 700;
+  font-size: 0.833rem;
+  background: #f9fbfc;
+  color: #6d7173;
+}
+
+form .error {
+  color: #ea3618;
+  padding: 14px;
+  background: rgba(17, 22, 26, 0.1);
+  margin-bottom: 14px;
+}
+
+section.login {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 10px 0 rgba(17, 22, 26, 0.1);
+}
+
+section.login.new-community { padding: 24px; }
+
+section.new-community fieldset {
+  width: 100%;
+  margin: 24px -24px 24px;
+}
+
+section.login,
+section.form {
+  background: #fff;
+  padding: 24px 48px 48px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-content: center;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 480px;
+}
+
+section.login--invitation {
+  padding: 24px 0 0;
+  max-width: none;
+}
+
+section.login header {
+  height: auto;
+  min-height: auto;
+  line-height: inherit;
+}
+
+section.login > div {
+  width: 100%;
+  text-align: center;
+  min-width: 300px;
+}
+
+section.login > div form { text-align: left; }
+
+section.login .login__invites {
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(17, 22, 26, 0.1);
+  margin-top: 24px;
+}
+
+section.login .login__invites > div {
+  flex: 1;
+  padding: 24px;
+}
+
+section.login .login__invites > div > fieldset { margin-top: 40px; }
+
+section.login .login__invites > div + div { border-left: 1px solid rgba(17, 22, 26, 0.1); }
+
+section.login .login__invites a { display: block; }
+
+section.login .login__invites legend {
+  text-transform: none;
+  font-weight: 400;
+  letter-spacing: 0;
+  padding: 0 4px;
+  font-size: 1.2rem;
+}
+
+section.login > div h4 {
+  text-transform: none;
+  font-weight: 400;
+  letter-spacing: 0;
+  padding: 0 4px;
+  font-size: 1.728rem;
+  display: inline-block;
+  text-align: center;
+  margin: 24px auto 0;
+}
+
+.login h2 {
+  margin-bottom: 48px;
+  text-align: center;
+  font-weight: 300;
+  font-size: 1.44em;
+}
+
+.login h4 { margin-bottom: 24px; }
+
+.login table th,
+.admin table td {
+  text-align: left;
+}
+
+.login form,
+.form form {
+  width: 100%;
+  margin: 24px 0 0;
+}
+
+.form input[type='submit'] {
+  width: 100%;
+  text-align: center;
+  margin-top: 24px;
+}
+
+.form h3 { margin-bottom: 24px; }
+
+.form h4 { margin-bottom: 14px; }
+
+section.login a { color: #1b2226; }
+
+header.community {
+  padding: 48px 24px 24px;
+  height: auto;
+}
+
+.public footer {
+  display: block;
+  width: 100%;
+  text-align: center;
+  padding: 16px 32px;
+  height: auto;
+}
+
+.public footer .credits {
+  display: block;
+  font-size: 0.694rem;
+  color: #6d7173;
+}
+
+.public footer .credits a {
+  color: #6d7173;
+  font-weight: 400;
+  letter-spacing: 0.05rem;
+  text-transform: uppercase;
+}
+
+.public footer .credits a.btn {
+  color: #6d7173;
+  background: transparent;
+  box-shadow: 0 0 0 1px rgba(162, 165, 166, 0.5);
+  line-height: 24px;
+  margin: 0 24px 0 0;
+  font-size: 0.573rem;
+}
+
+.public .features {
+  background: #f9fbfc;
+  width: 100%;
+  padding: 120px 0 128px;
+  text-align: center;
+}
+
+.public .features .container {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 1120px;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+.public .feature {
+  flex: 1;
+  min-width: 300px;
+  padding: 32px 32px 32px 64px;
+}

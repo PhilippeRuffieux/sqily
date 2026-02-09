@@ -1,0 +1,28 @@
+<section class="search-panel" data-module="Sqily.Message.SearchForm">
+  <header class="header">
+    <h4>&nbsp;</h4>
+    <% if @skill.try(:persisted?) %>
+      <a href="<%= messages_skill_path(current_community, @skill) %>" class="icon icon-clear icon--close">
+        <%= octicon "x" %>
+      </a>
+    <% else %>
+      <a href="#" class="icon icon-clear icon--close" data-event="click->closeSidebar">
+        <%= octicon "x" %>
+      </a>
+    <% end %>
+  </header>
+
+  <div class="search-container">
+    <form action="<%= search_messages_path(current_community) %>" data-events="submit->submit">
+      <input type="text" name="query" autocomplete="off" class="search" placeholder="<%= t '.search-placeholder' %>">
+    </form>
+    <svg id="search-spinner" class="spinner spinner--hidden" viewBox="0 0 48 48">
+      <circle class="path" cx="24" cy="24" r="20" fill="none" stroke-width="4"></circle>
+    </svg>
+    <div class="search-results" id="search-form-results">
+      <p>
+        <%= t ".help" %>
+      </p>
+    </div>
+  </div>
+</section>

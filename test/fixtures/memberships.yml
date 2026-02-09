@@ -1,0 +1,21 @@
+alexis_base:
+  user: alexis
+  community: base
+  moderator: true
+  team: backend
+
+antoine_base:
+  user: antoine
+  community: base
+  moderator: false
+  team: frontend
+
+admin_hep:
+  user: admin
+  community: hep
+  moderator: true
+
+valentin_base:
+  user: valentin
+  community: base
+  moderator: false

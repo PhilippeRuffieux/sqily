@@ -1,0 +1,13 @@
+<section class="tree" data-module="Sqily.Tree">
+  <div class="svg-container" >
+    <svg id="tree-svg" class="svg-canvas" width="1000" height="300" data-json="<%= skill_to_tree_json skills, relative_to_user %>">
+      <% 11.times do |n| %>
+        <% percentage = n * 10 %>
+        <linearGradient id="experts-<%= percentage %>-percent">
+          <stop offset="<%= percentage %>%" stop-color="#f4ae22"/>
+          <stop offset="<% 100 - percentage %>%" stop-color="#1c8cca"/>
+        </linearGradient>
+      <% end %>
+    </svg>
+  </div>
+</section>

@@ -1,0 +1,19 @@
+<div id="duplicate-skill-modal" class="modal" style="display:none;">
+ <span data-close-modal="#duplicate-skill-modal" class="icon icon--close pull-right">
+    <%= octicon "x" %>
+  </span>
+  <h3><%= t(".title") %></h3>
+  <p><%= t(".selection_label") %></p><br>
+  <div class="card">
+    <ul class="list">
+      <% current_user.communities.each do |community| %>
+        <li>
+          <div class="community__description">
+            <%= link_to "+", new_skill_path(community, from_skill_id: skill.id), class: "btn pull-right" %>
+            <strong><%= community.name %></strong>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

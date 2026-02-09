@@ -1,0 +1,58 @@
+<nav class="submenu">
+  <ul class="tabs">
+    <li>
+      <%= render "teams/dropdown", teams: current_community.teams %>
+      <input class="search" type="text" placeholder="filtrer les membres">
+    </li>
+  </ul>
+</nav>
+<div class="post-date"><hr><span class="date" id="top-date"></span></div>
+
+<div class="stats__table">
+  <table>
+    <thead>
+      <tr>
+        <th></th>
+        <% for skill in skills.sort{ |a,b| a.name <=> b.name } %>
+          <th class="align-center" title="<%= skill.name %>"><div>
+            <% if skill.children.any? %>
+              <%= link_to skill.name, progression_skill_path(current_community, skill) %>
+            <% else %>
+              <%= link_to skill.name, skill_path(current_community, skill) %>
+            <% end %>
+            </div>
+          </th>
+        <% end %>
+      </tr>
+    </thead>
+
+    <tbody class="list">
+      <% for user in users %>
+        <tr>
+          <td class="name">
+            <%= link_to_user user do %>
+              <%= user_avatar user %>
+              <span class="name"><%= user.name %></span>
+            <% end %>
+          </td>
+          <% for skill in skills.sort{ |a,b| a.name <=> b.name } %>
+            <% subscription = user.subscriptions.where(skill: skill).first %>
+            <td class="align-center" title="<%= user.name %>/<%= skill.name %>">
+              <% if !subscription %>
+                <span class="icon" title="Non inscrit"><%= octicon 'star-fill' %></span>
+              <% elsif !subscription.completed_at %>
+                <% if skill.tasks.count == 0 %>
+                  <span class="icon" title="Inscrit"><%= octicon 'star-fill', class: "icon--star--start" %></span>
+                <% else %>
+                  <span class="icon" title="Inscrit"><%= octicon 'star-fill', class: "icon--star--start" %></span><small title="Tâches"><%= DoneTask.by_skill(skill).where(user: user).count %> / <%= skill.tasks.count %></small>
+                <% end %>
+              <% else %>
+                <span class="icon" title="Expert"><%= octicon 'star-fill', class: "icon--star--finish" %></span>
+              <% end %>
+            </td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

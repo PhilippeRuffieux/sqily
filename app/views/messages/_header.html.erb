@@ -1,0 +1,16 @@
+<header class="header">
+  <div class="title">
+    <h2><span class="icon"><%= octicon "comment" %></span><%= t ".title" %> <%= user_avatar(@user) %> <%= @user.name %></h2>
+
+    <% if @skill %>
+      <a href="<%= skill_path(current_community, @skill) %>" class="icon icon-clear icon--close">
+        <%= octicon "x" %>
+      </a>
+    <% else %>
+      <a href="<%= discussions_path(current_community) %>" class="icon icon-clear icon--close">
+        <%= octicon "x" %>
+      </a>
+    <% end %>
+  </div>
+</header>
+<div class="post-date"><hr><span class="date" id="top-date"></span></div>

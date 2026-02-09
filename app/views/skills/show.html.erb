@@ -1,0 +1,12 @@
+<%= render "header", skill: @skill %>
+<div class="post-date"><hr></div>
+
+<% if @skill.children.none? %>
+  <% if @subscription %>
+    <%= render "child", skill: @skill %>
+  <% else %>
+    <%= render template: "skills/new_subscription" %>
+  <% end %>
+<% else %>
+  <%= render "parent", skill: @skill %>
+<% end %>

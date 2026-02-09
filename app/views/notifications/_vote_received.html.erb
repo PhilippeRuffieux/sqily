@@ -1,0 +1,31 @@
+<li class="post">
+  <span class="avatar icon">
+    <%= octicon 'heart-fill' %>
+  </span>
+  <div class="message">
+    <div class="title">
+      <span class="title">
+        <%= link_to_user notification.vote.user, notification.vote.user.name %>&nbsp;a aimé votre message
+        <span class="ago">
+          <%= l notification.created_at, format: :short %>
+        </span>
+      </span>
+      <span class="icon"><a href="<%= message_permalink notification.vote.message %>"><%= octicon "link" %></a></span>
+    </div>
+    <div class="message__text">
+      <div class="box">
+        <% case notification.vote.message %>
+        <% when Message::Text %>
+          <%= format_message_text notification.vote.message %>
+        <% when Message::Upload %>
+          <%= render "/messages/attachment", message: notification.vote.message %>
+          <%= format_message_text notification.vote.message %>
+        <% when Message::PollCreated %>
+          <%= Poll.model_name.human %> : <%= notification.vote.message.poll.title %>
+        <% when Message::EventCreated %>
+          <%= Event.model_name.human %> : <%= notification.vote.message.event.title %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</li>

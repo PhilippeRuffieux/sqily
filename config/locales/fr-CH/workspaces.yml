@@ -1,0 +1,51 @@
+fr-CH:
+  workspaces:
+    edit:
+      title: Edition d'article
+      draft: brouillon
+      subtitle: |
+        Ce document est sauvegardé automatiquement toutes les 10 secondes.
+        Vous pouvez déposer des fichiers dans la zone de rédaction (20Mo maximum).
+        Vous pouvez inviter des membres de la communauté à collaborer à sa rédaction.
+        Vous devez inviter des membres de la communauté à relire et commenter votre article. Seul un lecteur de l'article peut autoriser sa publication.
+        Des nouvelles versions du brouillon seront automatiquement créées après chaque commentaire reçu afin de pouvoir comparer les changements.
+        La dernière version de l'article est éditable et publiable.
+        Vous pouvez supprimer cet article. Toute suppression est définitive.
+      locked_alert: "%{user} est déjà en train de modifier le document."
+      share: Participants
+      publish: Publier
+      new_version: Nouvelle version
+      modale_title: "Publication"
+      modale_help: "Quand votre article est prêt, vous pouvez le publier dans le flux de la communauté ou dans une compétence à laquelle vous participez.
+        Il deviendra alors visible par les membres de la communauté."
+      modale_skill_label: Compétence
+    show:
+      title: Article
+      draft: brouillon
+      discussion-title: Commentaires
+      unpublish: Dépublier
+      publish: Publier
+      approve: Autoriser la publication
+      reject: Rejeter la publication
+      can_still_reject: L'article n'a pas encore été publié, vous pouvez encore retirer l'autorisation de publication.
+      can_approve: En tant que lecteur, vous pouvez autoriser la publication ou commenter pour demander une révision.
+      can_publish: La publication de cet article est autorisée.
+      cannot_publish_yet: La publication de cet article n'est pas encore autorisée.
+      can_unpublish: Vous pouvez rendre cet article à nouveau privé et modifiable.
+      must_invite_reader: Vous devez inviter un lecteur qui validera votre article.
+    partnerships:
+      modal:
+        title: Participants
+        subtitle_author: Les co-auteurs peuvent éditer l'article, et sont crédités.
+        subtitle_reader: Les lecteurs peuvent lire et commenter avant publication.
+        owner: créateur
+        author: co-auteur
+        reader: lecteur
+      tab:
+        subtitle_author: Les co-auteurs peuvent éditer l'article, et sont crédités.
+        subtitle_reader:
+          Les lecteurs peuvent lire, commenter et autoriser la publication de l'article.
+          Tant que l'article n'est pas publié, il n'est pas visible des autres membres.
+        owner: créateur
+        author: co-auteur
+        reader: lecteur

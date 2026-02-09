@@ -1,0 +1,51 @@
+<div class="header">
+  <a href="http://sqily.com" style="display: block;">
+    <%= image_tag(image_url("sqily.png"), style: "height: 24px;") %>
+  </a>
+  <p><%= t ".daily_summary_title" %></p>
+</div>
+
+<!-- Conversations privées -->
+<% if (new_messages = @summary.new_private_messages.to_a).any? %>
+  <h2 style="margin-top:24px;">
+    <%= t ".new_conversations", count: new_messages.size %>
+  </h2>
+  <% for message in new_messages %>
+    <p>
+      <small><%= l message.created_at, format: :short %></small><br>
+      <%= image_tag user_avatar_url(message.from_user), style: "width: 24px; border-radius: 12px; float: left; margin-right: 6px;", alt: message.from_user.name %>
+      <strong><%= message.from_user.name %></strong>&nbsp;
+      <% if community = message.from_user.communities.first %>
+        <a href="<%= messages_url(permalink: community, user_id: message.from_user) %>">
+          <%= t ".reply" %>
+        </a>
+      <% end %>
+      <span class="message__text"><%= message.text %></span>
+    </p>
+  <% end %>
+  <hr>
+<% end %>
+
+<!-- rappel événements du jour -->
+<% if (events = @summary.upcoming_events.to_a).any? %>
+  <h2 style="margin-top:24px;">
+    <%= t ".new_reminder_messages" %>
+  </h2>
+  <% for event in events %>
+    <div style="border: 1px solid #ebebed; padding: 12px; margin-bottom: 12px;">
+      <strong style="display: block;"><%= link_to event.title, message_permalink(event.message, @user) %></strong>
+      <span style="display: block; text-transform: uppercase; letter-spacing: 2px; font-size: .833rem;"><%= l event.scheduled_at %></span>
+    </div>
+  <% end %>
+  <hr>
+<% end %>
+
+<% if (notifications = @summary.unread_notifications).any? %>
+  <h2 style="margin-top:24px;">Notifications</h2>
+  <%# TODO: lien vers notifications (c'est par communauté cet email?)  %>
+  <% for notification in notifications %>
+    <%= render_notification_for_emails notification %>
+  <% end %>
+<% end %>
+
+<p style="text-align: center;"><%= link_to "Continuer", "https://sqily.com", class: "btn" %></p>

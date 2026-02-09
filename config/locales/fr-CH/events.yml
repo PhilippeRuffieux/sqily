@@ -1,0 +1,8 @@
+fr-CH:
+  events:
+    index:
+      title: Evénements
+      filter_all: Tout
+      filter_registered: Inscrit
+    new:
+      title: Nouvel événement

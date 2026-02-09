@@ -1,0 +1,10 @@
+<header ontouchstart="this.classList.toggle('hover');">
+    <div class="title">
+      <h2>
+        <span class="icon icon--star icon--star--<%= user_skill_state(subscription.skill, current_user) %>">
+          <%= octicon 'star-fill' %>
+        </span>
+        <%= link_to subscription.skill.name, skill_path(current_community, subscription.skill) %>
+      </h2>
+    </div>
+</header>

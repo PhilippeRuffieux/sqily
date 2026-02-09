@@ -1,0 +1,41 @@
+<section class="main__content">
+  <nav class="submenu">
+    <% if can_edit_current_community_skills?(@skill) %>
+      <ul class="tabs">
+        <li>
+          <a href="<%= edit_skill_path(current_community, @skill) %>" class="btn btn--admin"><%= octicon "gear" %></a>    
+        </li>
+      </ul>
+    <% end %>
+  </nav>
+
+  <div class="post-date"><hr></div>
+
+  <div class="content__section">
+    <h3><%= Skill.human_attribute_name(:description) %></h3>
+    <div class="box">
+      <%= format_skill_description @skill %>
+    </div>
+  </div>
+
+  <% if @evaluations.any? %>
+    <div class="content__section">
+      <h3><%= Evaluation.model_name.human %></h3>
+      <div class="box">
+        <div><%= format_rich_text @evaluations.first.description&.html_safe %></div>
+        <small>Défi créé par <%= link_to_user @evaluations.first.user %></small>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="content__section form">
+    <%= form_tag subscribe_skill_path(current_community, @skill) do %>
+      <% if @skill.startable_by?(current_user) %>
+        <%= submit_tag "S'inscrire" %>
+      <% else %>
+        <%= submit_tag "Inscription bloquée", disabled: true, class: "disabled" %>
+      <% end %>
+    <% end %>
+  </div>
+  <%= render "/layouts/footer" %>
+</section>

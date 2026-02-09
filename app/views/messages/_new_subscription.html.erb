@@ -1,0 +1,20 @@
+<li id="message-<%= message.id %>" data-date="<%= I18n.l(message.created_at.to_date, format: '%A, %d %b %Y') %>" class="post">
+  <span class="avatar icon">
+    <%= octicon 'home' %>
+  </span>
+  <div class="message">
+    <div class="title">
+      <span class="title">
+        <% if (names = message.users.pluck(:name)).size == 1 %>
+          <%= t(".message", count: 1, names: link_to_user(message.users.first)).html_safe %>
+        <% else %>
+          <%= t(".message", count: names.size, names: names.join(", ")) %>
+          <!-- TODO  liens vers les users -->
+        <% end %>
+        <span class="ago"><%= link_to_message message %></span>
+      </span>
+      <%= render "/messages/vote_button", message: message %>
+      <%= render "/messages/unread_button", message: message %>
+    </div>
+  </div>
+</li>

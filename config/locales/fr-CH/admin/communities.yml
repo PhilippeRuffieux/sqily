@@ -1,0 +1,12 @@
+fr-CH:
+  admin:
+    communities:
+      index:
+        title: Communautés Sqily
+        delete_confirmation: "Êtes vous sûr de supprimer la communauté?"
+        duplicate_button: Dupliquer
+        moderators: Modérateurs
+      statistics:
+        expertises: Expertises
+        evaluation_feedbacks:  Retours sur défis
+        last_activity: Dernière activité

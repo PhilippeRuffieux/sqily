@@ -1,0 +1,38 @@
+<section class="attestation">
+  <header>
+    <a href="/"><%= image_tag image_path("sqily.svg"), class: "logo", alt: "Sqily" %></a>
+  </header>
+  <div class="container">
+    <header>
+      <h2 class="community">
+        <a href="<%= skills_path current_community %>">
+          <span class="icon icon--home">
+            <%= octicon 'home' %>
+          </span>
+          <%= current_community.name %>
+        </a>
+      </h2>
+    </header>
+
+    <div class="attestation__content">
+      <div class="attestation__content__workspace">
+        <h2><%= @workspace.title %></h2>
+        <small class="attestation__content__workspace__date"><%= l @workspace.published_at.to_date %></small>
+
+        <% for author in @workspace.writers %>
+          <% if author_membership = author.memberships.where(community: current_community).first %>
+            <%= link_to profile_membership_path(current_community, author_membership) do %>
+              <h3 class="attestation__content__workspace__author"><%= user_avatar(author) %> <%= author.name %></h3>
+            <% end %>
+          <% else %>
+            <h3 class="attestation__content__workspace__author"><%= user_avatar(author) %> <%= author.name %></h3>
+          <% end %>
+        <% end %>
+
+        <div class="attestation__content__workspace__text">
+          <%= format_rich_text @workspace.writing.html_safe %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

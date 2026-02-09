@@ -1,0 +1,21 @@
+<% messages = messages_from_oldest_to_newest(@messages) %>
+
+<ul class="basic-list" id="messages-list" data-previous-page-url="<%= messages_previous_page_url(messages) %>" data-next-page-url="<%= messages_next_page_url(messages) %>" data-auto-pull-url="<%= messages_auto_pull_url(@messages) %>">
+  <% if @messages.blank? %>
+    <li class="empty" id="messages-empty">
+      <h2><%= t ".title" %></h2>
+      <p><%= t ".instructions" %></p>
+    </li>
+  <% else %>
+    <% previous_message = nil %>
+    <% for message in messages %>
+      <% if previous_message && previous_message.created_at.to_date != message.created_at.to_date %>
+        <li class="post-date" data-date="<%= I18n.l(previous_message.created_at.to_date, format: '%A, %d %b %Y') %>">
+          <hr><span class="date"><%= I18n.l(message.created_at.to_date, format: '%A, %d %b %Y') %></span>
+        </li>
+      <% end %>
+      <%= render_message message %>
+      <% previous_message = message %>
+    <% end %>
+  <% end %>
+</ul>

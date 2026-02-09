@@ -1,0 +1,35 @@
+<%= render "/communities/header" %>
+
+<div class="post-date"><hr></div>
+
+<nav class="submenu">
+  <% if moderator? || current_community.free_skill_creation %>
+    <ul class="tabs">
+      <li>
+        <a href="<%= new_skill_path(current_community) %>" class="btn btn--admin">
+          <%= octicon 'plus-circle' %><span><%= t "lib.add" %></span>
+        </a>
+      </li>
+    </ul>
+  <% end %>
+  <ul class="tabs is-right">
+    <% if params[:community_tree] %>
+      <li>
+        <a href="<%= skills_path(current_community) %>" class="btn btn--secondary">
+          <%= octicon 'workflow' %><span><%= t "communities.tree.personal" %></span>
+        </a>
+      </li>
+    <% else %>
+      <li>
+        <a href="<%= skills_path(current_community, community_tree: true) %>" class="btn btn--secondary">
+          <%= octicon 'workflow' %><span><%= t "communities.tree.community" %></span>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+</nav>
+<div class="post-date"><hr></div>
+
+<%= render "skills/tree", skills: current_community.skills.roots.viewable_by(current_user), relative_to_user: params[:community_tree] ? nil : current_user %>
+
+<%= render "/layouts/footer" %>

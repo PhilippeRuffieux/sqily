@@ -1,0 +1,10 @@
+<p>
+  <small><%= l notification.created_at, format: :short %></small><br>
+  Vous avez obtenu un nouveau badge:<br>
+  <span class="message__text">
+    <strong><%= notification.badge.model_name.human %></strong><br>
+    <%= notification.badge.description %>
+  </span>
+</p>
+
+<p style="text-align: center;"><%= link_to "Continuer", "https://sqily.com", class: "btn" %></p>

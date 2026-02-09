@@ -1,0 +1,13 @@
+<div class="header">
+  <a href="http://sqily.com" style="display: block;">
+    <%= image_tag('sqily.png', :style => 'height: 24px') %>
+  </a>
+  <h2><a href="<%= skills_url(@invitation.community) %>"><%= @invitation.community.name %></a></h2>
+  <p>Invitation</p>
+</div>
+
+<p>Bonjour,</p>
+<p>La communauté <strong><%= @invitation.community.name %></strong> vous invite à la rejoindre.</p>
+<p style="text-align: center;"><%= link_to "Rejoindre", invitation_url(@invitation.community, @invitation), class: "btn" %></p>
+<hr>
+<p>Ce lien d'invitation n'est valable qu'une fois. Si vous avez déjà rejoint cette communauté, veuillez vous <%= link_to "connecter", session_url %>.</p>

@@ -1,0 +1,26 @@
+fr-CH:
+  communities:
+    public_registery: communautés
+    registration_code_disabled: Vous ne pouvez pas rejoindre cette communauté avec un code d'accès
+    invalid_registration_code: Code d'accès invalide
+    already_member: Vous êtes déjà membre de cette communauté
+    messages:
+      all_messages_tooltip: Voir tous les messages
+      important_messages_tooltip: Voir les messages importants
+      calendar_tooltip: Voir les événements
+      search_tooltip: Rechercher dans les messages
+      toggle_description_button: Voir la description
+    tree:
+      skill_label: "%{user_count} dont %{expert_count}"
+      skill_user_count:
+        zero: 0 inscrit
+        one: 1 inscrit
+        other: "%{count} inscrits"
+      skill_expert_count:
+        zero: 0 expert
+        one: 1 expert
+        other: "%{count} experts"
+      title: Arbre des compétences
+      moderator_help_message: Editez les compétences pour modifier la structure de l'arbre
+      personal: Voir votre arbre
+      community: Voir l'arbre de communauté

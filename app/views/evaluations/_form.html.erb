@@ -1,0 +1,12 @@
+<% url = evaluation.persisted? ? skill_evaluation_path(current_community, evaluation) : create_skill_evaluation_path(current_community, evaluation.skill) %>
+
+<%= form_for evaluation, url: url, multipart: true do |form| %>
+  <%= form.label :title %>
+  <%= form.text_field :title, placeholder: t("lib.optionnal") %>
+
+  <%= form.label :description %>
+  <%= form.hidden_field :description %>
+  <%= trix_editor_tag input: "evaluation_description", attachment_path: evaluation.attachment_path %>
+
+  <%= form.submit t("lib.save") %>
+<% end %>

@@ -1,0 +1,9 @@
+<div class="header">
+  <a href="http://sqily.com" style="display: block;">
+    <%= image_tag('sqily.png', :style => 'height: 24px') %>
+  </a>
+  <p>rappel</p>
+</div>
+Rappel pour l'événement de demain à <%= l @event.scheduled_at %>: <%= @event.title %>
+
+<p style="text-align: center;"><%= link_to "Continuer", "https://sqily.com", class: "btn" %></p>

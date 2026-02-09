@@ -1,0 +1,10 @@
+<%= render "evaluations/header", subscription: @subscription, back_path: skill_evaluations_path(current_community, @skill) %>
+
+<div class="post-date">
+  <hr>
+</div>
+
+<section class="form">
+  <h3><%= t("evaluations.add_evaluation_button") %></h3>
+  <%= render "/evaluations/form", evaluation: @evaluation %>
+</section>

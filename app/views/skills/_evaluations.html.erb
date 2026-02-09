@@ -1,0 +1,30 @@
+<% if @subscription.completed_at? %>
+  <% if evaluations.any? %>
+    <% if @skill.subscriptions.find_by_user_id(current_user.id).exams.any? %>
+      <%= link_to t("evaluations.add_evaluation_button"), new_skill_evaluation_path(current_community, @subscription.skill), class: "btn btn--admin is-right" %>
+    <% end %>
+    <strong><%= t("skills.evaluation_auto.status_expert") %></strong>
+  <% else %>
+    <%= link_to t("evaluations.add_evaluation_button"), new_skill_evaluation_path(current_community, @subscription.skill), class: "btn btn--admin is-right" %>
+    <strong><%= t(".choices.empty") %></strong>
+  <% end %>
+<% end %>
+
+<% if evaluations.any? %>
+  <% if @exam %>
+    <strong><%= t "evaluations.exams.label", author: @exam.evaluation.user.name, examinator: @exam.evaluation.user.name %></strong>
+    <%= link_to t("evaluations.exams.continue_exam"), evaluation_exam_path(current_community, @exam), class: "btn is-right" %>
+  <% else %>
+    <% if evaluations.size > 1 %>
+      <%= select_tag :evaluation_id, evaluations_to_options(evaluations, @subscription.draft.evaluation), "data-module" => "Sqily.Evaluation.Switcher" %>
+    <% else %>
+      <%= hidden_field_tag :evaluation_id, @subscription.draft.evaluation_id %>
+    <% end %>
+    <%= render "/evaluations/exams/evaluation", evaluation: @subscription.draft.evaluation if @subscription.draft %>
+    <%= render "/evaluations/drafts/form", draft: @subscription.draft if !@subscription.completed_at %>
+  <% end %>
+<% else %>
+  <% if !@subscription.completed_at? %>
+    <strong><%= t(".choices.empty") %></strong>
+  <% end %>
+<% end %>

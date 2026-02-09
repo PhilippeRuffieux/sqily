@@ -1,0 +1,47 @@
+<%= render "header" %>
+
+<section class="form">
+  <h3>Dupliquer la communauté <%= current_community.name %></h3>
+  <div class="box">
+    <p>
+      En dupliquant une communauté, vous dupliquez ses compétences, les liens pour construire l'arbre,
+      les descriptifs et les tâches.<br>
+      Les utilisateurs ne sont pas dupliqués.<br>
+      En tant qu'admin, vous devenez expert des compétences dupliquées.<br>
+      S'il y a d'autres admins ou d'autres experts, vous devrez les réinviter et les
+      valider pour qu'ils puissent déposer leur défi.
+    </p>
+  </div>
+
+  <br>
+  <%= form_for @community, method: :post, url: duplicate_community_path(@community), builder: InlineErrorFormBuilder do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+
+    <%= form.label :permalink %>
+    <small><strong>Attention: ne peut plus être modifié ensuite !</strong></small>
+    <div class="input-group">
+      <div class="input-group-prepend">https://sqily.com/</div>
+      <%= form.text_field :permalink, class: "input--permalink" %>
+    </div>
+
+    <label for="community_free_skill_creation">
+      <%= form.check_box :free_skill_creation %>
+      Création libre des compétences
+    </label>
+    <small>Si la case est cochée, tous les membres peuvent créer des compétences, sinon, cette fonction est réservée aux admins.</small>
+
+    <%= form.label :duplicate_evaluations %>
+    <%= check_box_tag "community[duplicate_evaluations]", "1", params.dig(:community, :duplicate_evaluations) %>
+    <small>Si la case est cochée, les défis seront copiés et vous en deviendrez l'auteur.</small>
+
+    <div class="form--inline">
+      <%= form.submit t("lib.save") %>
+      <%= link_to t("lib.cancel"), skills_path(current_community), class: "btn btn--large btn--delete" %>
+    </div>
+    <small>La duplication peut prendre une dizaine de secondes selon le nombre de compétences.</small>
+  <% end %>
+</section>

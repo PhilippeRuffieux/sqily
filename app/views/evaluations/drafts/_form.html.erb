@@ -1,0 +1,33 @@
+<section class="messages">
+  <ul>
+    <li class="post">
+      <%= link_to_user(current_user) { user_avatar(current_user) } %>
+
+      <div class="message">
+        <div class="title">
+          <span class="title">
+            <strong><%= t("evaluations.exams.answer") %></strong>
+            <span class="record">
+              <span class="record--done">
+                <%= octicon "dot-fill" %>
+              </span>
+              <%= t("lib.automatic_save") %>
+            </span>
+          </span>
+        </div>
+        <div class="box">
+          <%= form_for draft, url: evaluation_drafts_path(current_community), method: "post", multipart: true, authenticity_token: form_authenticity_token, html: {"data-ariato" => "Sqily.Evaluation.DraftForm"} do |form| %>
+            <%= form.hidden_field :subscription_id %>
+            <%= form.hidden_field :evaluation_id %>
+            <%= form.hidden_field :content, required: true, "data-role" => "draftContentInput" %>
+            <%= trix_editor_tag input: "evaluation_draft_content", attachment_path: draft.subscription.attachment_path %>
+            <% if !draft.submittable? %>
+              <p class="error"><%= t "evaluations.exams.unsubmittable" %></p>
+            <% end %>
+            <%= form.submit t("lib.send"), formaction: create_evaluation_exams_path(current_community, draft.evaluation), disabled: !draft.submittable?, "data-role" => "submitDraftButton" %>
+          <% end %>
+        </div>
+      </div>
+    </li>
+  </ul>
+</section>

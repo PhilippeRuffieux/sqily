@@ -1,0 +1,11 @@
+fr-CH:
+  invitation_requests:
+    create:
+      alert: Un administrateur va valider votre demande d'invitation. Vous recevrez prochainement un email.
+    index:
+      title: "%{name} est une communauté privée."
+      submit: Demandez une invitation
+      member_title: Déjà membre ?
+      form_title: Pas encore membre ?
+      registration_code_title: Vous avez un code d'accès ?
+      join: Rejoindre

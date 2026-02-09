@@ -1,0 +1,12 @@
+<%= form_tag session_path do %>
+  <% if @login_failed %>
+    <p class="error"><%= t ".error_message" %></p>
+  <% end %>
+  <%= label_tag :email %>
+  <%= email_field_tag :email, params[:email] %>
+  <%= label_tag :password, t(".password_label") %>
+  <%= password_field_tag :password %>
+  <%= submit_tag t("lib.login") %>
+<% end %>
+
+<p><%= link_to t(".forgotten_password_link"), password_resets_path %></p>

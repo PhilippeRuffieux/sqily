@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="<%= I18n.locale %>">
+  <head>
+    <!-- <%= Sqily.latest_commit_id %> -->
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <title><%= page_title %></title>
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet">
+    <style type="text/css">
+      <%= inline_css_layout_to_avoid_weird_redraw %>
+    </style>
+
+    <%= include_trix_assets %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag "tree", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<%= image_path "apple-touch-icon-144x144.png" %>">
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="<%= image_path "apple-touch-icon-152x152.png" %>">
+    <link rel="icon" type="image/png" href="<%= image_path "favicon-32x32.png" %>" sizes="32x32">
+    <link rel="icon" type="image/png" href="<%= image_path "favicon-16x16.png" %>" sizes="16x16">
+    <meta name="application-name" content="Sqily">
+    <meta name="msapplication-TileColor" content="#FFFFFF">
+    <meta name="msapplication-TileImage" content="<%= image_path "mstile-144x144.png" %>">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+  </head>
+
+  <body data-ariato="Sqily.App">
+    <%= render "/layouts/flash" %>
+    <%= render "layouts/header" %>
+    
+    <main>
+      <div class="content">
+        <%= yield %>
+      </div>
+      <aside id="members" class="sidebar" data-role="sidebar"></aside>
+    </main>
+
+    <div id="modal-overlay" class="modal-overlay" style="display:none;"></div>
+    <script>
+      var $buoop = {required:{e:-4,f:-3,o:-3,s:-1,c:-3},insecure:true,api:2019.08 };
+      function $buo_f(){
+      var e = document.createElement("script");
+      e.src = "//browser-update.org/update.min.js";
+      document.body.appendChild(e);
+      };
+      try {document.addEventListener("DOMContentLoaded", $buo_f,false)}
+      catch(e){window.attachEvent("onload", $buo_f)}
+    </script>
+  </body>
+</html>

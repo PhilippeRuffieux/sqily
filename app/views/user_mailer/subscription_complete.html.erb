@@ -1,0 +1,31 @@
+<div class="header">
+  <a href="http://sqily.com" style="display: block;">
+    <%= image_tag('sqily.png', :style => 'height: 24px') %>
+  </a>
+  <h2><a href="<%= skills_url(@subscription.skill.community) %>"><%= @subscription.skill.community.name %></a></h2>
+  <p>Validation d'une expertise</p>
+</div>
+
+<p><%= @subscription.user.name %>,</p>
+
+<% if validator = @subscription.validator %>
+  <p>
+    <%= validator.name %> a validé votre compétence <strong><%= @subscription.skill.name %></strong>.
+    <br>Bravo ! Vous êtes maintenant expert.
+  </p>
+  <% if exam = @subscription.exams.where(examiner: @subscription.validator).last %>
+    <% if (note = exam.notes.accepted.last) && note.content? %>
+      <p>
+        <%= image_tag user_avatar_url(note.user), style: "width: 24px; border-radius:14px; float: left; margin-right: 7px;", alt: note.user.name %>
+        <%= note.user.name %>: <blockquote style="opacity: .5;"><%= note.content&.html_safe %></blockquote>
+      </p>
+    <% end %>
+    <p style="text-align: center;"><%= link_to "Continuer la conversation", messages_url(permalink: @subscription.skill.community.permalink, user_id: @subscription.validator_id), class: "btn" %></p>
+  <% end %>
+<% else %>
+  <p>
+    Vous avez validé votre compétence <strong><%= @subscription.skill.name %></strong>.
+    <br>Bravo ! Vous êtes maintenant expert.
+  </p>
+  <p style="text-align: center;"><%= link_to "Continuer", "https://sqily.com", class: "btn" %></p>
+<% end %>

@@ -1,0 +1,49 @@
+hep_equations:
+  community: hep
+  name: Maths
+  description: Équations à 2 inconnues
+  published_at: <%= Time.now %>
+
+design:
+  community: base
+  name: Design
+  description: Design
+  published_at: nil
+
+html:
+  community: base
+  name: HTML
+  description: HyperText Markup Language
+  parent: design
+  published_at: nil
+
+css:
+  community: base
+  name: CSS
+  description: Cascading Style Sheets
+  parent: design
+  published_at: nil
+  minimum_prerequisites: 1
+
+programming:
+  community: base
+  name: Programming
+  description: Computer programming
+  published_at: <%= 1.month.ago %>
+  creator: alexis
+  created_at: <%= 1.month.ago %>
+
+js:
+  community: base
+  name: JavaScript
+  description: Frontend web development
+  parent: programming
+  published_at: <%= Time.now %>
+  creator: alexis
+
+ror:
+  community: base
+  name: Ruby on Rails
+  description: Web development with Ruby on Rails
+  parent: programming
+  published_at: <%= Time.now %>

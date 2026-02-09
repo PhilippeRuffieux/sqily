@@ -1,0 +1,6 @@
+fr-CH:
+  sessions:
+    form:
+      error_message: Mauvais email ou mot de passe.
+      password_label: Mot de passe
+      forgotten_password_link: "Mot de passe oublié ?"

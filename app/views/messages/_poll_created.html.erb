@@ -1,0 +1,53 @@
+<li id="message-<%= message.id %>" data-date="<%= I18n.l(message.created_at.to_date, format: '%A, %d %b %Y') %>" class="post">
+  <%= link_to_user message.from_user do %>
+    <span class="avatar user<%= @skill ? user_skill_state = user_skill_state(@skill, message.from_user) : "" %>">
+      <% if @skill %>
+        <span class="icon badge icon--star--<%= user_skill_state %>">
+          <%= octicon 'star-fill' %>
+        </span>
+      <% end %>
+      <%= user_avatar(message.from_user) %>
+    </span>
+  <% end %>
+
+  <div class="message">
+    <div class="title">
+      <span class="title">
+        <%= t(".title", user: link_to_user(message.from_user, message.from_user.name)).html_safe %>
+        <span class="ago"><%= link_to_message message %></span>
+      </span>
+
+      <%= render "/messages/vote_button", message: message %>
+      <%= render "/messages/pin_button", message: message %>
+      <%= render "/messages/unread_button", message: message %>
+
+      <% if can_delete_message?(message) %>
+        <%= form_tag poll_path(current_community, message.poll), method: "delete", "data-confirmation" => t("lib.confirmation"), title: t("lib.delete") do %>
+          <button type="submit" class="icon icon--delete"><%= octicon "trash" %></button>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div id="message-text-<%= message.id %>">
+      <div class="poll">
+        <p><%= message.poll.title %></p>
+        <% if !message.poll.answered_by?(current_user) && message.poll.answerable_by?(current_user) %>
+          <%= render "/polls/choices", poll: message.poll %>
+          <% if message.poll.finished_at %>
+            <div class="poll__meta">
+              <small class="ago"><%= t ".end_date" %><%= l message.poll.finished_at.to_date %></small>
+            </div>
+          <% end %>
+        <% else %>
+          <%= render "/polls/answers", poll: message.poll %>
+          <div class="poll__meta">
+            <span class="pull-right"><small>(<%= message.poll.answers.count %> <%= t ".votes" %>)</small></span>
+            <% if message.poll.finished_at %>
+              <small class="ago"><%= t ".end_date" %><%= l message.poll.finished_at.to_date %></small>
+            <% end %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</li>

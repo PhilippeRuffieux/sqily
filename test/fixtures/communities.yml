@@ -1,0 +1,10 @@
+base:
+  name: Base Secrète
+  description: La base
+  permalink: base-secrete
+
+hep:
+  name: HEP Vaud
+  permalink: hep
+  public: true
+  registration_code: "pa$$w0rd"

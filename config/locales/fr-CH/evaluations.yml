@@ -1,0 +1,33 @@
+fr-CH:
+  evaluations:
+    modal:
+      title: Ajouter un nouveau défi
+    exams:
+      status:
+        completed: Défi validé
+        completed_by_interlocutor: "Défi de %{user} validé"
+        completed_by_you: "Défi validé par %{user}"
+        cancelled: Défi annulé
+        waiting_for_your: "%{user} attend votre réponse..."
+        waiting_for_interlocutor: "Vous attendez la réponse de %{user}..."
+        is_expert: "%{user} est expert"
+      opinion: "Qu'en pensez-vous ?"
+      answer: "Votre résultat"
+      accept: "Valider le défi"
+      reject: "Envoyer sans valider"
+      send: "Envoyer votre résultat"
+      already_one_in_progress: "Vous avez déjà un défi en cours sur cette compétence."
+      continue_exam: "Reprendre le défi"
+      see_exam: "Voir le défi"
+      cancel: "Abandonner"
+      unsubmittable: Cette compétence n'a pas d'expert. Personne ne pourra vous la valider.
+      cancel_confirmation: "Êtes-vous sûr de vouloir abandonner ce défi ?"
+      submit_to_another_examiner: Soumettre à un autre expert
+      you_canceled_exam: "Vous avez abandonné ce défi"
+      candidate_canceled_exam: "%{candidate_name} a abandonné ce défi"
+      no_exam_title: "Pas de défi en cours."
+      no_exam_message: "Vos défis démarrés, en tant que candidat ou correcteur apparaîtront ici."
+      label: "Défi de %{author}, examiné par %{examinator}"
+    add_evaluation_button: "Ajouter un défi"
+    edit_evaluation_button: "Éditer un défi"
+    back_to_evaluations: "Retour aux évaluations"

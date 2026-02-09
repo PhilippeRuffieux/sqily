@@ -1,0 +1,34 @@
+.tribute-container {
+  position: relative;
+  bottom: 60px !important;
+  top: auto !important;
+  max-width: 320px;
+  overflow: hidden;
+}
+
+.tribute-container ul {
+  border: 1px solid rgba(17, 22, 26, .1);
+  background: #fff;
+}
+
+.tribute-container li { padding: 6px 12px; }
+
+.tribute-container li.highlight,
+.tribute-container li:hover {
+  background: rgba(17, 22, 26, .1); 
+}
+
+#workspace-partnerships-tab .tribute-container {
+  position: absolute !important;
+  bottom: 36px !important;
+  top: auto !important;
+  left: 24px !important;
+  z-index: 10;
+  overflow: scroll;
+  max-height: 240px;
+  overflow: auto;
+}
+
+@media (min-width: 1000px) {
+  #workspace-partnerships-tab .tribute-container { position: absolute !important; }
+}

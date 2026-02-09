@@ -1,0 +1,8 @@
+antoine1:
+  ip_address: 1.2.3.4
+  method: GET
+  controller: communties
+  action: show
+  path: /base
+  referer:
+  membership: antoine_base

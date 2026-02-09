@@ -1,0 +1,7 @@
+backend:
+  community: base
+  name: Backend
+
+frontend:
+  community: base
+  name: Frontend

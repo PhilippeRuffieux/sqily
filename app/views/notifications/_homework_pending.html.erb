@@ -1,0 +1,19 @@
+<li class="post">
+  <span class="avatar icon">
+    <%= octicon "bookmark" %>
+  </span>
+  <div class="message">
+    <div class="title">
+      <span class="title">
+        <%= link_to_user notification.homework.evaluation.user, notification.homework.evaluation.user.name %>&nbsp; défi en attente &nbsp;
+        <a href="<%= skill_path(current_community, notification.homework.evaluation.skill) %>"><%= notification.homework.evaluation.skill.name %></a>.
+        <span class="ago"><%= l notification.created_at, format: :short %></span>
+      </span>
+      <span class="icon">
+        <% if message = Message::HomeworkUploaded.find_by_homework_id(notification.homework_id) %>
+          <a href="<%= message_permalink message %>"><%= octicon "link" %></a>
+        <% end %>
+      </span>
+    </div>
+  </div>
+</li>

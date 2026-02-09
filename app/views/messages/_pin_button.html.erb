@@ -1,0 +1,15 @@
+<% if message.pinnable_by?(current_user) %>
+  <% if message.pinned_at %>
+    <%= form_tag pin_message_path(current_community, message) do %>
+      <button type="submit" title="Enlever des messages importants" class="icon pin active">
+        <%= octicon "pin" %>
+      </button>
+    <% end %>
+  <% else %>
+    <%= form_tag pin_message_path(current_community, message) do %>
+      <button type="submit" title="Ajouter aux messages importants" class="icon pin">
+        <%= octicon "pin" %>
+      </button>
+    <% end %>
+  <% end %>
+<% end %>

@@ -1,0 +1,30 @@
+<% if (evaluations = evaluations_of(user)).exists? %>
+<div class="user__profile--block user__evaluations">
+  <header>
+    <h4><%= t ".title" %> (<%= evaluations.count %>)</h4>
+  </header>
+  <div class="user__links user_links--evaluations user__links--collapsed" id="user-evaluations">
+    <% for evaluation in evaluations %>
+      <div class="user__links__item user__links__item--evaluations">
+        <span class="icon">
+          <%= octicon "bookmark" %>
+        </span>
+        
+        <a href="<%= skill_path(current_community, evaluation.skill) %>" class="user__links--skill">
+          <%= evaluation.skill.name %>
+        </a>
+        &nbsp;
+        (<%= link_to Evaluation.model_name.human, skill_evaluation_path(current_community, evaluation), class: "user__links--file" %>)
+      </div>
+    <% end %>
+
+    <% if evaluations.count > 4 %>
+      <span class="btn btn--small btn--toggle" data-module="Toggle.Css"
+          data-target="#user-evaluations"
+          data-css="user__links--collapsed">
+          <%= t "lib.view_all" %>
+        </span>
+    <% end %>
+  </div>
+</div>
+<% end %>

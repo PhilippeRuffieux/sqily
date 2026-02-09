@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;">
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+    <style>
+      body { background:#F2F2EF; padding:6px; color:#0d3c57; font-family: 'Helvetica Neue', Helvetica, sans-serif; font-weight: 400; line-height: 24px; font-size:16px; }
+      a {color: #1c8cca;}
+      h2 { margin: 64px 0 48px; font-size: 1.44rem; line-height: 48px;  }
+      h3 { margin-top: 24px; font-size: 1.2rem; }
+      small { font-size: .694rem; color: #6d7173; }
+      strong { color: #1b2226; }
+      hr { margin:24px 0; padding:0; height:1px; background:#f7f7f7; border:0; }
+      .btn { background: #1c8cca; color:#fff; padding:12px 24px; border-radius:24px; text-decoration: none; text-transform: uppercase; letter-spacing: 2px; margin: 12px auto 0; display: inline-block; }
+      .header {
+        background: #1b2226;
+        color:#a2a5a6;
+        padding: 14px 24px;
+        margin: -24px -24px 0;
+        margin-bottom: 24px;
+        letter-spacing:0;
+        text-align: center;
+      }
+      .header h2 { margin:0; }
+      .header a { color: #a2a5a6; }
+      .header p { text-transform: uppercase; letter-spacing: 2px; font-size: .694rem; margin:0; }
+      .message__text { color: #6d7173; display: block; border-left: 6px solid #f7f7f7; padding-left: 6px; margin-left: 18px; }
+    </style>
+  </head>
+  <body>
+    <div style="background:#fff; padding: 24px;">
+      <%= yield %>
+    </div>
+    <p style="color:#6d7173; text-align: center; font-size: 11px;">2026@HEP</p>
+  </body>
+</html>

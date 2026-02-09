@@ -1,0 +1,13 @@
+<ul data-module="Sqily.Prerequisites" id="prerequisite-list" class="basic-list prerequisite">
+  <div class="box box--help">
+    <p>Suggérer ou rendre obligatoire la validation préalable de compétences pour accéder à cette compétence.</p>
+  </div>
+  <% for prerequisite in @skill.prerequisites.order(:id) %>
+    <%= render "/prerequisites/list_item", prerequisite: prerequisite %>
+  <% end %>
+
+  <li class="new-prerequisite">
+    <%= select_tag "new-prerequisite", options_from_collection_for_select(available_prerequisites_skills_for(@skill), :id, :name) %>
+    <span class="btn" id="add-prerequisite" data-url="<%= prerequisites_path(current_community, @skill) %>"><%= t "lib.add" %></span>
+  </li>
+</ul>

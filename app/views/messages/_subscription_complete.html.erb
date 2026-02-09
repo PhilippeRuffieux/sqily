@@ -1,0 +1,35 @@
+<li id="message-<%= message.id %>" data-date="<%= I18n.l(message.created_at.to_date, format: '%A, %d %b %Y') %>" class="post">
+  <%= link_to_user message.from_user do %>
+    <span class="avatar user<%= @skill ? user_skill_state = user_skill_state(@skill, message.from_user) : "" %>">
+      <% if @skill %>
+        <span class="icon badge icon--star--<%= user_skill_state %>">
+          <%= octicon 'star-fill' %>
+        </span>
+      <% end %>
+      <%= user_avatar(message.from_user) %>
+    </span>
+  <% end %>
+
+  <div class="message">
+    <div class="title">
+      <span class="title">
+        <%= t(".message", user: link_to_user(message.from_user)).html_safe %>
+        <% if message.homework %>
+          (<%= t(".homework_validated_by",
+            homework: link_to("Défi", encode_file_url(message.homework.file_url), target: "_blank"),
+            user: link_to_user(message.homework.evaluation.user)).html_safe %>)
+        <% elsif validator = message.subscription.try(:validator) %>
+          <% if validator.id == message.subscription.user_id %>
+            (<%= t ".auto_evaluation" %>)
+          <% else %>
+            (<%= t(".validated_by", user: link_to_user(validator)).html_safe %>)
+          <% end %>
+        <% end %>
+
+        <span class="ago"><%= link_to_message message %></span>
+      </span>
+      <%= render "/messages/vote_button", message: message %>
+      <%= render "/messages/unread_button", message: message %>
+    </div>
+  </div>
+</li>

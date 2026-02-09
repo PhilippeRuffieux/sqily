@@ -1,0 +1,21 @@
+<p>
+  <small><%= l notification.created_at, format: :short %></small><br>
+  <%= image_tag user_avatar_url(notification.vote.user), style: "width: 24px; border-radius: 12px; float: left; margin-right: 6px;", alt: notification.vote.user.name %>
+  <strong><%= notification.vote.user.name %></strong>
+  &nbsp;a aimé votre message.&nbsp;
+  <a href="<%= message_permalink notification.vote.message %>">Voir</a><br>
+  <span class="message__text">
+    <% case notification.vote.message %>
+    <% when Message::Text %>
+      <%= notification.vote.message.text %>
+    <% when Message::Upload %>
+      <%= notification.vote.message.text %>
+    <% when Message::PollCreated %>
+      <%= Poll.model_name.human %> : <%= notification.vote.message.poll.title %>
+    <% when Message::EventCreated %>
+      <%= Event.model_name.human %> : <%= notification.vote.message.event.title %>
+    <% end %>
+  </span>
+</p>
+
+<p style="text-align: center;"><%= link_to "Continuer", "https://sqily.com", class: "btn" %></p>

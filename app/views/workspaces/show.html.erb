@@ -1,0 +1,148 @@
+<header>
+  <div class="title">
+    <h2>
+      <%= t ".title" %>
+
+      <% if @workspace.published_at %>
+        <small class="date"><%= l @workspace.published_at %></small>
+      <% else %>
+        <small class="draft"><strong><%= t ".draft" %></strong></small>
+      <% end %>
+    </h2>
+
+
+    <span class="title__actions">
+      <% if !@workspace.published_at && !@partnership.read_only %>
+        <%= link_to edit_workspace_path(current_community, @workspace), class: "btn btn--admin" do %>
+          <%= octicon "pencil" %>
+          <%= t(".editer") %>
+        <% end %>
+      <% end %>
+
+      <% if current_user.permissions.destroy_partnership?(@partnership) %>
+        <%= button_to t("lib.quit"), workspace_partnership_path(current_community, @workspace, @partnership), method: :delete, class: "btn btn--small btn--delete", form: { "data-confirmation" => t("lib.confirmation") } %>
+      <% end %>
+
+      <a href="<%= skills_path(current_community) %>" class="icon icon--close">
+        <%= octicon "x" %>
+      </a>
+    </span>
+  </div>
+</header>
+
+<section class="workspace">
+  <div class="box workspace__text">
+    <div class="workspace__actions">
+      <% if @partnership %>
+        <div class="workspace__versions" data-module="Sqily.Workspace.Versions">
+          <select data-events="change->switchVersion" data-url="<%= workspace_path(current_community, @workspace, version: "version") %>">
+            <%= workspace_versions_options(@workspace, @version) %>
+          </select>
+        </div>
+        <% if @version.number < @workspace.last_version.number %>
+          <%= link_to workspace_path(@workspace, permalink: current_community, version: params[:version], diff: params[:diff] ? nil : true), class: "btn btn-toggle #{params[:diff] ? 'btn-toggle--active' : ''}", title: "Comparer avec la dernière version" do %>
+            <%= octicon 'diff' %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <h2><%= @version.title %></h2>
+
+    <div class="credits">
+      <% for user in @workspace.writers %>
+        <%= link_to_user user do %>
+          <%= user_avatar(user) %> <%= user.name %>
+        <% end %>
+      <% end %>
+    </div>
+    <hr>
+
+    <% if @partnership && params[:diff] && @version.number < @workspace.last_version.number %>
+      <%= HtmlCompare.preview(@version.writing, @workspace.last_version.writing).html_safe %>
+    <% else %>
+      <%= format_rich_text @version.writing.html_safe %>
+    <% end %>
+
+    <div class="workspace__publication">
+      <% if current_user.owns_workspace?(@workspace) && !@workspace.approved_at? %>
+        <% if @workspace.has_readers? %>
+          <p><%= t(".cannot_publish_yet") %></p>
+          <span class="btn btn--disabled"><%= t ".publish" %></span>
+        <% else %>
+          <p><%= t(".must_invite_reader") %></p>
+          <%= render "/workspaces/partnerships/tab", workspace: @workspace %>
+        <% end %>
+      <% end %>
+
+      <% if current_user.permissions.publish_workspace?(@workspace) %>
+        <p><%= t(".can_publish") %></p>
+        <span class="btn" data-open-modal="#workspace-publication-modal"><%= t(".publish") %></span>
+      <% end %>
+
+      <% if current_user.permissions.unpublish_workspace?(@workspace) %>
+        <p><%= t(".can_unpublish") %></p>
+        <%= link_to t(".unpublish"), unpublish_workspace_path(current_community, @workspace), method: :post, class: "btn btn--small btn--delete" %>
+      <% end %>
+
+      <% if current_user.permissions.reject_workspace?(@workspace) %>
+        <p><%= t(".can_still_reject") %></p>
+        <%= link_to t(".reject"), reject_workspace_path(current_community, @workspace), class: "btn btn--small btn--delete", "data-method" => "post" %>
+      <% end %>
+
+      <% if current_user.permissions.approve_workspace?(@workspace) %>
+        <p><%= t(".can_approve") %></p>
+        <%= link_to t(".approve"), approve_workspace_path(current_community, @workspace), class: "btn", "data-method" => "post" %>
+      <% end %>
+    </div>
+
+  </div>
+
+  <section class="messages" id="messages" data-auto-scroll-to-bottom data-module="Sqily.Message.Puller" data-auto-pull-url="<%= messages_auto_pull_url @messages %>">
+    <% unless @messages.blank? %>
+      <div class="post-date">
+        <hr>
+        <span class="date" id="top-date"></span></div>
+    <% end %>
+    <%= render "/messages/list" %>
+  </section>
+</section>
+
+<%= render "/messages/form", message: Message.new(to_workspace: @workspace) %>
+
+<div id="workspace-publication-modal" class="modal" style="display:none;">
+  <span data-close-modal="#workspace-publication-modal" class="icon icon--close pull-right">
+    <%= octicon "x" %>
+  </span>
+  <h3><%= t ".modale_title" %></h3>
+  <div class="box box--help">
+    <p><%= t ".modale_help" %></p>
+  </div>
+  <div class="workspace-publication-modal__form">
+    <div class="workspace-publication-modal__form__option">
+      <label>
+        <span class="icon icon--home">
+          <%= octicon 'home' %>
+        </span>
+        <%= current_community.name %>
+      </label>
+      <%= link_to t(".publish"), publish_workspace_path(current_community, @workspace), class: "btn btn--large", "data-method" => "post" %>
+    </div>
+    <div class="workspace-publication-modal__form__option">
+      <label>
+        <span class="icon icon--star">
+            <svg class="octicon octicon-star" viewBox="0 0 14 16" version="1.1" width="14" height="16" aria-hidden="true"><path fill-rule="evenodd" d="M14 6l-4.9-.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14 7 11.67 11.33 14l-.93-4.74z"></path></svg>
+          </span>
+        <%= t ".modale_skill_label" %>
+      </label>
+      <%= form_tag publish_workspace_path(current_community, @workspace), class: "form--inline" do %>
+        <select name="skill_id">
+          <% for skill in current_user.skills.in_community(current_community).merge(Subscription.completed).order(:name) %>
+            <option value="<%= skill.id %>"><%= skill.name %></option>
+          <% end %>
+        </select>
+        <input type="submit" value="Publier" class="btn btn--large">
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,18 @@
+<li class="post">
+  <span class="avatar icon">
+    <%= octicon "mortar-board" %>
+  </span>
+  <div class="message">
+    <span class="title">
+      Vous avez obtenu un nouveau badge
+      <span class="ago"><%= l notification.created_at, format: :short %></span>
+    </span>
+    <div class="message__text message__text--badge">
+      <div class="box">
+        <%= image_tag notification.badge.image_path %>
+        <h3><%= notification.badge.model_name.human %></h3>
+        <%= notification.badge.description %>
+      </div>
+    </div>
+  </div>
+</li>

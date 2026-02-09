@@ -1,0 +1,14 @@
+<%= render "evaluations/header", subscription: @subscription, back_path: skill_evaluations_path(current_community, @evaluation.skill) %>
+
+<div class="post-date">
+  <hr>
+</div>
+
+<section class="form">
+  <h3><%= t("evaluations.edit_evaluation_button") %></h3>
+  <%= render "/evaluations/form", evaluation: @evaluation %>
+
+  <% if current_user.permissions.destroy_evaluation?(@evaluation) %>
+    <%= button_to t("lib.delete"), skill_evaluation_path(current_community, @evaluation), class: "btn btn--delete", method: :delete, "data-confirmation" => t("lib.confirmation"), title: t("lib.delete") %>
+  <% end %>
+</section>

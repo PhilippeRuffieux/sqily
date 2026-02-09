@@ -1,0 +1,69 @@
+<header>
+  <div class="title">
+    <h2><%= t ".title" %></h2>
+  </div>
+</header>
+<section class="invitations">
+
+  <%= form_for Invitation.new do |form| %>
+    <%= form.label :email, t(".email_label") %>
+    <%= form.text_area :email, value: @invalid_emails ? @invalid_emails.join("\n") : nil %>
+    <%= form.submit t(".submit") %>
+
+    <% if @invalid_emails %>
+      <p class="error"><%= t ".invalid_emails_error" %> <%= @invalid_emails.join(",") %></p>
+    <% end %>
+  <% end %>
+
+  <hr>
+
+  <h3><%= t ".requests_title" %></h3>
+  <p class="subtitle"><%= t ".requests_subtitle" %></p>
+
+  <ul>
+    <% for invitation_request in @invitation_requests %>
+      <li>
+        <%= image_tag gravatar_url(invitation_request.email), class: "avatar" %>
+        <span class="email"><%= invitation_request.email %></span>
+
+        <%= form_tag invitation_request_path(current_community, invitation_request), method: "put" do %>
+          <button type="submit" class="icon icon--check">
+            <%= octicon "check" %>
+          </button>
+        <% end %>
+
+        <%= form_tag invitation_request_path(current_community, invitation_request), method: "delete" do %>
+          <button type="submit" class="icon icon--delete">
+            <%= octicon "trash" %>
+          </button>
+        <% end %>
+      </li>
+    <% end %>
+
+    <% if @invitation_requests.empty? %>
+      <li class="noresult"><%= t ".no_requests" %></li>
+    <% end %>
+  </ul>
+  <hr>
+
+  <h3><%= t ".invitations_title" %></h3>
+  <p class="subtitle"><%= t ".invitations_subtitle" %></p>
+  <ul>
+    <% for invitation in @invitations %>
+      <li>
+        <%= image_tag gravatar_url(invitation.email), class: "avatar" %>
+        <span class="email"><%= invitation.email %></span>
+        <span class="ago"><%= l invitation.created_at.to_date, format: :long %></span>
+        <%= form_tag invitation_path(current_community, invitation), method: "delete", title: t("lib.delete") do %>
+          <button type="submit" class="icon icon--delete">
+            <%= octicon "trash" %>
+          </button>
+        <% end %>
+      </li>
+    <% end %>
+
+    <% if @invitations.empty? %>
+      <li class="noresult"><%= t ".no_invitations" %></li>
+    <% end %>
+  </ul>
+</section>

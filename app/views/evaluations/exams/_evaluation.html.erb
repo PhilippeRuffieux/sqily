@@ -1,0 +1,43 @@
+<div class="evaluation" id="current-evaluation">
+  <ul>
+    <li class="post">
+      <% if @exam %>
+        <%= link_to_user @exam.examiner, user_avatar(@exam.examiner) %>
+      <% else %>
+        <%= link_to_user evaluation.user, user_avatar(evaluation.user) %>
+      <% end %>
+      <div class="message">
+        <div class="title">
+          <span class="title">
+            <% if @exam %>
+              <% if @exam.examiner == current_user %>
+                Vous évaluez <%= link_to_user @exam.candidate %> sur ce défi :
+              <% else %>
+                <%= link_to_user @exam.examiner %> vous évalue sur ce défi :
+              <% end %>
+            <% else %>
+              <%= link_to_user evaluation.user %> vous propose ce défi :
+              <% if evaluation.title %>
+                <strong><%= evaluation.title %></strong>
+              <% end %>
+            <% end %>
+          </span>
+          <% if current_user.permissions.edit_evaluation?(evaluation) %>
+            <% if !evaluation.disabled? %>
+              <%= button_to t("lib.deactivate"), disable_evaluation_path(current_community, evaluation), class: "btn btn--small btn--delete pull-right" %>
+            <% else %>
+              <%= button_to t("lib.activate"), enable_evaluation_path(current_community, evaluation), class: "btn btn--small pull-right" %>
+            <% end %>
+            <%= link_to edit_evaluation_path(current_community, evaluation), class: "btn btn--small pull-right btn--admin" do %>
+              <%= octicon "pencil" %> <%= t('lib.edit') %>
+            <% end %>
+          <% end %>
+        </div>
+        <div class="box">
+          <div><%= format_rich_text evaluation.description&.html_safe %></div>
+          <small>Défi créé par <%= link_to_user evaluation.user %></small>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

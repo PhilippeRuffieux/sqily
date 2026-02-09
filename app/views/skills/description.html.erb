@@ -1,0 +1,18 @@
+<%= render "header", skill: @skill %>
+<div class="post-date"><hr></div>
+<section class="main__content">
+  <% if can_edit_current_community_skills?(@skill) %>
+    <nav class="submenu">
+      <ul class="tabs">
+        <li><a href="<%= edit_skill_path(current_community, @skill) %>" class="btn btn--admin"><%= octicon "gear" %><span><%= t "lib.edit" %></span></a></li>
+      </ul>
+    </nav>
+    <div class="post-date"><hr></div>
+  <% end %>
+  <% if @skill.description? %>
+    <div class="content__section">
+      <%= format_rich_text @skill.description.html_safe %>
+    </div>
+  <% end %>
+  <%= render "/layouts/footer" %>
+</section>

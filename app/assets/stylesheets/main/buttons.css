@@ -1,0 +1,164 @@
+a,
+a:visited {
+  font-weight: 400;
+  color: #1b2226;
+  text-decoration: none;
+  transition: opacity 0.3s ease-in-out;
+}
+
+a:hover { color: #262e33; }
+
+a.link { text-decoration: underline; }
+
+a.list-link {
+  display: flex;
+  width: 100%;
+}
+
+.btn,
+.btn--small,
+a.btn,
+button,
+label.btn,
+input[type='submit'] {
+  background: #1c8cca;
+  color: #fff;
+  fill: currentColor;
+  padding: 0 12px;
+  border-radius: 3px;
+  display: inline-block;
+  border: 0;
+  box-shadow: 0 2px 0 0 rgba(255, 255, 255, 0.1) inset,
+              0 -2px 0 0 rgba(17, 22, 26, 0.1) inset,
+              0 2px 2px -2px rgba(17, 22, 26, 0.2);
+  cursor: pointer;
+  text-transform: uppercase;
+  text-shadow: 0 1px 0 rgba(17, 22, 26, 0.1);
+  letter-spacing: 1px;
+  font-size: 0.694rem;
+  font-weight: 700;
+  outline: 0;
+  transition: opacity 0.3s ease-in-out;
+  line-height: 24px;
+  text-decoration: none;
+}
+
+.btn.is-right { float: right; }
+
+.btn:hover,
+a.btn:hover,
+button:hover,
+label.btn:hover,
+input[type='submit']:hover {
+  background: #299ad9;
+  text-decoration: none !important;
+}
+
+.btn--secondary,
+a.btn--secondary {
+  text-decoration: none;
+  background: #fff;
+  box-shadow: 0 0 1px 1px rgba(162, 165, 166, 0.4) inset,
+              0 2px 2px -2px rgba(17, 22, 26, 0.2);
+}
+
+.btn--secondary:hover,
+a.btn--secondary:hover {
+  background: #eee;
+}
+
+input[type='submit'],
+.btn--large,
+a.btn--large {
+  border-radius: 3px;
+  width: auto;
+  padding: 0 24px;
+  letter-spacing: 3px;
+  font-size: 0.694rem;
+  line-height: 48px;
+}
+
+input[type='submit'].btn--small {
+  font-size: 0.694rem;
+  padding: 0 12px;
+  border-radius: 3px;
+  letter-spacing: 1px;
+  line-height: 24px;
+  height: auto;
+}
+
+.btn--admin,
+input[type='submit'].btn--admin {
+  background: #f4ae22 !important;
+  color: #1b2226 !important;
+}
+
+.btn--admin:hover,
+input[type='submit'].btn--admin:hover {
+  background: #ffb621 !important;
+}
+
+.btn--new,
+a.btn--new,
+.btn-toggle,
+a.btn-toggle {
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(162, 165, 166, 0.4) inset,
+              0 2px 2px -2px rgba(17, 22, 26, 0.2);
+  color: #6d7173;
+}
+
+.btn--disabled,
+.btn--disabled:hover {
+  background-color: #a3a7a9;
+  cursor: not-allowed;
+}
+
+.btn--new:hover,
+a.btn--new:hover,
+.btn-toggle:hover,
+a.btn-toggle:hover {
+  background: #fff;
+  box-shadow: 0 0 0 1px rgba(162, 165, 166, 0.6) inset,
+              0 2px 2px -2px rgba(17, 22, 26, 0.3);
+  color: #1b2226;
+}
+
+a.btn-toggle--active {
+  background: #1c8cca;
+  color: #fff;
+}
+
+a.btn-toggle--active:hover {
+  background: #1c8cca;
+  color: #fff;
+}
+
+.btn.delete,
+.btn--delete,
+a.btn--delete,
+input[type='submit'].btn--delete {
+  background: transparent;
+  box-shadow: 0 0 1px 1px rgba(162, 165, 166, 0.4) inset,
+              0 2px 2px -2px rgba(17, 22, 26, 0.2);
+  color: #6d7173;
+}
+
+.btn.delete:hover,
+.btn--delete:hover,
+a.btn--delete:hover,
+input[type='submit'].btn--delete:hover {
+  background: #f43e22;
+  color: #fff;
+  box-shadow: 0 0 0 0;
+}
+
+input[disabled],
+input[disabled]:hover {
+  background: rgba(17, 22, 26, 0.2);
+  cursor: not-allowed;
+}
+
+input[type='submit'].delete { background: #f43e22; }
+
+.btn--input-file { margin-bottom: 24px; }

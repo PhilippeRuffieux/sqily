@@ -1,0 +1,44 @@
+fr-CH:
+  users:
+    badges:
+      title: Badges
+    bar:
+      membership_count:
+        zero: Aucun inscrit
+        one: 1 inscrit
+        other: "%{count} inscrits"
+    name: Prénom Nom
+    new:
+      title: Inscription
+      already_registered_link: Connectez vous si vous avez déjà un compte
+    show:
+      attestations_link: Profil public
+      assesment_link: Bilan de compétences
+      skills_title: Compétences
+      posted_messages:
+        zero: Aucun message posté
+        one: Un message posté
+        other: "%{count} messages postés"
+      latest_favorite_messages_link:
+        zero: Aucun message favori
+        one: Un message favori
+        other: "%{count} messages favoris"
+      discussion_link: Discuter
+      downgrade_expert_button: "Invalider expertise"
+      promote_expert_button: "Valider expertise"
+      downgrade_moderator_button: Rétrograder admin
+      upgrade_moderator_button: Promouvoir admin
+      remove_from_community_button: Supprimer compte
+      remove_from_community_confirmation: "Êtes-vous sûr de SUPPRIMER cet utilisateur de la communauté ? Il perdra ses compétences mais ses messages resteront."
+      evaluations_uploaded_list_item: Défis déposés
+      evaluations_passed_list_item: Défis validés
+      stats_messages: messages
+      stats_evaluations: défis
+    workspaces:
+      title: Articles
+      create: Créer un article
+      help: Vous pouvez créer des articles seul ou en collaboration. Les articles sont privés tant que vous ne les avez pas publiés.
+    evaluations:
+      title: Défis déposés
+    validations:
+      title: Défis validés

@@ -1,0 +1,12 @@
+<header>
+  <div class="title">
+    <h2><%= t("teams.add") %></h2>
+    <a href="<%= skills_path(current_community) %>" class="icon icon-clear icon--close">
+      <%= octicon "x" %>
+    </a>
+  </div>
+</header>
+<div class="post-date"><hr></div>
+<section class="form">
+  <%= render "/teams/form", team: @team %>
+</section>

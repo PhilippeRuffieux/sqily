@@ -1,0 +1,47 @@
+<% prerequisite = nil unless defined?(prerequisite) %>
+<% active = skill == @skill ? "active" : nil %>
+<% state = subscription_state(subscription) %>
+<% pinned = subscription.try(:pinned_at) %>
+<% states = pinned ? "#{state} pinned" : state %>
+<% locked = prerequisite.try(:mandatory) ? "locked" : nil %>
+<% unpublished = skill.published_at ? nil : "unpublished" %>
+<% subscription_count = skill.respond_to?(:subscription_count) ? skill.subscription_count : skill.subscriptions.count %>
+<% completed_subscription_count = skill.respond_to?(:completed_subscription_count) ? skill.completed_subscription_count : skill.subscriptions.completed.count %>
+<% membership_count = current_community.membership_count %>
+
+<li class="skill <%= [locked, state, active, unpublished].join(" ") %>" data-skill-state="<%= states %>" <%= "data-skill-pinned" if pinned %>>
+  <a href="<%= skill_path(current_community, skill) %>">
+    <span class="icon icon--star icon--star--<%= state %>" title="<%= subscription_human_state subscription %>">
+      <%= octicon 'star-fill' %>
+    </span>
+
+    <div title="<%= skill.name %> : <%= subscription_count %> membres inscrits dont <%= completed_subscription_count %> experts">
+      <span class="info">
+        <span class="name <%= subscription_new_messages?(subscription) ? "unread-messages" : "" %>" data-skill-id-activity="<%= skill.id %>">
+          <%= skill.name %>
+        </span>
+        <% if !skill.published_at %>
+          <span class="icon" title="La compétence n'est pas visible des autres membres.">
+            <%= octicon "circle-slash" %>
+          </span>
+        <% end %>
+        <% if locked %>
+          <span class="icon icon-lock">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 8 8">
+              <path d="M3 0c-1.1 0-2 .9-2 2v1h-1v4h6v-4h-1v-1c0-1.1-.9-2-2-2zm0 1c.56 0 1 .44 1 1v1h-2v-1c0-.56.44-1 1-1z" transform="translate(1)" />
+            </svg>
+          </span>
+        <% end %>
+        <% if subscription %>
+          <%= button_to pin_skill_path(current_community, skill), class: "icon pin #{subscription.pinned_at && "active"}" do %>
+            <%= octicon 'heart-fill' %>
+          <% end %>
+        <% end %>
+      </span>
+      <span class="progress">
+        <span class="start" style="width: <%= (100.0 * subscription_count / membership_count).round(2) %>%;"></span>
+        <span class="finish" style="width: <%= (100.0 * completed_subscription_count / membership_count).round(2) %>%;"></span>
+      </span>
+    </div>
+  </a>
+</li>

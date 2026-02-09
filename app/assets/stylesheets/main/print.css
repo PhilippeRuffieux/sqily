@@ -1,0 +1,12 @@
+@media print {
+  body, .main, .content { height: auto; width: 100%; }
+  .attestation { overflow: visible; width: 100%; padding:0; }
+  .attestation header img.logo { margin: 12px auto; height: 12px; background: #1b2226; }
+  .attestation .container { padding: 0; }
+  .sidebar { display: none; width:0; }
+  .main, .content { width: 100%; display: block; }
+  .attestation__private { display: none; }
+  .attestation__help { display: none; }
+  .attestation .btn--small { display: none; }
+  .attestation h3 a { text-decoration: none; }
+}

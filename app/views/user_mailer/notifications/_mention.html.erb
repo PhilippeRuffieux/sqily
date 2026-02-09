@@ -1,0 +1,10 @@
+<p>
+  <small><%= l notification.created_at, format: :short %></small><br>
+  <%= image_tag user_avatar_url(notification.message.from_user), style: "width: 24px; border-radius: 12px; float: left; margin-right: 6px;", alt: notification.message.from_user.name %>
+  <strong><%= notification.message.from_user.name %></strong>
+  &nbsp;vous a mentionné.&nbsp;
+  <a href="<%= message_permalink notification.message %>">Voir</a><br>
+  <span class="message__text">
+    <%= notification.message.text %>
+  </span>
+</p>

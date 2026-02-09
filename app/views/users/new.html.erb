@@ -1,0 +1,24 @@
+<a href="/">
+  <%= image_tag image_path("sqily.svg"), class: "logo", alt: "Sqily" %>
+</a>
+
+<section class="login">
+  <h4><%= t ".title" %></h4>
+  <%= form_for @user, builder: InlineErrorFormBuilder do |form| %>
+    <%= form.label :name, t("users.name") %>
+    <%= form.text_field :name %>
+
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+
+    <%= hidden_field_tag :registration_code, params[:registration_code] %>
+    <%= hidden_field_tag :community_id, params[:community_id] %>
+
+    <%= form.submit t("lib.send") %>
+  <% end %>
+
+  <%= link_to t(".already_registered_link"), session_path %>
+</section>

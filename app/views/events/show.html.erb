@@ -1,0 +1,8 @@
+<header>
+  <div class="title">
+    <h2><%= Event.model_name.human %>: <%= @event.title %></h2>
+  </div>
+</header>
+<section class="form">
+  <%= render "/events/form", event: @event %>
+</section>

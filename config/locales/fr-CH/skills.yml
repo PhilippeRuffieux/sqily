@@ -1,0 +1,71 @@
+fr-CH:
+  skills:
+    count:
+      zero: 0 compétence
+      one: 1 compétence
+      other: "%{count} compétences"
+    tasks:
+      count:
+        zero: 0 tâche
+        one: 1 tâche
+        other: "%{count} tâches"
+    assesment:
+      title: Bilan de compétence
+      subtitle: Pensez-vous maîtriser cette compétence ?
+    messages:
+      all_messages_tooltip: Tous les messages
+      important_messages_tooltip: Messages importants
+    bar:
+      expert_tooltip: Vous êtes expert.
+      not_subscribed_tooltip: Vous n'êtes pas inscrit.
+      subscribed_tooltip: Vous êtes inscrit.
+      tree_tooltip: Arbre des compétences
+    evaluation_auto:
+      status_expert: Vous êtes expert de cette compétence.
+      auto_evaluation: Auto-évaluation
+      validate_button: Valider
+    evaluation_done:
+      disable_evaluation_button: Désactiver votre défi
+      enable_evaluation_button: Réactiver votre défi
+    evaluations:
+      choices:
+        evaluation_of: "Défi de %{name}"
+        empty: Aucun défi disponible.
+    form:
+      legend: Description
+      name_label: Dénomination (courte et concrète)
+      name_placeholder: "Exemple: créer une capsule vidéo"
+      todolist_label: Liste de tâches
+      help_legend: Ressources
+      todolist_help: Optionnel. Si utilisée, la liste de tâches devra être complétée pour accéder à l'évaluation.
+      evaluation_legend: Évaluation
+      evaluation_help: Laissez vide pour créer un groupe de compétence.
+      auto_evaluation_label: Auto-évaluation (la compétence n'aura pas de défi)
+      mandatory_label: Validation nécessaire pour valider la compétence groupe
+      prerequisites_legend: Arbre de compétence
+      group_name_label: Groupe de compétences (facultatif)
+      group_name_placeholder: "Exemple : multimédia"
+      prerequisites_label: Compétences précédentes
+      prerequisites_help: Autoriser l'accès à cette compétence si un certain nombre de compétences de la liste ci-dessus sont validées.
+      published_at_label: Rendre visible
+      description_help: Vous pouvez déposer des images et des fichiers dans la zone de texte.
+      parent_label: Compétence groupe
+      parent_help: Placer la compétence dans une compétence groupe. Laissez vide pour créer une compétence groupe ou une compétence à la racine de l'arbre.
+    header:
+      flash: Cette compétence est invisible des autres membres.
+      unsubscribe_button: Se désinscrire
+      unsubscribe_confirmation: Êtes-vous sûr de quitter cette compétence ? Vous perdrez votre expertise si vous l'aviez validée.
+    new:
+      title: Nouvelle compétence
+      help_html: Une compétence peut maintenant être une « compétence groupe ». Elle n'a pas de défi ou de tâches. Pour en valider l'expertise, il faudra valider les compétences qu'elle contient.<br><strong>Pour créer une compétence groupe, remplissez uniquement les champs « Dénomination » et « Objectif ».</strong> Ajouter ensuite des compétences dans ce groupe sur l'écran suivant pour qu'il s'affiche dans l'arbre.
+    show:
+      toggle_todolist: Veuillez compléter la liste de tâches pour accéder au défi.
+    next_skills:
+      title: Compétences suivantes
+  public:
+    skills:
+      duplicate_skill_modal:
+        title: Copier la compétence
+        selection_label: Veuillez sélectionner la communauté de destination
+      show:
+        duplicate_button: "Copier la compétence"

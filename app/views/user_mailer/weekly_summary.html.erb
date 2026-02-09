@@ -1,0 +1,88 @@
+<div class="header">
+  <a href="http://sqily.com" style="display: block;">
+    <%= image_tag('sqily.png', :style => 'height: 24px') %>
+  </a>
+  <h2><%= link_to @community.name, skills_url(@community) %></h2>
+  <p>Résumé des 7 derniers jours</p>
+</div>
+
+<% if (new_skills = @summary.new_skills.to_a).any? %>
+  <h2 style="margin:24px 0 0;"><%= t ".new_skills", count: new_skills.size %></h2>
+  <% for skill in new_skills %>
+    <p style="border:1px #f7f7f7 solid; padding:17px; margin: 7px 0;">
+      <%= link_to skill.name, skill_url(@community, skill) %>
+    </p>
+  <% end %>
+  <hr>
+<% end %>
+
+<% if (new_memberships = @summary.new_memberships.to_a).any? %>
+  <h2 style="margin:24px 0 0;"><%= t ".new_memberships", count: new_memberships.size %></h2>
+  <% for membership in new_memberships %>
+    <p>
+      <%= image_tag user_avatar_url(membership.user), style: "width: 24px; border-radius:12px; float: left; margin-right: 6px;", alt: membership.user.name %>
+      <%= membership.user.name %>
+    </p>
+  <% end %>
+  <hr>
+<% end %>
+
+<% if (messages = @summary.new_community_messages).any? %>
+  <h2 style="margin:24px 0 0;"><%= t ".new_conversations", count: messages.count %></h2>
+  <% for message in messages.page(1) %>
+    <p>
+      <small><%= l message.created_at, format: :short %></small><br>
+      <%= image_tag user_avatar_url(message.from_user), style: "width: 24px; border-radius: 12px; float: left; margin-right: 6px;", alt: message.from_user.name %>
+      <strong><%= message.from_user.name %></strong><br>
+      <span class="message__text"><%= message.text %></span>
+    </p>
+  <% end %>
+  <hr>
+<% end %>
+
+<% title_displayed = false %>
+<% for skill in @summary.skills %>
+  <% next if (messages = Message::Text.to_skill(skill).where("created_at > ?", 7.days.ago)).not_deleted.count == 0 %>
+  <% if !title_displayed %>
+    <h2>Activité sur les compétences</h2>
+    <% title_displayed = true %>
+  <% end %>
+
+  <h3><%= link_to skill.name, skill_url(@community, skill) %></h3>
+
+  <% if (evaluations = skill.evaluations.where("created_at > ?", 7.days.ago)).exists? %>
+    <p><%= t ".new_evaluations", count: evaluations.count %></p>
+  <% end %>
+
+  <% if (experts = skill.subscriptions.where("completed_at > ?", 7.days.ago)).exists? %>
+    <p><%= t ".new_experts", count: experts.count %>:</p>
+    <% for expert in experts.map(&:user) %>
+      <span style="margin-right:24px">
+        <%= image_tag user_avatar_url(expert), style: "width: 24px; border-radius: 14px; margin-right: 7px; vertical-align:-25%", alt: expert.name %>
+        <%= expert.name %>
+      </span>
+    <% end %>
+  <% end %>
+
+  <% if messages.exists? %>
+    <h3><%= t ".new_messages", count: messages.count %>:</h3>
+    <% for message in messages.page(1) %>
+      <p>
+        <small><%= l message.created_at, format: :short %></small><br>
+        <%= image_tag user_avatar_url(message.from_user), style: "width: 24px; border-radius: 14px; float: left; margin-right: 7px;", alt: message.from_user.name %>
+        <strong><%= message.from_user.name %></strong><br>
+        <span class="message__text"><%= message.text %></span>
+      </p>
+    <% end %>
+  <% end %>
+  <hr>
+<% end %>
+
+<% if (notifications = @summary.unread_notifications).any? %>
+  <h2 style="margin:24px 0 0;">Notifications</h2>
+  <% for notification in notifications %>
+    <%= render_notification_for_emails notification %>
+  <% end %>
+<% end %>
+
+<p style="text-align: center;"><%= link_to "Continuer", "https://sqily.com", class: "btn" %></p>

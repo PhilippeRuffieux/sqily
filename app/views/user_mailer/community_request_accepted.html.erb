@@ -1,0 +1,12 @@
+<div class="header">
+  <a href="http://sqily.com" style="display: block;">
+    <%= image_tag('sqily.png', :style => 'height: 24px') %>
+  </a>
+  <p>Votre communauté a été créée</p>
+</div>
+
+<p>
+  Votre communauté
+  <%= link_to @community_request.community.name, skills_url(@community_request.community) %>
+  a été créée.
+</p>

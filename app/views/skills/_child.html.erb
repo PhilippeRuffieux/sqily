@@ -1,0 +1,72 @@
+<% if !skill.children.any? %>
+  <% hide_evaluations = !@subscription.completed_at? && !skill.tasks.all_done_by?(current_user) %>
+<% end %>
+
+<section class="main__content">
+  <nav class="submenu">
+    <% if can_edit_current_community_skills?(skill) %>
+      <ul class="tabs">
+        <li>
+          <a href="<%= edit_skill_path(current_community, skill) %>" class="btn btn--admin"><%= octicon "gear" %><span><%= t "lib.edit" %></span></a>
+        </li>
+      </ul>
+
+      <% if skill.can_have_children? %>
+        <a href="<%= new_skill_path(current_community, skill: {parent_id: skill.id}) %>" class="btn btn--admin">
+          <%= octicon 'plus-circle' %><span><%= t "lib.add" %></span>
+        </a>
+      <% end %>
+    <% end %>
+    <ul class="tabs is-right">
+      <li>
+        <%= button_to unsubscribe_skill_path(current_community, skill), method: "delete", form: {"data-confirmation" => t("skills.header.unsubscribe_confirmation")}, form_class: "button_to quit", class: "btn btn--small btn--delete", title: t("skills.header.unsubscribe_button") do %>
+          <% octicon "sign-out" %>
+        <% end %>
+      </li>
+    </ul>
+  </nav>
+
+  <div class="post-date"><hr></div>
+
+  <div class="content__section">
+    <h3><%= Skill.human_attribute_name(:description) %></h3>
+    <div class="box">
+      <%= format_skill_description skill %>
+    </div>
+  </div>
+  
+  <% if !skill.tasks.empty? %>
+    <div class="content__section content__section--work">
+      <h3><%= Task.model_name.human(count: 2) %></h3>
+      <div class="box">
+        <%= render "/tasks/list", tasks: skill.tasks.order(:position) %>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="content__section content__section--work">
+    <h3><%= Evaluation.model_name.human %></h3>
+    <div class="box">
+      <strong id="task-list-instructions" style="<%= "display:none;" unless hide_evaluations %>">
+        <%= t("skills.show.toggle_todolist") %>
+      </strong>
+      <div id="evaluations-container" style="<%= "display:none;" if hide_evaluations %>">
+        <% if skill.auto_evaluation %>
+          <%= render "/skills/evaluation_auto" %>
+        <% else %>
+          <%= render "/skills/evaluations", skill: skill, evaluations: @evaluations %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+  <% if skill.help? %>
+    <div class="content__section">
+      <h3><%= Skill.human_attribute_name(:help) %></h3>
+      <div class="box">
+        <%= format_rich_text skill.help.html_safe %>
+      </div>
+    </div>
+  <% end %>
+  <%= render "/layouts/footer" %>
+</section>

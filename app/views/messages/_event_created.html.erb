@@ -1,0 +1,116 @@
+<li id="message-<%= message.id %>" data-date="<%= I18n.l(message.created_at.to_date, format: '%A, %d %b %Y') %>" class="post">
+
+  <%= link_to_user message.from_user do %>
+    <span class="avatar user<%= @skill ? user_skill_state = user_skill_state(@skill, message.from_user) : "" %>">
+      <% if @skill %>
+        <span class="icon badge icon--star--<%= user_skill_state %>">
+          <%= octicon 'star-fill' %>
+        </span>
+      <% end %>
+      <%= user_avatar(message.from_user) %>
+    </span>
+  <% end %>
+
+  <div class="message event">
+    <div class="title">
+      <span class="title">
+        <% if message.event.skill && !@skill %>
+          <%= t(".title_context", user: link_to_user(message.from_user), skill_link: link_to(message.event.skill.name, messages_skill_path(current_community, message.event.skill))).html_safe %>
+        <% else %>
+          <%= t(".title", user: link_to_user(message.from_user)).html_safe %>
+        <% end %>
+        <span class="ago"><%= link_to_message message %></span>
+      </span>
+
+      <% event = message.event %>
+
+      <%= render "/messages/vote_button", message: message %>
+      <%= render "/messages/pin_button", message: message %>
+      <%= render "/messages/unread_button", message: message %>
+
+      <% if event.editable_by?(current_user) %>
+        <a href="<%= event_path(current_community, event.id) %>" class="icon">
+          <%= octicon "pencil" %>
+        </a>
+        <%= form_tag event_path(current_community, event), method: "delete",
+          "data-confirmation" => t("lib.confirmation"),
+          title: t("lib.delete") do %>
+          <button type="submit" class="icon icon--delete">
+            <%= octicon "trash" %>
+          </button>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div id="message-text-<%= message.id %>">
+      <div class="box">
+        <h4 class="event__date"><%= l event.scheduled_at %></h4>
+        <strong><%= event.title %></strong>
+        <p><%= auto_embed(highlight_current_user(nl2br(html_escape(message.event.description)))).html_safe %></p>
+        <% if event.file_node %>
+          <% if is_message_attachment_an_image?(event) %>
+            <div class="event__picture">
+              <%= image_tag image_path(encode_file_url(event.file_url)), alt: "" %>
+            </div>
+          <% else %>
+            <div class="box">
+              <span class="icon">
+                <%= octicon "file" %>
+              </span>
+              <%= link_to event.file_name, event.file_url, target: "_blank" %>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+      <div class="event__registration">
+        <div class="pull-right">
+          <% if event.registered?(current_user) && message.event.registration_finished_at > Time.now %>
+            <%= button_to t(".unregister_button"), unregister_event_path(current_community, event), method: "delete", class: 'btn btn--small btn--delete' %>
+          <% elsif waiting_list_position = event_waiting_list_position(event, current_user) && message.event.registration_finished_at > Time.now %>
+            <%= button_to t(".unregister_button"), unregister_event_path(current_community, event), method: "delete", class: 'btn btn--small btn--delete' %>
+          <% elsif event.registerable?(current_user) %>
+            <%= button_to t(event.full? ? ".waiting_list_button" :  ".register_button"), register_event_path(current_community, event), class: 'btn btn--small' %>
+          <% end %>
+        </div>
+        <small class="end_date"><%= t ".end_date" %> <%= l event.registration_finished_at %>. </small>
+        <small class="count">
+          <%= t ".participations_max", count: event.max_participations %>
+          <%= t ".participations", count: event.participations.count %>
+          <% if (waiting_participation_count = event.waiting_participations.count) > 0 %>
+            <%= t ".waiting_participations", count: waiting_participation_count %>
+          <% end %>
+          <% if waiting_list_position = event_waiting_list_position(event, current_user) %>
+            <strong><br><%= t ".waiting_list_position", count: waiting_list_position %></strong>
+          <% end %>
+          <% if message.event.skill && !@skill && message.event.registration_finished_at > Time.now && !current_user.subscriptions.find_by_skill_id(message.event.skill.id)   %>
+            Vous devez vous <a href="<%= skill_path(current_community, message.event.skill) %>"><strong>incrire à la compétence</strong></a> au préalable.
+          <% end %>
+        </small>
+        <% if (participations = event.participations).any? %>
+          <ul class="members">
+            <% for participation in participations %>
+              <li data-module="Sqily.Event.Participation">
+                <% if current_user.permissions.can_toggle_participations_of_event?(event) %>
+                  <%= link_to_user participation.user do %>
+                    <span class="avatar <%= participation_status_class participation %>" title="<%= participation.user.name %>" data-events="click->toggleParticipation" data-url="<%= toggle_event_participation_path(current_community, event, participation) %>">
+                      <%= user_avatar(participation.user) %>
+                    </span>
+                  <% end %>
+                <% else %>
+                  <%= link_to_user participation.user do %>
+                    <span class="avatar <%= participation_status_class participation %>" title="<%= participation.user.name %>">
+                      <%= user_avatar(participation.user) %>
+                    </span>
+                  <% end %>
+                <% end %>
+              </li>
+            <% end %>
+          </ul>
+          <% if current_user.permissions.can_toggle_participations_of_event?(event) %>
+            <p><small>Cliquer sur les avatars pour marquer la présence des participants.</small></p>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</li>

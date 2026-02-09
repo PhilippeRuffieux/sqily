@@ -1,0 +1,20 @@
+<% if !tasks.empty? %>
+  <div class="todolist tab-content--hidden" data-module="Sqily.Skill.TaskList" data-skill-description-tab-content="skill-tasks">
+    <% for task in tasks %>
+      <% done = task.done_by?(current_user) %>
+      <% url = toggle_skill_task_path(current_community, task.skill_id, task) %>
+      <div class="todolist__task flex">
+        <label class="<%= "label--checked" if done %>">
+          <input type="checkbox" name="checkbox" value="value" <%= "checked" if done %> data-action="toggleTask" data-url="<%= url %>">
+          <span><%= urls_to_links(h(task.title)).html_safe %></span>
+          <% if task.file_url %>
+            <div class="todolist__task__file">
+              <%= link_to(task.file_url, title: task.file_name, class: "icon", target: "_blank") { octicon("file") } %>
+              <%= link_to task.file_name, task.file_url, target: "_blank" %>
+            </div>
+          <% end %>
+        </label>
+      </div>
+    <% end %>
+  </div>
+<% end %>

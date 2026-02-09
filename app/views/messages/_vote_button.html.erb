@@ -1,0 +1,19 @@
+<% vote_count = message.votes.count %>
+<% if message.from_user_id != current_user.id %>
+  <% active = Vote.where(user_id: current_user, message_id: message.id).exists? ? "active" : "" %>
+  <%= form_tag vote_message_path(current_community, message), class: "button_to vote #{active} count-#{vote_count}" do %>
+    <button type="submit" title="<%= Vote.where(user_id: current_user, message_id: message.id).exists? ? "Retirer des favoris" : "Ajouter aux favoris" %>">
+      <span class="icon"><%= octicon 'heart-fill' %></span>
+      <% if vote_count > 0 %>
+        <span class="count"><%= vote_count %></span>
+      <% end %>
+    </button>
+  <% end %>
+<% else %>
+  <% if vote_count > 0 %>
+    <div class="vote" title="favoris reçus">
+      <span class="icon icon--inactive"><%= octicon 'heart-fill' %></span>
+      <span class="count"><%= vote_count %></span>
+    </div>
+  <% end %>
+<% end %>

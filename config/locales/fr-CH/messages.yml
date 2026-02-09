@@ -1,0 +1,112 @@
+fr-CH:
+  messages:
+    unread_button:
+      mark_as_unread: "Marquer comme non-lu"
+    attachment:
+      download_count:
+        zero: Aucun téléchargement
+        one: Un téléchargement
+        other: "%{count} téléchargements"
+    form:
+      file_label: Fichier (10 Mo max)
+      file_share_label: Fichier
+      poll_share_label: Sondage
+      event_share_label: Evénement
+      text_label: Message
+      text_placeholder: Ecrivez un message
+    header:
+      title: Conversation privée avec
+    homework_uploaded:
+      homework_received_title: "%{user_link} a rendu son défi pour la compétence %{skill_link}"
+      homework_sent_title: "Vous avez rendu votre défi pour la compétence %{skill_link}"
+      homework_accepted_title: "%{user_link} a validé la compétence %{skill_link}"
+      homework_rejected_title: "%{user_link} n'a pas validé la compétence %{skill_link}"
+      your_homework_accepted_title: "Vous avez validé la compétence %{skill_link}"
+      your_homework_rejected_title: "Vous n'avez pas validé la compétence %{skill_link}"
+      comment_from: "Commentaire de %{name}"
+      result_link: Voir le résultat
+      result_file_help: Vous pouvez attacher un fichier pour illustrer votre commentaire
+      result_file: Fichier
+      download_link: "Revoir mon résultat"
+      his_download_link: "Revoir son résultat"
+      mandatory_comment: Le commentaire est obligatoire pour rejeter un défi
+      comment_placeholder: Tapez un commentaire pour cette évaluation.
+      accept_button: Valider
+      reject_button: Ne pas valider
+      status_examinating: "%{user_name} va examiner votre travail."
+      status_expert: Vous êtes maintenant expert de cette compétence et êtes invité à proposer votre propre évaluation.
+      your_comment: Votre commentaire
+    list:
+      title: Pas de message.
+      instructions: Démarrez la discussion en écrivant dans le champ ci-dessous.
+    new_membership:
+      message:
+        one: "%{name} a rejoint la communauté."
+        other: "%{count} nouveaux membres: %{names}."
+    new_skill:
+      message: "%{user} a créé une nouvelle compétence"
+    new_subscription:
+      message:
+        one: "%{names} a rejoint la compétence."
+        other: "%{count} nouveaux membres: %{names}."
+    subscription_complete:
+      message: "%{user} est devenu expert"
+      homework_validated_by: "%{homework} validé par %{user}"
+      auto_evaluation: auto-évaluation
+      validated_by: validé par %{user}
+    text:
+      delete_message_tooltip: Supprimer le message
+      delete_message_confirmation: Êtes vous sûr de supprimer le message?
+      html:
+        download_count:
+          zero: 0 téléchargement
+          one: 1 téléchargement
+          other: "%{count} téléchargements"
+    upload_modal:
+      title: Partager un fichier
+      file_label: Sélectionner un fichier
+      text_label: Message
+    poll_created:
+      title: "%{user} a créé un sondage."
+      end_date: "Date de fin : "
+    event_created:
+      title: "%{user} a créé un événement."
+      title_context: "%{user} a créé un événement pour la compétence %{skill_link}"
+      end_date: Inscription avant le
+      participations:
+        zero:
+        one: 1 inscrit.
+        other: "%{count} inscrits."
+      participations_max:
+        one: 1 place.
+        other: "%{count} places."
+      waiting_participations: "%{count} sur la liste d'attente."
+      register_button: S'inscrire
+      unregister_button: Se désinscrire
+      waiting_list_button: S'inscrire sur la liste d'attente
+      waiting_list_position:
+        one: Vous êtes 1er sur la liste d'attente.
+        other: "Vous êtes %{count}ème sur la liste d'attente."
+      delete_confirmation: Êtes-vous sûr? Un email sera envoyé à chaque participant pour les informer de l'annulation de l'événement.
+    search_form:
+      search-placeholder: Rechercher
+      help: Rechercher dans le texte des messages ou le nom des fichiers partagés.
+    search:
+      messages_tab: "Messages (%{count})"
+      files_tab: "Fichiers (%{count})"
+      empty: Aucun résultat.
+    workspace_partnership_created:
+      title_writer: "Invitation à co-écrire un article."
+      title_reader: "Invitation à relire un article."
+    workspace_published:
+      title: "%{user} a publié son article."
+    workspace_approved_internal:
+      message: "%{user} a autorisé la publication de l'article."
+    workspace_rejected_internal:
+      message: "%{user} a retiré l'autorisation de publication de l'article."
+    workspace_published_internal:
+      message: "%{user} a publié l'article."
+    workspace_unpublished_internal:
+      message: "%{user} a dépublié l'article."
+    workspace_version_created:
+      message: "%{user} a introduit la version %{version} de l'article \"%{workspace}\"."

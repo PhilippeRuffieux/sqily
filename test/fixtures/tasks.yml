@@ -1,0 +1,9 @@
+ror_ruby:
+  skill: ror
+  title: Installer Ruby
+  position: 1
+
+ror_psql:
+  skill: ror
+  title: Installer PostgreSQL
+  position: 2

@@ -1,0 +1,21 @@
+<div class="user__profile--block">
+  <header>
+    <h4><%= t ".title" %></h4>
+  </header>
+  <ul class="badges">
+    <% membership_badge_classes = membership.badges.order(:created_at).map(&:class) %>
+    <% for badge_class in (membership_badge_classes + Badge.classes).uniq %>
+      <% has_badge = membership_badge_classes.include?(badge_class) %>
+
+      <li title="<%= badge_class.description %>" class="badges__item badges__item--<%= "active" if has_badge %>">
+        <%= image_tag badge_class.image_path %>
+        <span class="badges__item__name"><%= badge_class.model_name.human %></span>
+        <% unless has_badge %>
+          <div class="badge__progress" title="<%= badge_class.compute_score(membership) %> / <%= badge_class.required_count %>">
+            <span class="badge__progress__value" style="width: <%= (100.0 * badge_class.compute_score(membership) / badge_class.required_count).round(2) %>%;"></span>
+          </div>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+</div>

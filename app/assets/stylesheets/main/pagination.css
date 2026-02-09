@@ -1,0 +1,20 @@
+nav.pagination {
+  display: inline-block;
+  margin-bottom: 48px;
+  padding: 0;
+  box-shadow: 0 0 0 1px rgba(17, 22, 26,.05), 0 2px 12px -2px rgba(17, 22, 26,.10);
+}
+
+nav.pagination a, 
+nav.pagination .current {
+  display: inline-block;
+  padding: 12px 24px;
+}
+
+nav.pagination .current {
+  background: rgba(17, 22, 26,.05);
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 0;
+}

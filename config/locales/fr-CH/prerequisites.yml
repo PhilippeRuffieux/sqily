@@ -1,0 +1,6 @@
+fr-CH:
+  prerequisites:
+    list:
+      help: Suggérer ou rendre obligatoire la validation préalable de compétences pour accéder à cette compétence.
+    list_item:
+      mandatory_tooltip: Validation facultative / obligatoire

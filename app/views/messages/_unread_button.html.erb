@@ -1,0 +1,8 @@
+<% if current_user.permissions.mark_message_as_unread?(message) %>
+  <% active = message.read_at? ? "" : "active" %>
+  <%= form_tag unread_message_path(current_community, message), class: "button_to unread #{active}" do %>
+    <button type="submit" title="<%= I18n.t("messages.unread_button.mark_as_unread") %>">
+      <span class="icon"><%= octicon "eye-closed" %></span>
+    </button>
+  <% end %>
+<% end %>

@@ -1,0 +1,19 @@
+<div class="user__links user__profile--block">
+  <header>
+    <h4><%= t "users.show.stats_messages" %></h4>
+  </header>
+
+  <div class="item">
+    <span class="icon"><%= octicon 'comment' %></span>
+    <%= t "users.show.posted_messages", count: user_messages_in_current_community(user).count %>
+  </div>
+  <div class="item">
+    <span class="icon"><%= octicon 'heart-fill' %></span>
+    <%= Vote.to_user(user).in_community(current_community).count %> favoris reçus
+  </div>
+
+  <a href="<%= votes_path(user_id: user.id) %>">
+    <span class="icon icon-heart--active"><%= octicon 'heart-fill' %></span>
+    <%= t "users.show.latest_favorite_messages_link", count: user_votes_in_current_community(user).count %>
+  </a>
+</div>

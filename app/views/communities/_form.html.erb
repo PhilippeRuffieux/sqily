@@ -1,0 +1,26 @@
+<%= form_for current_community, url: "/#{current_community.permalink}", builder: InlineErrorFormBuilder do |form| %>
+  <%= form.label :name %>
+  <%= form.text_field :name %>
+
+  <%= form.label :description %>
+  <%= form.text_area :description %>
+
+  <%= form.label :registration_code %>
+  <p class="help">
+    <%= t("activerecord.attributes.community.registration_code_help") %>
+  </p>
+  <%= form.text_field :registration_code %>
+
+  <br>
+  <label>
+    <%= form.check_box :free_skill_creation %>
+    <%= t("activerecord.attributes.community.free_skill_creation") %>
+  </label>
+
+  <label>
+    <%= form.check_box :public %>
+    <%= t("activerecord.attributes.community.public") %>
+  </label>
+
+  <%= form.submit t("lib.save") %>
+<% end %>

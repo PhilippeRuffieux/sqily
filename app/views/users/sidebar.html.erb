@@ -1,0 +1,35 @@
+<section class="sidebar__content" id="sidebar-content">
+  <section class="members" data-module="Sqily.User.List">
+    <header>
+      <%= render "teams/dropdown", teams: current_community.teams %>
+      <h4>
+        <% if @skill %>
+          <%= skill_user_and_expert_counts @skill %>
+        <% else %>
+          <%= t "users.bar.membership_count", count: current_community.users.count %>
+        <% end %>
+      </h4>
+      <% if moderator? %>
+        <% if (pending_request_count = current_community.invitation_requests.count) > 0 %>
+          <%#= link_to pending_request_count, invitations_path(current_community), class: "icon active", title: "Invitations en attente" %>
+          <a href="<%= invitations_path(current_community) %>" class="icon icon--admin" title="Invitations en attente">
+            <span class="notification__count"><%= pending_request_count %></span>
+            <%= octicon 'plus' %>
+          </a>
+        <% else %>
+          <a href="<%= invitations_path(current_community) %>" class="icon icon--admin">
+            <%= octicon 'plus' %>
+          </a>
+        <% end %>
+      <% end %>
+
+      <a href="#" class="icon icon--close sidebar-toggle" data-event="click->toggleSidebar">
+        <%= octicon "x" %>
+      </a>
+    </header>
+    <input type="text" name="query" autocomplete="off" class="search" placeholder="<%= t "lib.filter" %>" data-events="keyup->search" data-url="<%= users_list_path(current_community, skill_id: @skill) %>">
+    <div id="user-list">
+      <%= render "/users/list", users: users_list(1) %>
+    </div>
+  </section>
+</section>

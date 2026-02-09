@@ -1,0 +1,19 @@
+<% if user == current_user %>
+  <div class="user__links">
+    <a href="<%= profile_membership_path(current_community, membership) %>">
+      <span class="icon <%= "private" if !membership.public %>"><%= octicon 'mortar-board' %></span><%= t("users.show.attestations_link") %>
+    </a>
+  </div>
+<% else %>
+  <%= link_to t("users.show.discussion_link"), messages_path(current_community, user_id: user), class: "btn" %>
+  <% if @subscription && !@subscription.completed_at && skill_completed_by?(@skill, current_user) %>
+    <%= button_to t("users.show.promote_expert_button"), complete_subscription_path(current_community, @subscription), class: 'btn--small btn--admin' %>
+  <% end %>
+  <div class="user__links">
+    <% if membership.public %>
+      <a href="<%= profile_membership_path(current_community, membership) %>">
+        <span class="icon"><%= octicon 'mortar-board' %></span><%= t("users.show.attestations_link") %>
+      </a>
+    <% end %>
+  </div>
+<% end %>

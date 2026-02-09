@@ -1,0 +1,23 @@
+<li class="post">
+  <span class="avatar icon">
+    <%= octicon "pin" %>
+  </span>
+  <div class="message">
+    <div class="title">
+      <span class="title">
+        <% if message = Message::PollCreated.where(poll: notification.poll).first %>
+          Sondage terminé <%= link_to notification.poll.title, message_permalink(message) %>
+        <% else %>
+          Sondage terminé <%= notification.poll.title %>
+        <% end %>
+        <span class="ago"><%= l notification.created_at, format: :short %></span>
+      </span>
+      <% if message %>
+        <span class="icon"><a href="<%= message_permalink message %>"><%= octicon "link" %></a></span>
+      <% end %>
+    </div>
+    <div class="message__text">
+      <%= render "/polls/answers", poll: notification.poll %>
+    </div>
+  </div>
+</li>

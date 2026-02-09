@@ -1,0 +1,107 @@
+.validation form {
+  line-height: 24px;
+  padding: 0;
+  display: inherit;
+  margin: 0 6px 0 0;
+}
+
+.validation form.select,
+.validation form.result {
+  width: auto;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  flex: 1;
+  font-weight: 700;
+}
+
+.validation div { width: 100%; }
+
+.validation select {
+  flex: 1;
+  background: #fff;
+  color: rgba(17, 22, 26, 0.8);
+  border: 1px solid rgba(17, 22, 26, 0.1);
+  padding: 0 12px;
+  height: 24px;
+  margin: 0 6px 0 0;
+}
+
+.validation input {
+  line-height: 24px;
+  height: 24px;
+  margin: 0;
+  padding: 0 12px;
+}
+
+.validation form.result a { flex: 1; }
+
+.validation label.btn {
+  line-height: 24px;
+  margin: 0;
+  font-weight: 700;
+  height: 24px;
+  border: 0;
+  display: flex;
+  align-items: center;
+  align-content: center;
+  padding: 0 12px 0 8px;
+  cursor: pointer;
+}
+
+.validation .btn.add,
+.validation .delete {
+  background: #f4ae22;
+  color: #1b2226;
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  line-height: 24px;
+  padding: 0;
+  text-align: center;
+  cursor: pointer;
+  letter-spacing: 0;
+}
+
+.validation strong { flex: 1 1 0; }
+
+.validation .delete {
+  background: #f43e22;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.validation .icon-cancel {
+  position: relative;
+  margin: 0;
+}
+
+.validation .icon-cancel input[type='submit'] {
+  background: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.validation .cancel { background: #f43e22; }
+
+.validation a.btn {
+  line-height: 24px;
+  height: 24px;
+  text-decoration: none;
+  padding: 0 12px;
+  margin: 0 0 0 6px;
+  display: flex;
+  align-items: center;
+  align-content: center;
+}
+
+.validation a.btn .select {
+  margin: 0 0 0 5px;
+  background: rgba(255, 255, 255, 0.2);
+}
+
+@media (min-width: 1000px) {
+  .validation { display: flex; }
+}

@@ -1,0 +1,56 @@
+.badges {
+  list-style-type: none;
+  margin: 0 0 12px;
+  padding:0;
+  display: flex;
+  position: relative;
+  width: 100%;
+  flex-wrap: wrap;
+}
+
+.badges__item {
+  width: 33%;
+  max-width: 104px;
+  min-width: 72px;
+  text-align: center;
+  margin:0;
+  padding: 0 12px 12px 0;
+  font-size: 0.833rem;
+  position: relative;
+}
+
+.badges__item img {
+  display: block;
+  width: 100%;
+  opacity: 0.1;
+}
+
+.badges__item--active img { opacity: 1; }
+
+.badges__item__name {
+  opacity: 0.6;
+  font-weight: 400;
+}
+
+.badges__item--active .badges__item__name {
+  opacity: 1;
+  font-weight: 700;
+}
+
+.badge__progress {
+  width: 100%;
+  height: 2px;
+  background: rgba(17, 22, 26, 0.1);
+  position: relative;
+  top: -60px;
+}
+
+.badge__progress__value {
+  position: absolute;
+  height: 2px;
+  top: 0;
+  left: 0;
+  background: #1c8cca;
+  z-index: 2;
+  max-width: 100%;
+}

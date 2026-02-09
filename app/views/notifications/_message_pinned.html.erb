@@ -1,0 +1,31 @@
+<li class="post">
+  <span class="avatar icon">
+    <%= octicon "pin" %>
+  </span>
+  <div class="message">
+    <div class="title">
+      <span class="title">
+        <%= link_to_user notification.message.from_user, notification.message.from_user.name %>&nbsp;a epinglé un message important
+        <span class="ago">
+          <%= l notification.created_at, format: :short %>
+        </span>
+      </span>
+      <span class="icon"><a href="<%= message_permalink notification.message %>"><%= octicon "link" %></a></span>
+    </div>
+    <div class="message__text">
+      <div class="box">
+        <% case notification.message %>
+        <% when Message::Text %>
+          <%= format_message_text notification.message %>
+        <% when Message::Upload %>
+          <%= render "/messages/attachment", message: notification.message %>
+          <%= format_message_text notification.message %>
+        <% when Message::PollCreated %>
+          <%= Poll.model_name.human %> : <%= notification.message.poll.title %>
+        <% when Message::EventCreated %>
+          <%= Event.model_name.human %> : <%= notification.message.event.title %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</li>

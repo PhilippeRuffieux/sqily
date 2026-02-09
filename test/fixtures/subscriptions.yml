@@ -1,0 +1,51 @@
+equations_admin:
+  user: admin
+  skill: hep_equations
+  completed_at: <%= Time.now %>
+  last_read_at: <%= Time.now %>
+
+design_antoine:
+  user: antoine
+  skill: design
+  completed_at: <%= Time.now %>
+  last_read_at: <%= Time.now %>
+
+html_antoine:
+  user: antoine
+  skill: html
+  completed_at: <%= Time.now %>
+  last_read_at: <%= Time.now %>
+
+css_antoine:
+  user: antoine
+  skill: css
+  completed_at: <%= Time.now %>
+  last_read_at: <%= Time.now %>
+
+programming_alexis:
+  user: alexis
+  skill: programming
+  completed_at: <%= Time.now %>
+  last_read_at: <%= Time.now %>
+
+programming_antoine:
+  user: antoine
+  skill: programming
+  last_read_at: <%= Time.now %>
+
+js_alexis:
+  user: alexis
+  skill: js
+  completed_at: <%= Time.now %>
+  last_read_at: <%= Time.now %>
+
+js_antoine:
+  user: antoine
+  skill: js
+  last_read_at: <%= 1.minute.ago %>
+
+ror_alexis:
+  user: alexis
+  skill: ror
+  completed_at: <%= Time.now %>
+  last_read_at: <%= Time.now %>

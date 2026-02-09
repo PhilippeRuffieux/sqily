@@ -1,0 +1,80 @@
+<section class="profile">
+  <header>
+    <% if @user == current_user %>
+      <a href="<%= membership_path(current_community, current_membership) %>" class="icon icon--admin" >
+        <%= octicon "pencil" %>
+      </a>
+    <% end %>
+    <span id="close-profile" class="icon icon--close" data-event="click->toggleSidebar">
+      <%= octicon "x" %>
+    </span>
+  </header>
+
+  <div class="user">
+    <%= user_avatar(@user) %>
+    <h2><%= @user.name %></h2>
+    <div class="subtitle"><%= format_rich_text @membership.description || "-" %></div>
+
+    <%= render "/users/links", user: @user, membership: @membership %>
+    <%= render "/users/workspaces", user: @user %>
+    <%= render "/users/evaluations", user: @user %>
+    <%= render "/users/validations", user: @user %>
+    <%= render "/users/stats", user: @user %>
+    <%= render "/users/badges", membership: @membership %>
+
+    <% if @skill && @subscription %>
+      <% if current_user.permissions.downgrade_subscription?(@subscription) %>
+        <div class="admin">
+          <%= button_to t(".downgrade_expert_button"), uncomplete_subscription_path(current_community, @subscription), class: 'btn--small btn--delete' %>
+        </div>
+      <% elsif current_user.permissions.evaluate_subscription?(@subscription) %>
+        <div class="admin">
+          <%= button_to t(".promote_expert_button"), complete_subscription_path(current_community, @subscription), class: 'btn--small btn--admin' %>
+        </div>
+      <% end %>
+    <% end %>
+    <% if moderator? && @user != current_user %>
+      <div class="admin">
+        <%= button_to t(is_user_moderator?(@user) ? ".downgrade_moderator_button" : ".upgrade_moderator_button"), moderator_membership_path(@community, @membership), class: "btn--small btn--admin", method: :put %>
+        <%= button_to t(".remove_from_community_button"), user_path(current_community, @user), class: "btn--small btn--delete", method: "delete", data: {confirmation: t(".remove_from_community_confirmation")} %>
+      </div>
+    <% end %>
+
+    <div class="user__profile--block user__skills">
+      <header>
+        <h4><%= t ".skills_title" %></h4>
+      </header>
+      <section class="skills" data-module="Tabs">
+        <% pinned_skill_count = user_current_community_subscriptions(@user).pinned.count %>
+        <% pending_skill_count = user_current_community_subscriptions(@user).pending.count %>
+        <% completed_skill_count = user_current_community_subscriptions(@user).completed.count %>
+        <ul class="basic-list tabs">
+          <li title="Expert" class="skill active" data-open-tab="#tab-completed-skills">
+            <span class="icon star finish icon--star--finish">
+              <%= octicon 'star-fill' %>
+            </span>
+            <%= completed_skill_count %></li>
+          <li title="Inscrit" class="skill" data-open-tab="#tab-started-skills">
+            <span class="icon star icon--star--start">
+              <%= octicon 'star-fill' %>
+            </span>
+            <%= pending_skill_count %>
+          </li>
+        </ul>
+
+        <ul class="basic-list" id="tab-completed-skills" style="display:none;">
+          <% for subscription in user_current_community_subscriptions(@user).completed %>
+            <li><%= link_to subscription.skill.name, skill_path(current_community, subscription.skill) %></li>
+          <% end %>
+        </ul>
+
+        <ul class="basic-list" id="tab-started-skills" style="display:none;">
+          <% for subscription in user_current_community_subscriptions(@user).pending %>
+            <li><%= link_to subscription.skill.name, skill_path(current_community, subscription.skill) %></li>
+          <% end %>
+        </ul>
+      </section>
+    </div>
+
+  </div>
+</section>

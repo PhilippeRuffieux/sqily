@@ -1,0 +1,14 @@
+<%= form_tag poll_answers_path(permalink: current_community) do %>
+  <div class="box">
+    <% for choice in poll.choices %>
+      <label>
+        <%= poll.single_answer ? radio_button_tag("choice_ids[]", choice.id) : check_box_tag("choice_ids[]", choice.id) %>
+        <%= choice.title %>
+      </label>
+    <% end %>
+    <% if !poll.single_answer? %>
+      <small><%= t(".several_answers") %></small>
+    <% end %>
+    <%= submit_tag t("lib.send"), class: 'btn--small' %>
+  </div>
+<% end %>

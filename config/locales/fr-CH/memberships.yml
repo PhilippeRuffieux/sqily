@@ -1,0 +1,9 @@
+fr-CH:
+  memberships:
+    count:
+      zero: 0 membre
+      one: 1 membre
+      other: "%{count} membres"
+    show:
+      title: Votre profil
+      description_label: Description pour cette communauté

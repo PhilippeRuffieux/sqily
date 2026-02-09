@@ -1,0 +1,59 @@
+<header>
+
+  <% if current_user %>
+    <%= link_to skills_path(current_community), class: "btn large login" do %>
+      <span class="icon"><%= octicon "arrow-right", :height => 16, :"aria-label" => "alert" %></span>
+      <%= I18n.t("lib.enter") %>
+    <% end %>
+  <% else %>
+    <%= link_to session_path, class: "btn large login" do %>
+      <span class="icon"><%= octicon 'person' %></span>
+      <%= I18n.t("lib.login") %>
+    <% end %>
+  <% end %>
+
+  <%= render "shared/hep_logo" %>
+  <%= render "shared/sqily_logo" %>
+
+</header>
+<main class="page">
+  <div class="card community">
+    <header>
+      <%= octicon 'home' %>
+      <a href="/public">
+        <%= I18n.t("communities.public_registery") %>
+      </a>
+      <span> / </span>
+      <strong class="title">
+        <%= @community.name %>
+      </strong>
+
+      <a href="<%= skills_path(@community) %>" class="btn btn--large pull-right">rejoindre</a>
+    </header>
+
+    <div class="community__skills">
+      <p class="lead"><%= format_rich_text @community.description %></p>
+
+      <% if @community.published_skills.count == 0 %>
+        <h3 class="no-result"><%= I18n.t("skills.count", count: @community.skills.count) %></h3>
+      <% else %>
+        <h4>
+          <span><%= I18n.t("skills.count", count: @community.published_skills.count) %> | <%= I18n.t("memberships.count", count: @community.memberships.visible.count) %></span>
+          <%= link_to t("communities.tree.title"), community_tree_path, class: "btn btn--small"  %>
+        </h4>
+        <ul class="list">
+          <% @community.published_skills.order_by_name.each do |s| %>
+            <li>
+              <span class="icon"><%= octicon 'star' %></span>
+              <%= link_to s.name, public_skill_path(@community, s), class: "pr-1" %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</main>
+
+
+
+

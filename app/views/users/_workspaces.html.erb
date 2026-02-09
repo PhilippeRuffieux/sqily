@@ -1,0 +1,73 @@
+<% workspaces = workspace_partnerships_of(user) %>
+
+<% if workspaces.size > 0 %>
+  <!-- TODO: ajouter à la condition "et si cette liste ne contient pas uniquement
+  des droits à commenter sur des articles publiés"  -->
+  <div class="user__profile--block user__workspace">
+    <header>
+      <h4><%= t ".title" %></h4>
+      <% if user == current_user %>
+        <a href="<%= workspaces_path(current_community) %>" class="icon icon--admin" title="nouvel article" data-method="post">
+          <%= octicon 'plus' %>
+        </a>
+      <% end %>
+    </header>
+    <div class="user__links user__links--collapsed" id="user-workspaces">
+      <% for partnership in workspaces %>
+        <% if !partnership.read_only %>
+            <div class="user__links__item <%= "user__links__item--unread" if partnership.unread? %>">
+              <a href="<%= workspace_path(current_community, partnership.workspace) %>">
+                <span class="icon <%= 'private' if !partnership.workspace.published_at %>">
+                  <%= octicon 'file' %>
+                </span>
+                <%= partnership.workspace.title %>
+                <span class="workspace__writers">
+                  <% for user in partnership.workspace.writers %>
+                    <%= link_to_user user do %>
+                      <span class="user__links--file">
+                        <%= user.name %>
+                      </span>
+                    <% end %>
+                  <% end %>
+                </span>
+              </a>
+            </div>
+          <% else %>
+            <% if !partnership.workspace.published_at %>
+              <div class="user__links__item <%= "user__links__item--unread" if partnership.unread? %>">
+                <a href="<%= workspace_path(current_community, partnership.workspace) %>">
+                  <span class="icon private">
+                    <%= octicon 'comment' %>
+                  </span><%= partnership.workspace.title %>
+                  <span class="workspace__writers">
+                    <% for user in partnership.workspace.writers %>
+                      <%= link_to_user user do %>
+                        <span class="user__links--file">
+                          <%= user.name %>
+                        </span>
+                      <% end %> 
+                    <% end %>
+                  </span>
+                </a>
+              </div>
+            <% end %>
+          <% end %>
+      <% end %>
+      <% if workspaces.size > 5 %>
+        <span class="btn btn--small btn--toggle" data-module="Toggle.Css"
+          data-target="#user-workspaces"
+          data-css="user__links--collapsed"><%= t "lib.view_all" %></span>
+      <% end %>
+    </div>
+  </div>
+<% else %>
+  <% if user == current_user %>
+    <div class="user__profile--block user__workspace">
+      <header>
+        <h4><%= t ".title" %></h4>
+      </header>
+      <%= button_to t(".create"), workspaces_path(current_community), class: 'btn btn--small' %>
+      <p class="sidebar__help"><%= t ".help" %></p>
+    </div>
+  <% end %>
+<% end %>

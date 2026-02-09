@@ -1,0 +1,32 @@
+<%= render "/communities/header" %>
+
+<header class="header">
+  <div class="title">
+    <div class="filters">
+      <a href="<%= events_path(permalink: current_community.permalink) %>" class="filter <%= "filter--active" unless params[:registered] %>">
+        <%= t ".filter_all" %>
+      </a>
+      <a href="<%= events_path(permalink: current_community.permalink, registered: true) %>" class="filter <%= "filter--active" if params[:registered] %>">
+        <%= t ".filter_registered" %>
+      </a>
+    </div>
+  </div>
+</header>
+
+<div class="post-date">
+  <hr>
+  <span class="date" id="top-date"></span>
+</div>
+
+<section class="messages" id="messages" data-auto-scroll-to-bottom>
+  <% if @messages.blank? %>
+    <ul class="basic-list">
+      <li class="empty">
+        <h2>Pas d'événements.</h2>
+        <p>Créez un événement en cliquant sur le bouton + situé dans la zone d'écriture de message.</p>
+      </li>
+    </ul>
+  <% else %>
+    <%= render "/messages/list" %>
+  <% end %>
+</section>

@@ -1,0 +1,48 @@
+<ul class="list basic-list" data-next-page-url="<%= users_next_page_url(users) %>">
+  <% subscription_states = user_subscription_states(users, @skill) if @skill %>
+  <% unread_messages = current_user_unread_messages_from(users) %>
+  <% for user in users %>
+    <% user_skill_state = subscription_states[user.id].try(:[], :state) if @skill %>
+    <li class="user<%= @skill ? user_skill_state : "" %>">
+      <% if @skill %>
+        <span class="icon badge icon--star--<%= user_skill_state %>">
+          <%= octicon 'star-fill' %>
+        </span>
+      <% end %>
+
+      <%= link_to_user user, user_avatar(user), skill: @skill %>
+      
+      <div>
+        <span>
+          <%= link_to_user user, skill: @skill %>
+          <% if is_user_moderator?(user) %>
+            <span><small class="admin"><%= t "lib.admin" %></small></span>
+          <% end %>
+          <% if is_user_online?(user) %>
+            <span class="online" title="En ligne" data-online-status="<%= user.id %>"></span>
+          <% else %>
+            <span class="online" title="En ligne" data-online-status="<%= user.id %>" style="display:none;"></span>
+          <% end %>
+        </span>
+        <% if !@skill %>
+          <span class="stars">
+            <span>
+              <span class="icon icon--star icon--star--finish">
+                <%= octicon 'star-fill' %>
+              </span>
+              <%= user_current_community_subscriptions(user).completed.count %>
+            </span>
+            <span>
+              <span class="icon icon--star icon--star--start">
+                <%= octicon 'star-fill' %>
+              </span>
+              <%= user_current_community_subscriptions(user).pending.count %></span>
+          </span>
+        <% end %>
+      </div>
+      <a href="<%= community_tree_path(user_id: user.id) %>" class="icon" title="<%= t("communities.tree.title") %>">
+        <%= octicon 'workflow' %>
+      </a>
+    </li>
+  <% end %>
+</ul>

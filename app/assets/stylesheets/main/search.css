@@ -1,0 +1,53 @@
+.search-results__tabs li { padding: 12px 0; }
+
+.search-results__tabs li.active { padding-top: 9px; }
+
+.search-results__list li {
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.search-results.hidden { display: none; }
+
+.search-results .noresult {
+  margin: 12px 24px;
+  border: 1px solid rgba(17, 22, 26, 0.05);
+  color: #6d7173;
+  padding: 12px;
+  font-size: 0.833rem;
+  text-align: left;
+  position: relative;
+}
+
+.search-result__text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  max-height: 72px;
+}
+
+.search-results__list .ago,
+.search-results__list .ago a {
+  margin-left: 0;
+}
+
+.search-results__list .ago a:hover { text-decoration: underline; }
+
+.search-results__list .ago .icon { width: 16px; }
+
+.search-results__list .ago svg {
+  height: 16px;
+  margin: 4px 4px 4px 0;
+}
+
+.search-results__list .ago .skill {
+  font-weight: 700;
+  margin-left: 6px;
+}
+
+.search-results .sidebar__help { margin: 12px 24px; }
+
+.search-results > p { padding: 24px; }
+
+.search-results .sidebar__help--hidden { display: none; }

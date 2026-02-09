@@ -1,0 +1,39 @@
+<% if current_membership.permissions.create_teams? || teams.present?  %>
+  <div class="team-dropdown">
+    <button class="btn btn--secondary" data-module="Sqily.TeamDropdown" aria-haspopup="true" aria-expanded="false">
+      <span><%= current_team&.name || t('teams.all') %></span>
+      <%= octicon "chevron-down" %>
+    </button>
+
+    <ul role="menu" aria-label="Team" >
+      <% if teams.blank?  %>
+        <li><p class="help"><%= t('teams.help') %></p></li>
+      <% else %>
+        <li>
+          <%= link_to t("teams.all"), users_sidebar_path(current_community, skill_id: @skill.try(:id), team_id: "*"), class: "team-name", "data-event" => "click->filterByTeam", "data-team-id" => "*" %>
+        </li>
+        <li role="separator"></li>
+        <% for team in teams %>
+          <li>
+            <%= link_to team.name, users_sidebar_path(current_community, team_id: team.id, skill_id: @skill.try(:id)), class: "team-name", "data-event" => "click->filterByTeam", "data-team-id" => team.id %>
+            <% if current_membership.permissions.create_teams? %>
+              <%= link_to edit_team_path(current_community, team), class: "icon icon--admin", title: t('teams.edit') do %>
+                <%= octicon "pencil" %>
+              <% end %>
+            <% end %>
+          </li>
+        <% end %>
+      <% end %>
+
+      <% if current_membership.permissions.create_teams? %>
+        <li role="separator"></li>
+        <li>
+          <%= link_to new_team_path(current_community), class: "btn btn--admin" do %>
+            <%= octicon "plus" %>
+            <span><%= t('teams.add') %></span>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>     
+  </div>
+<% end %>

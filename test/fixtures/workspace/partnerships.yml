@@ -1,0 +1,10 @@
+ror_development_alexis:
+  user: alexis
+  workspace: ror_development
+  is_owner: true
+
+ror_development_valentin:
+  user: valentin
+  workspace: ror_development
+  is_owner: false
+  read_only: true

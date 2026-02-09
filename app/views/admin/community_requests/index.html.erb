@@ -1,0 +1,26 @@
+<section class="table">
+  <table>
+    <thead>
+      <tr>
+        <th><%= CommunityRequest.human_attribute_name :name %></th>
+        <th><%= CommunityRequest.human_attribute_name :description %></th>
+        <th><%= CommunityRequest.human_attribute_name :comment %></th>
+        <th><%= User.model_name.human %></th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <% for community_request in @community_requests %>
+      <tr>
+        <td class="community__name"><%= community_request.name %></td>
+        <td class="description"><%= format_rich_text community_request.description %></td>
+        <td class="description"><%= format_rich_text community_request.comment %></td>
+        <td><%= link_to community_request.user.name, "mailto:#{community_request.user.email}" %></td>
+        <td class="action">
+          <%= button_to t("lib.create"), accept_admin_community_request_path(community_request), class: 'btn btn--small' %>
+          <%= button_to t("lib.delete"), admin_community_request_path(community_request), method: :delete, class: 'btn--small btn--delete' %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+</section>

@@ -1,0 +1,22 @@
+<p>
+  <small><%= l notification.created_at, format: :short %></small><br>
+  <%= image_tag user_avatar_url(notification.message.from_user), style: "width: 24px; border-radius: 12px; float: left; margin-right: 6px;", alt: notification.message.from_user.name %>
+  <strong><%= notification.message.from_user.name %></strong>
+  &nbsp;a commenté l'article
+    <%= link_to notification.message.to_workspace.title, workspace_url(notification.message.to_workspace.community, notification.message.to_workspace) %>
+  <a href="<%= message_permalink notification.message %>">Voir</a><br>
+  <span class="message__text">
+    <% case notification.message %>
+      <% when Message::Text %>
+        <%= notification.message.text %>
+      <% when Message::Upload %>
+        <%= notification.message.file_name %> : <%= notification.message.text %>
+      <% when Message::PollCreated %>
+        <%= Poll.model_name.human %> : <%= notification.message.poll.title %>
+      <% when Message::EventCreated %>
+        <%= Event.model_name.human %> : <%= notification.message.event.title %>
+    <% end %>
+  </span>
+</p>
+
+<p style="text-align: center;"><%= link_to "Continuer", "https://sqily.com", class: "btn" %></p>

@@ -1,0 +1,121 @@
+.team-dropdown {
+  display: inline-flex;
+  flex-direction: column;
+  position: relative;
+  align-self: flex-start;
+  height: 48px;
+  max-width: calc(100% - 32px);
+}
+
+.team-dropdown > button {
+  line-height: 24px;
+  color: #6d7173;
+  text-shadow: none;
+  margin-top: 12px;
+  position: relative;
+  display: inline-flex;
+  gap: 4px;
+  align-items: center;
+  background: transparent;
+  box-shadow:0 0 1px 1px rgba(162, 165, 166, .4) inset, 0 2px 2px -2px rgba(17, 22, 26,.2);
+}
+
+.team-dropdown > button > span {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: left;
+}
+
+.team-dropdown > button:hover { color: currentColor; }
+
+.team-dropdown > button svg { 
+  height: 12px;
+  width: 12px;
+}
+
+.team-dropdown [role="menu"] {
+  display: inline-block;
+  position: relative;
+  background-color: #fff;
+  box-shadow: 0 0 0 1px rgba(17, 22, 26, 0.1) inset,
+    0 2px 4px 1px rgba(17, 22, 26, .05),
+    0 4px 8px 1px rgba(17, 22, 26, .05);
+  top: 0px;
+  z-index: 100;
+  border-radius: 3px;
+  padding: 4px 0;
+}
+
+.team-dropdown > button[aria-expanded="false"] + [role="menu"] { display: none; }
+
+.team-dropdown > button[aria-expanded="true"] + [role="menu"] { display: block; z-index: 10000; }
+
+.team-dropdown > button[aria-expanded="true"] svg { transform: rotate(180deg); }
+
+.team-dropdown li,
+ul.tabs .team-dropdown li {
+  font-size: .833rem;
+  height: auto;
+  line-height: 24px;
+  padding: 4px 12px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  align-content: center;
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+}
+
+.team-dropdown .team-name {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.team-dropdown li * + .btn { margin-left: auto; }
+
+.team-dropdown li a:hover { text-decoration: underline; }
+
+.team-dropdown li[role="separator"] {
+  border-top: 1px solid rgba(17, 22, 26, .1);
+  margin: 4px 1px 0;
+  padding-bottom: 0;
+}
+
+.team-dropdown .help {
+  font-size: .833rem;
+  padding: 8px;
+  background-color: rgba(17, 22, 26, .1);
+}
+
+.team__members {
+  border: 1px solid rgba(17, 22, 26, .1);
+  margin: 0;
+}
+
+.team__members select { flex: 1; }
+
+.team__members .todolist li { margin-bottom: 0; }
+
+.team__members .todolist li .btn { width: auto; }
+
+ul.tabs li:has(.team-dropdown) {
+  display: flex;
+  gap: 8px;
+}
+
+ul.tabs li .team-dropdown { 
+  height: 24px;
+  max-height: none;
+}
+
+.stats__table .team-dropdown > button,
+ul.tabs li .team-dropdown > button { margin: 0; }
+
+.stats__content:has(.team-dropdown) { overflow: visible; }
+
+.stats__table th .team-dropdown { display: none; }

@@ -1,0 +1,9 @@
+html_to_css:
+  to_skill: css
+  from_skill: html
+  mandatory: true
+
+js_to_ror:
+  to_skill: ror
+  from_skill: js
+  mandatory: false

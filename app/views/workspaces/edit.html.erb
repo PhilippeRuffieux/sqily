@@ -1,0 +1,67 @@
+<div class="workspace-form">
+  <header>
+    <div class="title">
+      <h2>
+        <%= t ".title" %>
+        <small class="draft"><strong><%= t ".draft" %></strong></small>
+      </h2>
+      <span class="title__actions">
+        <a href="<%= workspace_path(current_community, @workspace) %>" class="btn">
+          <%= octicon "eye" %> Voir
+        </a>
+        <a href="<%= skills_path(current_community) %>" class="icon icon--close">
+          <%= octicon "x" %>
+        </a>
+      </span>
+    </div>
+    <div class="subtitle">
+      <div class="box box--workspace" id="skill-description">
+        <div class="workspace__actions" data-module="Sqily.Skill.DescriptionTabs">
+          <span class="skill__description__tab" data-skill-description-tab="workspace-help">
+            <span class="icon"><%= octicon "info" %></span>Infos
+          </span>
+
+          <span class="skill__description__tab" data-skill-description-tab="workspace-partnership">
+            <span class="icon"><%= octicon 'home' %></span><%= t ".share" %>
+          </span>
+
+          <div class="workspace__versions">
+            <label><%= workspace_version_label(@version) %></label>
+          </div>
+        </div>
+
+        <div class="description tab-content--hidden" data-skill-description-tab-content="workspace-help">
+          <div class="box box--help">
+            <%= simple_format t(".subtitle") %>
+            <% if current_user.permissions.destroy_workspace?(@workspace) %>
+              <br>
+              <%= link_to workspace_path(current_community, @workspace), class: "btn btn--delete", "data-method" => "delete", "data-confirmation" => t("lib.confirmation") do %>
+                <%= octicon "trash" %> Supprimer cet article
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+
+        <%= render "/workspaces/partnerships/tab", workspace: @workspace %>
+      </div>
+    </div>
+  </header>
+
+  <section class="form">
+    <%= form_for @workspace, url: workspace_path(current_community, @workspace), builder: InlineErrorFormBuilder, html: {"data-module" => "FormAutoSave"} do |form| %>
+      <%= form.label :title %>
+      <%= form.text_field :title %>
+      <%= form.label :writing %>
+      <%= form.hidden_field :writing %>
+      <%= trix_editor_tag input: "workspace_writing", attachment_path: @workspace.attachment_path %>
+    <% end %>
+    <div class="workspace__form__footer">
+      <span class="record">
+        <span class="record--done">
+          <%= octicon "dot-fill" %>
+        </span> 
+        <%= t("lib.automatic_save") %>
+      </span>
+    </div>
+  </section>
+</div>

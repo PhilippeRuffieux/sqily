@@ -1,0 +1,124 @@
+<% url = skill.persisted? ? skill_path(current_community, skill) : skills_path(current_community) %>
+
+
+<% if !skill.children.none? %>
+  <h3><%= t ".parent_label" %></h3>
+<% end %>
+
+<%= form_for skill, url: url, builder: InlineErrorFormBuilder, html: {multipart: true} do |form| %>
+  <fieldset>
+    <legend><%= t ".legend" %></legend>
+
+    <%= form.label :name, t(".name_label") %>
+    <%= form.text_field :name, placeholder: t(".name_placeholder"), required: true %>
+   
+    <%= form.label :description %>
+    <div class="box box--help">
+      <p><%= t ".description_help" %></p>
+    </div>
+    <%= form.hidden_field :description, placeholder: skill_description_placeholder, "data-module" => "MultilinePlaceholder", required: true %>
+    <%= trix_editor_tag input: "skill_description", attachment_path: skill.attachment_path %>
+  </fieldset>
+
+
+  <% if skill.children.none? %>
+    <fieldset>
+      <legend><%= t ".help_legend" %></legend>
+      <%= form.label :help %>
+      <%= form.hidden_field :help, required: true %>
+      <%= trix_editor_tag input: "skill_help", attachment_path: skill.attachment_path %>
+    </fieldset>
+    <fieldset>
+      <legend><%= t ".todolist_label" %></legend>
+      <div class="box box--help">
+        <p>
+          <%= t ".todolist_help" %>
+        </p>
+      </div>
+      <ul class="basic-list todolist" data-barber="Sqily.Skill.TaskEditor" data-json="<%= Serializer.to_json(skill.persisted? ? skill.tasks.order(:position) : skill.tasks) %>">
+        {{#tasks}}
+          <li draggable="true" data-events="dragstart->dragTask dragend->dropTask dragenter->dragTaskOver" data-task-uuid="{{uuid}}">
+            <input type="hidden" name="tasks[][id]" value="{{id}}">
+            <input type="hidden" name="tasks[][position]" value="{{position}}">
+            <span class="icon icon--drag">
+              <svg viewBox="0.000000 -52.500000 26.250000 26.250000" xmlns="http://www.w3.org/2000/svg"><path d="M13.125000 -52.500000L18.750000 -46.875000L15.000000 -46.875000L15.000000 -41.250000L20.625000 -41.250000L20.625000 -45.000000L26.250000 -39.375000L20.625000 -33.750000L20.625000 -37.500000L15.000000 -37.500000L15.000000 -31.875000L18.750000 -31.875000L13.125000 -26.250000L7.500000 -31.875000L11.250000 -31.875000L11.250000 -37.500000L5.625000 -37.500000L5.625000 -33.750000L0.000000 -39.375000L5.625000 -45.000000L5.625000 -41.250000L11.250000 -41.250000L11.250000 -46.875000L7.500000 -46.875000ZM13.125000 -52.500000"></path></svg>
+            </span>
+            <span class="todolist__item"><input type="text" name="tasks[][title]" value="{{title}}"></span>
+            {{#file_url}}
+              <a href="{{file_url}}" target="_blank" class="todolist__file__name">{{file_name}}</a>
+            {{/file_url}}
+
+            <label for="skill_task_file_{{uuid}}">
+              <span id="upload-button" class="btn btn--small">
+                <%= octicon "diff" %>
+                <span class="label-text" data-barber="Sqily.InputFileName" data-target="#skill_task_file_{{uuid}}">
+                </span>
+              </span>
+            </label>
+
+            <input type="file" id="skill_task_file_{{uuid}}" name="tasks[][file]" class="input-file"> <%# TODO: Antoine input width %>
+
+            <span class="btn small delete" data-task-uuid="{{uuid}}" data-action="deleteTask" <%= "data-url='#{skill_path(current_community, skill)}/tasks/{{id}}'".html_safe if skill.persisted? %>>
+              <%= octicon "trash" %>
+            </span>
+          </li>
+        {{/tasks}}
+        <li class="todolist__new-item">
+          <input type="text" id="new-task-title" data-events="keypress->newTaskTitleChanged">
+          <span class="btn" data-action="addTask"><%= t "lib.add" %></span>
+        </li>
+      </ul>
+    </fieldset>
+  <% end %>
+  <% if skill.children.none? %>
+    <fieldset>
+      <legend><%= t ".evaluation_legend" %></legend>
+
+      <div class="checkbox">
+        <%= form.check_box :auto_evaluation %>
+        <%= form.label :auto_evaluation, t(".auto_evaluation_label") %>
+      </div>
+
+      <% if skill.parent %>
+        <div class="checkbox">
+          <%= form.check_box :mandatory %>
+          <%= form.label :mandatory, t(".mandatory_label") %>
+        </div>
+      <% end %>
+    </fieldset>
+  <% end %>
+  <fieldset>
+    <legend><%= t ".prerequisites_legend" %></legend>
+
+    <% if skill.children.none? %>
+      <%= form.label :parent_id, t(".parent_label") %>
+      <div class="box box--help">
+        <p><%= t ".parent_help" %></p>
+      </div>
+      <%= form.select :parent_id, skill_parent_options(skill.parent_id), include_blank: true %>
+    <% end %>
+
+    <% if skill.persisted? %>
+      <label><%= t ".prerequisites_label" %></label>
+      <%= render "/prerequisites/list" %>
+      <%= form.label :minimum_prerequisites %>
+      <div class="box box--help">
+        <p><%= t ".prerequisites_help" %></p>
+      </div>
+      <%= form.number_field :minimum_prerequisites, min: 0, step: 1, style: "width: 6rem; display:inline-block; text-align: right;" %> / <%= skill.prerequisites.count %>
+    <% end %>
+  </fieldset>
+
+  <% if !skill.published_at %>
+    <div class="checkbox alert">
+      <%= form.check_box :published_at %>
+      <%= form.label :published_at, t(".published_at_label") %>
+    </div>
+  <% end %>
+  <%= form.submit t("lib.save") %>
+<% end %>
+
+<% if current_user.permissions.destroy_skill?(skill) %>
+  <%= button_to "Supprimer cette compétence", skill_path(current_community, skill), method: "delete", class: "delete",
+    data: {confirmation: "Êtes-vous sûr de SUPPRIMER cette compétence ainsi que ses évaluations ? Cette action est irréverssible !"} %>
+<% end %>

@@ -1,0 +1,40 @@
+<header class="header">
+  <div class="title">
+    <h2><span class="icon"><%= octicon "comment-discussion" %></span> <%= t ".title" %></h2>
+    <a href="<%= skills_path(current_community) %>" class="icon icon-clear icon--close">
+      <%= octicon "x" %>
+    </a>
+  </div>
+</header>
+<div class="post-date">
+  <hr>
+</div>
+
+<section class="messages messages--index">
+  <ul>
+    <% for message in @messages %>
+      <li class="post <%= "pinned" if @unread_user_ids.include?(message.from_user_id) %>">
+        <%= link_to messages_path(current_community, user_id: message.from_user), class: "list-link"  do %>
+          <%= user_avatar(message.from_user) %>
+          <div class="message__content">
+            <strong><%= message.from_user.name %></strong>
+            <p class="message__text">
+              <span class="message__text__excerpt">
+                <%= preview_message(last_message = Message.between(message.from_user_id, message.to_user_id).latest.first) %>
+              </span>
+              <span class="ago"><%= l last_message.created_at.to_datetime, format: :short %></span>
+            </p>
+          </div>
+        <% end %>
+      </li>
+    <% end %>
+
+    <% if @messages.blank? %>
+      <li class="empty">
+        <h2><%= t ".no_conversations_title" %></h2>
+        <p><%= t ".no_conversations_message" %></p>
+      </li>
+    <% end %>
+  </ul>
+  <%= paginate @messages %>
+</section>

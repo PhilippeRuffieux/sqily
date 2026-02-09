@@ -1,0 +1,13 @@
+fr-CH:
+  invitations:
+    index:
+      email_label: Entrez une adresse email par ligne
+      invalid_emails_error: "Les emails suivants ne sont pas valides:"
+      invitations_subtitle: Invitations envoyées, inscriptions en attente.
+      invitations_title: Invitations en cours
+      no_requests: Aucune demande en attente.
+      no_invitations: Aucune invitation en cours.
+      requests_subtitle: Invitations demandées depuis l'accueil public de la communauté.
+      requests_title: Demandes d'invitation
+      submit: Inviter
+      title: Invitations

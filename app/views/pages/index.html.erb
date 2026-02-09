@@ -1,0 +1,127 @@
+<header class="home">
+  <a href="/session" class="btn large login">
+    <span class="icon"><%= octicon 'person' %></span>
+    <%= t("lib.login") %>
+  </a>
+  <%= render "shared/hep_logo" %>
+  <%= render "shared/sqily_logo" %>
+  <h2>
+    Plateforme de communication scolaire et de validation
+    mutuelle de compétences, proposée par la <a href="http://hepl.ch" target="_blank">Haute Ecole Pédagogique Vaud</a>.
+  </h2>
+  <div class="screenshot">
+    <div>
+      <picture>
+        <source srcset="<%= image_path "screenshot.webp" %>" type="image/webp">
+        <source srcset="<%= image_path "screenshot.png" %>" type="image/jpeg">
+        <%= image_tag image_path("screenshot.png"), alt: "screenshot" %>
+      </picture>
+    </div>
+  </div>
+
+</header>
+
+<section class="home">
+  <div class="features">
+    <h2><strong>Vous enseignez ?</strong> Créez gratuitement une communauté privée, et dotez votre classe ou votre école d'un outil pédagogique moderne.</h2>
+    <%= link_to "Créez une communauté", new_community_request_path, class: "btn secondary" %>
+    <%= link_to "Parcourir le repertoire", "/public", class: "btn tertiary" %>
+
+    <div class="container">
+
+      <div class="feature">
+        <h3>
+          <span class="icon"><%= octicon 'comment-discussion' %></span>Messagerie pour la classe
+        </h3>
+        <p>
+          Sqily offre un outil de communication moderne,
+          qui étend le lien avec le professeur et entre élèves.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>
+          <span class="icon"><%= octicon 'heart' %></span>Entraide éducative
+        </h3>
+        <p>
+          Sqily encourage l’autonomie, et incite les élèves ayant maîtrisé une
+          compétence à assister les autres.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>
+          <span class="icon"><%= octicon 'sync' %></span>Partage de ressources
+        </h3>
+        <p>
+          Sqily facilite le partage de ressources numériques, de liens internet,
+          de videos et de documents dans la classe.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>
+          <span class="icon">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 39.67 59.88" width="16px" height="16px">
+            <path d="M39.67,20a21.88,21.88,0,0,1-1.42,8,18.71,18.71,0,0,1-4,6.35A18.27,18.27,0,0,1,28,38.52,21.18,21.18,0,0,1,19.85,40a21.1,21.1,0,0,1-8.1-1.5,18.42,18.42,0,0,1-6.27-4.18,18.78,18.78,0,0,1-4-6.35A21.68,21.68,0,0,1,0,20a21.68,21.68,0,0,1,1.44-8,18.77,18.77,0,0,1,4-6.35A18.41,18.41,0,0,1,11.75,1.5,21.1,21.1,0,0,1,19.85,0a22,22,0,0,1,5.61.69,19.7,19.7,0,0,1,4.82,1.95A17.82,17.82,0,0,1,34.22,5.7a18.61,18.61,0,0,1,3,4A19.69,19.69,0,0,1,39,14.54,22.91,22.91,0,0,1,39.67,20Zm-7.45,0a18,18,0,0,0-.87-5.78,12.4,12.4,0,0,0-2.46-4.35A10.56,10.56,0,0,0,25,7.15a13.38,13.38,0,0,0-5.16-.95,13.38,13.38,0,0,0-5.16.95,10.68,10.68,0,0,0-3.9,2.74,12.28,12.28,0,0,0-2.48,4.35A18,18,0,0,0,7.45,20a18,18,0,0,0,.87,5.78,12.14,12.14,0,0,0,2.48,4.33,10.75,10.75,0,0,0,3.9,2.72,13.36,13.36,0,0,0,5.16.95A13.36,13.36,0,0,0,25,32.85a10.63,10.63,0,0,0,3.89-2.72,12.25,12.25,0,0,0,2.46-4.33A18,18,0,0,0,32.23,20Z"/>
+            <path d="M23.73,59.88H16.42V20.72h7.31Z"/>
+          </svg>
+          </span>Arbres de connaissances</h3>
+        <p>
+          L'arbre structure le savoir collectif et permet aux élèves de choisir leurs
+          compétences à développer.
+        </p>
+      </div>
+      <div class="feature">
+        <h3>
+          <span class="icon">
+            <%= octicon 'verified' %>
+          </span>Validation mutuelle
+        </h3>
+        <p>
+          Sqily place les élèves dans le rôle du professeur en leur faisant créer et
+          valider des défis.
+        </p>
+      </div>
+
+      <div class="feature">
+        <h3>
+          <span class="icon"><%= octicon 'mortar-board' %></span>Reconnaissance des acquis
+        </h3>
+        <p>
+          Le portfolio et les badges permettent de valoriser les savoirs et les
+          productions des élèves.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="schools">
+    <div class="container">
+      <div class="school">
+        <%= image_tag "schools/vaud.svg" %>
+      </div>
+      <div class="school">
+        <%= image_tag "schools/bussigny.svg" %>
+      </div>
+
+      <div class="school">
+        <%= image_tag "schools/lemont.svg" %>
+      </div>
+      <div class="school">
+        <%= image_tag "schools/yverdon.svg" %>
+      </div>
+      <div class="school">
+        <%= image_tag "schools/cugy.svg" %>
+      </div>
+      <div class="school">
+        <%= image_tag "schools/iffp.svg" %>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="contact">
+    <h2>Sqily est un outil pédagogique gratuit<br>à disposition des écoles.</h2>
+    <%= link_to "Créez une communauté", new_community_request_path, class: "btn secondary" %>
+    <%= link_to "Parcourir le repertoire", "/public", class: "btn tertiary" %>
+  </div>
+
+</section>

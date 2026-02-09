@@ -1,0 +1,39 @@
+<section class="admin">
+  <h2>Pages 
+    <%= link_to new_admin_page_path, class: "btn secondary btn--admin", title: t('lib.create') do %>
+      <%= octicon "plus" %>
+    <% end %>
+  </h2>
+
+  <% if !@pages.empty? %>
+    <table>
+      <thead>
+      <tr>
+        <th><%= Page.human_attribute_name :title %></th>
+        <th>url</th>
+      </tr>
+      </thead>
+      <% for page in @pages %>
+        <tr>
+          <td><%= page.title %></td>
+          <td><%= link_to page_path(page.slug), page_path(page.slug) %></td>
+          <td class="action">
+            <%= link_to admin_page_path(page), class: "btn secondary btn--admin", title: t('lib.edit') do %>
+              <%= octicon "pencil" %>
+            <% end %>
+            <%= button_to admin_page_path(page), class: "btn secondary btn--delete", method: "delete",
+                          "data-confirmation" => t(".delete_confirmation"), title: t('lib.delete') do %>
+              <%= octicon "trash" %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  <% else %>
+    <div class="noresult">
+      <p>Aucune page.</p>
+    </div>
+  <% end %>
+</section>
+
+<%= paginate @pages %>

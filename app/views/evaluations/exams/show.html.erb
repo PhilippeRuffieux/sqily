@@ -1,0 +1,141 @@
+<%= render "/evaluations/exams/header" , exam: @exam , skill: @exam.evaluation.skill, back_path: skill_evaluations_path(current_community, @exam.evaluation.skill) %>
+
+<div class="post-date">
+  <hr>
+</div>
+
+<section class="messages">
+  <%= render "evaluations/exams/evaluation", evaluation: @exam.evaluation %>
+
+  <ul>
+    <% if @notes.blank? %>
+      <li class="empty">
+        <h2><%= t ".title" %></h2>
+        <p><%= t ".instructions" %></p>
+      </li>
+    <% else %>
+      <% for note in @notes %>
+        <li id="message-<%= note.id %>" data-date="<%= I18n.l(note.created_at.to_date, format: '%A, %d %b %Y') %>" class="post">
+          <%= link_to_user note.user do %>
+            <%= user_avatar(note.user) %>
+          <% end %>
+
+          <div class="message">
+            <div class="title">
+              <span class="title">
+                <%= link_to_user note.user %>
+                <span class="ago"><%= l note.created_at, format: :short %></span>
+              </span>
+            </div>
+            <div class="box">
+              <%= format_rich_text note.content&.html_safe %>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    <% end %>
+    <% if @exam.is_canceled? %>
+      <li class="post">
+          <span class="avatar icon">
+            <%= octicon 'circle-slash' %>
+          </span>
+          <div class="message">
+            <div class="title">
+              <strong class="title">
+                <% if @exam.candidate == current_user %>
+                  <%= t("evaluations.exams.you_canceled_exam") %>
+                <% else %>
+                  <%= t("evaluations.exams.candidate_canceled_exam", candidate_name: @exam.candidate.name) %>
+                <% end %>
+              </strong>
+            </div>
+            <% if @exam.candidate == current_user %>
+              <div class="box">
+                <% if active_sibling = @exam.active_sibling %>
+                  <%= link_to t("evaluations.exams.already_one_in_progress"), evaluation_exam_path(current_community, active_sibling) %>
+                <% else %>
+                  <%= button_to t("evaluations.exams.continue_exam"), resume_evaluation_exam_path(current_community, @exam), class: "btn btn--small", method: "post" %>
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+        </li>
+    <% end %>
+
+    <% if !@exam.completed? && !@exam.is_canceled? %>
+      <li class="post">
+        <%= link_to_user current_user do %>
+          <%= user_avatar(current_user) %>
+        <% end %>
+
+        <div class="message">
+          <div class="title">
+            <span class="title">
+              <% if @exam.examiner == current_user %>
+                <strong><%= t("evaluations.exams.opinion") %></strong>
+              <% else %>
+                <strong><%= t("evaluations.exams.answer") %></strong>
+              <% end %>
+            </span>
+          </div>
+
+          <div class="box">
+            <%= form_for (@note ||= Evaluation::Note.new), multipart: true, builder: InlineErrorFormBuilder do |form| %>
+              <%= form.hidden_field :content %>
+              <%= form.label :content %>
+              <%= trix_editor_tag input: "evaluation_note_content", attachment_path: @note.attachment_path %>
+
+              <% if @exam.examiner == current_user %>
+                <%= form.submit t("evaluations.exams.reject"), name: "reject", class: "btn" %>
+                <%= form.submit t("evaluations.exams.accept"), name: "accept", class: "btn btn--admin" %>
+              <% else %>
+                <%= form.submit t("evaluations.exams.send"), name: "send" %>
+              <% end %>
+            <% end %>
+
+            <% if current_user.permissions.cancel_exam?(@exam) %>
+              <%= button_to t("evaluations.exams.cancel"), cancel_evaluation_exam_path(current_community, @exam), class: "btn btn--delete btn--small pull-right", method: "delete", "data-confirmation" => t("evaluations.exams.cancel_confirmation") %>
+
+              <%= button_to t("evaluations.exams.submit_to_another_examiner"), change_examiner_evaluation_exam_path(current_community, @exam), class: "btn btn--delete btn--small pull-right", method: "post", "data-confirmation" => t("lib.confirmation") %>
+            <% end %>
+          </div>
+        </div>
+      </li>
+    <% else %>
+      <% if @exam.completed? %>
+        <li class="post">
+          <span class="avatar icon">
+            <%= octicon 'star-fill', class: "icon--star icon--star--finish" %>
+          </span>
+          <div class="message">
+            <div class="title">
+              <strong class="title">
+                <%= t('evaluations.exams.status.completed') %>
+              </strong>
+            </div>
+            <div class="box">
+              <% if @exam.examiner == current_user %>
+                <p><%= t("evaluations.exams.status.is_expert", user: @exam.candidate.name) %>.</p>
+              <% else %>
+                <p><%= t('skills.evaluation_auto.status_expert') %>.</p>
+              <% end %>
+            </div>
+          </div>
+        </li>
+      <% end %>
+      <% if @exam.examiner == current_user %>
+        <li><a href="<%= messages_path(current_community, user_id: @exam.candidate) %>" class="btn" role="button">Continuer la conversation en privé</a></li>
+      <% else %>
+        <li><a href="<%= messages_path(current_community, user_id: @exam.examiner) %>" class="btn" role="button">Continuer la conversation en privé</a></li>
+      <% end %>
+    <% end %>
+  </ul>
+  <% if !@exam.completed? && !@exam.is_canceled? && @exam.evaluation.skill.help? %>
+    <div class="content__section">
+      <h3><%= Skill.human_attribute_name(:help) %></h3>
+      <div class="box">
+        <%= format_rich_text @exam.evaluation.skill.help.html_safe %>
+      </div>
+    </div>
+  <% end %>
+</section>

@@ -1,0 +1,46 @@
+.invitations {
+  padding: 24px;
+  overflow-y: auto;
+}
+
+.invitations li {
+  line-height: 48px;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.content .invitations .avatar {
+  height: 24px;
+  width: 24px;
+  margin: 12px 12px 0 0;
+}
+
+.invitations li .email { flex: 1; }
+
+.invitations li.noresult {
+  box-shadow: 0 0 0 0;
+  text-align: center;
+  display: block;
+  color: #6d7173;
+}
+
+.invitations li .icon { margin: 0 0 0 6px; }
+
+.invitations li .icon--check {
+  background: #1c8cca;
+  fill: #fff;
+  padding: 0;
+}
+
+.invitations li input[type=submit] {
+  height: 24px;
+  line-height: 24px;
+  width: 24px;
+  text-align: center;
+  background: transparent;
+  padding: 0;
+  position: absolute;
+  top: 6px;
+  left: 0;
+}

@@ -1,0 +1,67 @@
+alexis_to_antoine:
+  from_user: alexis
+  to_user: antoine
+  type: Message::Text
+  text: "Salut"
+  read_at: nil
+
+antoine_to_alexis:
+  from_user: antoine
+  to_user: alexis
+  type: Message::Text
+  text: "Salut, ça va?"
+
+alexis_to_admin:
+  from_user: alexis
+  to_user: admin
+  type: Message::Text
+  text: "Bla bla bla"
+
+alexis_to_base:
+  from_user: alexis
+  to_community: base
+  type: Message::Text
+  text: "Hello Base Secrète #HelloWorld"
+
+alexis_to_js:
+  from_user: alexis
+  to_skill: js
+  type: Message::Text
+  text: "Hello JavaScript"
+
+alexis_created_ror:
+  from_user: alexis
+  to_community: base
+  type: Message::NewSkill
+  skill: ror
+
+alexis_file_to_ror:
+  from_user: alexis
+  to_skill: ror
+  type: Message::Upload
+  text: "Fichier"
+  file_node: test.pdf
+
+js_demo_event:
+  from_user: alexis
+  to_skill: js
+  type: Message::EventCreated
+  event: js_demo
+
+alexis_to_workspace:
+  from_user: alexis
+  to_workspace: ror_development
+  type: Message::Text
+  text: "Commentaire"
+
+antoine_to_workspace:
+  from_user: antoine
+  to_workspace: ror_development
+  type: Message::Text
+  text: "Commentaire"
+
+alexis_poll_to_base:
+  from_user: alexis
+  to_community: base
+  poll: alexis_poll_to_base
+  type: Message::PollCreated

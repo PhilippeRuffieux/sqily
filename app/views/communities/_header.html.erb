@@ -1,0 +1,60 @@
+<header>
+  <nav class="header__nav">
+    <ul class="tabs">
+      <li class="<%= 'is-active' if current_page?(community_description_path) %>">
+        <%= link_to community_description_path do %>
+          <%= octicon "info" %>
+          <span><%= Community.model_name.human %></span>
+        <% end %>
+      </li>
+      <li class="<%= 'is-active' if current_page?(skills_path(current_community)) %>">
+        <a href="<%= skills_path current_community %>">
+          <%= octicon "star" %>
+          <span><%= Skill.model_name.human(count: 2) %></span>
+        </a>
+      </li>
+      <li class="<%= 'is-active' if (request.path == messages_community_path) %>">
+        <%= link_to messages_community_path do %>
+          <%= octicon "comment" %>
+          <span><%= Message.model_name.human(count: 2) %></span>
+          <% if (unread_message_count = current_membership.unread_messages.count) > 0 %>
+            <span class="notification__count"><%= unread_message_count %></span>
+          <% end %>
+        <% end %>
+      </li>
+      <% if current_community.events.any? %>
+        <li class="<%= 'is-active' if (request.path == events_path) %>">
+          <%= link_to events_path, title: t("communities.messages.calendar_tooltip") do %>
+            <span><%= Event.model_name.human(count: 2) %></span>
+          <% end %>
+        </li>
+      <% end %>
+      <li class="<%= 'is-active' if current_page?(progression_community_path(current_community)) %>">
+        <%= link_to progression_community_path(current_community) do %>
+          <%= octicon "graph" %>
+          <span><%= t "lib.progression" %></span>
+        <% end %>
+      </li>
+      <% if current_user.permissions.read_community_statistics?(current_community) %>
+        <li class="<%= 'is-active' if (request.path == statistics_path) %>">
+          <%= link_to statistics_path do %>
+            <%= octicon "graph" %>
+            <span>Statistiques</span>
+          <% end %>
+        </li>
+      <% end %>
+    </ul>
+    <ul class="tabs is-right">
+      <li>
+        <a href="<%= search_form_messages_path(current_community) %>" title="<%= t "communities.messages.search_tooltip" %>" class="icon" data-event="click->loadSideBar">
+          <%= octicon "search" %>
+        </a>
+      </li>
+      <li>
+        <a href="<%= users_sidebar_path %>" class="icon sidebar-toggle" data-event="click->loadSideBar">
+          <%= octicon "people" %>
+        </a>
+      </li>
+    </ul>
+  </nav> 
+</header>

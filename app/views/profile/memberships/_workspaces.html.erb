@@ -1,0 +1,34 @@
+<div class="attestation__workspaces">
+  <h4><%= t(".title") %></h4>
+
+  <% for workspace in @profile.public_workspaces %>
+    <div class="attestation__workspaces_item">
+      <h3>
+        <%= link_to workspace.title, profile_workspace_path(current_community, workspace) %>
+        <% if current_user == @profile.membership.user %>
+          <%= button_to t("lib.hide"), profile_hidden_items_path(current_community), params: {hidden_profile_item: {workspace_id: workspace.id}}, class: 'btn--small btn--delete' %>
+        <% end %>
+      </h3>
+      <small><%= l workspace.published_at.to_date %></small>
+
+      <% for author in workspace.writers %>
+        <% if author_membership = author.memberships.where(community: @profile.membership.community_id).first %>
+          <%= link_to author.name, profile_membership_path(current_community, author_membership), class: 'attestation__workspaces_item__author' %>
+        <% else %>
+          <span class="attestation__workspaces_item__author"><%= author.name %></span>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if current_user == @profile.membership.user %>
+    <% for item in @profile.items_of_hidden_workspaces %>
+      <div class="attestation__workspaces_item attestation__private">
+        <h3>
+          <%= item.workspace.title %>
+          <%= button_to t("lib.show"), profile_hidden_item_path(current_community, item), method: :delete, class: 'btn--small' %>
+        </h3>
+      </div>
+    <% end %>
+  <% end %>
+</div>

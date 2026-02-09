@@ -1,0 +1,14 @@
+fr-CH:
+  polls:
+    answers:
+      votes: votes
+    choices:
+        several_answers: Plusieurs choix possibles
+        single_answer: Un seul choix possible
+    new:
+      title: Nouveau sondage
+    form:
+      text_label: Question
+      choices_label: Choix de réponse
+      date_label: Date de fin
+      add_button: Ajouter un choix

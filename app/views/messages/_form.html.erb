@@ -1,0 +1,32 @@
+<ul class="post-message basic-list">
+  <li class="post post-form" data-date="<%= l Date.today %>">
+    <span class="btn icon" data-css="message_bar_add_menu--open" data-module="Toggle.Css" data-target="#message-bar-add-menu">
+      <%= inline_svg_tag "icons/paperclip.svg", :"aria-label" => "add"  %>
+    </span>
+    <div id="message-bar-add-menu" class="message_bar_add_menu">
+      <ul>
+        <li><span data-action="share-file"><%= t ".file_share_label" %></span></li>
+        <% if message.to_community_id || message.to_skill_id %>
+          <li><span data-open-modal="#poll-modal"><%= t ".poll_share_label" %></span></li>
+          <li><span data-open-modal="#event-modal"><%= t ".event_share_label" %></span></li>
+        <% end %>
+      </ul>
+    </div>
+    <%= form_for message, url: messages_path(current_community), html: {multipart: true, "data-module": "Sqily.MessageForm"} do  |form| %>
+      <%= form.text_area :text, placeholder: t(".text_placeholder"), required: true, autocomplete: "off", rows: 1,
+        "data-module": "Sqily.Mentions",
+        "data-user-names": users_autocomplete_list_for_message(message),
+        "data-hash-tags": hash_tags_autocomplete_list
+        %>
+      <%= form.hidden_field :to_user_id %>
+      <%= form.hidden_field :to_skill_id %>
+      <%= form.hidden_field :to_workspace_id %>
+      <%= form.hidden_field :to_community_id %>
+      <%= form.submit t("lib.send_short"), title: t("lib.send") %>
+    <% end %>
+  </li>
+</ul>
+
+<%= render "/polls/modal", poll: Poll.new(community_id: message.to_community_id, skill_id: message.to_skill_id, workspace_id: message.to_workspace_id, finished_at: 1.day.from_now) %>
+<%= render "/events/modal", event: Event.new(skill_id: message.to_skill_id) %>
+<%= render "/messages/upload_modal", message: Message::Upload.new(message.attributes) %>

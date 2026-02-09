@@ -1,0 +1,9 @@
+<% if skill.next_prerequisites.exists? %>
+  <h4><%= t ".title" %></h4>
+
+  <ul class="prerequisite">
+    <% for prerequisite in skill.next_prerequisites %>
+      <%= render "/skills/item", skill: prerequisite.to_skill, subscription: current_user.subscriptions.find_by_skill_id(prerequisite.to_skill_id) %>
+    <% end %>
+  </ul>
+<% end %>

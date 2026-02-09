@@ -1,0 +1,3 @@
+ruby_alexis:
+  task: ror_ruby
+  user: alexis

@@ -1,0 +1,27 @@
+<section class="admin">
+  <h2>Community <%= @community.name %></h2>
+  <%= form_for @community, url: admin_community_path(@community), builder: InlineErrorFormBuilder do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+
+    <%= form.label :permalink %>
+    <%= form.text_field :permalink %>
+
+    <label>
+      <%= form.check_box :free_skill_creation %>
+      <%= Community.human_attribute_name(:free_skill_creation) %>
+    </label>
+
+    <label>
+      <%= form.check_box :public %>
+      <%= Community.human_attribute_name(:public) %>
+    </label>
+
+    <br>
+    <%= form.submit t("lib.save") %>
+    <%= link_to t("lib.cancel"), admin_communities_path, class: "btn" %>
+  <% end %>
+</section>

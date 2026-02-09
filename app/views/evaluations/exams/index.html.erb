@@ -1,0 +1,50 @@
+<header>
+  <div class="title">
+    <h2><span class="icon">
+      <%= octicon 'file-badge' %>
+    </span> <%= t("activerecord.models.evaluation.other") %></h2>
+
+    <a href="<%= skills_path(current_community) %>" class="icon icon-clear icon--close">
+     <%= octicon "x" %>
+    </a>
+  </div>
+</header>
+
+<div class="post-date">
+  <hr>
+</div>
+
+<section class="messages">
+  <ul>
+    <% @exams.each do |exam| %>
+      <li class="post <%= exam_css_status(exam) %> ">
+        <%= link_to evaluation_exam_path(current_community, exam), class: "list-link" do %>
+        <%= link_to_user exam.candidate do %>
+          <span class="avatar">
+            <% if exam.completed? %>
+              <span class="icon badge icon--star icon--star--finish"><%= octicon 'star-fill' %></span>
+            <% else %>
+              <span class="icon badge icon--star icon--star--start"><%= octicon 'star-fill' %></span>
+            <% end %>
+            <%= user_avatar(exam.candidate) %>
+          </span>
+        <% end %>
+
+        <div class="message">
+          <strong><%= exam.skill.name %></strong>
+          <div class="evaluation-status">
+            <%= exam_title_status(exam) %>
+            <small><%= l(evaluation_event_date(exam), format: :short) %></small>
+          </div>
+        </div>
+        <% end %>
+      </li>
+    <% end %>
+    <% if @exams.blank? %>
+      <li class="empty">
+        <h2><%= t "evaluations.exams.no_exam_title" %></h2>
+        <p><%= t "evaluations.exams.no_exam_message" %></p>
+      </li>
+    <% end %>
+  </ul>
+</section>

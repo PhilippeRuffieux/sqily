@@ -1,0 +1,129 @@
+.page .card .community-list {
+  margin: 0;
+  width: 100%;
+  padding: 0;
+}
+
+.page .card .community-list li { padding: 12px 24px; }
+
+.page .card .community__description {
+  flex: 1;
+  overflow: hidden;
+}
+
+.page .card .community__description a {
+  font-size: 1.2rem;
+  font-weight: 700;
+  display: block;
+}
+
+.page .card .community__description p {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.page .community_stats {
+  display: flex;
+  align-items: flex-start;
+}
+
+.page .community_stats > span {
+  margin-left: 16px;
+  font-size: 1rem;
+  line-height: 24px;
+  width: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.page .community_stats .icon {
+  margin-left: 0;
+  margin-right: 4px;
+  height: 16px;
+  width: 16px;
+}
+
+.page .community_stats .icon svg {
+  margin: 0;
+  height: 16px;
+  width: 16px;
+}
+
+.page .card.community {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.page .card.community header { width: 100%; }
+
+.page .card.community > div {
+  flex: 3;
+  min-height: 600px;
+  min-width: 400px;
+  overflow: hidden;
+}
+
+.page .card.community .skill__description { padding: 24px; }
+
+.page .card.community > aside {
+  background: rgba(17, 22, 26, 0.03);
+  flex: 1;
+  min-width: 200px;
+  border-left: 1px solid rgba(17, 22, 26, 0.1);
+  padding: 24px;
+}
+
+.page .card.community > aside h3 { padding: 0; }
+
+.page .card.community aside li {
+  padding: 6px 0;
+  margin: 0;
+  border: 0;
+  list-style-type: none;
+}
+
+.page .card.community p { padding: 24px; }
+
+.page .card.community p.lead {
+  font-size: 1.2rem;
+  background: #fff;
+}
+
+.page .card.community h3 { padding: 0 24px 12px; }
+
+.page .community__skills {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  position: relative;
+}
+
+.page .community__skills h4 {
+  padding: 0 24px;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.page .community__skills h4 .btn { margin: 0 0 0 auto; }
+
+.page .community__skills li {
+  list-style: none;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(17, 22, 26, 0.1);
+  margin: 0;
+  max-width: 100%;
+  position: relative;
+}
+
+.community-skills__description { margin-left: 8px; }
+
+@media (min-width: 1000px) {
+  .page .card.community p { padding: 24px; }
+
+  .page .card.community h3 { padding: 0 24px 24px; }
+
+  .page .community__skills h4 { padding: 0 24px; }
+}

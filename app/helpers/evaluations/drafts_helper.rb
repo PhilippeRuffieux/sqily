@@ -1,0 +1,2 @@
+module Evaluations::DraftsHelper
+end

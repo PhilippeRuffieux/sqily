@@ -1,0 +1,8 @@
+fr-CH:
+  discussions:
+    index:
+      title: Dernières conversations privées
+      no_conversations_title: Pas de conversations.
+      no_conversations_message: Commencez à discuter en cliquant sur le profil d'une personne.
+      pending_homework: Défi en attente de validation
+      you: Vous

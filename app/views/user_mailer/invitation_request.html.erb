@@ -1,0 +1,19 @@
+<div class="header">
+  <a href="http://sqily.com" style="display: block;">
+    <%= image_tag('sqily.png', :style => 'height: 24px') %>
+  </a>
+  <h2><a href="<%= skills_url(@invitation_request.community) %>"><%= @invitation_request.community.name %></a></h2>
+  <p>Demande d'adhésion en attente</p>
+</div>
+
+<p><%= @moderator.name %>,</p>
+
+<p>L'utilisateur <strong><%= @invitation_request.email %></strong> a fait une demande pour rejoindre la communauté <strong><%= @invitation_request.community.name %></strong>.</p>
+
+<p>
+  Cette demande nécessite votre approbation.
+</p>
+
+<p style="text-align: center;">
+  <%= link_to "voir", invitations_url(@invitation_request.community), class: "btn" %>
+</p>

@@ -1,0 +1,54 @@
+<header>
+  <% if current_user %>
+    <a href="/session" class="btn large login">
+      <span class="icon">
+        <%= octicon "arrow-right", :height => 16,  :"aria-label" => "alert" %>
+      </span>
+      <%= t("lib.enter") %>
+    </a>
+  <% else %>
+    <a href="/session" class="btn large login">
+      <span class="icon"><%= octicon 'person' %></span>
+      <%= t("lib.login") %>
+    </a>
+  <% end %>
+  <%= render "shared/hep_logo" %>
+  <%= render "shared/sqily_logo" %>
+</header>
+
+<section class="login new-community">
+  <h4><%= t ".title" %></h4>
+  <fieldset>
+    <legend><%= t ".legend_community" %></legend>
+    <%= form_for @form.community_request, builder: InlineErrorFormBuilder do |form| %>
+      <%= form.label :name %>
+      <%= form.text_field :name %>
+
+      <%= form.label :description %>
+      <%= form.text_area :description %>
+
+      <%= form.label :comment %>
+      <%= form.text_area :comment %>
+    </fieldset>
+
+    <% if @form.community_request.user.new_record? %>
+      <fieldset>
+        <legend><%= t ".legend_account" %></legend>
+        <%= fields_for :user, @form.community_request.user, builder: InlineErrorFormBuilder do |user_form| %>
+          <%= user_form.label :name %>
+          <%= user_form.text_field :name %>
+
+          <%= user_form.label :email %>
+          <%= user_form.email_field :email %>
+
+          <%= user_form.label :password %>
+          <%= user_form.password_field :password %>
+
+          <%= link_to t(".already_an_account"), session_path %>
+        <% end %>
+      </fieldset>
+    <% end %>
+
+    <%= form.submit t("lib.send") %>
+  <% end %>
+</section>

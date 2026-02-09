@@ -1,0 +1,42 @@
+
+<div id="workspace-partnerships-tab" class="description partnerships-tab tab-content--hidden" data-module="Sqily.Workspace.PartnershipTab" data-skill-description-tab-content="workspace-partnership">
+
+  <div class="box box--help">
+    <p>
+      <%= t ".subtitle_author" %>
+      <br>
+      <%= t ".subtitle_reader" %>
+    </p>
+  </div>
+
+  <ul class="basic-list todolist workspace-partnerships">
+    <% for partnership in workspace.partnerships %>
+      <li>
+        <span class="todolist__item"><%= partnership.user.name %></span>
+        <span class="status editor">
+          <% if partnership.is_owner %>
+            <%= t ".owner" %>
+          <% else %>
+            <%= partnership.read_only ? t(".reader") : t(".author") %>
+          <% end %>
+        </span>
+        <% if (current_user != partnership.user && !partnership.is_owner) %>
+          <%= link_to t("lib.delete"), workspace_partnership_path(current_community, workspace, partnership), class: "btn small delete", "data-method" => "delete" %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+  <ul class="basic-list todolist">
+    <li class="todolist__new-item">
+      <%= form_for Workspace::Partnership.new, url: workspace_partnerships_path(current_community, workspace) do |form| %>
+        <input type="text" data-user-list="<%= users_autocomplete_list_for_workspace(workspace) %>" data-events="focus->suggestUser tribute-replaced->userSelected">
+        <%= form.hidden_field :user_id %>
+        <select id="workspace-partnerships-role" name="workspace_partnership[read_only]">
+          <option value="true"><%= t ".reader" %></option>
+          <option value="false"><%= t ".author" %></option>
+        </select>
+        <%= form.submit t("lib.add"), class: "btn btn--small", disabled: true %>
+      <% end %>
+    </li>
+  </ul>
+</div>

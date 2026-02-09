@@ -1,0 +1,5 @@
+<% for notification in @membership.notifications.latest.limit(25) %>
+  <%= render_notification_for_emails notification %>
+<% end %>
+
+<%= link_to "Voir tout", notifications_url(@membership.community) %>

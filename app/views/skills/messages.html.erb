@@ -1,0 +1,29 @@
+<%= render "header", skill: @skill, subscription: @subscription %>
+<div class="post-date"><hr></div>
+<nav class="submenu">
+  <ul class="tabs is-right">
+    <li>
+      <% if (pinned_count = @skill.messages.pinned.count) > 0 %>
+        <% if params[:pinned] %>
+          <a href="<%= messages_skill_path current_community, @skill %>" class="icon pin active" title="<%= t ".all_messages_tooltip" %>">
+            <%= octicon "pin" %>
+            <%= octicon "x" %>
+          </a>
+        <% else %>
+          <a href="<%= messages_skill_path current_community, @skill, pinned: true %>" class="icon pin" title="<%= t ".important_messages_tooltip" %>">
+            <%= octicon "pin" %>
+            <span><%= pinned_count %></span>
+          </a>
+        <% end %>      
+      <% end %>
+    </li>
+  </ul>
+</nav>
+
+<div class="post-date"><hr><span class="date" id="top-date"></span></div>
+
+<section class="messages" id="messages" data-auto-scroll-to-bottom data-module="Sqily.Message.Puller" data-auto-pull-url="<%= messages_auto_pull_url @messages %>">
+  <%= render "/messages/list" %>
+</section>
+
+<%= render "/messages/form", message: Message.new(to_skill: @skill) %>

@@ -1,0 +1,67 @@
+<header>
+  <% if current_user %>
+    <a href="/session" class="btn large login">
+      <span class="icon">
+        <%= octicon "arrow-right", :height => 16,  :"aria-label" => "alert" %>
+      </span>
+      <%= t("lib.enter") %>
+    </a>
+  <% end %>
+  <%= render "shared/hep_logo" %>
+  <%= render "shared/sqily_logo" %>
+</header>
+<section class="login login--invitation">
+  <header>
+    <h2 class="community">
+      <a href="<%= skills_path current_community %>">
+        <span class="icon icon--home">
+          <%= octicon 'home' %>
+        </span>
+        <%= current_community.name %>
+      </a>
+    </h2>
+    <!--<div class="subtitle"><%#= format_rich_text current_community.description %></div>-->
+    <p><%= t ".title", name: current_community.name %></p>
+
+  </header>
+  <div class="login__invites">
+    <div>
+      <h4><%= t ".member_title" %></h4>
+      <fieldset>
+        <a href="/session" class="large">
+          <span class="icon"><%= octicon 'person' %></span>
+          <%= t("lib.login") %>
+        </a>
+      </fieldset>
+    </div>
+    
+    <div>
+
+      <h4><%= t ".form_title" %></h4>
+
+      
+      <%= form_tag create_membership_path, builder: InlineErrorFormBuilder do |form| %>
+        <fieldset>
+          <legend><%= t ".registration_code_title" %></legend>
+          <%= label_tag :registration_code, Community.human_attribute_name(:registration_code) %>
+          <%= text_field_tag :registration_code %>
+          <%= submit_tag t(".join") %>
+        </fieldset>
+      <% end %>
+      
+      <!--
+      <%#= form_for @invitation_request, builder: InlineErrorFormBuilder do |form| %>
+        <fieldset>
+          <legend><%#= t(".submit") %></legend>
+          <%#= form.label :email %>
+          <%#= form.email_field :email %>
+          <%#= form.submit t(".submit") %>
+        </fieldset>
+      <%# end %>
+      -->
+
+      
+    </div>
+  </div>
+
+</section>

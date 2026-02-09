@@ -1,0 +1,83 @@
+<div class="attestation__content">
+  <div class="attestation__content__main">
+    <h4><%= t(".skills_title") %></h4>
+
+    <% if @profile.public_subscriptions.empty? %>
+      <p class="attestation__blank">
+        <%= t(".skills_blank") %>
+      </p>
+    <% end %>
+
+    <% for subscription in @profile.public_subscriptions %>
+      <div class="skill">
+        <h3>
+          <%= subscription.skill.name %>
+          <% if current_user == @profile.membership.user %>
+            <%= button_to t("lib.hide"), profile_hidden_items_path(current_community), params: {hidden_profile_item: {subscription_id: subscription.id}}, class: 'btn--small btn--delete' %>
+          <% end %>
+        </h3>
+        <span class="date"><%= l subscription.completed_at.to_date %></span>
+        <span class="meta">
+          <% if subscription.validator_id == @profile.membership.user_id %>
+            <%= t ".auto_validation" %>
+          <% elsif subscription.validator %>
+            <%= t ".validated_by", name: subscription.validator.name %>
+          <% end %>
+        </span>
+      </div>
+    <% end %>
+
+    <% if current_user == @profile.membership.user %>
+      <% for item in @profile.items_of_hidden_subscriptions %>
+          <% subscription = item.subscription %>
+        <div class="skill attestation__private">
+          <h3>
+            <%= subscription.skill.name %>
+            <%= button_to t("lib.show"), profile_hidden_item_path(current_community, item), method: :delete, class: 'btn--small' %>
+          </h3>
+          <span class="date"><%= l subscription.completed_at.to_date %></span>
+          <span class="meta">
+            <% if subscription.validator %>
+              <%= t ".validated_by", name: subscription.validator.name %>
+            <% end %>
+          </span>
+        </div>
+      <% end %>
+    <% end %>
+
+    <% if (evaluations = @profile.public_evaluations).exists? %>
+      <br>
+      <h4><%= t("users.evaluations.title") %></h4>
+      <% for evaluation in evaluations %>
+        <div class="skill">
+          <h3><%= octicon "bookmark" %> <%= evaluation.skill.name %>
+            <% if (expert_count = Homework.where(evaluation_id: evaluation).approved.count) > 0 %>
+              (<%= t "communities.tree.skill_expert_count", count: expert_count %>)
+            <% end %>
+          </h3>
+        </div>
+      <% end %>
+    <% end %>
+
+    
+
+  </div>
+
+  <div class="attestation__content__side">
+    <%= render "/profile/memberships/workspaces", profile: profile if @profile.public_workspaces.exists? || current_user == @profile.membership.user %>
+
+    <div class="attestation__badges">
+      <% if @profile.membership.badges.exists? %>
+        <h4>Badges</h4>
+        <ul class="badges">
+          <% for badge in @profile.membership.badges %>
+            <li class="badges__item badges__item--active" title="<%= badge.class.description %>">
+              <%= image_tag badge.class.image_path %>
+              <%= badge.model_name.human %>
+            </li>
+          <% end %>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</div>

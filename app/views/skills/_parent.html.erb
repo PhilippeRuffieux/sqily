@@ -1,0 +1,37 @@
+
+<nav class="submenu">
+  <ul class="tabs">
+    <% if can_edit_current_community_skills?(skill) %>
+      <li>
+        <a href="<%= edit_skill_path(current_community, skill) %>" class="btn btn--admin"><%= octicon "gear" %><span><%= t "lib.edit" %></span></a>
+      </li>
+    <% end %>
+    <% if can_edit_current_community_skills?(skill) || current_community.free_skill_creation %>
+      <li>
+        <a href="<%= new_skill_path(current_community, skill: {parent_id: skill.id}) %>" class="btn btn--admin">
+          <%= octicon 'plus-circle' %><span><%= t "lib.add" %></span>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+  <ul class="tabs is-right">
+    <% if params[:community_tree] %>
+      <li>
+        <a href="<%= skill_path(current_community, skill) %>" class="btn btn--secondary">
+          <%= octicon 'workflow' %><span><%= t "communities.tree.personal" %></span>
+        </a>
+      </li>
+    <% else %>
+      <li>
+        <a href="<%= skill_path(current_community, skill, community_tree: true) %>" class="btn btn--secondary">
+          <%= octicon 'workflow' %><span><%= t "communities.tree.community" %></span>
+        </a>
+      </li>
+    <% end %>
+  </ul>
+</nav>
+
+
+<div class="post-date"><hr></div>
+
+<%= render "skills/tree", skills: skill.children.viewable_by(current_user), relative_to_user: params[:community_tree] ? nil : current_user %>

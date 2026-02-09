@@ -1,0 +1,37 @@
+<% url = team.new_record? ? teams_path(current_community) : team_path(current_community, team) %>
+
+<%= form_for team, url: url, builder: InlineErrorFormBuilder do |form| %>
+  <%= return_url_hidden_field_tag %>
+  <%= form.label :name, t("teams.name") %>
+  <%= form.text_field :name %>
+
+  <label><%= t("teams.members") %></label>
+  <div class="team__members" data-barber="Sqily.TeamForm" data-teamates="<%= teamates_options_to_json(team) %>" data-users="<%= available_teamates_options_to_json %>">
+    <ul class="basic-list todolist" data-role="teamateList">
+      {{#teamates}}
+        <li id="teamate-{{id}}">
+          <input type="hidden" name="user_ids[]" value="{{id}}">
+          <span class="todolist__item">{{name}}</span>
+          <%= link_to t("lib.delete"), "#", class: "btn small delete", "data-method" => "delete", "data-events" => "click->removeTeamate", "data-user-id" => "{{id}}" %>
+        </li>
+      {{/teamates}}
+    </ul>
+    <ul class="basic-list todolist">
+      <li class="todolist__new-item">
+        <select id="user-list">
+          {{#users}}
+            <option value="{{id}}">{{name}}</option>
+          {{/users}}
+        </select>
+        <span class="btn btn--small" data-events="click->addTeamate"><%= t("lib.add") %></span>
+      </li>
+    </ul>
+  </div>
+
+  <%= form.submit t("lib.save") %>
+<% end %>
+
+<% if team.persisted? %>
+  <hr>
+  <%= button_to t("teams.delete"), team_path(current_community, team), method: "delete", class: "btn btn--delete", params: {return_url: return_url}, data: {confirmation: t("teams.delete_confirm")} %>
+<% end %>

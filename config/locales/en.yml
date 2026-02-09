@@ -1,0 +1,1475 @@
+---
+"en":
+  "activerecord":
+    "attributes":
+      "badges/advisor":
+        "description":
+          "other": >-
+            Give your opinion for at least %{count} items.
+      "badges/creator":
+        "description":
+          "other": >-
+            Create at least %{count} patents.
+      "badges/explorer":
+        "description":
+          "other": >-
+            Submit at least %{count} resources.
+      "badges/master":
+        "description":
+          "other": >-
+            Validate at least %{count} skills.
+      "badges/messenger":
+        "description":
+          "other": >-
+            Post at least %{count} posts.
+      "badges/omnipresent":
+        "description":
+          "other": >-
+            Participate in at least %{count} events.
+      "badges/participant":
+        "description":
+          "one": >-
+            Validate your 1st skill.
+      "badges/partner":
+        "description":
+          "other": >-
+            Receive at least %{count} favorites.
+      "badges/producer":
+        "description":
+          "other": >-
+            Publish at least %{count} articles.
+      "badges/professor":
+        "description":
+          "other": >-
+            Validate at least %{count} patents.
+      "badges/savant":
+        "description":
+          "one": >-
+            Create a skill.
+      "badges/specialist":
+        "description":
+          "other": >-
+            Validate at least %{count} skills.
+      "community":
+        "created_at": >-
+          Created on
+        "description": >-
+          Description
+        "free_skill_creation": >-
+          Free creation of skills
+        "name": >-
+          Name
+        "permalink": >-
+          Path
+        "public": >-
+          Publish community
+        "registration_code": >-
+          Registration code
+        "registration_code_help": >-
+          Entering a Registration Code allows students to enter the community and
+          register, without being personally invited by email.
+      "community_request":
+        "comment": >-
+          Comment
+        "description": >-
+          Description
+        "name": >-
+          Name
+      "evaluation":
+        "file": >-
+          File
+        "title": >-
+          Title
+      "event":
+        "max_participations": >-
+          Maximum participants
+        "registration_finished_at": >-
+          Registration closes at
+        "scheduled_at": >-
+          Scheduled at
+        "title": >-
+          Title
+      "poll":
+        "single_answer": >-
+          Single answer
+      "skill":
+        "description": >-
+          Description
+        "group_name": >-
+          Group of skills
+        "minimum_prerequisites": >-
+          Minimum prerequisites
+        "name": >-
+          Nom
+      "user":
+        "daily_summary": >-
+          Daily Summary
+        "email": >-
+          Email
+        "locale": >-
+          Language
+        "name": >-
+          Name
+        "password": >-
+          Password
+        "weekly_summary": >-
+          Weekly Summary
+      "workspace":
+        "default":
+          "title": >-
+            title
+          "writing": >-
+            Wish you good writing
+        "title": >-
+          Title
+        "writing": >-
+          Editorial
+    "errors":
+      "messages":
+        "record_invalid": >-
+          Validation failed: %{errors}
+        "restrict_dependent_destroy":
+          "has_many": >-
+            You cannot delete the record because all %{record} dependencies exist.
+          "has_one": >-
+            You cannot delete the record because a dependent %{record} exists.
+      "models":
+        "event":
+          "attributes":
+            "registration_finished_at":
+              "must_be_before_scheduled_at": >-
+                must be prior to the scheduled date
+        "message/poll":
+          "attributes":
+            "finished_at":
+              "must_be_in_the_futur": >-
+                must be in the future
+    "models":
+      "badge/advisor": >-
+        Advisor
+      "badge/creator": >-
+        Creator
+      "badge/explorer": >-
+        Explorer
+      "badge/master": >-
+        Master
+      "badge/messenger": >-
+        Messenger
+      "badge/omnipresent": >-
+        Omnipresent
+      "badge/participant": >-
+        Participant
+      "badge/partner": >-
+        Partner
+      "badge/producer": >-
+        Producer
+      "badge/professor": >-
+        Professor
+      "badge/savant": >-
+        Savant
+      "badge/specialist": >-
+        Specialist
+      "community": >-
+        Community
+      "community_request": >-
+        Community Request
+      "evaluation":
+        "one": >-
+          Patent
+        "other": >-
+          Patents
+      "event": >-
+        Event
+      "message":
+        "one": >-
+          Message
+        "other": >-
+          Messages
+      "message/upload":
+        "one": >-
+          File
+        "other": >-
+          Files
+      "page_view":
+        "one": >-
+          Page viewed
+        "other": >-
+          Pages viewed
+      "poll": >-
+        Survey
+      "skill": >-
+        Skill
+      "user": >-
+        User
+      "workspace": >-
+        Article
+  "admin":
+    "communities":
+      "index":
+        "delete_confirmation": >-
+          Are you sure you want to remove the community?
+        "duplicate_button": >-
+          Duplicate
+        "moderators": >-
+          Moderators
+        "title": >-
+          Sqily communities
+      "statistics":
+        "evaluation_feedbacks": >-
+          Feedback on patents
+        "expertises": >-
+          Expertises
+        "last_activity": >-
+          Last activity
+    "pages":
+      "index":
+        "delete_confirmation": >-
+          Are you sure you want to delete the page?
+        "title": >-
+          Sqily All Pages
+  "communities":
+    "already_member": >-
+      You already are a member of this community
+    "header":
+      "all_messages_tooltip": >-
+        See all posts
+      "calendar_tooltip": >-
+        View events
+      "important_messages_tooltip": >-
+        See important posts
+      "search_tooltip": >-
+        Search within posts
+      "show_tree": >-
+        View tree
+      "toggle_description_button": >-
+        See description
+    "invalid_registration_code": >-
+      Invalid registration code
+    "public_registery": >-
+      communauties
+    "registration_code_disabled": >-
+      You cannot join this community with an registration code
+    "tree":
+      "moderator_help_message": >-
+        Edit the skills to modify the tree structure
+      "skill_expert_count":
+        "zero": >-
+          0 expert
+        "one": >-
+          1 expert
+        "other": >-
+          %{count} experts
+      "skill_label": >-
+        %{user_count} including %{expert_count}
+      "skill_user_count":
+        "zero": >-
+          0 enrolled
+        "one": >-
+          1 enrolled
+        "other": >-
+          %{count} enrolled
+      "title": >-
+        Skills tree
+  "community_requests":
+    "create":
+      "notice": >-
+        Your community request has been registered.
+    "new":
+      "already_an_account": >-
+        Already have an account? Please log in.
+      "legend_account": >-
+        You
+      "legend_community": >-
+        Community
+      "title": >-
+        Request for community creation
+  "date":
+    "abbr_day_names":
+    - >-
+      Sun
+    - >-
+      Mon
+    - >-
+      Tue
+    - >-
+      Wed
+    - >-
+      Thu
+    - >-
+      Fri
+    - >-
+      Sat
+    "abbr_month_names":
+    - 
+    - >-
+      Jan
+    - >-
+      Feb
+    - >-
+      Mar
+    - >-
+      Apr
+    - >-
+      May
+    - >-
+      Jun
+    - >-
+      Jul
+    - >-
+      Aug
+    - >-
+      Sep
+    - >-
+      Oct
+    - >-
+      Nov
+    - >-
+      Dec
+    "day_names":
+    - >-
+      Sunday
+    - >-
+      Monday
+    - >-
+      Tuesday
+    - >-
+      Wednesday
+    - >-
+      Thursday
+    - >-
+      Friday
+    - >-
+      Saturday
+    "formats":
+      "default": >-
+        %Y-%m-%d
+      "long": >-
+        %B %d, %Y
+      "short": >-
+        %b %d
+    "month_names":
+    - 
+    - >-
+      January
+    - >-
+      February
+    - >-
+      March
+    - >-
+      April
+    - >-
+      May
+    - >-
+      June
+    - >-
+      July
+    - >-
+      August
+    - >-
+      September
+    - >-
+      October
+    - >-
+      November
+    - >-
+      December
+    "order":
+    - :year
+    - :month
+    - :day
+  "datetime":
+    "distance_in_words":
+      "about_x_hours":
+        "one": >-
+          about 1 hour
+        "other": >-
+          about %{count} hours
+      "about_x_months":
+        "one": >-
+          about 1 month
+        "other": >-
+          about %{count} months
+      "about_x_years":
+        "one": >-
+          about 1 year
+        "other": >-
+          about %{count} years
+      "almost_x_years":
+        "one": >-
+          almost 1 year
+        "other": >-
+          almost %{count} years
+      "half_a_minute": >-
+        half a minute
+      "less_than_x_minutes":
+        "one": >-
+          less than a minute
+        "other": >-
+          less than %{count} minutes
+      "less_than_x_seconds":
+        "one": >-
+          less than 1 second
+        "other": >-
+          less than %{count} seconds
+      "over_x_years":
+        "one": >-
+          over 1 year
+        "other": >-
+          over %{count} years
+      "x_days":
+        "one": >-
+          1 day
+        "other": >-
+          %{count} days
+      "x_minutes":
+        "one": >-
+          1 minute
+        "other": >-
+          %{count} minutes
+      "x_months":
+        "one": >-
+          1 month
+        "other": >-
+          %{count} months
+      "x_seconds":
+        "one": >-
+          1 second
+        "other": >-
+          %{count} seconds
+    "prompts":
+      "day": >-
+        Day
+      "hour": >-
+        Hour
+      "minute": >-
+        Minute
+      "month": >-
+        Month
+      "second": >-
+        Seconds
+      "year": >-
+        Year
+  "discussions":
+    "index":
+      "no_conversations_message": >-
+        Start chatting by clicking on a person's profile.
+      "no_conversations_title": >-
+        No conversations.
+      "pending_homework": >-
+        Patent pending for validation
+      "title": >-
+        Latest private conversations
+  "errors":
+    "format": >-
+      %{attribute} %{message}
+    "messages":
+      "accepted": >-
+        must be accepted
+      "blank": >-
+        can't be blank
+      "confirmation": >-
+        doesn't match %{attribute}
+      "empty": >-
+        can't be empty
+      "equal_to": >-
+        must be equal to %{count}
+      "even": >-
+        must be even
+      "exclusion": >-
+        is reserved
+      "greater_than": >-
+        must be greater than %{count}
+      "greater_than_or_equal_to": >-
+        must be greater than or equal to %{count}
+      "inclusion": >-
+        is not included in the list
+      "invalid": >-
+        is invalid
+      "less_than": >-
+        must be less than %{count}
+      "less_than_or_equal_to": >-
+        must be less than or equal to %{count}
+      "model_invalid": >-
+        Validation failed: %{errors}
+      "not_an_integer": >-
+        must be an integer
+      "not_a_number": >-
+        is not a number
+      "odd": >-
+        must be odd
+      "other_than": >-
+        must be other than %{count}
+      "present": >-
+        must be blank
+      "required": >-
+        must exist
+      "taken": >-
+        has already been taken
+      "too_long":
+        "one": >-
+          is too long (maximum is 1 character)
+        "other": >-
+          is too long (maximum is %{count} characters)
+      "too_short":
+        "one": >-
+          is too short (minimum is 1 character)
+        "other": >-
+          is too short (minimum is %{count} characters)
+      "wrong_length":
+        "one": >-
+          is the wrong length (should be 1 character)
+        "other": >-
+          is the wrong length (should be %{count} characters)
+    "template":
+      "body": >-
+        There were problems with the following fields:
+      "header":
+        "one": >-
+          1 error prohibited this %{model} from being saved
+        "other": >-
+          %{count} errors prohibited this %{model} from being saved
+  "evaluations":
+    "add_evaluation_button": >-
+      Add a Challenge
+    "back_to_evaluations": >-
+      Back to assessments
+    "edit_evaluation_button": >-
+      Edit a Challenge
+    "exams":
+      "accept": >-
+        Validate the Challenge
+      "already_one_in_progress": >-
+        You already have an exam in progress on this skill
+      "answer": >-
+        Your result
+      "cancel": >-
+        Abandonner
+      "cancel_confirmation": >-
+        Give up
+      "candidate_canceled_exam": >-
+        %{candidate_name} gave up this challenge
+      "continue_exam": >-
+        Take up the challenge
+      "evaluation_from": >-
+        Challenge of %{examiner_name}
+      "evaluation_from_canceled": >-
+        Challenge of %{examiner_name} cancelled
+      "evaluation_from_finished": >-
+        Challenge of %{examiner_name} validated
+      "evaluation_from_ongoing": >-
+        Challenge of  %{examiner_name} in progress
+      "examiner_has_rejected_your_result": >-
+        %{examiner_name} has rejected your result
+      "examiner_has_validated_your_result": >-
+        %{examiner_name} has validated your result
+      "exam_reviewed": >-
+        %{candidate_name} has to make corrections
+      "exam_validated": >-
+        %{candidate_name} has validated the skill
+      "exam_waiting_for_review": >-
+        %{candidate_name} is waiting for a correction
+      "no_exam_message": >-
+        Your started exams, as a candidate or a scorer, will appear here
+      "no_exam_title": >-
+        No challenge in progress
+      "opinion": >-
+        What do you think about this?
+      "reject": >-
+        Send without validation
+      "see_exam": >-
+        See Challenge
+      "send": >-
+        Send your result
+      "you_canceled_exam": >-
+        You have given up this challenge
+      "you_rejected_result": >-
+        Vous avez rejeté le résultat
+      "you_validated_result": >-
+        You have rejected the result
+    "modal":
+      "title": >-
+        Add new patent
+  "events":
+    "index":
+      "filter_all": >-
+        All
+      "filter_registered": >-
+        Registered
+      "title": >-
+        Events
+    "new":
+      "title": >-
+        New Event
+  "helpers":
+    "select":
+      "prompt": >-
+        Please select
+    "submit":
+      "create": >-
+        Create %{model}
+      "submit": >-
+        Save %{model}
+      "update": >-
+        Update %{model}
+  "invitation_requests":
+    "create":
+      "alert": >-
+        An admin will confirm your invitation request. You will receive an email shortly.
+    "index":
+      "form_title": >-
+        Not a member yet?
+      "join": >-
+        Join
+      "member_title": >-
+        Already member?
+      "registration_code_title": >-
+        Do you have an access code?
+      "submit": >-
+        Request an invitation
+      "title": >-
+        %{name} is a private community.
+  "invitations":
+    "index":
+      "email_label": >-
+        Type an email address per line
+      "invalid_emails_error": >-
+        The following emails are not valid:
+      "invitations_subtitle": >-
+        Invitations sent, registration pending.
+      "invitations_title": >-
+        Pending Invitations
+      "no_invitations": >-
+        No invitations pending.
+      "no_requests": >-
+        No pending requests.
+      "requests_subtitle": >-
+        Invitations requested from the public page of the community.
+      "requests_title": >-
+        Invitation Requests
+      "submit": >-
+        Invite
+      "title": >-
+        Invitations
+  "lib":
+    "activate": >-
+      Enable
+    "add": >-
+      Add
+    "admin": >-
+      Admin
+    "cancel": >-
+      Cancel
+    "confirmation": >-
+      Are you sure?
+    "create": >-
+      Create
+    "deactivate": >-
+      Disable
+    "delete": >-
+      Delete
+    "download": >-
+      Download
+    "duplicate": >-
+      Duplicate this community
+    "edit": >-
+      Edit
+    "enter": >-
+      Enter
+    "export_to_csv": >-
+      Export to CSV
+    "filter": >-
+      Filter
+    "hide": >-
+      Hide
+    "hide-description": >-
+      Hide description
+    "login": >-
+      Login
+    "logout": >-
+      Logout
+    "no": >-
+      No
+    "optionnal": >-
+      Optional
+    "quit": "\uFEFFLeave"
+    "save": >-
+      Save
+    "send": >-
+      Send
+    "send_short": >-
+      ↵
+    "show": >-
+      Show
+    "show-description": >-
+      See the description
+    "skills": >-
+      Skills
+    "start": >-
+      Start
+    "statistics": >-
+      Statistics
+    "tree": >-
+      Tree
+    "unauthorized": >-
+      You're not allowed.
+    "view_all": >-
+      View all
+    "yes": >-
+      Yes
+  "memberships":
+    "count":
+      "zero": >-
+        0 members
+      "one": >-
+        1 member
+      "other": >-
+        %{count} members
+    "show":
+      "description_label": >-
+        Description for this community
+      "title": >-
+        Your profile
+  "messages":
+    "attachment":
+      "download_count":
+        "zero": >-
+          No downloads
+        "one": >-
+          One download
+        "other": >-
+          %{count} downloads
+    "event_created":
+      "delete_confirmation": >-
+        Are you sure? An email will be sent to each participant informing them of
+        the cancellation of the event.
+      "end_date": >-
+        Registration before
+      "participations":
+        "zero": 
+        "one": >-
+          1 registered.
+        "other": >-
+          %{count} registered.
+      "participations_max":
+        "one": >-
+          1 free seat.
+        "other": >-
+          %{count} free seats.
+      "register_button": >-
+        Register
+      "title": >-
+        %{user} has created an event.
+      "title_context": >-
+        %{user} created an event for the %{skill_link} skill.
+      "unregister_button": >-
+        Unregister
+      "waiting_list_button": >-
+        Register on the waiting list
+      "waiting_list_position":
+        "one": >-
+          You're first on the waiting list.
+        "other": >-
+          You're %{count}th on the waiting list.
+      "waiting_participations": >-
+        %{count} on the waiting list.
+    "form":
+      "event_share_label": >-
+        Event
+      "file_label": >-
+        File (10 Mo max)
+      "file_share_label": >-
+        File
+      "poll_share_label": >-
+        Survey
+      "text_label": >-
+        Message
+      "text_placeholder": >-
+        Enter your post
+    "header":
+      "title": >-
+        Private conversation with
+    "homework_uploaded":
+      "accept_button": >-
+        Validate
+      "comment_from": >-
+        Comment from %{name}
+      "comment_placeholder": >-
+        Type a comment for this assessment.
+      "download_link": >-
+        Review my result
+      "his_download_link": >-
+        Review his result
+      "homework_accepted_title": >-
+        %{user_link} has validated the %{skill_link} skill.
+      "homework_received_title": >-
+        %{user_link} submitted his patent for the %{skill_link} skill.
+      "homework_rejected_title": >-
+        %{user_link} did not validate the %{skill_link} skill.
+      "homework_sent_title": >-
+        You've submitted your patent for the %{skill_link} skill.
+      "mandatory_comment": >-
+        Comment is required when rejecting a patent
+      "reject_button": >-
+        Do not validate
+      "result_file": >-
+        File
+      "result_file_help": >-
+        You can attach a file to illustrate your comment
+      "result_link": >-
+        Show result
+      "status_examinating": >-
+        %{user_name} will review your work.
+      "status_expert": >-
+        You are now an expert in this skill and encouraged to offer now your own assessment.
+      "your_comment": >-
+        Your comment
+      "your_homework_accepted_title": >-
+        You have validated the skill %{skill_link}
+      "your_homework_rejected_title": >-
+        You didn't validate the skill %{skill_link}
+    "list":
+      "instructions": >-
+        Start the conversation by writing in the field below.
+      "title": >-
+        No posts.
+    "new_membership":
+      "message":
+        "one": >-
+          %{name} has joined the community.
+        "other": >-
+          %{count} new members: %{names}.
+    "new_skill":
+      "message": >-
+        %{user} has created a new skill
+    "new_subscription":
+      "message":
+        "one": >-
+          %{names} has joined the skill.
+        "other": >-
+          %{count} new members: %{names}.
+    "poll_created":
+      "end_date": >-
+        Closing date:
+      "title": >-
+        %{user} has created a survey.
+    "search":
+      "empty": >-
+        No results.
+      "files_tab": >-
+        Files (%{count})
+      "messages_tab": >-
+        Messages (%{count})
+    "search_form":
+      "help": >-
+        Search text in posts or names of shared files.
+      "search-placeholder": >-
+        Search
+    "subscription_complete":
+      "auto_evaluation": >-
+        self-assessment
+      "homework_validated_by": >-
+        %{homework} validated by %{user}
+      "message": >-
+        %{user} has become an expert
+      "validated_by": >-
+        validated by %{user}
+    "text":
+      "delete_message_confirmation": >-
+        Are you sure to delete this post?
+      "delete_message_tooltip": >-
+        Delete post
+      "html":
+        "download_count":
+          "zero": >-
+            0 download
+          "one": >-
+            1 download
+          "other": >-
+            %{count} downloads
+    "unread_button":
+      "mark_as_unread": >-
+        Mark as unread
+    "upload_modal":
+      "file_label": >-
+        Select a file
+      "text_label": >-
+        Message
+      "title": >-
+        Share a file
+    "workspace_approved_internal":
+      "message": >-
+        %{user} has approved the article's publication.
+    "workspace_partnership_created":
+      "title_reader": >-
+        %{user} has invited you to do a review of his article.
+      "title_writer": >-
+        %{user} invited you to co-write his article.
+    "workspace_published_internal":
+      "message": >-
+        %{user} published the article.
+    "workspace_published":
+      "title": >-
+        %{user} published his article.
+    "workspace_rejected_internal":
+      "message": >-
+        %{user} has withdrawn approval of the article's publication.
+    "workspace_unpublished_internal":
+      "message": >-
+        %{user} unpublished the article.
+    "workspace_version_created":
+      "message": >-
+        %{user} introduced the %{version} version of the article "%{workspace}".
+  "notifications":
+    "index":
+      "title": >-
+        Notifications
+  "number":
+    "currency":
+      "format":
+        "delimiter": >-
+          ,
+        "format": >-
+          %u%n
+        "precision": 2
+        "separator": >-
+          .
+        "significant": false
+        "strip_insignificant_zeros": false
+        "unit": >-
+          $
+    "format":
+      "delimiter": >-
+        ,
+      "precision": 3
+      "separator": >-
+        .
+      "significant": false
+      "strip_insignificant_zeros": false
+    "human":
+      "decimal_units":
+        "format": >-
+          %n %u
+        "units":
+          "billion": >-
+            Billion
+          "million": >-
+            Million
+          "quadrillion": >-
+            Quadrillion
+          "thousand": >-
+            Thousand
+          "trillion": >-
+            Trillion
+          "unit": ''
+      "format":
+        "delimiter": ''
+        "precision": 3
+        "significant": true
+        "strip_insignificant_zeros": true
+      "storage_units":
+        "format": >-
+          %n %u
+        "units":
+          "byte":
+            "one": >-
+              Byte
+            "other": >-
+              Bytes
+          "gb": >-
+            GB
+          "kb": >-
+            KB
+          "mb": >-
+            MB
+          "tb": >-
+            TB
+    "percentage":
+      "format":
+        "delimiter": ''
+        "format": >-
+          %n%
+    "precision":
+      "format":
+        "delimiter": ''
+  "password_resets":
+    "index":
+      "error_message": >-
+        Email does not exist.
+      "placeholder": >-
+        Email
+      "submit": >-
+        Retrieve password
+      "title": >-
+        Login
+  "polls":
+    "answers":
+      "votes": >-
+        votes
+    "choices":
+      "several_answers": >-
+        Several choices
+      "single_answer": >-
+        Only one choice
+    "form":
+      "add_button": >-
+        Add a choice
+      "choices_label": >-
+        Choice of answer
+      "date_label": >-
+        Closing date
+      "text_label": >-
+        Question
+    "new":
+      "title": >-
+        New survey
+  "prerequisites":
+    "list":
+      "help": >-
+        Suggest or make pre-validation of competences compulsory to access this competence.
+    "list_item":
+      "mandatory_tooltip": >-
+        Validation optional / mandatory
+  "profile":
+    "memberships":
+      "public":
+        "auto_validation": >-
+          Self-validation
+        "skills_blank": >-
+          No public skills.
+        "skills_title": >-
+          Skills
+        "validated_by": >-
+          Validated by %{name}
+      "show":
+        "help": >-
+          You can hide and make private all or part of your public profile.
+        "help-public": >-
+          Your profile is private. No one can view it.
+        "private_button": >-
+          Make private
+        "private_status": >-
+          This is a private profile.
+        "public_button": >-
+          Make public
+      "workspaces":
+        "title": >-
+          Articles
+  "public":
+    "skills":
+      "duplicate_skill_modal":
+        "selection_label": >-
+          Please select the target community
+        "title": >-
+          Copy skill
+      "show":
+        "duplicate_button": >-
+          Copy skill
+  "sessions":
+    "form":
+      "error_message": >-
+        Wrong email or password.
+      "forgotten_password_link": >-
+        Forgot your password?
+      "password_label": >-
+        Password
+  "skills":
+    "assesment":
+      "subtitle": >-
+        Do you think you master this skill?
+      "title": >-
+        Skills assessment
+    "bar":
+      "expert_tooltip": >-
+        You're expert.
+      "not_subscribed_tooltip": >-
+        You're not enrolled.
+      "subscribed_tooltip": >-
+        You're enrolled.
+      "tree_tooltip": >-
+        Tree of skills
+    "count":
+      "zero": >-
+        0 skills
+      "one": >-
+        1 skill
+      "other": >-
+        %{count} skills
+    "evaluation_auto":
+      "auto_evaluation": >-
+        Self-assessment
+      "status_expert": >-
+        You are an expert of this skill.
+      "validate_button": >-
+        Validate
+    "evaluation_done":
+      "disable_evaluation_button": >-
+        Disable your patent
+      "enable_evaluation_button": >-
+        Activate your patent
+    "evaluations":
+      "choices":
+        "empty": >-
+          No patents available.
+        "evaluation_of": >-
+          Patent of %{name}
+        "see_all": >-
+          --- View patents without starting them ---
+    "form":
+      "auto_evaluation_label": >-
+        Self-assessment (the skill will not have a patent)
+      "description_help": >-
+        You can drop images and files in the text box.
+      "evaluation_legend": >-
+        Assessment
+      "group_name_label": >-
+        Skill group (optional)
+      "group_name_placeholder": >-
+        Example: multimedia
+      "legend": >-
+        Description
+      "name_label": >-
+        Denomination (short and concrete)
+      "name_placeholder": >-
+        Example: creating a video clip
+      "prerequisites_help": >-
+        Allow access to this competence if a total of competences from the above list
+        are validated.
+      "prerequisites_label": >-
+        Previous skills
+      "prerequisites_legend": >-
+        Related skills
+      "published_at_label": >-
+        Make visible
+      "todolist_help": >-
+        You must complete the todo list to access the assessment.
+      "todolist_label": >-
+        Todo list
+    "header":
+      "all_messages_tooltip": >-
+        All posts
+      "flash": >-
+        This skill is invisible to other members.
+      "important_messages_tooltip": >-
+        Significant Messages
+      "related_tab": >-
+        Related skills
+      "task_tab": >-
+        Tasks
+      "toggle_description_button": >-
+        See description
+      "toggle_todolist": >-
+        Please complete the todo list to access the patent.
+      "unsubscribe_button": >-
+        Unsubscribe
+      "unsubscribe_confirmation": >-
+        Are you sure you're leaving this skill? You will lose your expertise if you
+        have validated it.
+    "next_skills":
+      "title": >-
+        Following skills
+    "tasks":
+      "count":
+        "zero": >-
+          0 tasks
+        "one": >-
+          1 task
+        "other": >-
+          %{count} tasks
+  "statistics":
+    "index":
+      "completed_skills": >-
+        Appraisals
+      "created_skills": >-
+        Skills created
+      "evaluation_feedbacks": >-
+        Patent feedbacks
+      "important_messages": >-
+        Important Posts
+      "last_activity": >-
+        Last activity
+      "participating_events": >-
+        Events involved
+      "published_workspaces": >-
+        Articles published
+      "useful_files": >-
+        Useful files
+      "validated_experts": >-
+        Validated experts
+      "votes_received": >-
+        Favorites received
+      "workspace_feebacks": >-
+        Article feedbacks
+  "support":
+    "array":
+      "last_word_connector": >-
+        , and
+      "two_words_connector": >-
+        and
+      "words_connector": >-
+        ,
+  "time":
+    "am": >-
+      am
+    "formats":
+      "default": >-
+        %a, %d %b %Y %H:%M:%S %z
+      "long": >-
+        %B %d, %Y %H:%M
+      "short": >-
+        %d %b %H:%M
+    "pm": >-
+      pm
+  "tree":
+    "user_list":
+      "pending_invitations_tooltip": >-
+        Pending invitations
+  "user_mailer":
+    "daily_summary":
+      "daily_summary_title": >-
+        Daily Summary
+      "mentionned_messages": >-
+        You have been mentioned %{count} times
+      "new_conversations":
+        "one": >-
+          A new post
+        "other": >-
+          %{count} new posts
+      "new_event_messages":
+        "one": >-
+          A new event
+        "other": >-
+          %{count} new events
+      "new_pinned_messages":
+        "one": >-
+          A new important post
+        "other": >-
+          %{count} new important posts
+      "new_poll_messages":
+        "one": >-
+          A new survey
+        "other": >-
+          %{count} new surveys
+      "new_reminder_messages": >-
+        Reminder
+      "pending_homeworks":
+        "one": >-
+          A patent pending
+        "other": >-
+          %{count} patents pending
+      "reply": >-
+        Reply
+    "new_badge":
+      "title": >-
+        You've got a new badge
+    "weekly_summary":
+      "new_conversations":
+        "one": >-
+          A new post
+        "other": >-
+          %{count} new posts
+      "new_evaluations":
+        "one": >-
+          a new patent
+        "other": >-
+          %{count} new patents
+      "new_experts":
+        "one": >-
+          a new expert
+        "other": >-
+          %{count} new experts
+      "new_memberships":
+        "one": >-
+          Un nouveau membre. Souhaitez-lui la bienvenue.
+        "other": >-
+          %{count} nouveaux membres. Souhaitez-leur la bienvenue.
+      "new_messages":
+        "one": >-
+          a new post
+        "other": >-
+          %{count} new posts
+      "new_skills":
+        "one": >-
+          A new skill
+        "other": >-
+          %{count} new skills
+      "pending_homeworks":
+        "one": >-
+          A patent pending
+        "other": >-
+          %{count} patents pending
+  "users":
+    "badges":
+      "title": >-
+        Badges
+    "bar":
+      "membership_count":
+        "zero": >-
+          None registered
+        "one": >-
+          1 registered
+        "other": >-
+          %{count} registered
+    "evaluations":
+      "title": >-
+        Patents issued
+    "new":
+      "already_registered_link": >-
+        Login if you already have an account
+      "title": >-
+        Registration form
+    "show":
+      "assesment_link": >-
+        Skills assessment
+      "attestations_link": >-
+        Public Profile
+      "discussion_link": >-
+        Discuss
+      "downgrade_expert_button": >-
+        invalidate expertise
+      "downgrade_moderator_button": >-
+        Downgrade admin
+      "evaluations_passed_list_item": >-
+        Validated patents
+      "evaluations_uploaded_list_item": >-
+        Registered patents
+      "latest_favorite_messages_link":
+        "zero": >-
+          No favorite posts
+        "one": >-
+          A favorite post
+        "other": >-
+          %{count} favorite posts
+      "posted_messages":
+        "zero": >-
+          No posts
+        "one": >-
+          One post
+        "other": >-
+          %{count} posts
+      "promote_expert_button": >-
+        Validate expertise
+      "remove_from_community_button": >-
+        Delete account
+      "remove_from_community_confirmation": >-
+        Are you sure you want to REMOVE this user from the community? He will lose
+        his skills but his posts will remain.
+      "skills_title": >-
+        Skills
+      "stats_evaluations": >-
+        Patents
+      "stats_messages": >-
+        Posts
+      "upgrade_moderator_button": >-
+        Promote admin
+    "validations":
+      "title": >-
+        Validated patents
+    "workspaces":
+      "create": >-
+        Create an article
+      "help": >-
+        You can create articles alone or in collaboration. Articles are private until
+        you publish them.
+      "title": >-
+        Articles
+  "views":
+    "pagination":
+      "first": >-
+        &laquo; First
+      "last": >-
+        Last &raquo;
+      "next": >-
+        Next &rsaquo;
+      "previous": >-
+        &lsaquo; Previous
+      "truncate": >-
+        &hellip;
+  "votes":
+    "index":
+      "empty": >-
+        No favorite posts.
+      "title": >-
+        Favorite posts by %{user}
+  "workspaces":
+    "edit":
+      "draft": >-
+        draft
+      "locked_alert": >-
+        %{user} is already editing the document.
+      "modale_help": >-
+        When your article is ready, you can publish it in the community feed or in
+        a skill in which you participate. It will become visible to community members.
+      "modale_skill_label": >-
+        Skill
+      "modale_title": >-
+        Publication
+      "new_version": >-
+        New version
+      "publish": >-
+        Publish
+      "share": >-
+        Contributors
+      "subtitle": "This document is saved automatically every 10 seconds.\r\nYou can
+        drop files in the editing area (20MB maximum).\r\nYou can invite community
+        members to collaborate in its writing.\r\nYou must invite community members
+        to review and comment your article. Only a reviewer of the article can authorize
+        its publication.\r\nNew versions of the draft will be automatically created
+        after each comment received so you can compare the revisions.\r\nYou can edit
+        and publish the latest version.\r\nYou can delete this article. Any deletion
+        is definitive."
+      "title": >-
+        Article edition
+    "partnerships":
+      "modal":
+        "author": >-
+          co-author
+        "owner": >-
+          creator
+        "reader": >-
+          reviewer
+        "subtitle_author": >-
+          Co-authors can edit the article, and are credited.
+        "subtitle_reader": >-
+          Reviewers can read and comment before publication.
+        "title": >-
+          Contributors
+      "tab":
+        "author": >-
+          co-auteur
+        "owner": >-
+          creator
+        "reader": >-
+          reviewer
+        "subtitle_author": >-
+          Co-authors can edit the article, and are credited.
+        "subtitle_reader": >-
+          Reviewers can read, comment and authorize the publication of the article.
+          As long as the article is not published, it is not visible to other members.
+    "show":
+      "approve": >-
+        Approve publication
+      "can_approve": >-
+        As a reviewer, you can approve the publication or comment to request an update.
+      "cannot_publish_yet": >-
+        This article is not yet approved for publication.
+      "can_publish": >-
+        This article is approved for publication.
+      "can_still_reject": >-
+        The article has not yet been published, you can still withdraw the approval
+        for publication.
+      "can_unpublish": >-
+        You can make this article private and editable again.
+      "discussion-title": >-
+        Comments
+      "draft": >-
+        Draft
+      "must_invite_reader": >-
+        You must invite a reviewer who will approve your article.
+      "publish": >-
+        Publish
+      "reject": >-
+        Disclaim publication
+      "title": >-
+        Article
+      "unpublish": >-
+        Unpublish

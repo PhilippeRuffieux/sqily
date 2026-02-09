@@ -1,0 +1,29 @@
+<header>
+  <% if current_user %>
+    <a href="/session" class="btn large login">
+      <span class="icon">
+        <%= octicon "arrow-right", :height => 16,  :"aria-label" => "alert" %>
+      </span>
+      <%= t("lib.enter") %>
+    </a>
+  <% else %>
+    <a href="/session" class="btn large login">
+      <span class="icon"><%= octicon 'person' %></span>
+      <%= t("lib.login") %>
+    </a>
+  <% end %>
+  <%= render "shared/hep_logo" %>
+  <%= render "shared/sqily_logo" %>
+</header>
+
+<main class="page">
+  <div class="card">
+    <header>
+      <h2 class="title"><%= @page.title %></h2>
+    </header>
+    <div class="page__content">
+      <%= format_rich_text @page.content&.html_safe %>
+    </div>
+  </div>
+</main>
+

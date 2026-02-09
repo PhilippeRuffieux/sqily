@@ -1,0 +1,1362 @@
+---
+"de-CH":
+  "activerecord":
+    "attributes":
+      "badges/advisor":
+        "description":
+          "other": >-
+            Geben Sie Ihre Meinung für mindestens %{count} Elemente an.
+      "badges/creator":
+        "description":
+          "other": >-
+            Erstellen Sie mindestens %{count} Challenges.
+      "badges/explorer":
+        "description":
+          "other": >-
+            Stellen Sie mindestens %{count} Ressourcen online.
+      "badges/master":
+        "description":
+          "other": >-
+            Validieren Sie mindestens %{count} Fähigkeiten.
+      "badges/messenger":
+        "description":
+          "other": >-
+            Posten Sie mindestens %{count} Nachrichten.
+      "badges/omnipresent":
+        "description":
+          "other": >-
+            Nehmen Sie an mindestens %{count} Veranstaltungen teil.
+      "badges/participant":
+        "description":
+          "one": >-
+            Validieren Sie Ihre 1. Fähigkeit.
+      "badges/partner":
+        "description":
+          "other": >-
+            Erhalten Sie mindestens %{count} Favoriten.
+      "badges/producer":
+        "description":
+          "other": >-
+            Veröffentlichen Sie mindestens %{count} Artikel.
+      "badges/professor":
+        "description":
+          "other": >-
+            Validieren Sie mindestens %{count} Challenges.
+      "badges/savant":
+        "description":
+          "one": >-
+            Erstellen Sie eine Fertigkeit.
+      "badges/specialist":
+        "description":
+          "other": >-
+            Validieren Sie mindestens %{count} Fähigkeiten.
+      "community":
+        "created_at": >-
+          Erstellt am
+        "description": >-
+          Beschreibung
+        "free_skill_creation": >-
+          Freie Schaffung von Kompetenzen
+        "name": >-
+          Name
+        "permalink": >-
+          Pfad
+      "community_request":
+        "comment": >-
+          Kommentar
+        "description": >-
+          Beschreibung
+        "name": >-
+          Name
+      "evaluation":
+        "file": >-
+          Datei
+        "title": >-
+          Titel
+      "event":
+        "max_participations": >-
+          Maximale Teilnehmer
+        "registration_finished_at": >-
+          Anmeldeschluss ist
+        "scheduled_at": >-
+          Geplant bei
+        "title": >-
+          Titel
+      "poll":
+        "single_answer": >-
+          Einzelne Antwort
+      "skill":
+        "description": >-
+          Beschreibung
+        "group_name": >-
+          Kompetenzgruppe Mindestanforderungen
+        "minimum_prerequisites": >-
+          Mindestanforderungen
+        "name": >-
+          Name
+      "user":
+        "daily_summary": >-
+          Tägliche Zusammenfassung
+        "email": >-
+          Email
+        "locale": >-
+          Sprache
+        "name": >-
+          Name
+        "password": >-
+          Passwort
+        "weekly_summary": >-
+          Wöchentliche Zusammenfassung
+      "workspace":
+        "default":
+          "title": >-
+            Titel
+          "writing": >-
+            Gut geschrieben!
+        "title": >-
+          Titel
+        "writing": >-
+          Redaktion
+    "errors":
+      "messages":
+        "record_invalid": >-
+          Validierung fehlgeschlagen: %{errors}
+        "restrict_dependent_destroy":
+          "has_many": >-
+            Sie können den Datensatz nicht löschen, da der abhängige %{record} existiert
+          "has_one": >-
+            Sie können den Datensatz nicht löschen, da ein abhängiger %{record} existiert
+      "models":
+        "event":
+          "attributes":
+            "registration_finished_at":
+              "must_be_before_scheduled_at": >-
+                muss vor dem geplanten Datum liegen
+        "message/poll":
+          "attributes":
+            "finished_at":
+              "must_be_in_the_futur": >-
+                muss in der Zukunft liegen
+    "models":
+      "badge/advisor": >-
+        Berater
+      "badge/creator": >-
+        Ersteller
+      "badge/explorer": >-
+        Entdecker
+      "badge/master": >-
+        Meister
+      "badge/messenger": >-
+        Bote
+      "badge/omnipresent": >-
+        Omnipräsent
+      "badge/participant": >-
+        Teilnehmer
+      "badge/partner": >-
+        Partner
+      "badge/producer": >-
+        Produzent
+      "badge/professor": >-
+        Professor
+      "badge/savant": >-
+        Savant
+      "badge/specialist": >-
+        Spezialist
+      "community": >-
+        Gemeinschaft
+      "community_request": >-
+        Gemeinschaft Anwendung
+      "evaluation":
+        "one": >-
+          Challenge
+        "other": >-
+          Challenges
+      "event": >-
+        Veranstaltung
+      "message":
+        "one": >-
+          Nachricht
+        "other": >-
+          Nachrichten
+      "message/upload":
+        "one": >-
+          Datei
+        "other": >-
+          Dateien
+      "page_view":
+        "one": >-
+          Seite anzeigen
+        "other": >-
+          Seiten anzeigen
+      "poll": >-
+        Umfrage
+      "skill": >-
+        Kompetenz
+      "user": >-
+        Benutzer
+      "workspace": >-
+        Artikel
+  "admin":
+    "communities":
+      "index":
+        "delete_confirmation": >-
+          Sind Sie sicher, dass Sie die Community löschen wollen?
+        "duplicate_button": >-
+          Duplizieren
+        "moderators": >-
+          Moderatoren
+        "title": >-
+          Sqily Gemeinschaften
+      "statistics":
+        "evaluation_feedbacks": >-
+          Rückmeldungen zu Challenges
+        "expertises": >-
+          Fachwissen
+        "last_activity": >-
+          Letzte Aktivität
+  "communities":
+    "header":
+      "all_messages_tooltip": >-
+        Alle Beiträge anzeigen
+      "calendar_tooltip": >-
+        Siehe die Ereignisse
+      "important_messages_tooltip": >-
+        Wichtige Meldungen anzeigen
+      "search_tooltip": >-
+        Suche in Meldungen
+      "toggle_description_button": >-
+        Siehe Beschreibung
+    "tree":
+      "moderator_help_message": >-
+        Bearbeiten Sie die Skills, um die Baumstruktur zu modifizieren.
+      "skill_expert_count":
+        "zero": >-
+          0 Fachmann
+        "one": >-
+          1 Fachmann
+        "other": >-
+          %{count} Fachleute
+      "skill_label": >-
+        %{user_count} davon %{expert_count}
+      "skill_user_count":
+        "zero": >-
+          0 registriert
+        "one": >-
+          1 registriert
+        "other": >-
+          %{count} registriert
+      "title": >-
+        Kompetenzbaum
+  "community_requests":
+    "create":
+      "notice": >-
+        Ihre Community-Anfrage wurde registriert.
+    "new":
+      "already_an_account": >-
+        Sie haben bereits ein Konto? Bitte melden Sie sich an.
+      "legend_account": >-
+        Sie
+      "legend_community": >-
+        Gemeinschaft
+      "title": >-
+        Anfrage zur Erstellung einer Community
+  "date":
+    "abbr_day_names":
+    - >-
+      So
+    - >-
+      Mo
+    - >-
+      Di
+    - >-
+      Mi
+    - >-
+      Do
+    - >-
+      Fr
+    - >-
+      Sa
+    "abbr_month_names":
+    - 
+    - >-
+      Jan
+    - >-
+      Feb
+    - >-
+      Mär
+    - >-
+      Apr
+    - >-
+      Mai
+    - >-
+      Jun
+    - >-
+      Jul
+    - >-
+      Aug
+    - >-
+      Sep
+    - >-
+      Okt
+    - >-
+      Nov
+    - >-
+      Dez
+    "day_names":
+    - >-
+      Sonntag
+    - >-
+      Montag
+    - >-
+      Dienstag
+    - >-
+      Mittwoch
+    - >-
+      Donnerstag
+    - >-
+      Freitag
+    - >-
+      Samstag
+    "formats":
+      "default": >-
+        %d.%m.%Y
+      "long": >-
+        %e. %B %Y
+      "short": >-
+        %e. %b
+    "month_names":
+    - 
+    - >-
+      Januar
+    - >-
+      Februar
+    - >-
+      März
+    - >-
+      April
+    - >-
+      Mai
+    - >-
+      Juni
+    - >-
+      Juli
+    - >-
+      August
+    - >-
+      September
+    - >-
+      Oktober
+    - >-
+      November
+    - >-
+      Dezember
+    "order":
+    - :day
+    - :month
+    - :year
+  "datetime":
+    "distance_in_words":
+      "about_x_hours":
+        "one": >-
+          etwa eine Stunde
+        "other": >-
+          etwa %{count} Stunden
+      "about_x_months":
+        "one": >-
+          etwa ein Monat
+        "other": >-
+          etwa %{count} Monate
+      "about_x_years":
+        "one": >-
+          etwa ein Jahr
+        "other": >-
+          etwa %{count} Jahre
+      "almost_x_years":
+        "one": >-
+          fast ein Jahr
+        "other": >-
+          fast %{count} Jahre
+      "half_a_minute": >-
+        eine halbe Minute
+      "less_than_x_minutes":
+        "one": >-
+          weniger als eine Minute
+        "other": >-
+          weniger als %{count} Minuten
+      "less_than_x_seconds":
+        "one": >-
+          weniger als eine Sekunde
+        "other": >-
+          weniger als %{count} Sekunden
+      "over_x_years":
+        "one": >-
+          mehr als ein Jahr
+        "other": >-
+          mehr als %{count} Jahre
+      "x_days":
+        "one": >-
+          ein Tag
+        "other": >-
+          %{count} Tage
+      "x_minutes":
+        "one": >-
+          eine Minute
+        "other": >-
+          %{count} Minuten
+      "x_months":
+        "one": >-
+          ein Monat
+        "other": >-
+          %{count} Monate
+      "x_seconds":
+        "one": >-
+          eine Sekunde
+        "other": >-
+          %{count} Sekunden
+    "prompts":
+      "day": >-
+        Tag
+      "hour": >-
+        Stunden
+      "minute": >-
+        Minute
+      "month": >-
+        Monat
+      "second": >-
+        Sekunde
+      "year": >-
+        Jahr
+  "discussions":
+    "index":
+      "no_conversations_message": >-
+        Starten Sie den Chat, indem Sie auf das Profil einer Person klicken.
+      "no_conversations_title": >-
+        Keine Gespräche.
+      "pending_homework": >-
+        Zum Patent angemeldete Validierung
+      "title": >-
+        Letzte private Gespräche
+  "errors":
+    "format": >-
+      %{attribute} %{message}
+    "messages":
+      "accepted": >-
+        muss akzeptiert werden
+      "blank": >-
+        muss ausgefüllt werden
+      "confirmation": >-
+        stimmt nicht mit %{attribute} überein
+      "empty": >-
+        muss ausgefüllt werden
+      "equal_to": >-
+        muss genau %{count} sein
+      "even": >-
+        muss gerade sein
+      "exclusion": >-
+        ist nicht verfügbar
+      "greater_than": >-
+        muss grösser als %{count} sein
+      "greater_than_or_equal_to": >-
+        muss grösser oder gleich %{count} sein
+      "inclusion": >-
+        ist kein gültiger Wert
+      "invalid": >-
+        ist nicht gültig
+      "less_than": >-
+        muss kleiner als %{count} sein
+      "less_than_or_equal_to": >-
+        muss kleiner oder gleich %{count} sein
+      "model_invalid": >-
+        Validierung fehlgeschlagen: %{errors}
+      "not_an_integer": >-
+        muss ganzzahlig sein
+      "not_a_number": >-
+        ist keine Zahl
+      "odd": >-
+        muss ungerade sein
+      "other_than": >-
+        darf nicht gleich %{count} sein
+      "present": >-
+        darf nicht ausgefüllt werden
+      "required": >-
+        muss vorhanden sein
+      "taken": >-
+        ist bereits vergeben
+      "too_long":
+        "one": >-
+          ist zu lang (mehr als 1 Zeichen)
+        "other": >-
+          ist zu lang (mehr als %{count} Zeichen)
+      "too_short":
+        "one": >-
+          ist zu kurz (weniger als 1 Zeichen)
+        "other": >-
+          ist zu kurz (weniger als %{count} Zeichen)
+      "wrong_length":
+        "one": >-
+          hat die falsche Länge (muss genau 1 Zeichen haben)
+        "other": >-
+          hat die falsche Länge (muss genau %{count} Zeichen haben)
+    "template":
+      "body": >-
+        Bitte überprüfen Sie die folgenden Felder:
+      "header":
+        "one": >-
+          Konnte %{model} nicht speichern: ein Fehler.
+        "other": >-
+          Konnte %{model} nicht speichern: %{count} Fehler.
+  "evaluations":
+    "modal":
+      "title": >-
+        Ein neues Patent hinzufügen
+  "events":
+    "index":
+      "filter_all": >-
+        Alle
+      "filter_registered": >-
+        Registriert
+      "title": >-
+        Ereignisse
+    "new":
+      "title": >-
+        Neues Ereignis
+  "helpers":
+    "select":
+      "prompt": >-
+        Bitte wählen
+    "submit":
+      "create": >-
+        %{model} erstellen
+      "submit": >-
+        %{model} speichern
+      "update": >-
+        %{model} aktualisieren
+  "invitation_requests":
+    "create":
+      "alert": >-
+        Ein Admin wird Ihre Einladungsanfrage bestätigen. Sie erhalten in Kürze eine
+        E-Mail
+    "index":
+      "form_title": >-
+        Noch nicht registriert?
+      "member_title": >-
+        Sie sind bereits Mitglied?
+      "submit": >-
+        Fordern Sie eine Einladung an!
+      "title": >-
+        %{name} ist eine private Gemeinschaft.
+  "invitations":
+    "index":
+      "email_label": >-
+        Geben Sie eine E-Mail-Adresse pro Zeile ein
+      "invalid_emails_error": >-
+        Die folgenden E-Mails sind ungültig:
+      "invitations_subtitle": >-
+        Einladungen verschickt, Anmeldung steht noch aus.
+      "invitations_title": >-
+        Laufende Einladungen
+      "no_invitations": >-
+        Keine laufenden Einladungen.
+      "no_requests": >-
+        Keine anhängigen Anträge.
+      "requests_subtitle": >-
+        Einladungen werden seit dem öffentlichen Empfang der Gemeinde erbeten.
+      "requests_title": >-
+        Einladungsanfragen
+      "submit": >-
+        Einladen
+      "title": >-
+        Einladungen
+  "lib":
+    "add": >-
+      Hinzufügen
+    "admin": >-
+      Admin
+    "cancel": >-
+      Abbrechen
+    "confirmation": >-
+      Sind Sie sicher?
+    "create": >-
+      Anlegen
+    "delete": >-
+      Löschen
+    "download": >-
+      Downloaden
+    "duplicate": >-
+      Duplizieren Sie diese Gemeinschaft
+    "edit": >-
+      Bearbeiten
+    "export_to_csv": >-
+      Exportieren nach CSV
+    "filter": >-
+      Filtern
+    "hide": >-
+      Ausblenden
+    "hide-description": >-
+      Beschreibung ausblenden
+    "login": >-
+      Login
+    "logout": >-
+      Logout
+    "no": >-
+      Nein
+    "optionnal": >-
+      Optional
+    "quit": >-
+      Beenden
+    "save": >-
+      Registrieren
+    "send": >-
+      Senden
+    "send_short": >-
+      ↵
+    "show": >-
+      Ansicht
+    "show-description": >-
+      Siehe die Beschreibung
+    "skills": >-
+      Fertigkeiten
+    "start": >-
+      Beginnen
+    "statistics": >-
+      Statistik
+    "tree": >-
+      Baum
+    "unauthorized": >-
+      Sie sind nicht berechtigt.
+    "view_all": >-
+      Alle sehen
+    "yes": >-
+      Ja
+  "memberships":
+    "show":
+      "description_label": >-
+        Beschreibung für diese Gemeinschaft
+      "title": >-
+        Ihr Profil
+  "messages":
+    "attachment":
+      "download_count":
+        "zero": >-
+          Keine Downloads
+        "one": >-
+          Ein Download
+        "other": >-
+          %{count} Downloads
+    "event_created":
+      "delete_confirmation": >-
+        Sind Sie sicher? Jeder Teilnehmer wird mit einer E-Mail über die Absage der
+        Veranstaltung informiert.
+      "end_date": >-
+        Registrierung vor
+      "participations":
+        "zero": 
+        "one": >-
+          1 registriert.
+        "other": >-
+          %{count} registriert.
+      "participations_max":
+        "one": >-
+          1 Platz.
+        "other": >-
+          %{count} Plätze..
+      "register_button": >-
+        Anmelden
+      "title": >-
+        %{user} hat ein Ereignis erstellt.
+      "title_context": >-
+        %{user} hat ein Ereignis für die Fertigkeit %{skill_link} erstellt
+      "unregister_button": >-
+        Abbestellen
+      "waiting_list_button": >-
+        Registrieren Sie sich auf der Warteliste
+      "waiting_list_position":
+        "one": >-
+          Sie stehen als Erster auf der Warteliste.
+        "other": >-
+          Sie sind auf Platz %{count} der Warteliste.
+      "waiting_participations": >-
+        %{count} auf der Warteliste.
+    "form":
+      "event_share_label": >-
+        Veranstaltung
+      "file_label": >-
+        Datei (max. 10 Mb)
+      "file_share_label": >-
+        Datei
+      "poll_share_label": >-
+        Umfrage
+      "text_label": >-
+        Nachricht
+      "text_placeholder": >-
+        Eine Nachricht schreiben
+    "header":
+      "title": >-
+        Privates Gespräch mit
+    "homework_uploaded":
+      "accept_button": >-
+        Validieren
+      "comment_from": >-
+        Kommentar von %{name}
+      "comment_placeholder": >-
+        Geben Sie einen Kommentar für diese Bewertung ein.
+      "download_link": >-
+        Mein Ergebnis überprüfen
+      "his_download_link": >-
+        Überprüfen Sie Ihr Ergebnis
+      "homework_accepted_title": >-
+        %{user_link} hat die Fertigkeit %{skill_link} validiert
+      "homework_received_title": >-
+        %{user_link} hat sein Patent für die Fertigkeit %{skill_link} aufgegeben
+      "homework_rejected_title": >-
+        %{user_link} hat die Fertigkeit %{skill_link} nicht validiert
+      "homework_sent_title": >-
+        Sie haben Ihr Patent für die Fertigkeit %{skill_link} eingereicht
+      "mandatory_comment": >-
+        Der Kommentar ist zwingend erforderlich, um ein Patent zurückzuweisen
+      "reject_button": >-
+        Nicht validieren
+      "result_file": >-
+        Datei
+      "result_file_help": >-
+        Sie können eine Datei anhängen, um Ihren Kommentar zu illustrieren
+      "result_link": >-
+        Sehen Sie das Ergebnis
+      "status_examinating": >-
+        %{user_name} wird Ihre Arbeit überprüfen.
+      "status_expert": >-
+        Sie sind nun ein Experte in dieser Fähigkeit und können Ihre eigene Beurteilung
+        abgeben.
+      "your_comment": >-
+        Ihr Kommentar
+      "your_homework_accepted_title": >-
+        Sie haben die Fertigkeit %{skill_link} validiert
+      "your_homework_rejected_title": >-
+        Sie haben die Fertigkeit %{skill_link} nicht validiert
+    "list":
+      "instructions": >-
+        Beginnen Sie die Diskussion, indem Sie in das Feld unten schreiben.
+      "title": >-
+        Keine Meldung.
+    "new_membership":
+      "message":
+        "one": >-
+          %{name} ist der Gemeinschaft beigetreten.
+        "other": >-
+          %{count} neue Mitglieder: %{names}.
+    "new_skill":
+      "message": >-
+        %{user} hat eine neue Fertigkeit erstellt
+    "new_subscription":
+      "message":
+        "one": >-
+          %{names} hat sich der Fertigkeit angeschlossen.
+        "other": >-
+          %{count} neue Mitglieder: %{names}.
+    "poll_created":
+      "end_date": >-
+        Enddatum :
+      "title": >-
+        %{user} hat eine Umfrage erstellt.
+    "search":
+      "empty": >-
+        Keine Ergebnisse.
+      "files_tab": >-
+        Dateien (%{count})
+      "messages_tab": >-
+        Meldungen (%{count})
+    "search_form":
+      "help": >-
+        Suchen Sie im Text von Nachrichten oder in den Namen von freigegebenen Dateien.
+      "search-placeholder": >-
+        Suchen
+    "subscription_complete":
+      "auto_evaluation": >-
+        Selbsteinschätzung
+      "homework_validated_by": >-
+        %{homework} validiert durch %{user}
+      "message": >-
+        %{user} ist ein Experte geworden
+      "validated_by": >-
+        validiert durch %{user}
+    "text":
+      "delete_message_confirmation": >-
+        Sind Sie sicher, dass Sie die Nachricht löschen wollen?
+      "delete_message_tooltip": >-
+        Löschen Sie die Nachricht
+      "html":
+        "download_count":
+          "zero": >-
+            0 Downloaden
+          "one": >-
+            1 Download
+          "other": >-
+            %{count} Downloaden
+    "unread_button":
+      "mark_as_unread": >-
+        Als ungelesen markieren
+    "upload_modal":
+      "file_label": >-
+        Wählen Sie eine Datei
+      "text_label": >-
+        Nachricht
+      "title": >-
+        Eine Datei freigeben
+    "workspace_approved_internal":
+      "message": >-
+        %{user} hat die Veröffentlichung des Artikels genehmigt.
+    "workspace_partnership_created":
+      "title_reader": >-
+        %{user} lädt Sie ein, seinen Artikel noch einmal zu lesen.
+      "title_writer": >-
+        %{user} hat Sie eingeladen, seinen Artikel mit zu schreiben.
+    "workspace_published_internal":
+      "message": >-
+        %{user} hat den Artikel veröffentlicht.
+    "workspace_published":
+      "title": >-
+        %{user} hat seinen Artikel veröffentlicht.
+    "workspace_rejected_internal":
+      "message": >-
+        %{user} hat die Genehmigung zur Veröffentlichung des Artikels zurückgezogen.
+    "workspace_unpublished_internal":
+      "message": >-
+        %{user} hat den Artikel nicht veröffentlicht.
+    "workspace_version_created":
+      "message": >-
+        %{user} hat die Version %{version} des Artikels "%{workspace}" eingeführt.
+  "notifications":
+    "index":
+      "title": >-
+        Benachrichtigungen
+  "number":
+    "currency":
+      "format":
+        "delimiter": >-
+          '
+        "format": >-
+          %u %n
+        "precision": 2
+        "separator": >-
+          .
+        "significant": false
+        "strip_insignificant_zeros": false
+        "unit": >-
+          CHF
+    "format":
+      "delimiter": >-
+        '
+      "precision": 2
+      "separator": >-
+        .
+      "significant": false
+      "strip_insignificant_zeros": false
+    "human":
+      "decimal_units":
+        "format": >-
+          %n %u
+        "units":
+          "billion": >-
+            Milliarde
+          "million": >-
+            Millionen
+          "quadrillion": >-
+            Millionen Milliarden
+          "thousand": >-
+            Tausend
+          "trillion": >-
+            Billion
+          "unit": ''
+      "format":
+        "delimiter": ''
+        "precision": 3
+        "significant": true
+        "strip_insignificant_zeros": true
+      "storage_units":
+        "format": >-
+          %n %u
+        "units":
+          "byte":
+            "one": >-
+              Byte
+            "other": >-
+              Bytes
+          "gb": >-
+            GB
+          "kb": >-
+            KB
+          "mb": >-
+            MB
+          "tb": >-
+            TB
+    "percentage":
+      "format":
+        "delimiter": ''
+        "format": >-
+          %n%
+    "precision":
+      "format":
+        "delimiter": ''
+  "password_resets":
+    "index":
+      "error_message": >-
+        Die E-Mail existiert nicht.
+      "placeholder": >-
+        E-Mail
+      "submit": >-
+        Passwort wiederherstellen
+      "title": >-
+        Verbindung
+  "polls":
+    "answers":
+      "votes": >-
+        Stimmen
+    "choices":
+      "several_answers": >-
+        Mehrere Auswahlmöglichkeiten sind möglich
+      "single_answer": >-
+        Nur eine Auswahl
+    "form":
+      "add_button": >-
+        Eine Auswahl hinzufügen
+      "choices_label": >-
+        Antwortmöglichkeiten
+      "date_label": >-
+        Enddatum
+      "text_label": >-
+        Frage
+    "new":
+      "title": >-
+        Neue Umfrage
+  "prerequisites":
+    "list":
+      "help": >-
+        Schlagen Sie die vorherige Validierung von Kompetenzen vor oder machen Sie
+        diese verbindlich, um Zugang zu dieser Kompetenz zu erhalten.
+    "list_item":
+      "mandatory_tooltip": >-
+        Optionale / obligatorische Freigabe
+  "profile":
+    "memberships":
+      "public":
+        "auto_validation": >-
+          Selbstvalidierung
+        "skills_blank": >-
+          Keine öffentlichen Kompetenzen.
+        "skills_title": >-
+          Kompetenzen
+        "validated_by": >-
+          Validé par %{name}
+      "show":
+        "help": >-
+          Sie können Ihr öffentliches Profil ganz oder teilweise ausblenden und privat
+          machen.
+        "help-public": >-
+          Ihr Profil ist privat. Keiner kann es sehen.
+        "private_button": >-
+          Privat machen
+        "private_status": >-
+          Dieses Profil ist privat.
+        "public_button": >-
+          Öffentlich machen
+      "workspaces":
+        "title": >-
+          Artikeln
+  "sessions":
+    "form":
+      "error_message": >-
+        Falsche E-Mail oder falsches Passwort.
+      "forgotten_password_link": >-
+        Passwort vergessen?
+      "password_label": >-
+        Passwort
+  "skills":
+    "assesment":
+      "subtitle": >-
+        Glauben Sie, dass Sie diese Kompetenz gemeistert haben?
+      "title": >-
+        Kompetenzerfassung
+    "bar":
+      "expert_tooltip": >-
+        Sie sind ein Experte.
+      "not_subscribed_tooltip": >-
+        Sie sind nicht registriert.
+      "subscribed_tooltip": >-
+        Sie sind registriert.
+      "tree_tooltip": >-
+        Kompetenzbaum
+    "evaluation_auto":
+      "auto_evaluation": >-
+        Selbsteinschätzung
+      "status_expert": >-
+        Sie sind ein Experte in dieser Kompetenz.
+      "validate_button": >-
+        Validieren
+    "evaluation_done":
+      "disable_evaluation_button": >-
+        Deaktivieren Sie Ihr Challenge
+      "enable_evaluation_button": >-
+        Reaktivieren Sie Ihr Patent
+    "evaluations":
+      "choices":
+        "empty": >-
+          Kein Patent vorhanden.
+        "evaluation_of": >-
+          Patent von %{name}
+        "see_all": >-
+          Challenges ansehen
+    "form":
+      "auto_evaluation_label": >-
+        Selbsteinschätzung (für die Kompetenz) wird kein Zertifikat ausgestellt
+      "description_help": >-
+        Sie können Bilder und Dateien im Textfeld ablegen.
+      "evaluation_legend": >-
+        Auswertung
+      "group_name_label": >-
+        Kompetenzgruppe (optional)
+      "group_name_placeholder": >-
+        Beispiel: Multimedia
+      "legend": >-
+        Beschreibung
+      "name_label": >-
+        Bezeichnung (kurz und konkret)
+      "name_placeholder": >-
+        Beispiel: Erstellen eines Videoclips
+      "prerequisites_help": >-
+        Erlauben Sie den Zugriff auf diese Kompetenz, wenn eine Anzahl von Kompetenzen
+        aus der obigen Liste validiert ist.
+      "prerequisites_label": >-
+        Bisherige Kompetenzbereiche
+      "prerequisites_legend": >-
+        Verwandte Kompetenzen
+      "published_at_label": >-
+        Sichtbar machen
+      "todolist_help": >-
+        Die Aufgabenliste muss ausgefüllt werden, um die Bewertung freizuschalten.
+      "todolist_label": >-
+        Aufgabenliste
+    "header":
+      "all_messages_tooltip": >-
+        Alle Meldungen
+      "flash": >-
+        Diese Kompetenz ist für andere Mitglieder unsichtbar.
+      "important_messages_tooltip": >-
+        Wichtige Meldungen
+      "related_tab": >-
+        Verwandte Fähigkeiten
+      "task_tab": >-
+        Aufgaben
+      "toggle_description_button": >-
+        Siehe die Beschreibung
+      "toggle_todolist": >-
+        Bitte füllen Sie die Aufgabenliste aus, um auf das Patent zuzugreifen.
+      "unsubscribe_button": >-
+        Abbestellen
+      "unsubscribe_confirmation": >-
+        Sind Sie sicher, dass Sie diese Fähigkeit verlassen wollen? Sie verlieren
+        Ihr Fachwissen, wenn Sie es validiert haben.
+    "next_skills":
+      "title": >-
+        Die folgenden Kompetenzen
+  "statistics":
+    "index":
+      "completed_skills": >-
+        Fachwissen
+      "created_skills": >-
+        Geschaffene Kompetenzen
+      "evaluation_feedbacks": >-
+        Patentrückgaben
+      "important_messages": >-
+        Wichtige Meldungen
+      "last_activity": >-
+        Letzte Aktivität
+      "participating_events": >-
+        Teilnehmende Ereignisse
+      "published_workspaces": >-
+        Veröffentlichte Artikel
+      "useful_files": >-
+        Nützliche Dateien
+      "validated_experts": >-
+        Validierte Experten
+      "votes_received": >-
+        Empfangene Favoriten
+      "workspace_feebacks": >-
+        Feedback zu Artikeln
+  "support":
+    "array":
+      "last_word_connector": >-
+        und
+      "two_words_connector": >-
+        und
+      "words_connector": >-
+        ,
+  "time":
+    "am": >-
+      vormittags
+    "formats":
+      "default": >-
+        %A, %d. %B %Y, %H:%M Uhr
+      "long": >-
+        %A, %d. %B %Y, %H:%M Uhr
+      "short": >-
+        %d. %B, %H:%M Uhr
+    "pm": >-
+      nachmittags
+  "tree":
+    "user_list":
+      "pending_invitations_tooltip": >-
+        Einladungen ausstehend
+  "user_mailer":
+    "daily_summary":
+      "daily_summary_title": >-
+        Tägliche Zusammenfassung
+      "mentionned_messages": >-
+        Sie wurden %{count} mal erwähnt
+      "new_conversations":
+        "one": >-
+          Eine neue Nachricht
+        "other": >-
+          %{count} neue Nachrichten
+      "new_event_messages":
+        "one": >-
+          Ein neues Ereignis
+        "other": >-
+          %{count} neue Ereignisse
+      "new_pinned_messages":
+        "one": >-
+          Eine wichtige neue Nachricht
+        "other": >-
+          %{count} neue wichtige Nachrichten
+      "new_poll_messages":
+        "one": >-
+          Eine neue Umfrage
+        "other": >-
+          %{count} neue Umfragen
+      "new_reminder_messages": >-
+        Erinnerung
+      "pending_homeworks":
+        "one": >-
+          Ein zum Patent angemeldetes
+        "other": >-
+          %{count} Patente angemeldet
+      "reply": >-
+        Antworten
+    "new_badge":
+      "title": >-
+        Sie haben ein neues Abzeichen erhalten
+    "weekly_summary":
+      "new_conversations":
+        "one": >-
+          Eine neue Nachricht
+        "other": >-
+          %{count} neue Nachrichten
+      "new_evaluations":
+        "one": >-
+          ein neues Patent
+        "other": >-
+          %{count} neue Patente
+      "new_experts":
+        "one": >-
+          ein neuer Experte
+        "other": >-
+          %{count} neue Experten
+      "new_memberships":
+        "one": >-
+          Ein neues Mitglied. Bitte heißen Sie ihn/sie willkommen.
+        "other": >-
+          %{count} neue Mitglieder. Bitte heißen Sie sie willkommen.
+      "new_messages":
+        "one": >-
+          Eine neue Nachricht
+        "other": >-
+          %{count} neue Nachrichten
+      "new_skills":
+        "one": >-
+          Eine neue Kompetenz
+        "other": >-
+          %{count} 3 neue Kompetenzen
+      "pending_homeworks":
+        "one": >-
+          Ein zum Patent angemeldetes
+        "other": >-
+          %{count} Patente angemeldet
+  "users":
+    "badges":
+      "title": >-
+        Abzeichen
+    "bar":
+      "membership_count":
+        "zero": >-
+          Keine registriert
+        "one": >-
+          1 registriert
+        "other": >-
+          %{count} registriert
+    "evaluations":
+      "title": >-
+        Angemeldete Patente
+    "new":
+      "already_registered_link": >-
+        Melden Sie sich an, wenn Sie bereits ein Konto haben
+      "title": >-
+        Anmeldung
+    "show":
+      "assesment_link": >-
+        Kompetenzbewertung
+      "attestations_link": >-
+        Öffentliches Profil
+      "discussion_link": >-
+        Diskutieren
+      "downgrade_expert_button": >-
+        Ungültigmachendes Fachwissen
+      "downgrade_moderator_button": >-
+        Admin degradieren
+      "evaluations_passed_list_item": >-
+        Challenges validiert
+      "evaluations_uploaded_list_item": >-
+        Angemeldete Patente
+      "latest_favorite_messages_link":
+        "zero": >-
+          Keine Favoritenmeldungen
+        "one": >-
+          Eine Lieblingsnachricht
+        "other": >-
+          %{count} Lieblingsmeldungen
+      "posted_messages":
+        "zero": >-
+          Keine Nachricht gesendet
+        "one": >-
+          Eine Nachricht gesendet
+        "other": >-
+          %{count} Nachrichten gebucht
+      "promote_expert_button": >-
+        Valider Kompetenz
+      "remove_from_community_button": >-
+        Konto löschen
+      "remove_from_community_confirmation": >-
+        Sind Sie sicher, dass Sie diesen Benutzer aus der Community LÖSCHEN wollen?
+        Er wird seine Fähigkeiten verlieren, aber seine Posten werden bleiben.
+      "skills_title": >-
+        Kompetenzen
+      "stats_evaluations": >-
+        Patente
+      "stats_messages": >-
+        Nachrichten
+      "upgrade_moderator_button": >-
+        Admin befördern
+    "validations":
+      "title": >-
+        Validierte Patente
+    "workspaces":
+      "create": >-
+        Einen Artikel erstellen
+      "help": >-
+        Sie können Artikel alleine oder in Zusammenarbeit erstellen. Artikel sind
+        privat, bis Sie sie veröffentlichen.
+      "title": >-
+        Artikel
+  "views":
+    "pagination":
+      "first": >-
+        &laquo; Start
+      "last": >-
+        Ende &raquo;
+      "next": >-
+        Weiter &rsaquo;
+      "previous": >-
+        &lsaquo; Zurück
+      "truncate": >-
+        &hellip;
+  "votes":
+    "index":
+      "empty": >-
+        Keine Lieblingsmeldungen.
+      "title": >-
+        Bevorzugte Beiträge von %{user}
+  "workspaces":
+    "edit":
+      "draft": >-
+        Entwurf
+      "locked_alert": >-
+        %{user} bearbeitet bereits das Dokument.
+      "modale_help": >-
+        Wenn Ihr Artikel fertig ist, können Sie ihn im Community-Feed oder in einem
+        Kompetenz, an dem Sie teilnehmen, veröffentlichen. Sie wird dann für die Community-Mitglieder
+        sichtbar.
+      "modale_skill_label": >-
+        Kompetenz
+      "modale_title": >-
+        Veröffentlichung
+      "new_version": >-
+        Neue Version
+      "publish": >-
+        Veröffentlichen
+      "share": >-
+        Teilnehmer
+      "subtitle": "Dieses Dokument wird automatisch alle 10 Sekunden gespeichert.\r\nSie
+        können Dateien in den Schreibbereich hochladen (maximal 20Mb).\r\nSie können
+        Community-Mitglieder einladen, an der Erstellung mitzuwirken.\r\nSie müssen
+        Community-Mitglieder einladen, Ihren Artikel zu überprüfen und zu kommentieren.
+        Nur ein Leser des Artikels kann dessen Veröffentlichung autorisieren.\r\nNach
+        jedem eingegangenen Kommentar wird automatisch eine neue Version des Entwurfs
+        erstellt, so dass die Änderungen verglichen werden können.\r\nDie neueste
+        Version des Artikels ist editierbar und kann veröffentlicht werden.\r\nSie
+        können diesen Artikel löschen. Jede Löschung ist endgültig."
+      "title": >-
+        Bearbeiten eines Artikels
+    "partnerships":
+      "modal":
+        "author": >-
+          Co-Autor
+        "owner": >-
+          Ersteller
+        "reader": >-
+          Leser
+        "subtitle_author": >-
+          Co-Autoren können den Artikel bearbeiten und werden entsprechend gewürdigt.
+        "subtitle_reader": >-
+          Die Leser können vor der Veröffentlichung lesen und kommentieren.
+        "title": >-
+          Teilnehmer
+      "tab":
+        "author": >-
+          Co-Autor
+        "owner": >-
+          Ersteller
+        "reader": >-
+          Leser
+        "subtitle_author": >-
+          Co-Autoren können den Artikel bearbeiten und werden entsprechend gewürdigt.
+        "subtitle_reader": >-
+          Leser können den Artikel lesen, kommentieren und zur Veröffentlichung freigeben.
+          Solange der Artikel nicht veröffentlicht ist, ist er für andere Mitglieder
+          nicht sichtbar.
+    "show":
+      "approve": >-
+        Veröffentlichung genehmigen
+      "can_approve": >-
+        Als Leser können Sie die Veröffentlichung genehmigen oder einen Kommentar
+        abgeben, um eine Überprüfung anzufordern.
+      "cannot_publish_yet": >-
+        Dieser Artikel ist noch nicht zur Veröffentlichung freigegeben.
+      "can_publish": >-
+        Dieser Artikel ist zur Veröffentlichung freigegeben.
+      "can_still_reject": >-
+        Der Artikel wurde noch nicht veröffentlicht, Sie können die Veröffentlichungserlaubnis
+        noch zurückziehen.
+      "can_unpublish": >-
+        Sie können diesen Artikel wieder privat und editierbar machen.
+      "discussion-title": >-
+        Kommentare
+      "draft": >-
+        Entwurf
+      "must_invite_reader": >-
+        Sie müssen einen Leser einladen, der Ihren Artikel validiert.
+      "publish": >-
+        Veröffentlichen
+      "reject": >-
+        Die Veröffentlichung ablehnen
+      "title": >-
+        Artikel
+      "unpublish": >-
+        Unveröffentlicht

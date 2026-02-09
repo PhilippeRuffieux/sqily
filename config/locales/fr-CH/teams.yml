@@ -1,0 +1,10 @@
+fr-CH:
+  teams:
+    add: Créer une équipe
+    all: Tous les membres
+    delete: Supprimer cette équipe
+    delete_confirm: Êtes-vous sûr de SUPPRIMER cette équipe ? Cette action est irréversible !
+    edit: Éditer l'équipe
+    help: Il est possible de créer des équipes pour classer et filtrer les membres de la communauté. Les correcteurs des défis sont choisis en priorité au sein de la même équipe.
+    members: Membres de l'équipe
+    name: Nom de l'équipe

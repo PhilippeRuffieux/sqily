@@ -1,0 +1,34 @@
+.message_bar_add_menu {
+  width: 0;
+  overflow: hidden;
+  text-align: right;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  background: #fff;
+  border: 1px solid rgba(17, 22, 26, 0.1);
+  opacity: 0;
+  z-index: 1000;
+  transition: all 0.2s ease-out;
+}
+
+.message_bar_add_menu--open {
+  width: auto;
+  bottom: 60px;
+  top: auto;
+  opacity: 1;
+}
+
+.message_bar_add_menu li {
+  text-align: right;
+  display: block;
+  padding: 0 12px;
+  cursor: pointer;
+}
+
+.message_bar_add_menu li:hover { color: #253031; }
+
+.message_bar_add_menu li a {
+  color: inherit;
+  text-decoration: none;
+}

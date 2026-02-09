@@ -1,0 +1,15 @@
+<div class="header">
+  <a href="http://sqily.com" style="display: block;">
+    <%= image_tag('sqily.png', :style => 'height: 24px') %>
+  </a>
+  <h2><%= @exam.subscription.skill.community.name %></h2>
+  <p>Défi en attente de validation</p>
+</div>
+
+<p><%= @exam.examiner.name %>,</p>
+
+<p>L'utilisateur <strong><%= @exam.subscription.user.name %></strong> a déposé son travail de validation pour la compétence <strong><%= @exam.subscription.skill.name %></strong>.</p>
+
+<p>Il attend votre feedback.</p>
+
+<p style="text-align: center;"><%= link_to "Voir", evaluation_exam_url(@exam.subscription.skill.community, @exam), class: "btn" %></p>

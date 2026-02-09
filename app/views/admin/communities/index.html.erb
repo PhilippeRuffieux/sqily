@@ -1,0 +1,69 @@
+
+  <%= form_for [:admin, @community || Community.new], builder: InlineErrorFormBuilder do |form| %>
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+    <%= form.label :description %>
+    <%= form.text_area :description %>
+    <%= form.submit t "lib.create" %>
+  <% end %>
+
+  <hr>
+
+  <%= form_tag admin_communities_path, method: :get do %>
+    <%= hidden_field_tag :order_by, params[:order_by] %>
+    <%= label_tag :name, Community.human_attribute_name(:name) %>
+    <%= text_field_tag :name, params[:name] %>
+    <%= submit_tag t("lib.filter") %>
+  <% end %>
+
+  <section class="table">
+    <table>
+      <thead>
+        <tr>
+          <th><%= Community.human_attribute_name :name %></th>
+          <th><%= t ".moderators" %></th>
+          <th><%= Community.human_attribute_name :description %></th>
+          <th class="align-right"><%= link_to_order_by User.model_name.human.pluralize, "users" %></th>
+          <th class="align-right"><%= link_to_order_by Skill.model_name.human.pluralize, "skills" %></th>
+          <th class="align-right"><%= link_to_order_by "Dernière activité", "last_activity" %></th>
+          <th></th>
+        </tr>
+      </thead>
+
+
+      <% for community in @communities %>
+        <tr>
+          <td><%= link_to community.name, skills_path(community) %></td>
+          <td>
+            <% for membership in community.memberships.moderator %>
+              <% next unless membership.user %>
+              <%= link_to membership.user.name, "mailto:#{membership.user.email}" %><br>
+            <% end %>
+          </td>
+          <td class="description"><%= format_rich_text community.description %></td>
+          <td class="align-right"><%= community.memberships.count %></td>
+          <td class="align-right"><%= community.skills.count %></td>
+
+          <% last_page_viewed_at = community.statistics.last_page_viewed_at %>
+          <td class="align-right" title="<%= l(last_page_viewed_at) if last_page_viewed_at %>"><%= last_page_viewed_at ? l(last_page_viewed_at.to_date, format: :short).gsub(" ", "&nbsp;").html_safe : "-" %></td>
+
+          <td class="action">
+            <%= link_to admin_community_path(community), class: "btn secondary btn--admin", title: t('lib.edit') do %>
+              <%= octicon "pencil" %>
+            <% end %>
+
+            <%= button_to duplicate_admin_community_path(community), class: "btn secondary", method: "post", title: t(".duplicate_button") do %>
+              <%= octicon "git-branch" %>
+            <% end %>
+
+            <%= button_to admin_community_path(community), class: "btn secondary btn--delete", method: "delete",
+              "data-confirmation" => t(".delete_confirmation"), title: t('lib.delete') do %>
+              <%= octicon "trash" %>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+  </section>
+
+  <%= paginate @communities %>

@@ -1,0 +1,14 @@
+<div class="header">
+  <a href="http://sqily.com" style="display: block;">
+    <%= image_tag('sqily.png', :style => 'height: 24px') %>
+  </a>
+  <h4><a href="<%= skills_url(@badge.membership.community) %>"><%= @badge.membership.community.name %></a></h4>
+</div>
+
+<p>
+  <%= t ".title" %> :
+  <strong><%= @badge.model_name.human %></strong>.<br>
+  <%= @badge.description %>
+</p>
+
+<p style="text-align: center;"><%= link_to "Continuer", "https://sqily.com", class: "btn" %></p>

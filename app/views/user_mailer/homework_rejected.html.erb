@@ -1,0 +1,16 @@
+<div class="header">
+  <a href="http://sqily.com" style="display: block;">
+    <%= image_tag('sqily.png', :style => 'height: 24px') %>
+  </a>
+  <h4><a href="<%= skills_url(@homework.subscription.skill.community) %>"><%= @homework.subscription.skill.community.name %></a></h4>
+  <p>Votre défi <%= @homework.subscription.skill.name %> nécessite votre attention.</p>
+</div>
+
+<% if @message %>
+  <p>
+    <%= image_tag user_avatar_url(@message.to_user), style: "width: 24px; border-radius:14px; float: left; margin-right: 7px;", alt: @message.to_user.name %>
+    <%= @message.to_user.name %>: <span style="opacity: .5;"><%= @message.text %></span>
+  </p>
+
+  <p style="text-align: center;"><%= link_to "Continuer la conversation", messages_url(@homework.subscription.skill.community, user_id: @message.to_user), class: "btn" %></p>
+<% end %>

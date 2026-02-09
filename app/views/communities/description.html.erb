@@ -1,0 +1,25 @@
+<%= render "header" %>
+
+<div class="post-date"><hr></div>
+
+<section class="main__content">
+  <% if can_edit_current_community_skills?(@skill) %>
+    <nav class="submenu">
+      <ul class="tabs">
+        <li>
+          <a href="<%= edit_community_path(current_community) %>" class="btn btn--admin">
+            <%= octicon "gear" %>
+            <span><%= t "lib.edit" %></span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <div class="post-date"><hr></div>
+  <% end %>
+  <% if current_community.description? %>
+    <div class="content__section">
+      <%= format_rich_text current_community.description %>
+    </div>
+  <% end %>
+  <%= render "/layouts/footer" %>
+</section>

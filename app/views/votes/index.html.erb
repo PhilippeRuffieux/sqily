@@ -1,0 +1,21 @@
+<header>
+  <div class="title">
+    <h2><span class="icon icon-heart">
+      <%= octicon 'heart-fill' %>
+    </span> <%= t ".title", user: @user.name %></h2>
+
+    <a href="<%= skills_path(current_community) %>" class="icon icon-clear icon--close">
+     <%= octicon "x" %>
+    </a>
+  </div>
+</header>
+<div class="post-date"><hr><span class="date" id="top-date"></span></div>
+<section class="messages" id="messages">
+  <% for vote in @votes %>
+    <%= render_message vote.message %>
+  <% end %>
+
+  <% if @votes.blank? %>
+    <h2><%= t ".empty" %></h2>
+  <% end %>
+</section>

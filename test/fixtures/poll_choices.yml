@@ -1,0 +1,7 @@
+choice1:
+  title: Choice 1
+  poll: alexis_poll_to_base
+
+choice2:
+  title: Choice 2
+  poll: alexis_poll_to_base

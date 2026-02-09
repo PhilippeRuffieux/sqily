@@ -1,0 +1,27 @@
+<li id="message-<%= message.id %>" data-date="<%= I18n.l(message.created_at.to_date, format: '%A, %d %b %Y') %>" class="post">
+  <%= link_to_user message.from_user do %>
+    <%= user_avatar(message.from_user) %>
+  <% end %>
+  
+  <div class="message">
+    <div class="title">
+      <span class="title">
+        <%= t(".title", user: link_to_user(message.from_user)).html_safe %>
+        <span class="ago"><%= link_to_message message %></span>
+      </span>
+      <%= render "/messages/vote_button", message: message %>
+      <%= render "/messages/unread_button", message: message %>
+    </div>
+    <div id="message-text-<%= message.id %>">
+      <div class="box">
+        <a href="<%= workspace_path(current_community, message.workspace) %>">
+          <span class="icon">
+            <span class="icon private">
+              <%= octicon 'file' %>
+            </span>
+          </span><%= message.workspace.title %>
+        </a>
+      </div>
+    </div>
+  </div>
+</li>

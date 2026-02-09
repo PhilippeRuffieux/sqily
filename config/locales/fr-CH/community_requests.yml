@@ -1,0 +1,9 @@
+fr-CH:
+  community_requests:
+    create:
+      notice: "Votre demande de communauté a été enregistrée."
+    new:
+      title: "Demande de création de communauté"
+      legend_community: "Communauté"
+      legend_account: "Vous"
+      already_an_account: Vous avez déjà un compte? Connectez-vous.

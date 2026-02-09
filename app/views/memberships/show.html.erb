@@ -1,0 +1,53 @@
+<header>
+  <div class="title">
+    <h2><%= t ".title" %></h2>
+  </div>
+</header>
+
+<section class="form">
+  <%= form_for current_membership, url: membership_path(current_community, current_community), builder: InlineErrorFormBuilder, html: {multipart: true} do |form| %>
+    <%= fields_for :user, current_user, builder: InlineErrorFormBuilder do |user_form| %>
+      <%= user_form.label :name, t("users.name") %>
+      <%= user_form.text_field :name %>
+
+      <%= user_form.label :email %>
+      <%= user_form.email_field :email %>
+
+      <%= user_form.label :password %>
+      <%= user_form.password_field :password %>
+
+      <%= user_form.label :locale %>
+      <%= user_form.select :locale, [["Français", "fr-CH"], ["Deutsch", "de-CH"], ["Italiano", "it-CH"], ["English", "en"]] %>
+
+      <%= user_form.label :avatar  %>
+      <% if current_user.avatar_name %>
+        <div class="current" id="current-user-avatar">
+          <%= image_tag user_avatar_url(current_user), class: "avatar profile", alt: "Avatar" %>
+          <%= link_to "-", user_destroy_avatar_path(current_community, current_user), class: "btn delete", title: t(".delete"), "data-action" => "destroy-avatar" %>
+        </div>
+      <% end %>
+
+      <%= user_form.file_field :avatar %>
+    <% end %>
+
+    <%= form.label :description, t(".description_label") %>
+    <%= form.text_area :description %>
+
+
+    <%= fields_for :user, current_user, builder: InlineErrorFormBuilder do |user_form| %>
+      <label>Emails</label>
+      <div class="box">
+        <div class="inline">
+          <%= user_form.check_box :daily_summary %>
+          <%= user_form.label :daily_summary %>
+        </div>
+        <div class="inline">
+          <%= user_form.check_box :weekly_summary %>
+          <%= user_form.label :weekly_summary %>
+        </div>
+      </div>
+    <% end %>
+
+    <%= form.submit t("lib.save") %>
+  <% end %>
+</section>

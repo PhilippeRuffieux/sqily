@@ -1,0 +1,141 @@
+fr-CH:
+  activerecord:
+    models:
+      badge/advisor: Conseiller
+      badge/creator: Créateur
+      badge/explorer: Explorateur
+      badge/master: Maître
+      badge/messenger: Messager
+      badge/omnipresent: Omniprésent
+      badge/participant: Participant
+      badge/partner: Partenaire
+      badge/producer: Producteur
+      badge/professor: Professeur
+      badge/savant: Savant
+      badge/specialist: Spécialiste
+      community:
+        one: Communauté
+        other: Communautés
+      community_request:
+        one: Demande de communauté
+        other: Demandes de communauté
+      evaluation:
+        one: Défi
+        other: Défis
+      event:
+        one: Événement
+        other: Événements
+      message:
+        one: Message
+        other: Messages
+      message/upload:
+        one: Fichier
+        other: Fichiers
+      page_view:
+        one: Page vue
+        other: Pages vues
+      skill:
+        one: Compétence
+        other: Compétences
+      poll:
+        one: Sondage
+        other: Sondages
+      task:
+        one: Tâche
+        other: Tâches
+      user:
+        one: Utilisateur
+        other: Utilisateurs
+      workspace:
+        one: Article
+        other: Articles
+    attributes:
+      badges/advisor:
+        description:
+          other: "Donner votre avis pour au moins %{count} articles."
+      badges/creator:
+        description:
+          other: "Créer au moins %{count} défis."
+      badges/explorer:
+        description:
+          other: "Mettre en ligne au moins %{count} ressources."
+      badges/master:
+        description:
+          other: "Valider au moins %{count} compétences."
+      badges/messenger:
+        description:
+          other: "Poster au moins %{count} messages."
+      badges/omnipresent:
+        description:
+          other: "Participer à au moins %{count} événements."
+      badges/partner:
+        description:
+          other: "Recevoir au moins %{count} favoris."
+      badges/participant:
+        description:
+          one: "Valider votre 1ère compétence."
+      badges/producer:
+        description:
+          other: "Publier au moins %{count} articles."
+      badges/professor:
+        description:
+          other: "Valider au moins %{count} défis."
+      badges/savant:
+        description:
+          one: "Créer une compétence."
+      badges/specialist:
+        description:
+          other: "Valider au moins %{count} compétences."
+      community_request:
+        name: Nom
+        description: Description
+        comment: Commentaire
+      evaluation:
+        title: Titre
+        file: Fichier
+      skill:
+        name: Nom
+        description: Objectif
+        help: Aide
+        minimum_prerequisites: Prérequis minimums
+        group_name: Groupe de compétences
+      community:
+        created_at: Créée le
+        name: Nom
+        description: Description
+        registration_code: Code d'inscription
+        registration_code_help: Saisir un code d'inscription permet aux élèves d'entrer dans la communauté et de s'y inscrire, sans être personnellement invités par email.
+        free_skill_creation: Création libre des compétences
+        public: Publier la communauté
+        permalink: Chemin
+        duplicate_evaluations: Dupliquer les défis
+      poll:
+        single_answer: Réponse unique
+      user:
+        name: Nom
+        email: Email
+        password: Mot de passe
+        locale: Langue
+        daily_summary: Résumé quotidien
+        weekly_summary: Résumé hebdomadaire
+      event:
+        title: Titre
+        scheduled_at: Programmé à
+        registration_finished_at: Fin des inscriptions à
+        max_participations: Participants maximum
+      workspace:
+        title: Titre
+        writing: Rédaction
+        default:
+          title: titre
+          writing: Bonne rédaction!
+    errors:
+      models:
+        message/poll:
+          attributes:
+            finished_at:
+              must_be_in_the_futur: doit être dans le futur
+        event:
+          attributes:
+            registration_finished_at:
+              must_be_before_scheduled_at: doit être avant la date programmée

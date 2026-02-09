@@ -1,0 +1,22 @@
+<% url = page.persisted? ? admin_page_path(page) : admin_pages_path %>
+
+<%= form_for page, url: url, builder: InlineErrorFormBuilder, html: {multipart: true, "data-module" => "UnsavedFormAlert"} do |form| %>
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+
+  <label for="page_slug">URL</label>
+  <% if page.persisted? %>
+    <p>Attention: modifier une adresse casse les éventuels liens y menant.</p>
+  <% end %>
+  <div class="input-group">
+    <div class="input-group-prepend">sqily.com/pages/</div>
+    <%= form.text_field :slug, class: "input--permalink" %>
+  </div>
+
+  <%= form.label :content %>
+  <%= form.hidden_field :content %>
+  <%= trix_editor_tag input: "page_content", attachment_path: page.attachment_path %>
+
+  <%= form.submit t("lib.save") %>
+  <%= link_to t("lib.cancel"), admin_pages_path, class: "btn btn--large btn--delete" %>
+<% end %>

@@ -1,0 +1,23 @@
+admin:
+  name: Admin
+  email: admin@sqily.test
+  password_digest: "$2a$04$n0NnDXC0l1RByALL30tpROaaTfriBS2uW/Cg3QuOAphIlxcLQb.Um" # => password
+  admin: true
+
+alexis:
+  name: Alexis
+  email: alexis@basesecrete.test
+  password_digest: "$2a$04$n0NnDXC0l1RByALL30tpROaaTfriBS2uW/Cg3QuOAphIlxcLQb.Um" # => password
+  admin: false
+
+antoine:
+  name: Antoine
+  email: antoine@basesecrete.test
+  password_digest: "$2a$04$n0NnDXC0l1RByALL30tpROaaTfriBS2uW/Cg3QuOAphIlxcLQb.Um" # => password
+  admin: false
+
+valentin:
+  name: Valentin
+  email: valentin@basesecrete.test
+  password_digest: "$2a$04$n0NnDXC0l1RByALL30tpROaaTfriBS2uW/Cg3QuOAphIlxcLQb.Um" # => password
+  admin: false

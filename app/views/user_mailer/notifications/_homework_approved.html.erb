@@ -1,0 +1,13 @@
+<p>
+  <small><%= l notification.created_at, format: :short %></small><br>
+  <strong>
+    <%= image_tag user_avatar_url(notification.homework.evaluation.user), style: "width: 24px; border-radius: 12px; float: left; margin-right: 6px;", alt: notification.homework.evaluation.user.name %>
+    <%= notification.homework.evaluation.user.name %>
+  </strong>
+  &nbsp;a validé votre défi pour la compétence&nbsp;
+  <strong><%= notification.homework.evaluation.skill.name %></strong>.
+</p>
+
+<p style="text-align: center;">
+  <%= link_to "Continuer", "https://sqily.com", class: "btn" %>
+</p>

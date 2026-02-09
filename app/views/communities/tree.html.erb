@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sqily</title>
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700|PT+Serif:400,400i,700" rel="stylesheet">
+
+    <style type="text/css">
+      <%= inline_css_layout_to_avoid_weird_redraw %>
+    </style>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag "tree", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body class="tree">
+    <header>
+      <a href="/"><%= image_tag "sqily.svg", class: "logo", alt: "Sqily" %></a>
+      <h2 class="community">
+        <%= link_to current_membership ? skills_path(current_community) : public_community_path(current_community) do %>
+          <span class="icon icon--home"><%= octicon 'home' %></span> <%= current_community.name %>
+        <% end %>
+      </h2>
+      <% if @user %>
+        <h3 class="user">
+          <%= user_avatar(@user) %>
+          <span><%= @user.name %></span>
+        </h3>
+      <% end %>
+      <h4><%= t ".title" %></h4>
+    </header>
+    <div class="container">
+      <div class="main">
+        <div class="content">
+          <section class="tree" data-module="Sqily.Tree">
+            <div class="svg-container <% if !@user %>public<% end %>" >
+              <svg id="tree-svg" class="svg-canvas" width="1000" height="300" data-json="<%= skill_to_tree_json current_community_skills, @user %>">
+                <% 11.times do |n| %>
+                  <% percentage = n * 10 %>
+                  <linearGradient id="experts-<%= percentage %>-percent">
+                    <stop offset="<%= percentage %>%" stop-color="#f4ae22"/>
+                    <stop offset="<% 100 - percentage %>%" stop-color="#1c8cca"/>
+                  </linearGradient>
+                <% end %>
+              </svg>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

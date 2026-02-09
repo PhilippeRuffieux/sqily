@@ -1,0 +1,10 @@
+<header id="evaluation-header" class="header--messages ">
+  <div class="title">
+    <h2>
+      <span class="icon icon--star icon--star--<%= user_skill_state(skill, current_user) %>">
+        <%= octicon 'star-fill' %>
+      </span>
+      <%= link_to skill.name, skill_path(current_community, skill) %>
+    </h2>
+  </div>
+</header>

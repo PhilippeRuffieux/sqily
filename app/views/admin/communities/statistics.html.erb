@@ -1,0 +1,120 @@
+<div class="admin__actions">
+  <%= link_to statistics_admin_communities_path(format: :csv), class: 'btn' do %>
+    <%= octicon "desktop-download" %>
+    <%= t("lib.export_to_csv") %>
+  <% end %>
+</div>
+<section class="table">
+  <table>
+    <thead>
+    <tr>
+      <% current_order_param = OrderParam::Parser.new.unsafe_parse(params[:order]) %>
+      <% ordered_attribute(current_order_param, :name) do |order, is_currently_sorted| %>
+        <th class="align-right <%= order_style(order, is_currently_sorted) %>">
+          <%= ordered_admin_statistics_path(Community.model_name.human, order) %>
+        </th>
+      <% end %>
+      <% ordered_attribute(current_order_param, :created_at) do |order, is_currently_sorted| %>
+        <th class="align-right <%= order_style(order, is_currently_sorted) %>">
+          <%= ordered_admin_statistics_path(Community.human_attribute_name(:created_at), order) %>
+        </th>
+      <% end %>
+      <% ordered_attribute(current_order_param, :last_page_viewed_at) do |order, is_currently_sorted| %>
+        <th class="align-right <%= order_style(order, is_currently_sorted) %>">
+          <%= ordered_admin_statistics_path(t(".last_activity"), order) %>
+        </th>
+      <% end %>
+      <% ordered_attribute(current_order_param, :users) do |order, is_currently_sorted| %>
+        <th class="align-right <%= order_style(order, is_currently_sorted) %>">
+          <%= ordered_admin_statistics_path(User.model_name.human.pluralize, order) %>
+        </th>
+      <% end %>
+      <% ordered_attribute(current_order_param, :page_views) do |order, is_currently_sorted| %>
+        <th class="align-right <%= order_style(order, is_currently_sorted) %>">
+          <%= ordered_admin_statistics_path(PageView.model_name.human(count: 2), order) %>
+        </th>
+      <% end %>
+      <% ordered_attribute(current_order_param, :messages) do |order, is_currently_sorted| %>
+        <th class="align-right <%= order_style(order, is_currently_sorted) %>">
+          <%= ordered_admin_statistics_path(Message.model_name.human.pluralize, order) %>
+        </th>
+      <% end %>
+      <% ordered_attribute(current_order_param, :pinned_messages) do |order, is_currently_sorted| %>
+        <th class="align-right <%= order_style(order, is_currently_sorted) %>">
+          <%= ordered_admin_statistics_path("#{Message.model_name.human.pluralize} importants", order) %>
+        </th>
+      <% end %>
+      <% ordered_attribute(current_order_param, :votes) do |order, is_currently_sorted| %>
+        <th class="align-right <%= order_style(order, is_currently_sorted) %>">
+          <%= ordered_admin_statistics_path(Vote.model_name.human.pluralize, order) %>
+        </th>
+      <% end %>
+      <% ordered_attribute(current_order_param, :hashtags) do |order, is_currently_sorted| %>
+        <th class="align-right <%= order_style(order, is_currently_sorted) %>">
+          <%= ordered_admin_statistics_path(HashTag.model_name.human.pluralize, order) %>
+        </th>
+      <% end %>
+      <% ordered_attribute(current_order_param, :events) do |order, is_currently_sorted| %>
+        <th class="align-right <%= order_style(order, is_currently_sorted) %>">
+          <%= ordered_admin_statistics_path(Event.model_name.human.pluralize, order) %>
+        </th>
+      <% end %>
+      <% ordered_attribute(current_order_param, :workspaces) do |order, is_currently_sorted| %>
+        <th class="align-right <%= order_style(order, is_currently_sorted) %>">
+          <%= ordered_admin_statistics_path(Workspace.model_name.human.pluralize, order) %>
+        </th>
+      <% end %>
+      <% ordered_attribute(current_order_param, :uploads) do |order, is_currently_sorted| %>
+        <th class="align-right <%= order_style(order, is_currently_sorted) %>">
+          <%= ordered_admin_statistics_path(Message::Upload.model_name.human.pluralize, order) %>
+        </th>
+      <% end %>
+      <% ordered_attribute(current_order_param, :skills) do |order, is_currently_sorted| %>
+        <th class="align-right <%= order_style(order, is_currently_sorted) %>">
+          <%= ordered_admin_statistics_path(Skill.model_name.human.pluralize, order) %>
+        </th>
+      <% end %>
+      <% ordered_attribute(current_order_param, :expertises) do |order, is_currently_sorted| %>
+        <th class="align-right <%= order_style(order, is_currently_sorted) %>">
+          <%= ordered_admin_statistics_path(t(".expertises"), order) %>
+        </th>
+      <% end %>
+      <% ordered_attribute(current_order_param, :evaluations) do |order, is_currently_sorted| %>
+        <th class="align-right <%= order_style(order, is_currently_sorted) %>">
+          <%= ordered_admin_statistics_path(Evaluation.model_name.human.pluralize, order) %>
+        </th>
+      <% end %>
+      <% ordered_attribute(current_order_param, :evaluation_feedbacks) do |order, is_currently_sorted| %>
+        <th class="align-right <%= order_style(order, is_currently_sorted) %>">
+          <%= ordered_admin_statistics_path(t(".evaluation_feedbacks"), order) %>
+        </th>
+      <% end %>
+    </tr>
+    </thead>
+
+    <% @communities.each do |community| %>
+      <tr>
+        <td><%= link_to community.name, skills_path(community) %></td>
+        <td class="align-right" title="<%= [community.name, Community.human_attribute_name(:created_at)].join(" / ") %>"><%= l community.created_at.to_date %></td>
+        <% last_page_viewed_at = community.statistics.last_page_viewed_at %>
+        <td class="align-right" title="<%= l(last_page_viewed_at) if last_page_viewed_at %>"><%= last_page_viewed_at ? l(last_page_viewed_at.to_date) : "-" %></td>
+        <td class="align-right" title="<%= [community.name, User.model_name.human.pluralize].join(" / ") %>"><%= community.statistics.total_of_users %></td>
+        <td class="align-right" title="<%= [community.name, PageView.model_name.human.pluralize].join(" / ") %>"><%= community.statistics.total_of_page_views %></td>
+        <td class="align-right" title="<%= [community.name, Message.model_name.human.pluralize].join(" / ") %>"><%= community.statistics.total_of_messages %></td>
+        <td class="align-right" title="<%= [community.name, Message.model_name.human.pluralize].join(" / ") %> importants"><%= community.statistics.total_of_pinned_messages %></td>
+        <td class="align-right" title="<%= [community.name, Vote.model_name.human.pluralize].join(" / ") %>"><%= community.statistics.total_of_votes %></td>
+        <%# TODO: Mentions %>
+        <td class="align-right" title="<%= [community.name, HashTag.model_name.human.pluralize].join(" / ") %>"><%= community.statistics.total_of_hastags %></td>
+        <td class="align-right" title="<%= [community.name, Event.model_name.human.pluralize].join(" / ") %>"><%= community.statistics.total_of_events %></td>
+        <td class="align-right" title="<%= [community.name, Workspace.model_name.human.pluralize].join(" / ") %>"><%= community.statistics.total_of_workspaces %></td>
+        <td class="align-right" title="<%= [community.name, Message::Upload.model_name.human].join(" / ").pluralize %>"><%= community.statistics.total_of_uploads %></td>
+        <td class="align-right" title="<%= [community.name, Skill.model_name.human.pluralize].join(" / ") %>"><%= community.statistics.total_of_skills %></td>
+        <td class="align-right" title="<%= [community.name, t(".expertises")].join(" / ") %>"><%= community.statistics.total_of_expertises %></td>
+        <td class="align-right" title="<%= [community.name, Evaluation.model_name.human.pluralize].join(" / ") %>"><%= community.statistics.total_of_evaluations %></td>
+        <td class="align-right" title="<%= [community.name, t(".evaluation_feedbacks")].join(" / ") %>"><%= community.statistics.total_of_evaluation_feedbacks %></td>
+      </tr>
+    <% end %>
+  </table>
+</section>
+
+<%= paginate @communities %>

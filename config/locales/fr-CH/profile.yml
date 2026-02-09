@@ -1,0 +1,16 @@
+fr-CH:
+  profile:
+    memberships:
+      show:
+        help: Vous pouvez masquer et rendre privé tout ou partie de votre profil public.
+        help-public: Votre profil est privé. Personne ne peut le consulter.
+        public_button: Rendre public
+        private_button: Rendre privé
+        private_status: Ce profil est privé.
+      public:
+        auto_validation: Auto-validation
+        validated_by: Validé par %{name}
+        skills_title: Compétences
+        skills_blank: Pas de compétences publiques.
+      workspaces:
+        title: Articles

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1380" height="795.27" viewBox="0 0 1380 795.27" preserveAspectRatio="none">
+  <defs>
+    <style>
+      .sky {
+        fill: #f8f9fe;
+      }
+    </style>
+  </defs>
+  <polygon class="sky" points="1380 588.2 1380 0 0 0 0 795.27 1380 588.2"/>
+</svg>

@@ -1,0 +1,35 @@
+.evaluations li a {
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.post.finished,
+.post.finished:hover{
+  background-color:  rgba(17, 22, 26,.1);
+}
+
+.post.finished strong {
+  text-decoration:line-through;
+  font-weight: 400;
+}
+
+.evaluation {
+  padding: 0 0 24px;
+  line-height: 24px;
+  margin: 0 0 24px;
+  border-bottom: 1px solid rgba(17, 22, 26,.1);
+}
+
+.evaluation li { margin-left: 0; }
+
+.evaluation-status svg {
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+}
+
+.evaluation-status svg.octicon-arrow-switch { fill: #1c8cca; }
+
+.evaluation-status svg.octicon-circle-slash { fill: #f43e22; }
+
+.evaluation-status svg.octicon-check { fill: #1cca5e; }

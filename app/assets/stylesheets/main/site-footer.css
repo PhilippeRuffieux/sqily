@@ -1,0 +1,50 @@
+.site-footer {
+  border-top: 1px solid rgba(17, 22, 26, 0.05);
+  line-height: 24px;
+  padding: 6px 12px;
+  font-size: 0.8rem;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+
+.site-footer .row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+}
+
+.site-footer a.logo {
+  height: 24px;
+  padding: 1px 0;
+  display: inline-block;
+  vertical-align: text-top;
+}
+
+.site-footer a.logo svg {
+  height: 17px;
+  width: 39px;
+  fill: rgba(17, 22, 26, 1);
+}
+
+.site-footer a:any-link.faq {
+  gap: 8px;
+  height: 24px;
+  display: inline-flex;
+  margin: 0;
+  font-weight: 700;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+}
+
+.site-footer .credits { opacity: 0.6; }
+
+.site-footer .credits a { text-decoration: underline; }
+
+@media (min-width: 1000px) {
+  .site-footer { padding: 6px 24px; }
+}

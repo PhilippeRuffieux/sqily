@@ -1,0 +1,35 @@
+fr-CH:
+  lib:
+    add: Ajouter
+    automatic_save: Sauvegarde automatique
+    edit: Editer
+    admin: Admin
+    cancel: Annuler
+    create: Créer
+    delete: Supprimer
+    duplicate: Dupliquer cette communauté
+    filter: Filtrer
+    logout: Déconnexion
+    login: Connexion
+    save: Enregistrer
+    send: Envoyer
+    send_short: ↵
+    show: Afficher
+    hide: Cacher
+    show-description: Voir la description
+    hide-description: Masquer la description
+    download: Télécharger
+    start: Démarrer
+    statistics: Statistiques
+    export_to_csv: Exporter en CSV
+    confirmation: Êtes-vous sûr?
+    "yes": Oui
+    "no": Non
+    optionnal: Optionnel
+    tree: Arbre
+    view_all: Voir tout
+    quit: Quitter
+    enter: Entrer
+    unauthorized: Vous n'êtes pas autorisé.
+    deactivate: "Désactiver"
+    activate: "Activer"

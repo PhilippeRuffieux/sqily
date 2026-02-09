@@ -1,0 +1,36 @@
+<% if current_user %>
+  <header class="topbar">
+    <ul class="community basic-list">
+      <% if current_community %>
+        <li>
+          <a href="<%= skills_path current_community %>" class="name">
+            <span class="icon icon--home">
+              <%= octicon 'home' %>
+            </span>
+            <%= current_community.name %>
+          </a>
+         <!-- <#% if current_user.admin || moderator? || current_user.permissions.read_community_statistics?(current_community) || !current_user.communities.empty? %>
+          -->
+          <% if !current_user.communities.empty? %>
+            <a href="#" class="icon communityswitch" data-module="Sqily.CommunitySwitch">
+              <%= octicon "chevron-down" %>
+            </a>
+          <% end %>
+        </li>
+      <% end %>
+
+      <% for community in current_user.communities.order(:name) %>
+        <% if community != current_community %>
+          <li>
+            <a href="<%= skills_path community %>" class="name">
+              <span class="icon icon--home">
+                <%= octicon 'home' %>
+              </span>
+              <%= community.name %>
+            </a>
+          </li>
+        <% end %>
+      <% end %>
+    </ul>
+  </header>
+<% end %>

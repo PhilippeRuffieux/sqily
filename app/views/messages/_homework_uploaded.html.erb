@@ -1,0 +1,139 @@
+<li id="message-<%= message.id %>" data-date="<%= I18n.l(message.created_at.to_date, format: '%A, %d %b %Y') %>" class="post">
+  <%= link_to_user message.from_user do %>
+    <%= user_avatar(message.from_user) %>
+  <% end %>
+
+  <div class="message">
+    <% skill = message.homework.subscription.skill %>
+
+    <%# nouvelle évaluation à modérer %>
+    <% if message.homework.pending? && message.homework.evaluation.user_id == current_user.id %>
+      <span class="icon star icon-star badge start"></span>
+      <div class="title">
+        <span class="title">
+          <%= t(".homework_received_title", user_link: link_to_user(message.from_user), skill_link: link_to(skill.name, skill_path(skill.community, skill))).html_safe %>
+          <span class="ago"><%= link_to_message message %></span>
+        </span>
+      </div>
+      <div class="box">
+        <%= link_to t(".result_link"), encode_file_url(message.homework.file_url), target: "_blank", class: "btn download" %>
+        <h4 class="comment-title"><%= t ".your_comment" %> :</h4>
+        <div class="actions">
+          <%= form_tag evaluate_homework_path(message.homework), method: "post", multipart: true, html: {"data-homework-evaluation" => true} do |form| %>
+            <%= text_area_tag :comment, "", placeholder: t(".comment_placeholder") %>
+            <div class="box box--help">
+              <p>
+                <small>
+                  <%= t(".result_file_help") %>
+                </small>
+              </p>
+            </div>
+            <div>
+              <%= file_field_tag :file %>
+            </div>
+            <span data-comment-is-mandatory style="display:none;"><%= t ".mandatory_comment" %></span>
+            <%= submit_tag t(".accept_button"), class: "validate", name: "approve" %>
+            <%= submit_tag t(".reject_button"), class: "reject", name: "reject", "data-action" => "reject-homework" %>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+    <%# nouvelle évaluation en attente côtà elève %>
+    <% if message.homework.pending? && (message.homework.evaluation.user_id != current_user.id) %>
+      <span class="icon star icon-star badge start"></span>
+      <div class="title">
+        <span class="title">
+          <%= t(".homework_sent_title", skill_link: link_to(skill.name, skill_path(skill.community, skill))).html_safe %>
+          <span class="ago"><%= link_to_message message %></span>
+        </span>
+      </div>
+      <div class="box">
+        <%= link_to t(".download_link"), encode_file_url(message.homework.file_url), target: "_blank", class: "btn download" %>
+        <p class="alert"><%= t(".status_examinating", user_name: message.homework.evaluation.user.name) %></p>
+      </div>
+    <% end %>
+
+
+
+    <% if message.homework.evaluation.user_id == current_user.id %> <%# évaluation modérée côté modérateur %>
+      <%# évaluation validée %>
+      <% if message.homework.approved_at %>
+        <span class="icon star icon-star badge finish"></span>
+        <div class="title">
+          <span class="title">
+            <%= t(".homework_accepted_title", user_link: link_to_user(message.from_user), skill_link: link_to(skill.name, skill_path(skill.community, skill))).html_safe %>
+            <span class="ago"><%= link_to_message message %></span>
+          </span>
+        </div>
+        <div class="box validate">
+          <%= link_to t(".his_download_link"), encode_file_url(message.homework.file_url), target: "_blank", class: "btn download" %>
+          <% if message.text? %>
+            <h4 class="comment-title"><%= t ".your_comment" %></h4>
+            <p><%= format_rich_text message.text %></p>
+          <% end %>
+          <%= render "/messages/attachment", message: message %>
+        </div>
+      <% end %>
+       <%# évaluation rejetée %>
+      <% if message.homework.rejected_at %>
+        <span class="icon star icon-star badge start"></span>
+        <div class="title">
+          <span class="title">
+            <%= t(".homework_rejected_title", user_link: link_to_user(message.from_user), skill_link: link_to(skill.name, skill_path(skill.community, skill))).html_safe %>
+            <span class="ago"><%= link_to_message message %></span>
+          </span>
+        </div>
+        <div class="box reject">
+          <%= link_to t(".his_download_link"), encode_file_url(message.homework.file_url), target: "_blank", class: "btn download" %>
+          <h4 class="comment-title"><%= t ".your_comment" %> :</h4>
+          <% if message.text? %>
+            <p><%= format_rich_text message.text %></p>
+          <% end %>
+          <%= render "/messages/attachment", message: message %>
+        </div>
+      <% end %>
+
+    <% else %>  <%# évaluation modérée côté élève %>
+    <%# évaluation validée %>
+      <% if message.homework.approved_at %>
+        <span class="icon star icon-star badge finish"></span>
+        <div class="title">
+          <span class="title">
+            <%= t(".your_homework_accepted_title", skill_link: link_to(skill.name, skill_path(skill.community, skill))).html_safe %>
+            <span class="ago"><%= link_to_message message %></span>
+          </span>
+        </div>
+        <div class="box validate">
+          <%= link_to "Revoir mon résultat", encode_file_url(message.homework.file_url), target: "_blank", class: "btn download" %>
+
+          <% if message.text? %>
+            <h4 class="comment-title"><%= t ".comment_from", name: message.homework.evaluation.user.name %> :</h4>
+            <p><%= message.text %></p>
+          <% end %>
+          <%= render "/messages/attachment", message: message %>
+          <p class="alert"><%= t ".status_expert" %></p>
+        </div>
+      <% end %>
+      <%# évaluation rejetée %>
+      <% if message.homework.rejected_at %>
+        <span class="icon star icon-star badge start"></span>
+        <div class="title">
+          <span class="title">
+            <%= t(".your_homework_rejected_title", skill_link: link_to(skill.name, skill_path(skill.community, skill))).html_safe %>
+            <span class="ago"><%= link_to_message message %></span>
+          </span>
+        </div>
+        <div class="box reject">
+          <%= link_to t(".download_link"), encode_file_url(message.homework.file_url), target: "_blank", class: "btn download" %>
+
+          <h4 class="comment-title"><%= t ".comment_from", name: message.homework.evaluation.user.name %> :</h4>
+          <% if message.text? %>
+            <p><%= message.text %></p>
+          <% end %>
+          <%= render "/messages/attachment", message: message %>
+        </div>
+      <% end %>
+
+    <% end %>
+  </div> <%# /div.message %>
+</li>

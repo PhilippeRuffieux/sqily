@@ -1,0 +1,25 @@
+<% if message.file_node %>
+  <% if is_message_attachment_an_image?(message) %>
+    <div class="box">
+      <%= image_tag image_path(encode_file_url(message.file_url)), alt: "Attachment" %>
+    </div>
+  <% elsif is_message_attachment_audio?(message) %>
+    <div class="box audio">
+      <%= link_to message.file_name, download_message_path(current_community, message), target: "_blank" %>
+      <%= embed_audio(message.file_url).html_safe %>
+    </div>
+  <% elsif is_message_attachment_video?(message) %>
+    <div class="box video">
+      <%= link_to message.file_name, download_message_path(current_community, message), target: "_blank" %>
+      <%= embed_video(message.file_url).html_safe %>
+    </div>
+  <% else %>
+    <div class="box">
+      <span class="icon">
+        <%= octicon "file" %>
+      </span>
+      <%= link_to message.file_name, download_message_path(current_community, message), target: "_blank" %>
+      <small>(<%= t ".download_count", count: message.download_count %>)</small>
+    </div>
+  <% end %>
+<% end %>

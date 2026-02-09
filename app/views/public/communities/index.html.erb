@@ -1,0 +1,55 @@
+<header>
+  <% if current_user %>
+    <a href="/session" class="btn large login">
+      <span class="icon">
+        <%= octicon "arrow-right", :height => 16,  :"aria-label" => "alert" %>
+      </span>
+      <%= t("lib.enter") %>
+    </a>
+  <% else %>
+    <a href="/session" class="btn large login">
+      <span class="icon"><%= octicon 'person' %></span>
+      <%= t("lib.login") %>
+    </a>
+  <% end %>
+  <%= render "shared/hep_logo" %>
+  <%= render "shared/sqily_logo" %>
+</header>
+
+<main class="page">
+  <div class="card">
+    <header>
+      <strong class="title">
+        <%= octicon 'home' %>
+        <%= I18n.t("communities.public_registery") %>
+      </strong>
+    </header>
+    <ul class="list communities">
+      <% @communities.each do |community| %>
+        <li>
+          <div class="community__description">
+            <%= link_to community.name, public_community_path(community) %>
+            <p><%= community.description %></p>
+          </div>
+          <div class="community_stats">
+            <span title="<%= I18n.t("skills.count", count: community.skills.count) %>">
+              <span class="icon"><%= octicon 'star' %></span>
+              <%= community.skills.count %>
+            </span>
+            <span title="<%= I18n.t("memberships.count", count: community.memberships.count) %>">
+              <span class="icon"><%= octicon 'people' %></span>
+              <%= community.memberships.count %>
+            </span>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+    <%= paginate @communities %>
+  </div>
+</main>
+
+<div class="contact">
+  <h2>Sqily est un outil pédagogique gratuit<br>à disposition des écoles.</h2>
+  <%= link_to "Créez une communauté", new_community_request_path, class: "btn secondary" %>
+</div>
+

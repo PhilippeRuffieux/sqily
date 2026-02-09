@@ -1,0 +1,30 @@
+<div data-module="Tabs">
+  <ul class="basic-list tabs search-results__tabs">
+    <li title="Favorites" class="tab active" data-open-tab="#tab-search-messages">
+      <%= t ".messages_tab", count: @text_messages.count %>
+    </li>
+    <li title="Expert" class="tab" data-open-tab="#tab-search-files">
+      <%= t ".files_tab", count: @file_messages.count %>
+    </li>
+  </ul>
+
+  <ul class="basic-list search-results__list" id="tab-search-messages">
+    <% for message in @text_messages.limit(100) %>
+      <%= render "/messages/search/text", message: message %>
+    <% end %>
+
+    <% unless @text_messages.exists? %>
+      <p class="noresult"><%= t ".empty" %></p>
+    <% end %>
+  </ul>
+
+  <ul class="basic-list search-results__list" id="tab-search-files" style="display:none;">
+    <% for message in @file_messages.limit(100) %>
+      <%= render "/messages/search/file", message: message %>
+    <% end %>
+
+    <% unless @file_messages.exists? %>
+      <p class="noresult"><%= t ".empty" %></p>
+    <% end %>
+  </ul>
+</div>

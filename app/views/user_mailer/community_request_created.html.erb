@@ -1,0 +1,11 @@
+<div class="header">
+  <a href="http://sqily.com" style="display: block;">
+    <%= image_tag('sqily.png', :style => 'height: 24px') %>
+  </a>
+  <p>Nouvelle demande de création de communauté</p>
+</div>
+
+<strong><%= @community_request.name %></strong>
+par <strong><%= @community_request.user.name %></strong> (<%= mail_to @community_request.user.email %>)
+<hr>
+<%= link_to "modérer", admin_community_requests_url, class: 'btn btn--admin' %>

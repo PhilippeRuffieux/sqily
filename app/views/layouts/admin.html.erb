@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sqily Admin</title>
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans:400,700" rel="stylesheet">
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= include_trix_assets %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body class="admin">
+    <%= render "/layouts/flash" %>
+
+    <section class="admin">
+      <%= render "shared/sqily_logo" %>
+      <nav class="nav">
+        <a href="<%= admin_communities_path %>" class="<%= 'active' if current_page?(:controller => 'communities', :action => 'index') %>">
+          <%= octicon "repo" %> <%= Community.model_name.human.pluralize %>
+        </a>
+        <a href="<%= admin_community_requests_path %>" class="<%= 'active' if current_page?(:controller => 'community_requests', :action => 'index') %>">
+          <%= octicon "rocket" %> <%= "#{CommunityRequest.model_name.human.pluralize} (#{CommunityRequest.pending.count})" %>
+        </a>
+        <a href="<%= statistics_admin_communities_path %>" class="<%= 'active' if current_page?(:controller => 'communities', :action => 'statistics') %>">
+          <%= octicon "graph" %>
+          <%= t("lib.statistics") %>
+        </a>
+        <a href="<%= admin_pages_path %>" class="<%= 'active' if current_page?(:controller => 'pages', :action => 'index') %>">
+          <%= octicon "file" %> Pages
+        </a>
+        <%= link_to "/tolk" do %>
+          <%= octicon "globe" %> I18n
+        <% end %>
+      </nav>
+      <%= yield %>
+    </section>
+
+  </body>
+</html>

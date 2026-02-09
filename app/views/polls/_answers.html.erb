@@ -1,0 +1,14 @@
+<div class="box">
+  <% for choice in poll.choices %>
+    <div class="poll-result">
+      <div class="poll-progress" style="width: calc((<%= choice.answers.count %>/<%= poll.answers.count %>)*100%);"></div>
+      <div class="poll-answer">
+        <%= choice.title %>
+        <small class="pull-right">
+          <%= poll_choice_percentage choice %> (<%= choice.answers.count %>)
+        </small>
+      </div>
+    </div>
+  <% end %>
+</div>
+<!-- <span class="pull-right"><small>(<%#= poll.answers.count %> <%#= t ".votes" %>)</small></span> -->

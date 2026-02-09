@@ -1,0 +1,30 @@
+<%= form_for poll, url: polls_path(current_community), html: {multipart: true} do |form| %>
+  <%= form.hidden_field :skill_id %>
+  <%= form.hidden_field :workspace_id %>
+  <%= form.hidden_field :community_id %>
+  <%= form.label :title, t(".text_label") %>
+  <%= form.text_field :title, required: true %>
+  <label><%= t ".choices_label" %></label>
+  <div class="box">
+    <ol id="poll-choices">
+      <li><%= text_field_tag "choices[]", nil, required: true %></li>
+      <li><%= text_field_tag "choices[]", nil, required: true %></li>
+      <li id="poll-choice-template" style="display: none;">
+        <div class="inline-form">
+          <%= text_field_tag "choices[]", nil %>
+          <span class="icon" data-action="remove-choice">
+            <%= octicon "x" %>
+          </span>
+        </div>
+      </li>
+    </ol>
+    <div id="add-poll-choice" class="btn"><%= t ".add_button" %></div>
+  </div>
+
+  <%= form.label :finished_at, t(".date_label") %>
+  <%= form.text_field :finished_at, required: true, "data-module" => "TimePicker", "data-time-picker" => '{"minDate": "today"}' %>
+
+  <label><%= form.check_box :single_answer %> <%= Poll.human_attribute_name(:single_answer) %></label>
+
+  <%= form.submit t("lib.send") %>
+<% end %>

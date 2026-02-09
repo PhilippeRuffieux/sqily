@@ -1,0 +1,173 @@
+.todolist label {
+  cursor: pointer;
+  display: flex;
+  font-weight: 400;
+}
+
+.todolist label span {
+  flex: 1;
+  display: flex;
+}
+
+.todolist label span.btn { flex: none; }
+
+.todolist label span a {
+  margin: 0 5px;
+  display: inline-block;
+  font-weight: 700;
+  padding: 0;
+  max-width: 144px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.label--checked {
+  text-decoration: line-through;
+  color: #6d7173;
+  font-weight: 400;
+}
+
+.todolist label.label--checked span a {
+  color: #6d7173;
+  font-weight: 400;
+}
+
+.todolist input[type='checkbox'] {
+  margin: 4px 8px 4px 1px;
+  box-shadow: 0 0 0 0;
+  height: 16px;
+  width: 16px;
+}
+
+.todolist__task:hover { background: rgba(17, 22, 26, 0.01); }
+
+.todolist__task__file {
+  margin-left: 12px;
+  font-size: 0.833rem;
+  max-width: 120px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  fill: #1b2226;
+}
+
+.todolist__task__file a { color: inherit; }
+
+.todolist__task__file .icon svg { fill: currentColor; }
+
+.label--checked .todolist__task__file { color: #6d7173; }
+
+.prerequisite li,
+.todolist li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  padding: 12px;
+}
+
+.todolist li input,
+.todolist select {
+  margin: 0;
+  height: 24px;
+  line-height: 24px;
+}
+
+.todolist select {
+  margin: 0 6px;
+  width: auto;
+}
+
+.todolist input[type='file'] {
+  padding: 3px;
+  width: 180px;
+  font-size: 0.833rem;
+  margin: 0 3px 0 0;
+}
+
+.todolist__file__name {
+  margin: 0 3px;
+  font-size: 0.833rem;
+  text-decoration: underline;
+  max-width: 180px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.todolist .status {
+  margin: 0 6px;
+  background: rgba(17, 22, 26, 0.05);
+  padding: 0 6px;
+  font-size: 0.833rem;
+}
+
+.todolist .status.editor {
+  background: #1cca5e;
+  color: #fff;
+}
+
+.todolist__item {
+  flex: 1;
+  margin-left: 6px;
+}
+
+.todolist .label-text {
+  text-transform: none;
+  font-weight: normal;
+}
+
+.new-prerequisite {
+  position: relative;
+  width: 100%;
+}
+
+.new-prerequisite select {
+  max-width: auto;
+  flex: 1;
+  height: 24px;
+  line-height: 24px;
+  background: #fff;
+  margin-bottom: auto;
+}
+
+.form .new-prerequisite input[type='submit'] { margin-left: 6px; }
+
+li.new-prerequisite,
+li.todolist__new-item {
+  margin-bottom: 24px;
+  border-bottom: 0;
+  background: rgba(17, 22, 26, 0.05);
+}
+
+li.todolist__new-item form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0;
+  width: 100%;
+}
+
+li.todolist__new-item input[type="submit"] { margin-top: 0; }
+
+ul.prerequisite {
+  width: 100%;
+  margin: 0 0 24px;
+  box-shadow: 0 0 0 1px rgba(17, 22, 26, 0.05);
+  font-size: 0.833rem;
+}
+
+ul.prerequisite li.skill {
+  background: transparent;
+  padding: 6px 12px;
+}
+
+ul.prerequisite li.skill .icon.icon-lock { fill: #f43e22; }
+
+ul.prerequisite li.skill.finish .icon-lock { display: none; }
+
+ul.prerequisite li.skill.finish,
+ul.prerequisite li.skill.finish.locked {
+  background: #fef4f3;
+}

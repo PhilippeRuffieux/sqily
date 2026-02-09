@@ -1,0 +1,27 @@
+<div id="file-sharing-modal" class="modal" style="display:none;">
+  <span data-close-modal="#file-sharing-modal" class="icon icon--close pull-right">
+    <%= octicon "x" %>
+  </span>
+  <h3><%= t(".title") %></h3>
+  <%= form_for message, as: "upload", url: upload_messages_path(current_community), html: {multipart: true} do |form| %>
+    <%= form.hidden_field :to_user_id %>
+    <%= form.hidden_field :to_skill_id %>
+    <%= form.hidden_field :to_workspace_id %>
+    <%= form.hidden_field :to_community_id %>
+
+    <label>
+      <span id="upload-button" class="btn btn--input-file">
+        <%= octicon "diff" %>
+        <span class="label-text" data-barber="Sqily.InputFileName" data-target="#upload_file">
+          <%= t ".file_label" %>
+        </span>
+      </span>
+
+      <%= form.file_field :file, required: true, class: "input-file" %>
+    </label>
+
+    <%= form.label :text, t(".text_label") %>
+    <%= form.text_field :text %>
+    <%= form.submit t("lib.send") %>
+  <% end %>
+</div>

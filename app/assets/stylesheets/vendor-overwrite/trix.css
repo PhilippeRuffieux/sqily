@@ -1,0 +1,127 @@
+trix-editor {
+  border: 1px solid rgba(17, 22, 26,.2);
+  box-shadow: 0 0 12px 0 rgba(17, 22, 26,.05) inset;
+  margin: 0 0 24px;
+  padding: 0.4em 0.6em;
+  min-height: 12rem;
+  overflow-y: auto;
+}
+
+trix-toolbar .trix-button-group {
+  margin-bottom: 12px;
+  border: 1px solid rgba(17, 22, 26,.2);
+ }
+
+trix-toolbar .trix-button {
+  color: rgba(17, 22, 26,.8);
+  font-size: 0.833rem;
+  font-weight: 700;
+  border-bottom: 1px solid rgba(17, 22, 26,.2);
+  box-shadow: none;
+}
+
+trix-toolbar .trix-button:hover {
+  color: rgba(17, 22, 26,1);
+  background: inherit;
+}
+
+trix-toolbar .trix-button:not(:first-child) { border-left: 1px solid rgba(17, 22, 26,.2); }
+  
+trix-toolbar .trix-button.trix-active {
+  background: #f4ae22;
+  color: rgba(17, 22, 26, 1); 
+}
+
+trix-toolbar .trix-button:disabled { color: rgba(17, 22, 26, 0.2);  }
+
+trix-toolbar .trix-dialog {
+  font-size: 0.694em;
+  padding: 12px;
+  background: #fff;
+  box-shadow: 0 0.3em 1em rgba(17, 22, 26,.2);
+  border-top: 2px solid rgba(17, 22, 26,.2);
+  border-radius: 4px;
+}
+
+trix-toolbar .trix-dialog__link-fields { align-items: flex-start; }
+
+trix-toolbar .trix-input--dialog {
+  padding: 12px;
+  margin: 0 12px 0 0;
+  border: 1px solid rgba(17, 22, 26,.3);
+  background-color: #fff;
+}
+
+trix-editor .trix-button {
+  color: rgba(17, 22, 26,.8);
+  font-size: 0.833rem;
+  padding: 0 12px;
+  background: transparent; 
+}
+
+trix-toolbar .trix-button--dialog { padding: 0 12px; }
+
+trix-editor .trix-button:not(:first-child) { border-left: 1px solid rgba(17, 22, 26,.4); }
+
+trix-editor .trix-button.trix-active { background: #f4ae22; }
+
+.attachment .caption {
+  padding:12px;
+  box-shadow: 0 0 0 1px #edf0f2 inset, 0 24px 24px -24px rgba(17, 22, 26,.05);
+  border-radius: 4px;
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  min-width:0;
+}
+
+.attachment figure img { margin: 12px 0; }
+
+.attachment .size {
+  font-size: 0.833rem;
+  color: #6d7173;
+}
+
+trix-editor blockquote,
+.trix-content blockquote,
+.box blockquote,
+blockquote {
+  font-family: 'PT Sans', sans-serif;
+  display:block;
+  padding: 12px 24px 12px 36px;
+  margin: 0 0 24px;
+  position: relative;
+  font-size: 1.2rem;
+  background: rgba(17, 22, 26, .03);
+  border: 1px solid rgba(17, 22, 26, .03);
+}
+trix-editor blockquote::before,
+.trix-content blockquote::before,
+.box blockquote::before,
+blockquote::before {
+  content: "\201C";
+  font-family: 'PT Sans', sans-serif;
+  font-size:4.3rem;
+  line-height: 24px;
+  font-weight: bold;
+  color: #94999a;
+  opacity: .3;
+  position: absolute;
+  left: 6px;
+  top:18px;
+}
+
+trix-editor blockquote::after,
+.trix-content blockquote::after,
+.box blockquote::after,
+blockquote::after {
+  content: "";
+}
+
+trix-editor pre,
+.box pre {
+  padding: 12px 24px 12px 36px;
+  margin: 0 0 24px;
+  background: rgba(17, 22, 26, .03);
+  border: 1px solid rgba(17, 22, 26, .03);
+}

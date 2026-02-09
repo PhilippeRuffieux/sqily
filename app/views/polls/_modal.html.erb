@@ -1,0 +1,7 @@
+<div id="poll-modal" class="modal poll-modal" data-module="Sqily.PollForm" style="display:none;">
+  <span data-close-modal="#poll-modal" class="icon icon--close pull-right">
+    <%= octicon "x" %>
+  </span>
+  <h3><%= t "polls.new.title" %></h3>
+  <%= render "/polls/form", poll: poll %>
+</div>

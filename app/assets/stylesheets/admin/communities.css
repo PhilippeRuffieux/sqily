@@ -1,0 +1,121 @@
+body.admin {
+  border-top: 6px solid #ffb621;
+  overflow-x: hidden
+}
+
+section.admin {
+  padding: 24px;
+  margin:0 auto;
+  width:100%;
+}
+
+section.admin h2 { margin:0 0 24px; }
+
+.admin .logo { height: 48px; }
+
+.admin .logo svg {
+  height: 24px;
+  margin: 24px 24px 24px 0;
+}
+
+.admin .noresult {
+  margin: 12px 0;
+  border: 1px solid rgba(17, 22, 26,.05);
+  color: #6d7173;
+  padding: 12px;
+  font-size: .833rem;
+  text-align: left;
+  position: relative;
+}
+
+.admin .noresult > * { color: currentColor; }
+
+.admin nav {
+  display: inline-block;
+  margin-bottom: 48px;
+  padding: 0;
+  box-shadow: 0 0 0 1px rgba(17, 22, 26,.05), 0 2px 12px -2px rgba(17, 22, 26,.10);
+}
+
+.admin nav a {
+  display: inline-block;
+  padding: 12px 24px;
+}
+
+.admin nav a.active {
+  background: rgba(17, 22, 26,.05);
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  margin: 0;
+}
+
+section.table {
+  width: 100%;
+  overflow-x: auto;
+  color: #6d7173;
+}
+
+.admin table { width:100%; margin:48px 0; }
+
+.admin table th {
+  text-transform: uppercase;
+  font-size: 0.684rem;
+  letter-spacing: 1px;
+  text-align:left;
+  padding: 0 12px;
+  white-space: nowrap;
+}
+
+.admin table tr { line-height:48px; }
+
+.admin table tr:hover { background: rgba(17, 22, 26,.05); }
+
+.admin thead tr:hover { background: transparent; }
+
+.admin table td { 
+  line-height: 24px;
+  padding: 12px;
+  text-align:left;
+}
+
+.admin table td:hover { box-shadow: 0 0 0 1px rgba(17, 22, 26,.05), 0 2px 12px -2px rgba(17, 22, 26,.10); }
+
+.admin table a { text-decoration: underline; }
+.admin table p { line-height: 24px; padding: 12px 0; }
+
+.admin table .align-right { text-align: right; }
+
+.admin table .btn.secondary { display: inline-block;
+  height:24px; line-height: 24px; font-size: .694rem;
+  margin:0; margin-right:7px; padding:0 7px; letter-spacing: 2px; }
+
+.admin table .action { text-align: right; white-space: nowrap; }
+.admin table .action form { display: inline; }
+
+.admin table .btn.secondary.delete { 
+  background:#ea3618;
+  color: #fff;
+}
+
+.admin input[type='checkbox'] { display: inline-block; }
+
+.admin table td.community__name { 
+  font-weight: 700;
+  color: #1b2226;
+}
+
+.admin form { max-width: 1000px; }
+
+.admin form trix-editor { height: 30rem; }
+
+.admin__actions .btn { line-height: 48px; }
+ 
+
+@media (min-width: 1000px) {
+  .admin__actions {
+    position: absolute;
+    right: 24px;
+    top: 40px;
+  }
+}

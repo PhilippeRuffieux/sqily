@@ -1,0 +1,36 @@
+<% subscription ||= nil %>
+
+<% if skill.prerequisites.exists? %>
+
+    <h4>Compétences précédentes</h4>
+    <% if subscription && !subscription.completed_at %>
+        <% if (skill.minimum_prerequisites > 0 || skill.prerequisites.mandatory.exists?) && skill.startable_by?(current_user) %>
+
+        <% elsif skill.minimum_prerequisites > 0 && skill.prerequisites.mandatory.exists? %>
+          <div class="box box--help">
+            <p>
+              Vous devez valider au moins <strong><%= skill.minimum_prerequisites %></strong> compétence(s)
+              sur <%= skill.prerequisites.count %> et celles indiquées avec un <strong>cadenas</strong>
+              pour débloquer l'accès à cette compétence.
+            </p>
+          </div>
+        <% elsif skill.prerequisites.mandatory.exists? %>
+          <div class="box box--help">
+            <p>Les compétences indiquées avec un <strong>cadenas</strong> doivent être validées au préalable.</p>
+          </div>
+        <% elsif skill.minimum_prerequisites > 0 %>
+          <div class="box box--help">
+            <p>
+              Vous devez valider au moins <strong><%= skill.minimum_prerequisites %></strong> compétence(s)
+              sur <%= skill.prerequisites.count %> pour débloquer l'accès à cette compétence.
+            </p>
+          </div>
+        <% end %>
+    <% end %>
+
+    <ul class="prerequisite">
+      <% for prerequisite in skill.prerequisites %>
+        <%= render "/skills/item", skill: prerequisite.from_skill, prerequisite: prerequisite, subscription: current_user.subscriptions.find_by_skill_id(prerequisite.from_skill_id) %>
+      <% end %>
+    </ul>
+<% end %>

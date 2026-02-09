@@ -1,0 +1,14 @@
+<div class="header">
+  <a href="http://sqily.com" style="display: block;">
+    <%= image_tag('sqily.png', :style => 'height: 24px') %>
+  </a>
+  <h4><a href="<%= skills_url(@note.exam.subscription.skill.community) %>"><%= @note.exam.subscription.skill.community.name %></a></h4>
+  <p>Votre défi <%= @note.exam.subscription.skill.name  %> nécessite votre attention.</p>
+</div>
+
+<p>
+  <%= image_tag user_avatar_url(@note.user), style: "width: 24px; border-radius:14px; float: left; margin-right: 7px;", alt: "Avatar" %>
+  <%= @note.user.name %>: <blockquote style="opacity: .5;"><%= @note.content&.html_safe %></blockquote>
+</p>
+
+<p style="text-align: center;"><%= link_to "Continuer la conversation", evaluation_exam_url(@note.exam.subscription.skill.community, @note.exam), class: "btn" %></p>

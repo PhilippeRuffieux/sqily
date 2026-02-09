@@ -1,0 +1,1358 @@
+---
+"it-CH":
+  "activerecord":
+    "attributes":
+      "badges/advisor":
+        "description":
+          "other": >-
+            Dai la tua opinione per almeno il %{count} degli articoli.
+      "badges/creator":
+        "description":
+          "other": >-
+            Creare almeno %{count} di brevetti
+      "badges/explorer":
+        "description":
+          "other": >-
+            Metti online almeno %{count} delle risorse.
+      "badges/master":
+        "description":
+          "other": >-
+            Validare almeno %{count} delle competenze.
+      "badges/messenger":
+        "description":
+          "other": >-
+            Pubblica almeno %{count} messaggi.
+      "badges/omnipresent":
+        "description":
+          "other": >-
+            Partecipa ad almeno il %{count} degli eventi.
+      "badges/participant":
+        "description":
+          "one": >-
+            Validare la tua 1a abilità.
+      "badges/partner":
+        "description":
+          "other": >-
+            Ricevere almeno %{count} dei preferiti.
+      "badges/producer":
+        "description":
+          "other": >-
+            Pubblicare almeno %{count} articoli.
+      "badges/professor":
+        "description":
+          "other": >-
+            Validare almeno %{count}  brevetti.
+      "badges/savant":
+        "description":
+          "one": >-
+            Creare una competenza.
+      "badges/specialist":
+        "description":
+          "other": >-
+            Convalida almeno %{count} competenze.
+      "community":
+        "created_at": >-
+          Creato il
+        "description": >-
+          Descrizione
+        "free_skill_creation": >-
+          Creazione libera di competenze
+        "name": >-
+          Nome
+        "permalink": >-
+          Percorso
+      "community_request":
+        "comment": >-
+          Commento
+        "description": >-
+          Descrizione
+        "name": >-
+          Nome
+      "evaluation":
+        "file": >-
+          File
+        "title": >-
+          Titolo
+      "event":
+        "max_participations": >-
+          Numero massimo di partecipanti
+        "registration_finished_at": >-
+          Le registrazioni si chiudono a
+        "scheduled_at": >-
+          In orario alle
+        "title": >-
+          Titolo
+      "poll":
+        "single_answer": >-
+          Una risposta unica
+      "skill":
+        "description": >-
+          Descrizione
+        "group_name": >-
+          Gruppo di competenze
+        "minimum_prerequisites": >-
+          Condizioni minime
+        "name": >-
+          Nome
+      "user":
+        "daily_summary": >-
+          Riassunto giornaliero
+        "email": >-
+          Email
+        "locale": >-
+          Lingua
+        "name": >-
+          Nome
+        "password": >-
+          Password
+        "weekly_summary": >-
+          Riassunto settimanale
+      "workspace":
+        "default":
+          "title": >-
+            titolo
+          "writing": >-
+            Buona scrittura!
+        "title": >-
+          Titolo
+        "writing": >-
+          Editoriale
+    "errors":
+      "messages":
+        "record_invalid": >-
+          Validazione fallita: %{errors}
+        "restrict_dependent_destroy":
+          "has_many": >-
+            Non puoi cancellare il record perché il %{record} dipendente esiste
+          "has_one": >-
+            Non puoi cancellare il record perché esiste un %{record} dipendente
+      "models":
+        "event":
+          "attributes":
+            "registration_finished_at":
+              "must_be_before_scheduled_at": >-
+                deve essere prima della data prevista
+        "message/poll":
+          "attributes":
+            "finished_at":
+              "must_be_in_the_futur": >-
+                deve essere nel futuro
+    "models":
+      "badge/advisor": >-
+        Consulente
+      "badge/creator": >-
+        Creatore
+      "badge/explorer": >-
+        Esploratore
+      "badge/master": >-
+        Maestro
+      "badge/messenger": >-
+        Messaggero
+      "badge/omnipresent": >-
+        Onnipresente
+      "badge/participant": >-
+        Partecipante
+      "badge/partner": >-
+        Compagno
+      "badge/producer": >-
+        Produttore
+      "badge/professor": >-
+        Professore
+      "badge/savant": >-
+        Sapiente
+      "badge/specialist": >-
+        Specialista
+      "community": >-
+        Comunità
+      "community_request": >-
+        Richiesta di una comunità
+      "evaluation":
+        "one": >-
+          Brevetto
+        "other": >-
+          Brevetti
+      "event": >-
+        Evento
+      "message":
+        "one": >-
+          Messaggio
+        "other": >-
+          Messaggi
+      "message/upload":
+        "one": >-
+          File
+        "other": >-
+          File
+      "page_view":
+        "one": >-
+          Pagina vista
+        "other": >-
+          Pagine vista
+      "poll": >-
+        Sondaggio
+      "skill": >-
+        Competenza
+      "user": >-
+        Utente
+      "workspace": >-
+        Articolo
+  "admin":
+    "communities":
+      "index":
+        "delete_confirmation": >-
+          Sei sicuro di voler cancellare la comunità?
+        "duplicate_button": >-
+          Duplicare
+        "moderators": >-
+          Moderatori
+        "title": >-
+          Comunità Sqily
+      "statistics":
+        "evaluation_feedbacks": >-
+          Risposta sui brevetti
+        "expertises": >-
+          Valutazioni
+        "last_activity": >-
+          Ultima attività
+  "communities":
+    "header":
+      "all_messages_tooltip": >-
+        Vedere tutti i messaggi
+      "calendar_tooltip": >-
+        Vedere gli eventi
+      "important_messages_tooltip": >-
+        Vedere i messaggi importanti
+      "search_tooltip": >-
+        Ricerca nei messaggi
+      "toggle_description_button": >-
+        Voir la description
+    "tree":
+      "moderator_help_message": >-
+        Vedere la descrizione
+      "skill_expert_count":
+        "zero": >-
+          0 esperto
+        "one": >-
+          1 esperto
+        "other": >-
+          %{count} esperti
+      "skill_label": >-
+        %{user_count} di cui %{expert_count}
+      "skill_user_count":
+        "zero": >-
+          0 iscritto
+        "one": >-
+          1 iscritto
+        "other": >-
+          %{count} iscritti
+      "title": >-
+        Albero delle competenze
+  "community_requests":
+    "create":
+      "notice": >-
+        La tua richiesta di comunità è stata registrata.
+    "new":
+      "already_an_account": >-
+        Hai già un account? Si prega di effettuare il login.
+      "legend_account": >-
+        Tu
+      "legend_community": >-
+        Comunità
+      "title": >-
+        Richiesta di creazione di una comunità
+  "date":
+    "abbr_day_names":
+    - >-
+      Dom
+    - >-
+      Lun
+    - >-
+      Mar
+    - >-
+      Mer
+    - >-
+      Gio
+    - >-
+      Ven
+    - >-
+      Sab
+    "abbr_month_names":
+    - 
+    - >-
+      Gen
+    - >-
+      Feb
+    - >-
+      Mar
+    - >-
+      Apr
+    - >-
+      Mag
+    - >-
+      Giu
+    - >-
+      Lug
+    - >-
+      Ago
+    - >-
+      Set
+    - >-
+      Ott
+    - >-
+      Nov
+    - >-
+      Dic
+    "day_names":
+    - >-
+      Domenica
+    - >-
+      Lunedì
+    - >-
+      Martedì
+    - >-
+      Mercoledì
+    - >-
+      Giovedì
+    - >-
+      Venerdì
+    - >-
+      Sabato
+    "formats":
+      "default": >-
+        %d-%m-%Y
+      "long": >-
+        %d %B %Y
+      "short": >-
+        %d %b
+    "month_names":
+    - 
+    - >-
+      Gennaio
+    - >-
+      Febbraio
+    - >-
+      Marzo
+    - >-
+      Aprile
+    - >-
+      Maggio
+    - >-
+      Giugno
+    - >-
+      Luglio
+    - >-
+      Agosto
+    - >-
+      Settembre
+    - >-
+      Ottobre
+    - >-
+      Novembre
+    - >-
+      Dicembre
+    "order":
+    - :day
+    - :month
+    - :year
+  "datetime":
+    "distance_in_words":
+      "about_x_hours":
+        "one": >-
+          circa un'ora
+        "other": >-
+          circa %{count} ore
+      "about_x_months":
+        "one": >-
+          circa un mese
+        "other": >-
+          circa %{count} mesi
+      "about_x_years":
+        "one": >-
+          circa un anno
+        "other": >-
+          circa %{count} anni
+      "almost_x_years":
+        "one": >-
+          circa 1 anno
+        "other": >-
+          circa %{count} anni
+      "half_a_minute": >-
+        mezzo minuto
+      "less_than_x_minutes":
+        "one": >-
+          meno di un minuto
+        "other": >-
+          meno di %{count} minuti
+      "less_than_x_seconds":
+        "one": >-
+          meno di un secondo
+        "other": >-
+          meno di %{count} secondi
+      "over_x_years":
+        "one": >-
+          oltre un anno
+        "other": >-
+          oltre %{count} anni
+      "x_days":
+        "one": >-
+          1 giorno
+        "other": >-
+          %{count} giorni
+      "x_minutes":
+        "one": >-
+          1 minuto
+        "other": >-
+          %{count} minuti
+      "x_months":
+        "one": >-
+          1 mese
+        "other": >-
+          %{count} mesi
+      "x_seconds":
+        "one": >-
+          1 secondo
+        "other": >-
+          %{count} secondi
+    "prompts":
+      "day": >-
+        Giorno
+      "hour": >-
+        Ora
+      "minute": >-
+        Minuto
+      "month": >-
+        Mese
+      "second": >-
+        Secondi
+      "year": >-
+        Anno
+  "discussions":
+    "index":
+      "no_conversations_message": >-
+        Inizia a chattare cliccando sul profilo di una persona.
+      "no_conversations_title": >-
+        Nessuna conversazione.
+      "pending_homework": >-
+        Brevetto in attesa di validazione
+      "title": >-
+        Ultime conversazioni private
+  "errors":
+    "format": >-
+      %{attribute} %{message}
+    "messages":
+      "accepted": >-
+        deve essere accettata
+      "blank": >-
+        non può essere lasciato in bianco
+      "confirmation": >-
+        non coincide con %{attribute}
+      "empty": >-
+        non può essere vuoto
+      "equal_to": >-
+        deve essere uguale a %{count}
+      "even": >-
+        deve essere pari
+      "exclusion": >-
+        è riservato
+      "greater_than": >-
+        deve essere superiore a %{count}
+      "greater_than_or_equal_to": >-
+        deve essere superiore o uguale a %{count}
+      "inclusion": >-
+        non è incluso nella lista
+      "invalid": >-
+        non è valido
+      "less_than": >-
+        deve essere meno di %{count}
+      "less_than_or_equal_to": >-
+        deve essere meno o uguale a %{count}
+      "model_invalid": >-
+        Validazione fallita: %{errors}
+      "not_an_integer": >-
+        non è un intero
+      "not_a_number": >-
+        non è un numero
+      "odd": >-
+        deve essere dispari
+      "other_than": >-
+        deve essere diverso da %{count}
+      "present": >-
+        deve essere vuoto
+      "required": >-
+        deve esistere
+      "taken": >-
+        è già in uso
+      "too_long":
+        "one": >-
+          è troppo lungo (il massimo è 1 carattere)
+        "other": >-
+          è troppo lungo (il massimo è %{count} caratteri)
+      "too_short":
+        "one": >-
+          è troppo corto (il minimo è 1 carattere)
+        "other": >-
+          è troppo corto (il minimo è %{count} caratteri)
+      "wrong_length":
+        "one": >-
+          è della lunghezza sbagliata (deve essere di 1 carattere)
+        "other": >-
+          è della lunghezza sbagliata (deve essere di %{count} caratteri)
+    "template":
+      "body": >-
+        Per favore ricontrolla i seguenti campi:
+      "header":
+        "one": >-
+          Non posso salvare questo %{model}: 1 errore
+        "other": >-
+          Non posso salvare questo %{model}: %{count} errori.
+  "evaluations":
+    "modal":
+      "title": >-
+        Aggiungere un nuovo brevetto
+  "events":
+    "index":
+      "filter_all": >-
+        Tutto
+      "filter_registered": >-
+        Iscritto
+      "title": >-
+        Eventi
+    "new":
+      "title": >-
+        Nuovo evento
+  "helpers":
+    "select":
+      "prompt": >-
+        Per favore, seleziona
+    "submit":
+      "create": >-
+        Crea %{model}
+      "submit": >-
+        Invia %{model}
+      "update": >-
+        Aggiorna %{model}
+  "invitation_requests":
+    "create":
+      "alert": >-
+        Un amministratore convaliderà la tua richiesta di invito. Riceverai un'e-mail
+        a breve.
+    "index":
+      "form_title": >-
+        Non sei ancora membro?
+      "member_title": >-
+        Sei già membro?
+      "submit": >-
+        Richiedere un invito
+      "title": >-
+        %{name} è una comunità privata.
+  "invitations":
+    "index":
+      "email_label": >-
+        Inserisci un indirizzo email per riga
+      "invalid_emails_error": >-
+        Le seguenti e-mail non sono valide:
+      "invitations_subtitle": >-
+        Inviti inviati, iscrizioni in attesa.
+      "invitations_title": >-
+        Inviti attuali
+      "no_invitations": >-
+        Nessun invito attuale.
+      "no_requests": >-
+        Nessuna domanda in sospeso.
+      "requests_subtitle": >-
+        Inviti richiesti dalla ricezione pubblica della comunità.
+      "requests_title": >-
+        Richieste di invito
+      "submit": >-
+        Invitare
+      "title": >-
+        Inviti
+  "lib":
+    "add": >-
+      Aggiungere
+    "admin": >-
+      Admin
+    "cancel": >-
+      Annullare
+    "confirmation": >-
+      Sei sicuro?
+    "create": >-
+      Creare
+    "delete": >-
+      Eliminare
+    "download": >-
+      Scaricare
+    "duplicate": >-
+      Duplicare questa comunità
+    "edit": >-
+      Modificare
+    "export_to_csv": >-
+      Esportazione in CSV
+    "filter": >-
+      Filtro
+    "hide": >-
+      Nascondere
+    "hide-description": >-
+      Nascondere la descrizione
+    "login": >-
+      Connessione
+    "logout": >-
+      Disconnessione
+    "no": >-
+      No
+    "optionnal": >-
+      Facoltativo
+    "quit": >-
+      Uscita
+    "save": >-
+      Enregistrer
+    "send": >-
+      Inviare
+    "send_short": >-
+      ↵
+    "show": >-
+      Visualizzare
+    "show-description": >-
+      Vedere la descrizione
+    "skills": >-
+      Competenze
+    "start": >-
+      Iniziare
+    "statistics": >-
+      Statistiche
+    "tree": >-
+      Albero
+    "unauthorized": >-
+      Non siete autorizzati.
+    "view_all": >-
+      Vedere tutto
+    "yes": >-
+      Si
+  "memberships":
+    "show":
+      "description_label": >-
+        Descrizione per questa comunità
+      "title": >-
+        Il tuo profilo
+  "messages":
+    "attachment":
+      "download_count":
+        "zero": >-
+          Nessun scaricamento
+        "one": >-
+          Un scaricamento
+        "other": >-
+          %{count} scaricamenti
+    "event_created":
+      "delete_confirmation": >-
+        Sei sicuro? Un'e-mail sarà inviata ad ogni partecipante per informarlo della
+        cancellazione dell'evento.
+      "end_date": >-
+        Registrazione prima del
+      "participations":
+        "zero": 
+        "one": >-
+          1 iscritto.
+        "other": >-
+          %{count} iscritti.
+      "participations_max":
+        "one": >-
+          1 posto.
+        "other": >-
+          %{count} posti.
+      "register_button": >-
+        Iscriviti
+      "title": >-
+        %{user} ha creato un evento.
+      "title_context": >-
+        %{user} ha creato un evento per la competenza %{skill_link}
+      "unregister_button": >-
+        Cancella l'iscrizione a
+      "waiting_list_button": >-
+        Registrati sulla lista d'attesa
+      "waiting_list_position":
+        "one": >-
+          Sei il primo della lista d'attesa.
+        "other": >-
+          Sei %{count}o in lista d'attesa.
+      "waiting_participations": >-
+        %{count} sulla lista d'attesa.
+    "form":
+      "event_share_label": >-
+        Evento
+      "file_label": >-
+        File (10 Mo max)
+      "file_share_label": >-
+        File
+      "poll_share_label": >-
+        Sondaggio
+      "text_label": >-
+        Messaggio
+      "text_placeholder": >-
+        Scrivi un messaggio
+    "header":
+      "title": >-
+        Conversazione privata con
+    "homework_uploaded":
+      "accept_button": >-
+        Validare
+      "comment_from": >-
+        Commento di %{name}
+      "comment_placeholder": >-
+        Scrivi un commento per questa valutazione.
+      "download_link": >-
+        Rivedere il mio risultato
+      "his_download_link": >-
+        Rivedere il suo risultato
+      "homework_accepted_title": >-
+        %{user_link} ha validato la competenza %{skill_link}
+      "homework_received_title": >-
+        %{user_link} ha consegnato il suo brevetto per la competenza %{skill_link}
+      "homework_rejected_title": >-
+        %{user_link} non ha validato la competenza %{skill_link}
+      "homework_sent_title": >-
+        Hai consegnato il tuo brevetto per la competenza %{skill_link}
+      "mandatory_comment": >-
+        Il commento è obbligatorio per rifiutare un brevetto
+      "reject_button": >-
+        Non validare
+      "result_file": >-
+        File
+      "result_file_help": >-
+        Puoi aggiungere un file per illustrare il tuo commento
+      "result_link": >-
+        Vedere il risultato
+      "status_examinating": >-
+        %{user_name} esaminerà il tuo lavoro.
+      "status_expert": >-
+        Ora sei un esperto in questa competenza e sei invitato a offrire la tua personale
+        valutazione.
+      "your_comment": >-
+        Il tuo commento
+      "your_homework_accepted_title": >-
+        Hai convalidato la competenza %{skill_link}
+      "your_homework_rejected_title": >-
+        Non hai validato la competenza %{skill_link}
+    "list":
+      "instructions": >-
+        Inizia la discussione scrivendo nel campo qui sotto.
+      "title": >-
+        Nessun messaggio.
+    "new_membership":
+      "message":
+        "one": >-
+          %{name} ha aderito alla comunità.
+        "other": >-
+          %{count} nuovi membri: %{names}.
+    "new_skill":
+      "message": >-
+        %{user} ha creato una nuova competenza
+    "new_subscription":
+      "message":
+        "one": >-
+          %{names} si è aggiunto alla competenza.
+        "other": >-
+          %{count} nuovi membri: %{names}.
+    "poll_created":
+      "end_date": >-
+        Data di fine :
+      "title": >-
+        %{user} ha creato un sondaggio.
+    "search":
+      "empty": >-
+        Nessun risultato.
+      "files_tab": >-
+        File (%{count})
+      "messages_tab": >-
+        Messaggi (%{count})
+    "search_form":
+      "help": >-
+        Cerca nel testo dei messaggi o nei nomi dei file condivisi.
+      "search-placeholder": >-
+        Cerca
+    "subscription_complete":
+      "auto_evaluation": >-
+        autovalutazione
+      "homework_validated_by": >-
+        %{homework} validato da %{user}
+      "message": >-
+        %{user} è diventato un esperto
+      "validated_by": >-
+        validato da %{user}
+    "text":
+      "delete_message_confirmation": >-
+        Sei sicuro di voler eliminare il messaggio?
+      "delete_message_tooltip": >-
+        Eliminare il messaggio
+      "html":
+        "download_count":
+          "zero": >-
+            0 scaricamento
+          "one": >-
+            1 scaricamento
+          "other": >-
+            %{count} scaricamenti
+    "unread_button":
+      "mark_as_unread": >-
+        Segna come non letto
+    "upload_modal":
+      "file_label": >-
+        Selezionare un file
+      "text_label": >-
+        Messaggio
+      "title": >-
+        Condividere un file
+    "workspace_approved_internal":
+      "message": >-
+        %{user} ha autorizzato la pubblicazione dell'articolo.
+    "workspace_partnership_created":
+      "title_reader": >-
+        %{user} ti ha invitato a rileggere il suo articolo.
+      "title_writer": >-
+        %{user} ti ha invitato a co-scrivere il suo articolo.
+    "workspace_published_internal":
+      "message": >-
+        %{user} ha pubblicato l'articolo.
+    "workspace_published":
+      "title": >-
+        %{user} ha pubblicato il suo articolo.
+    "workspace_rejected_internal":
+      "message": >-
+        %{user} ha ritirato il permesso di pubblicare l'articolo.
+    "workspace_unpublished_internal":
+      "message": >-
+        %{user} ha depubblicato l'articolo.
+    "workspace_version_created":
+      "message": >-
+        %{user} ha inserito la versione %{version} dell'articolo "%{workspace}".
+  "notifications":
+    "index":
+      "title": >-
+        Notifiche
+  "number":
+    "currency":
+      "format":
+        "delimiter": >-
+          '
+        "format": >-
+          %u %n
+        "precision": 2
+        "separator": >-
+          .
+        "significant": false
+        "strip_insignificant_zeros": false
+        "unit": >-
+          CHF
+    "format":
+      "delimiter": >-
+        ,
+      "precision": 3
+      "separator": >-
+        .
+      "significant": false
+      "strip_insignificant_zeros": false
+    "human":
+      "decimal_units":
+        "format": >-
+          %n %u
+        "units":
+          "billion": >-
+            Miliardi
+          "million": >-
+            Milioni
+          "quadrillion": >-
+            Biliardi
+          "thousand": >-
+            Mila
+          "trillion": >-
+            Bilioni
+          "unit": ''
+      "format":
+        "delimiter": ''
+        "precision": 3
+        "significant": true
+        "strip_insignificant_zeros": true
+      "storage_units":
+        "format": >-
+          %n %u
+        "units":
+          "byte":
+            "one": >-
+              Byte
+            "other": >-
+              Byte
+          "gb": >-
+            GB
+          "kb": >-
+            KB
+          "mb": >-
+            MB
+          "tb": >-
+            TB
+    "percentage":
+      "format":
+        "delimiter": ''
+        "format": >-
+          %n%
+    "precision":
+      "format":
+        "delimiter": ''
+  "password_resets":
+    "index":
+      "error_message": >-
+        La mail non esiste.
+      "placeholder": >-
+        Email
+      "submit": >-
+        Recuperare la password
+      "title": >-
+        Collegamento
+  "polls":
+    "answers":
+      "votes": >-
+        voti
+    "choices":
+      "several_answers": >-
+        Diverse scelte possibili
+      "single_answer": >-
+        Solo una scelta
+    "form":
+      "add_button": >-
+        Aggiungere una scelta
+      "choices_label": >-
+        Risposte
+      "date_label": >-
+        Data di fine
+      "text_label": >-
+        Domanda
+    "new":
+      "title": >-
+        Nuovo sondaggio
+  "prerequisites":
+    "list":
+      "help": >-
+        Suggerire o rendere obbligatoria la validazione preventiva delle competenze
+        per accedere a questa competenza.
+    "list_item":
+      "mandatory_tooltip": >-
+        Validazione opzionale/obbligatorio
+  "profile":
+    "memberships":
+      "public":
+        "auto_validation": >-
+          Autovalidazione
+        "skills_blank": >-
+          Nessuna capacità pubblica.
+        "skills_title": >-
+          Competenze
+        "validated_by": >-
+          Validato da %{name}
+      "show":
+        "help": >-
+          Puoi nascondere e rendere privato tutto o parte del tuo profilo pubblico.
+        "help-public": >-
+          Il tuo profilo è privato. Nessuno può vederlo.
+        "private_button": >-
+          Rendere privato
+        "private_status": >-
+          Questo profilo è privato.
+        "public_button": >-
+          Rendere pubblico
+      "workspaces":
+        "title": >-
+          Articoli
+  "sessions":
+    "form":
+      "error_message": >-
+        Email o password sbagliata.
+      "forgotten_password_link": >-
+        Hai dimenticato la tua password?
+      "password_label": >-
+        Password
+  "skills":
+    "assesment":
+      "subtitle": >-
+        Pensi di aver padroneggiato questa abilità?
+      "title": >-
+        Bilancio delle competenze
+    "bar":
+      "expert_tooltip": >-
+        Lei è un esperto.
+      "not_subscribed_tooltip": >-
+        Non sei ancora registrato.
+      "subscribed_tooltip": >-
+        Sei registrato.
+      "tree_tooltip": >-
+        Albero delle competenze
+    "evaluation_auto":
+      "auto_evaluation": >-
+        Autovalutazione
+      "status_expert": >-
+        Sei un esperto in questa competenza.
+      "validate_button": >-
+        Validare
+    "evaluation_done":
+      "disable_evaluation_button": >-
+        Disattivare il tuo brevetto
+      "enable_evaluation_button": >-
+        Riattivare il tuo brevetto
+    "evaluations":
+      "choices":
+        "empty": >-
+          Nessun brevetto disponibile.
+        "evaluation_of": >-
+          Brevetto di %{name}
+        "see_all": >-
+          --- Vedere i brevetti senza iniziare ---
+    "form":
+      "auto_evaluation_label": >-
+        Autovalutazione ( la competenza) non avrà nessun brevetto.
+      "description_help": >-
+        È possibile inserire immagini e file nella finestra di testo.
+      "evaluation_legend": >-
+        Valutazione
+      "group_name_label": >-
+        Gruppo di competenza (opzionale)
+      "group_name_placeholder": >-
+        Esempio: Multimedia
+      "legend": >-
+        Descrizione
+      "name_label": >-
+        Nomina (breve e concreta)
+      "name_placeholder": >-
+        Esempio: creare un video clip
+      "prerequisites_help": >-
+        Consentire l'accesso a questa competenza se un certo numero di competenze
+        dalla lista precedente sono convalidate.
+      "prerequisites_label": >-
+        Competenze precedenti
+      "prerequisites_legend": >-
+        Competenze correlate
+      "published_at_label": >-
+        Renderlo visibile
+      "todolist_help": >-
+        La lista dei compiti dovrà essere completata per sbloccare la valutazione.
+      "todolist_label": >-
+        Lista dei compiti
+    "header":
+      "all_messages_tooltip": >-
+        Tutti i messaggi
+      "flash": >-
+        Questa competenza è invisibile agli altri membri.
+      "important_messages_tooltip": >-
+        Messaggi importanti
+      "related_tab": >-
+        Competenze correlate
+      "task_tab": >-
+        Compiti
+      "toggle_description_button": >-
+        Vedere la descrizione
+      "toggle_todolist": >-
+        Completa la lista dei compiti per accedere al brevetto.
+      "unsubscribe_button": >-
+        Disdire l'iscrizione
+      "unsubscribe_confirmation": >-
+        Sei sicuro di voler lasciare questa competenza? Perderai la tua competenza
+        se l'hai validata.
+    "next_skills":
+      "title": >-
+        Competenze seguenti
+  "statistics":
+    "index":
+      "completed_skills": >-
+        Expertise
+      "created_skills": >-
+        Compétences créées
+      "evaluation_feedbacks": >-
+        Competenze create
+      "important_messages": >-
+        Messages importants
+      "last_activity": >-
+        Messaggi importanti
+      "participating_events": >-
+        Eventi partecipati
+      "published_workspaces": >-
+        Articles publiés
+      "useful_files": >-
+        Articoli pubblicati
+      "validated_experts": >-
+        Experts validés
+      "votes_received": >-
+        Esperti validati
+      "workspace_feebacks": >-
+        Feedback sugli articoli
+  "support":
+    "array":
+      "last_word_connector": >-
+        e
+      "two_words_connector": >-
+        e
+      "words_connector": >-
+        ,
+  "time":
+    "am": >-
+      am
+    "formats":
+      "default": >-
+        %a %d %b %Y, %H:%M:%S %z
+      "long": >-
+        %d %B %Y %H:%M
+      "short": >-
+        %d %b %H:%M
+    "pm": >-
+      pm
+  "tree":
+    "user_list":
+      "pending_invitations_tooltip": >-
+        Inviti in attesa
+  "user_mailer":
+    "daily_summary":
+      "daily_summary_title": >-
+        Riassunto giornaliero
+      "mentionned_messages": >-
+        Sei stato menzionato %{count} volte
+      "new_conversations":
+        "one": >-
+          Un nuovo messaggio
+        "other": >-
+          %{count} nuovi messaggi
+      "new_event_messages":
+        "one": >-
+          Un nuovo evento
+        "other": >-
+          %{count} nuovi eventi
+      "new_pinned_messages":
+        "one": >-
+          Un nuovo messaggio importante
+        "other": >-
+          %{count} nuovi messaggi importanti
+      "new_poll_messages":
+        "one": >-
+          Un nuovo sondaggio
+        "other": >-
+          %{count} nuovi sondaggi
+      "new_reminder_messages": >-
+        Promemoria
+      "pending_homeworks":
+        "one": >-
+          Un brevetto in corso
+        "other": >-
+          %{count} brevetti in corso
+      "reply": >-
+        Rispondere
+    "new_badge":
+      "title": >-
+        Hai ottenuto un nuovo distintivo
+    "weekly_summary":
+      "new_conversations":
+        "one": >-
+          Un nuovo messaggio
+        "other": >-
+          %{count} nuovi messaggi
+      "new_evaluations":
+        "one": >-
+          un nuovo brevetto
+        "other": >-
+          %{count} nuovi brevetti
+      "new_experts":
+        "one": >-
+          un nuovo esperto
+        "other": >-
+          %{count} nuovi esperti
+      "new_memberships":
+        "one": >-
+          Un nuovo membro. Per favore, dategli il benvenuto.
+        "other": >-
+          %{count} nuovi membri. Per favore, dategli il benvenuto.
+      "new_messages":
+        "one": >-
+          Un nuovo messaggio
+        "other": >-
+          %{count} nuovi messaggi
+      "new_skills":
+        "one": >-
+          Una nuova competenza
+        "other": >-
+          %{count} nuove competenze
+      "pending_homeworks":
+        "one": >-
+          Un brevetto in corso
+        "other": >-
+          %{count} brevetti in corso
+  "users":
+    "badges":
+      "title": >-
+        Distintivi
+    "bar":
+      "membership_count":
+        "zero": >-
+          Nessuna registrazione
+        "one": >-
+          1 registrato
+        "other": >-
+          %{count} registrati
+    "evaluations":
+      "title": >-
+        Brevetti depositati
+    "new":
+      "already_registered_link": >-
+        Connettiti se hai già un account
+      "title": >-
+        Registrazione
+    "show":
+      "assesment_link": >-
+        Bilancio delle competenze
+      "attestations_link": >-
+        Profilo pubblico
+      "discussion_link": >-
+        Discutete
+      "downgrade_expert_button": >-
+        Invalidare la perizia
+      "downgrade_moderator_button": >-
+        Revoca l'amministratore
+      "evaluations_passed_list_item": >-
+        Brevetti validati
+      "evaluations_uploaded_list_item": >-
+        Brevetti depositati
+      "latest_favorite_messages_link":
+        "zero": >-
+          Nessun messaggio preferito
+        "one": >-
+          Un message favori
+        "other": >-
+          %{count} messaggi preferiti
+      "posted_messages":
+        "zero": >-
+          Nessun messaggio pubblicato
+        "one": >-
+          Un messaggio pubblicato
+        "other": >-
+          %{count} messaggi pubblicati
+      "promote_expert_button": >-
+        Convalidare la competenza
+      "remove_from_community_button": >-
+        Eliminare l'account
+      "remove_from_community_confirmation": >-
+        Sei sicuro di voler ELIMINARE questo utente dalla comunità? Perderà le sue
+        competenze ma i suoi posti rimarranno.
+      "skills_title": >-
+        Competenze
+      "stats_evaluations": >-
+        brevetti
+      "stats_messages": >-
+        messaggi
+      "upgrade_moderator_button": >-
+        Promuovere amministratore
+    "validations":
+      "title": >-
+        Brevetti validati
+    "workspaces":
+      "create": >-
+        Creare un articolo
+      "help": >-
+        Puoi creare articoli da solo o in collaborazione. Gli articoli sono privati
+        finché non li pubblichi.
+      "title": >-
+        Articoli
+  "views":
+    "pagination":
+      "first": >-
+        &laquo; Inizio
+      "last": >-
+        Fine &raquo;
+      "next": >-
+        Prossimo &rsaquo;
+      "previous": >-
+        &lsaquo; Precedente
+      "truncate": >-
+        &hellip;
+  "votes":
+    "index":
+      "empty": >-
+        Nessun messaggio preferito.
+      "title": >-
+        Messaggi preferiti di %{user}
+  "workspaces":
+    "edit":
+      "draft": >-
+        bozza
+      "locked_alert": >-
+        %{user} sta già modificando il documento.
+      "modale_help": >-
+        Quando il tuo articolo è pronto, puoi pubblicarlo nel feed della comunità
+        o in una competenza a cui partecipi. Diventerà poi visibile ai membri della
+        comunità.
+      "modale_skill_label": >-
+        Competenza
+      "modale_title": >-
+        Pubblicazione
+      "new_version": >-
+        Nuova versione
+      "publish": >-
+        Pubblicare
+      "share": >-
+        Partecipanti
+      "subtitle": "Questo documento viene salvato automaticamente ogni 10 secondi.\r\nPuoi
+        caricare file nell'area di scrittura (20Mb massimo).\r\nPuoi invitare i membri
+        della comunità a collaborare alla sua stesura.\r\nDevi invitare i membri della
+        comunità a rivedere e commentare il tuo articolo. Solo un lettore dell'articolo
+        può autorizzare la sua pubblicazione.\r\nNuove versioni della bozza saranno
+        create automaticamente dopo ogni commento ricevuto in modo che i cambiamenti
+        possano essere confrontati.\r\nL'ultima versione dell'articolo è modificabile
+        e pubblicabile.\r\nPuoi eliminare questo articolo. Ogni eliminazione è definitiva."
+      "title": >-
+        Modifica articolo
+    "partnerships":
+      "modal":
+        "author": >-
+          coautore
+        "owner": >-
+          creatore
+        "reader": >-
+          lettore
+        "subtitle_author": >-
+          I coautori possono modificare l'articolo e sono accreditati.
+        "subtitle_reader": >-
+          I lettori possono leggere e commentare prima della pubblicazione.
+        "title": >-
+          Partecipanti
+      "tab":
+        "author": >-
+          coautore
+        "owner": >-
+          creatore
+        "reader": >-
+          lettore
+        "subtitle_author": >-
+          Les co-auteurs peuvent éditer l'article, et sont crédités.
+        "subtitle_reader": >-
+          I coautori possono modificare l'articolo e sono accreditati.
+    "show":
+      "approve": >-
+        Autorizzare la pubblicazione
+      "can_approve": >-
+        Come lettore, puoi autorizzare la pubblicazione o commentare per richiedere
+        una recensione.
+      "cannot_publish_yet": >-
+        Questo articolo non è ancora autorizzato alla pubblicazione.
+      "can_publish": >-
+        Questo articolo è autorizzato a pubblicazione.
+      "can_still_reject": >-
+        L'articolo non è ancora stato pubblicato, puoi ancora ritirare il permesso
+        di pubblicazione.
+      "can_unpublish": >-
+        Puoi rendere questo articolo privato e modificabile di nuovo.
+      "discussion-title": >-
+        Commenti
+      "draft": >-
+        bozza
+      "must_invite_reader": >-
+        Devi invitare un lettore che convalidi il tuo articolo.
+      "publish": >-
+        Pubblicare
+      "reject": >-
+        Respingere la pubblicazione
+      "title": >-
+        Articolo
+      "unpublish": >-
+        Annullamento della pubblicazione
