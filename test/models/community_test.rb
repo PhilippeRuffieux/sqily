@@ -6,6 +6,29 @@ class CommunityTest < ActiveSupport::TestCase
     assert_equal("hep-vaud", Community.new(name: "HEP Vaud").permalink)
   end
 
+  def test_name_writer_strips_whitespace
+    community = Community.new(name: "  HEP Vaud  ")
+    assert_equal("HEP Vaud", community.name)
+  end
+
+  def test_permalink_writer_parameterizes_value
+    community = Community.new
+    community.permalink = "Mon École Primaire"
+    assert_equal("mon-ecole-primaire", community.permalink)
+  end
+
+  def test_permalink_writer_with_spaces
+    community = Community.new
+    community.permalink = "hep vaud 2024"
+    assert_equal("hep-vaud-2024", community.permalink)
+  end
+
+  def test_permalink_writer_with_nil
+    community = Community.new
+    community.permalink = nil
+    assert_nil(community.permalink)
+  end
+
   def test_add_user
     user = users(:alexis)
     community = communities(:hep)
