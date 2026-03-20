@@ -37,6 +37,10 @@ La solution numérique permet notamment:
 
 Lancer `docker compose up --build` pour démarrer le base de données et le serveur.
 
+Éventuellement lancer `docker compose run web bin/rails console` pour créer quelques utilisateurs et communautés.
+Cela chargera les données de test depuis `test/fixtures`.
+Le compte admin est admin@sqily.test / password.
+
 ## ⚙️ Déploiement
 
 Chaque modification sur `master` est automatiquement déployée en production.
