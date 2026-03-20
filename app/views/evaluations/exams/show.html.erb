@@ -123,11 +123,6 @@
           </div>
         </li>
       <% end %>
-      <% if @exam.examiner == current_user %>
-        <li><a href="<%= messages_path(current_community, user_id: @exam.candidate) %>" class="btn" role="button">Continuer la conversation en privé</a></li>
-      <% else %>
-        <li><a href="<%= messages_path(current_community, user_id: @exam.examiner) %>" class="btn" role="button">Continuer la conversation en privé</a></li>
-      <% end %>
     <% end %>
   </ul>
   <% if !@exam.completed? && !@exam.is_canceled? && @exam.evaluation.skill.help? %>
