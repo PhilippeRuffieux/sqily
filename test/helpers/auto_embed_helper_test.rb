@@ -14,9 +14,16 @@ class AutoEmbedHelperTest < ActiveSupport::TestCase
     assert_equal('<a href="http://basesecrete.com" target="_blank" class="external-link">http://basesecrete.com</a>', auto_embed("http://basesecrete.com"))
   end
 
+  def test_auto_embed_forces_existing_links_to_open_in_a_new_tab
+    stubs(request: stub(host: "www.sqily.com"))
+
+    assert_equal('<a href="https://example.com" target="_blank">Example</a>', auto_embed('<a href="https://example.com">Example</a>'))
+    assert_equal('<a href="https://example.com" target="_blank">Example</a>', auto_embed('<a href="https://example.com" target="_self">Example</a>'))
+  end
+
   def test_auto_embed_audio
-    assert_equal('<audio controls="controls" class="audio-player"><source src="http://www.teamodoro.com/audio/stop.Ogg"/></audio>', auto_embed("http://www.teamodoro.com/audio/stop.Ogg"))
-    assert_equal('<audio controls="controls" class="audio-player"><source src="http://www.teamodoro.com/audio/stop.Mp3"/></audio>', auto_embed("http://www.teamodoro.com/audio/stop.Mp3"))
+    assert_equal('<audio controls="controls" class="audio-player"><source src="http://www.teamodoro.com/audio/stop.Ogg"></source></audio>', auto_embed("http://www.teamodoro.com/audio/stop.Ogg"))
+    assert_equal('<audio controls="controls" class="audio-player"><source src="http://www.teamodoro.com/audio/stop.Mp3"></source></audio>', auto_embed("http://www.teamodoro.com/audio/stop.Mp3"))
   end
 
   def test_auto_embed_youtube
