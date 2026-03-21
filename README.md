@@ -1,50 +1,56 @@
 <div align="center">
 <img src="https://github.com/PhilippeRuffieux/sqily/blob/main/app/assets/images/sqily.png"
          alt="Sqily logo">
-  <h4>Validation mutuelle des compétences (VMC)</h4>
+  <h4>Mutual Validation of Skills (MVS)</h4>
 </div>
 
-## Table des matières
-- [Objectif](#-objectif)
-- [Développement](#-développement)
+## Contents
+- [Objective](#-objective)
+- [Development](#-developement)
+- [Deploy](#-deploy)
 - [Sponsor](#-sponsor)
 
-## 🎓 Objectif
+<br>
 
-<a href="https://www.sqily.com">Sqily.com</a> est une plateforme de communication scolaire et de validation mutuelle de compétences, proposée par la Haute Ecole Pédagogique Vaud. C'est une application web écrite avec ![Rails](https://img.shields.io/badge/framework-Ruby_on_Rails-CC0000)
+## 🎓 Objective
 
-S'appuyant sur des données probantes qui montre que l'apprentissage est plus profond lorsque l'apprenant s'attend à enseigner la matière qu'il apprend, la méthode de validation mutuelle des compétences (VMC) est née de l'expérimentation des arbres de connaissances (Authier, Lévy) adapté aux réalités du terrain.
+<a href="https://www.sqily.com">Sqily.com</a> is a platform for school communication and mutual validation of skills, provided by the University of Teacher Education, State of Vaud (HEP Vaud). It is a web application built using ![Rails](https://img.shields.io/badge/framework-Ruby_on_Rails-CC0000)
 
-La solution numérique permet notamment:
-- Créer des parcours d'apprentissage par compétences
-- Avoir des contenus structurés sur chaque compétence pour apprendre en autonomie
-- Idenfier les compétences de la communauté et de chaque apprenant et suivre leur avancée.
-- Mettre en relation les apprenants plus avancés (les experts) autour d'une épreuve de validation (le défit)
-- Offrir plusieurs moyens de soutenir les apprentissages des memebres de la communauté en échangeant de manière synchrone ou asynchrone
-- Valoriser les savoirs et rendre visible les propres forces de l'apprenant pour lui premettre de s'engager là où c'est utile pour lui.
-- Permettre l'évaluation par les pairs de manière formative (les défits) ou plus sommative par le portfolio certificatif (les articles)
+Based on reasearch findings about deep learning when learners are expected to teach, the mutual validation fo skills (MVS) method emerged from experiments with knowledge trees (Authier, Lévy) adapted to practical realities from the teachers.
+
+The digital solution enables, in particular:
+- Creating skills-based learning pathways
+- Providing structured content for each skill to facilitate self-directed learning
+- Identifying the skills of the community and of each learner and tracking their progress
+- Connecting more advanced learners (the experts) around a validation process (the challenge)
+- Valuing knowledge of the community and highlighting the learner’s own strengths drive the learning path
+- Enable peer assessment in a formative manner (the challenges) or in a more summative manner through the certification portfolio (the articles)
 
 <img src="https://edutechwiki.unige.ch/fmediawiki/images/a/a1/Arbre_connaissances_sqily.png"
          alt="parcours / arbre de la communauté">
 
-<a href="https://sqily.com/pages/faq">FAQ sur Sqily</a>
+More informations (in french)
+- <a href="https://sqily.com/pages/faq">FAQ sur Sqily</a>
+- <a href="https://sites.google.com/view/validationmutuellecompetences/accueil">Explication de la VMC</a>
+
 <br>
 
-<a href="https://sites.google.com/view/validationmutuellecompetences/accueil">Explication de la VMC</a>
+## 🐳 Developement
 
+Run `docker compose up --build` to start the database and the server.
 
-## 🐳 Développement
+If necessary, run `docker compose run web bin/rails console` to create a few users and communities.
+This will load the test data from `test/fixtures`.
+The admin account is admin@sqily.test / password.
 
-Lancer `docker compose up --build` pour démarrer le base de données et le serveur.
+<br>
 
-Éventuellement lancer `docker compose run web bin/rails console` pour créer quelques utilisateurs et communautés.
-Cela chargera les données de test depuis `test/fixtures`.
-Le compte admin est admin@sqily.test / password.
+## 🚥 Deploy
 
-## ⚙️ Déploiement
+Every change made to `master` is automatically deployed to production.
 
-Chaque modification sur `master` est automatiquement déployée en production.
+<br>
 
 ## 💰 Sponsor
 
-<a href="https://www.hepl.ch/">La HEP Vaud</a> a financé le projet entre 2015 et 2018. Depuis, elle supporte les frais de maintenance<a href="https://www.sqily.com">Sqily.com</a>
+<a href="https://www.hepl.ch/">HEP Vaud</a> funded the project between 2015 and 2018. Since then, it has been covering the maintenance costs.
