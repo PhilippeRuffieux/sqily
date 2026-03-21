@@ -1,4 +1,4 @@
-
+=begin
   <%= form_for [:admin, @community || Community.new], builder: InlineErrorFormBuilder do |form| %>
     <%= form.label :name %>
     <%= form.text_field :name %>
@@ -6,6 +6,7 @@
     <%= form.text_area :description %>
     <%= form.submit t "lib.create" %>
   <% end %>
+=end
 
   <hr>
 
