@@ -1,0 +1,60 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_DB: sqily_test
+          POSTGRES_HOST_AUTH_METHOD: trust
+        ports:
+          - 5432:5432
+        options: >-
+          --health-cmd "pg_isready -U postgres -d sqily_test"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    env:
+      RAILS_ENV: test
+      DATABASE_URL: postgresql://postgres@127.0.0.1:5432/sqily_test
+      RAILS_MASTER_KEY: dummy
+      AWS_BUCKET_URL: ${{ secrets.AWS_BUCKET_URL }}
+      AWS_BUCKET_PREFIX: test
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install system packages
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y libpq-dev imagemagick libmagickwand-dev pkg-config
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: .ruby-version
+          bundler-cache: true
+
+      - name: Validate required secrets
+        run: |
+          if [ -z "${AWS_BUCKET_URL}" ]; then
+            echo "Missing secret AWS_BUCKET_URL."
+            echo "Set it to a valid value, e.g. https://<access_key>:<secret>@s3-eu-central-1.amazonaws.com/<bucket>"
+            exit 1
+          fi
+
+      - name: Prepare database
+        run: bin/rails db:prepare
+
+      - name: Run test suite
+        run: bin/rails test

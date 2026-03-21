@@ -10,11 +10,19 @@
   font-size: 1rem;
   font-weight: 400;
   color: #6d7173;
+  text-decoration: underline;
 }
 
 .skill__group a:hover {
   color: currentColor;
   text-decoration: underline;
+}
+
+.skill__group-label {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #6d7173;
+  display: block;
 }
 
 .subtitle .box { margin-bottom: 0; }

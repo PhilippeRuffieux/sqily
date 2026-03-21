@@ -1,4 +1,10 @@
 module AutoEmbedHelper
+  def normalize_link_targets(html)
+    fragment = Nokogiri::HTML::DocumentFragment.parse(html.to_s)
+    fragment.css("a").each { |link| link["target"] = "_blank" }
+    fragment.to_html
+  end
+
   def embed_youtube_id(video_id)
     %(<iframe width="560" height="315" src="https://www.youtube.com/embed/#{video_id}" frameborder="0" allowfullscreen></iframe>)
   end
@@ -36,7 +42,7 @@ module AutoEmbedHelper
     URI.extract(string = string.dup).each do |url|
       url.include?("://".freeze) ? string.gsub!(/(\A|\s|>)#{Regexp.escape(url)}/, '\1' + embed_url(url)) : url
     end
-    string
+    normalize_link_targets(string)
   end
 
   def embed_url(url)
@@ -61,6 +67,6 @@ module AutoEmbedHelper
     URI.extract(string = string.dup).each do |url|
       url.include?("://".freeze) ? string.gsub!(/(\A|\s|>)#{Regexp.escape(url)}/, '\1' + embed_link(url)) : url
     end
-    string
+    normalize_link_targets(string)
   end
 end

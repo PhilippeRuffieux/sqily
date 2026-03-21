@@ -8,6 +8,7 @@ Sqily.prototype.initialize = function() {
 
   autoSubmit();
   autoScrollToBottom();
+  sanitizeInputs();
 
   var messages = document.getElementById("messages")
   if (messages) {

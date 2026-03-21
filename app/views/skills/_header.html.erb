@@ -14,6 +14,9 @@
           </span>
         <% end %>
         <%= skill.name %>
+        <% if skill.children.any? %>
+          <small class="skill__group-label"><%= t "skills.group.label" %></small>
+        <% end %>
       </span>
     </h2>
     <a href="<%= users_sidebar_path(current_community, skill_id: skill) %>" class="icon sidebar-toggle" data-event="click->loadSideBar">
@@ -73,5 +76,5 @@
         </a>
       </li>
     </ul>
-  </nav> 
+  </nav>
 </header>

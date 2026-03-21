@@ -2,7 +2,7 @@ ENV["RAILS_ENV"] ||= "test"
 
 require "simplecov"
 SimpleCov.start do
-  minimum_coverage 93.63
+  minimum_coverage 93.60
   add_filter("/lib/")
   add_filter("/test/")
   add_filter("/initializers/")

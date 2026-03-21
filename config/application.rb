@@ -42,5 +42,6 @@ module Sqily
 
   def self.latest_commit_id
     @latest_commit_id ||= `git rev-parse HEAD`.strip
+  rescue Errno::ENOENT
   end
 end

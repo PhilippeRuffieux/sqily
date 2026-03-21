@@ -4,6 +4,8 @@ fr-CH:
       zero: 0 compétence
       one: 1 compétence
       other: "%{count} compétences"
+    group:
+      label: Groupe de compétences
     tasks:
       count:
         zero: 0 tâche

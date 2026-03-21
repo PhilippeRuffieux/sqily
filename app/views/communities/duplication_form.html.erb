@@ -16,7 +16,7 @@
   <br>
   <%= form_for @community, method: :post, url: duplicate_community_path(@community), builder: InlineErrorFormBuilder do |form| %>
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= form.text_field :name, data: { sanitize: "strip" } %>
 
     <%= form.label :description %>
     <%= form.text_area :description %>
@@ -25,7 +25,7 @@
     <small><strong>Attention: ne peut plus être modifié ensuite !</strong></small>
     <div class="input-group">
       <div class="input-group-prepend">https://sqily.com/</div>
-      <%= form.text_field :permalink, class: "input--permalink" %>
+      <%= form.text_field :permalink, class: "input--permalink", data: { sanitize: "parameterize" } %>
     </div>
 
     <label for="community_free_skill_creation">

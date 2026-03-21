@@ -52,8 +52,12 @@ class Community < ActiveRecord::Base
   end
 
   def name=(string)
-    write_attribute(:name, string)
+    write_attribute(:name, string&.strip)
     self.permalink ||= string&.parameterize
+  end
+
+  def permalink=(value)
+    write_attribute(:permalink, value&.parameterize)
   end
 
   def add_user_by_email(email)
