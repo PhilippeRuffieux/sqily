@@ -5,6 +5,10 @@ if [ -z "${LD_PRELOAD+x}" ] && [ -f /usr/local/lib/libjemalloc.so ]; then
   export LD_PRELOAD=/usr/local/lib/libjemalloc.so
 fi
 
+if [[ "${AWS_BUCKET_URL:-}" =~ @s3([.-][a-z0-9-]+)?\.amazonaws\.com/ ]]; then
+  unset MINIO_PUBLIC_BUCKET_URL
+fi
+
 # Install gems if Gemfile was modified
 bundle check || bundle install
 
