@@ -1,7 +1,3 @@
-require "base64"
-require "openssl"
-require "digest/sha1"
-
 module TrixEditorHelper
   def trix_editor_tag(options)
     @trix_editor = true
@@ -19,31 +15,24 @@ module TrixEditorHelper
     end
   end
 
-  def trix_editor_attachment_signature_base64(path)
-    policy = trix_editor_attachment_policy_base64(path)
-    signature = OpenSSL::HMAC.digest(OpenSSL::Digest.new("sha1"), AwsFileStorage::AWS_BUCKET_URL.password, policy)
-    Base64.encode64(signature).delete("\n")
-  end
-
-  def trix_editor_attachment_policy_base64(path)
-    Base64.encode64({
-      expiration: 1.day.from_now.utc.iso8601,
-      conditions: [
-        {bucket: AwsFileStorage::BUCKET_NAME},
-        ["starts-with", "$key", path],
-        ["content-length-range", 0, 20.megabytes],
-        {acl: "public-read"}
-      ]
-    }.to_json).delete("\n")
+  def trix_editor_attachment_presigned_post(path)
+    Aws::S3::Resource.new.bucket(AwsFileStorage::BUCKET_NAME).presigned_post(
+      key_starts_with: path,
+      acl: "public-read",
+      success_action_status: "204",
+      content_length_range: 0..20.megabytes,
+      expires: 1.day.from_now
+    )
   end
 
   def trix_editor_attachment_config(path)
+    presigned_post = trix_editor_attachment_presigned_post(path)
+    public_host = File.join(AwsFileStorage::BUCKET_URL, "")
+
     {
-      host: File.join(AwsFileStorage::BUCKET_URL, ""),
-      AWSAccessKeyId: AwsFileStorage::AWS_BUCKET_URL.user,
-      policy: trix_editor_attachment_policy_base64(path),
-      signature: trix_editor_attachment_signature_base64(path),
-      acl: "public-read",
+      upload_host: public_host,
+      host: public_host,
+      fields: presigned_post.fields,
       key: path
     }
   end
