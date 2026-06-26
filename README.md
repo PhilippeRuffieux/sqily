@@ -39,15 +39,15 @@ More informations (in french)
 
 Run `docker compose up --build` to start the database and the server.
 
-If necessary, run `docker compose run web bin/rails console` to create a few users and communities.
-This will load the test data from `test/fixtures`.
+If necessary, run `docker compose run rails bundle exec rails db:seed` to create a few users and communities.
+This loads the test data from `test/fixtures`.
 The admin account is admin@sqily.test / password.
 
 <br>
 
 ## 🚥 Deploy
 
-Every change made to `master` is automatically deployed to production.
+Every change made to `main` is automatically deployed to production.
 
 <br>
 

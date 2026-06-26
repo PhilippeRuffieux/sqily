@@ -1,11 +1,6 @@
 # syntax=docker/dockerfile:1
 # check=error=true
 
-# Development Dockerfile
-# Usage:
-#   docker compose up
-#   docker compose run web bin/rails db:seed
-
 ARG RUBY_VERSION=3.4.7
 FROM docker.io/library/ruby:$RUBY_VERSION-slim
 
