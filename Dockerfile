@@ -30,6 +30,8 @@ RUN apt-get update -qq && \
     ln -s /usr/lib/$(uname -m)-linux-gnu/libjemalloc.so.2 /usr/local/lib/libjemalloc.so && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
+# COPY . ./
+
 # Set development environment variables
 ENV RAILS_ENV="development" \
     BUNDLE_PATH="/usr/local/bundle" \

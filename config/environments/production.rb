@@ -104,7 +104,6 @@ Rails.application.configure do
   # config.host_authorization = { exclude: ->(request) { request.path == "/up" } }
 
   # Custom
-  config.assets.js_compressor = Uglifier.new(harmony: true)
   config.logger = Logger::Syslog.new
 
   config.action_mailer.default_url_options = {host: "www.sqily.com", only_path: false}

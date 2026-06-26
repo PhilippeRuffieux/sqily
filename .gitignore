@@ -18,6 +18,7 @@
 /coverage/*
 **/.DS_Store
 /public/storage
+/public/assets
 /vendor/gems
 *.dump
 

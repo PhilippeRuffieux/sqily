@@ -1,19 +1,21 @@
 services:
-  web:
+  rails:
     build: .
     ports: ["3000:3000"]
     environment:
-      - DATABASE_URL=postgresql://sqily:sqily@db:5432/sqily_development
       - RAILS_MASTER_KEY=${RAILS_MASTER_KEY}
       - AWS_BUCKET_URL=${AWS_BUCKET_URL:-http://minioadmin:minioadmin@minio:9000/sqily-development?region=us-east-1&path_style=true}
       - MINIO_PUBLIC_BUCKET_URL=http://127.0.0.1:9000/sqily-development
       - AWS_BUCKET_PREFIX=${AWS_BUCKET_PREFIX:-development}
       - BINDING=0.0.0.0
+      - POSTGRES_HOST=pg
+      - POSTGRES_USER=sqily
+      - POSTGRES_PASSWORD=password
     volumes:
       - .:/rails
       - bundle_cache:/usr/local/bundle
     depends_on:
-      db:
+      pg:
         condition: service_healthy
       minio:
         condition: service_started
@@ -22,14 +24,14 @@ services:
     stdin_open: true
     tty: true
 
-  db:
+  pg:
     image: postgres:16
     environment:
       - POSTGRES_USER=sqily
-      - POSTGRES_PASSWORD=sqily
+      - POSTGRES_PASSWORD=password
       - POSTGRES_DB=sqily_development
     volumes:
-      - db_data:/var/lib/postgresql/data
+      - pg_data:/var/lib/postgresql/data
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U sqily -d sqily_development"]
       interval: 5s
@@ -66,6 +68,6 @@ services:
         condition: service_healthy
 
 volumes:
-  db_data:
+  pg_data:
   bundle_cache:
   minio_data:

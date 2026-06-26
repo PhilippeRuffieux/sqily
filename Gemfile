@@ -28,7 +28,6 @@ gem "jbuilder"
 gem "inline_svg"
 gem "octicons_helper"
 gem "sprockets-rails"
-gem "uglifier"
 
 # Fix uninitialized constant ActiveSupport::LoggerThreadSafeLevel::Logger
 # Because concurrent-ruby 1.3.5 does not require "logger" anymore.
