@@ -4,6 +4,9 @@ services:
     ports: ["3000:3000"]
     environment:
       - RAILS_MASTER_KEY=${RAILS_MASTER_KEY}
+      - AWS_BUCKET_URL=${AWS_BUCKET_URL:-http://minioadmin:minioadmin@minio:9000/sqily-development?region=us-east-1&path_style=true}
+      - MINIO_PUBLIC_BUCKET_URL=http://127.0.0.1:9000/sqily-development
+      - AWS_BUCKET_PREFIX=${AWS_BUCKET_PREFIX:-development}
       - BINDING=0.0.0.0
       - POSTGRES_HOST=pg
       - POSTGRES_USER=sqily
@@ -14,6 +17,10 @@ services:
     depends_on:
       pg:
         condition: service_healthy
+      minio:
+        condition: service_started
+      minio-setup:
+        condition: service_completed_successfully
     stdin_open: true
     tty: true
 
@@ -31,6 +38,36 @@ services:
       timeout: 5s
       retries: 5
 
+  minio:
+    image: minio/minio:latest
+    ports: ["9000:9000", "9001:9001"]
+    environment:
+      - MINIO_ROOT_USER=${MINIO_ROOT_USER:-minioadmin}
+      - MINIO_ROOT_PASSWORD=${MINIO_ROOT_PASSWORD:-minioadmin}
+    command: server /data --console-address ":9001"
+    volumes:
+      - minio_data:/data
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:9000/minio/health/live"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  minio-setup:
+    image: minio/mc:latest
+    entrypoint: ["/bin/sh", "/setup/setup_minio"]
+    environment:
+      - MINIO_ENDPOINT=http://minio:9000
+      - MINIO_ROOT_USER=${MINIO_ROOT_USER:-minioadmin}
+      - MINIO_ROOT_PASSWORD=${MINIO_ROOT_PASSWORD:-minioadmin}
+      - MINIO_BUCKET=${MINIO_BUCKET:-sqily-development}
+    volumes:
+      - ./bin/setup_minio:/setup/setup_minio:ro
+    depends_on:
+      minio:
+        condition: service_healthy
+
 volumes:
   pg_data:
   bundle_cache:
+  minio_data:

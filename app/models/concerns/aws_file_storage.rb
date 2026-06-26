@@ -1,17 +1,59 @@
 module AwsFileStorage
   extend ActiveSupport::Concern
 
-  AWS_BUCKET_URL = URI.parse(ENV["AWS_BUCKET_URL"])
-  BUCKET_REGION = AWS_BUCKET_URL.host.split(".")[0].delete_prefix("s3-")
-  BUCKET_NAME = AWS_BUCKET_URL.path.delete_prefix("/")
+  BucketConfig = Struct.new(:bucket_uri, :bucket_name, :bucket_region, :bucket_url, :client_options, keyword_init: true)
 
-  bucket_uri = AWS_BUCKET_URL.dup
-  bucket_uri.user = bucket_uri.password = nil
-  bucket_url = bucket_uri.to_s
-  bucket_url += "/" if bucket_url.ends_with?("/")
-  BUCKET_URL = bucket_url
+  def self.build_bucket_config(bucket_url, public_bucket_url = nil)
+    bucket_uri = URI.parse(bucket_url)
+    query = Rack::Utils.parse_nested_query(bucket_uri.query)
+    aws_hosted = bucket_uri.host&.match?(/\As3(?:[.-][a-z0-9-]+)?\.amazonaws\.com\z/)
 
-  Aws.config.update(region: BUCKET_REGION, credentials: Aws::Credentials.new(AWS_BUCKET_URL.user, AWS_BUCKET_URL.password))
+    public_bucket_uri = if public_bucket_url.present?
+      URI.parse(public_bucket_url)
+    else
+      bucket_uri.dup.tap do |uri|
+        uri.user = uri.password = nil
+        uri.query = uri.fragment = nil
+      end
+    end
+
+    client_options = {
+      region: query["region"] || infer_region(bucket_uri.host) || "us-east-1",
+      credentials: Aws::Credentials.new(bucket_uri.user, bucket_uri.password),
+      signature_version: "v4"
+    }
+
+    unless aws_hosted
+      endpoint_uri = bucket_uri.dup
+      endpoint_uri.user = endpoint_uri.password = nil
+      endpoint_uri.path = ""
+      endpoint_uri.query = endpoint_uri.fragment = nil
+      client_options[:endpoint] = endpoint_uri.to_s
+      client_options[:force_path_style] = (query["path_style"] != "false")
+    end
+
+    BucketConfig.new(
+      bucket_uri:,
+      bucket_name: bucket_uri.path.delete_prefix("/"),
+      bucket_region: client_options[:region],
+      bucket_url: public_bucket_uri.to_s,
+      client_options:
+    )
+  end
+
+  def self.infer_region(host)
+    return "us-east-1" if host == "s3.amazonaws.com"
+
+    host&.match(/\As3[.-]([a-z0-9-]+)\.amazonaws\.com\z/)&.captures&.first
+  end
+
+  CONFIG = build_bucket_config(ENV.fetch("AWS_BUCKET_URL"), ENV["MINIO_PUBLIC_BUCKET_URL"].presence)
+  AWS_BUCKET_URL = CONFIG.bucket_uri
+  BUCKET_REGION = CONFIG.bucket_region
+  BUCKET_NAME = CONFIG.bucket_name
+  BUCKET_URL = CONFIG.bucket_url
+
+  Aws.config.update(**CONFIG.client_options)
 
   included do
     after_save :save_file

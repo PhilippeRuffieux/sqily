@@ -22,13 +22,15 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-
     env:
       RAILS_ENV: test
       DATABASE_URL: postgresql://postgres@127.0.0.1:5432/sqily_test
       RAILS_MASTER_KEY: dummy
-      AWS_BUCKET_URL: ${{ secrets.AWS_BUCKET_URL }}
+      AWS_BUCKET_URL: http://minioadmin:minioadmin@127.0.0.1:9000/sqily-test?region=us-east-1&path_style=true
       AWS_BUCKET_PREFIX: test
+      MINIO_ROOT_USER: minioadmin
+      MINIO_ROOT_PASSWORD: minioadmin
+      MINIO_BUCKET: sqily-test
 
     steps:
       - name: Checkout
@@ -45,13 +47,32 @@ jobs:
           ruby-version: .ruby-version
           bundler-cache: true
 
-      - name: Validate required secrets
+      - name: Start MinIO
         run: |
-          if [ -z "${AWS_BUCKET_URL}" ]; then
-            echo "Missing secret AWS_BUCKET_URL."
-            echo "Set it to a valid value, e.g. https://<access_key>:<secret>@s3-eu-central-1.amazonaws.com/<bucket>"
-            exit 1
-          fi
+          docker run -d --rm \
+            --name sqily-minio \
+            -p 9000:9000 \
+            -e MINIO_ROOT_USER=minioadmin \
+            -e MINIO_ROOT_PASSWORD=minioadmin \
+            minio/minio:latest server /data
+          for attempt in $(seq 1 30); do
+            if curl -fsS http://127.0.0.1:9000/minio/health/live >/dev/null 2>&1; then
+              break
+            fi
+            sleep 2
+          done
+
+      - name: Create MinIO test bucket
+        run: |
+          docker run --rm \
+            --network host \
+            --entrypoint /bin/sh \
+            -e MINIO_ENDPOINT=http://127.0.0.1:9000 \
+            -e MINIO_ROOT_USER="${MINIO_ROOT_USER}" \
+            -e MINIO_ROOT_PASSWORD="${MINIO_ROOT_PASSWORD}" \
+            -e MINIO_BUCKET="${MINIO_BUCKET}" \
+            -v "${PWD}/bin/setup_minio:/setup/setup_minio:ro" \
+            minio/mc:latest /setup/setup_minio
 
       - name: Prepare database
         run: bin/rails db:prepare
