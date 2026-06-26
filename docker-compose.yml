@@ -3,9 +3,11 @@ services:
     build: .
     ports: ["3000:3000"]
     environment:
-      - DATABASE_URL=postgresql://sqily:sqily@pg:5432/sqily_development
       - RAILS_MASTER_KEY=${RAILS_MASTER_KEY}
       - BINDING=0.0.0.0
+      - POSTGRES_HOST=pg
+      - POSTGRES_USER=sqily
+      - POSTGRES_PASSWORD=password
     volumes:
       - .:/rails
       - bundle_cache:/usr/local/bundle
@@ -19,7 +21,7 @@ services:
     image: postgres:16
     environment:
       - POSTGRES_USER=sqily
-      - POSTGRES_PASSWORD=sqily
+      - POSTGRES_PASSWORD=password
       - POSTGRES_DB=sqily_development
     volumes:
       - pg_data:/var/lib/postgresql/data

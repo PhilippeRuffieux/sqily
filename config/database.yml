@@ -3,8 +3,9 @@ development: &default
   encoding: unicode
   database: sqily_development
   pool: 5
-  username: postgres
-  password:
+  host: <%= ENV["POSTGRES_HOST"].presence || ENV["PGHOST"].presence || "localhost" %>
+  username: <%= ENV["POSTGRES_USER"].presence || ENV["PGUSER"].presence || ENV["USER"].presence || "postgres" %>
+  password: <%= ENV["POSTGRES_PASSWORD"].presence || ENV["PGPASSWORD"].presence %>
 
 test:
   <<: *default
