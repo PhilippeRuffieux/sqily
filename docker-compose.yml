@@ -55,14 +55,14 @@ services:
 
   minio-setup:
     image: minio/mc:latest
-    entrypoint: ["/bin/sh", "/setup/setup_minio.sh"]
+    entrypoint: ["/bin/sh", "/setup/setup_minio"]
     environment:
       - MINIO_ENDPOINT=http://minio:9000
       - MINIO_ROOT_USER=${MINIO_ROOT_USER:-minioadmin}
       - MINIO_ROOT_PASSWORD=${MINIO_ROOT_PASSWORD:-minioadmin}
       - MINIO_BUCKET=${MINIO_BUCKET:-sqily-development}
     volumes:
-      - ./scripts/setup_minio.sh:/setup/setup_minio.sh:ro
+      - ./bin/setup_minio:/setup/setup_minio:ro
     depends_on:
       minio:
         condition: service_healthy

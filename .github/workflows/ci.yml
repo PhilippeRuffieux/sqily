@@ -71,8 +71,8 @@ jobs:
             -e MINIO_ROOT_USER="${MINIO_ROOT_USER}" \
             -e MINIO_ROOT_PASSWORD="${MINIO_ROOT_PASSWORD}" \
             -e MINIO_BUCKET="${MINIO_BUCKET}" \
-            -v "${PWD}/scripts/setup_minio.sh:/setup/setup_minio.sh:ro" \
-            minio/mc:latest /setup/setup_minio.sh
+            -v "${PWD}/bin/setup_minio:/setup/setup_minio:ro" \
+            minio/mc:latest /setup/setup_minio
 
       - name: Prepare database
         run: bin/rails db:prepare
