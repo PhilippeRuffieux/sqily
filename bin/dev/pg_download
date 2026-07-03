@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+  
+set -euo pipefail
+dir="/var/lib/pgsql/dumps"
+host="gate.hidora.com"
+port="3022"
+case "${USER:-}" in
+  alexis)  user="49273-2629" ;;
+  antoine) user="49273-3228" ;;
+  *)
+    echo "Unknown USER: ${USER:-<unset>}" >&2
+    exit 1
+    ;;
+esac
+filename=$(echo "ls -lh ${dir}" | ssh -p "${port}" "${user}@${host}" | tail -1 | tr -s ' ' | cut -d ' ' -f 9)
+mkdir -p tmp
+rsync --archive --verbose --progress --compress -e "ssh -p ${port}" "${user}@${host}:${dir}/${filename}" tmp/production.dump
