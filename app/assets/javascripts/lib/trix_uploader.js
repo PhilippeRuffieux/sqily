@@ -9,14 +9,15 @@ TrixAttachment = function(element) {
 TrixAttachment.prototype.upload = function(attachment) {
   var form = new FormData
   var key = this.config.key + Math.random().toString().substr(2, 6) + "/" + attachment.file.name
+  var fields = this.config.fields || {}
+
   form.append("key", key)
-  form.append("AWSAccessKeyId", this.config.AWSAccessKeyId)
-  form.append("policy", this.config.policy)
-  form.append("signature", this.config.signature)
-  form.append("acl", this.config.acl)
+  Object.keys(fields).forEach(function(field) {
+    if (field !== "key") form.append(field, fields[field])
+  })
   form.append("file", attachment.file);
   var xhr = new XMLHttpRequest;
-  xhr.open("POST", this.config.host, true);
+  xhr.open("POST", this.config.upload_host || this.config.host, true);
 
   xhr.upload.onprogress = function(event) {
     if (event.total > 0)
@@ -32,4 +33,3 @@ TrixAttachment.prototype.upload = function(attachment) {
 
   return xhr.send(form);
 }
-
