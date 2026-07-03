@@ -1,17 +1,17 @@
 <header>
   <nav class="header__nav">
     <ul class="tabs">
-      <li class="<%= 'is-active' if current_page?(community_description_path) %>">
-        <%= link_to community_description_path do %>
-          <%= octicon "info" %>
-          <span><%= Community.model_name.human %></span>
-        <% end %>
-      </li>
       <li class="<%= 'is-active' if current_page?(skills_path(current_community)) %>">
         <a href="<%= skills_path current_community %>">
           <%= octicon "star" %>
           <span><%= Skill.model_name.human(count: 2) %></span>
         </a>
+      </li>
+      <li class="<%= 'is-active' if current_page?(community_description_path) %>">
+        <%= link_to community_description_path do %>
+          <%= octicon "info" %>
+          <span><%= Community.model_name.human %></span>
+        <% end %>
       </li>
       <li class="<%= 'is-active' if (request.path == messages_community_path) %>">
         <%= link_to messages_community_path do %>
