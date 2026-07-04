@@ -7,7 +7,7 @@ port="3022"
 case "${USER:-}" in
   alexis)  user="49273-2629" ;;
   antoine) user="49273-3228" ;;
-  *)
+  p3889) user="3229"
     echo "Unknown USER: ${USER:-<unset>}" >&2
     exit 1
     ;;
