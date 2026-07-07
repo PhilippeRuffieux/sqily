@@ -51,6 +51,27 @@ Every change made to `main` is automatically deployed to production.
 
 <br>
 
+
+## 🪢 Contributions
+
+Before opening a significant Pull Request, please start with a discussion first.
+
+This helps us:
+
+- clarify the need;
+- avoid duplicate work;
+- check whether the contribution fits the project roadmap;
+- prevent unnecessary effort.
+
+Please use one of the following discussion categories:
+
+- 🐛 Bugs to verify
+- 💡 Ideas & feature requests
+
+Significant Pull Requests without a linked discussion or issue may be put on hold.
+
+<br>
+
 ## 💰 Sponsor
 
 <a href="https://www.hepl.ch/">HEP Vaud</a> funded the project between 2015 and 2018. Since then, it has been covering the maintenance costs.
